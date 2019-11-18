@@ -1,0 +1,23 @@
+main {
+  background-color: black;
+  height: 90em;
+  width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.menuHeaderContainer{
+  position: absolute;
+  z-index: 1;
+}
+
+.menuHeaderContainer header{
+  
+}
+
+.menuHeaderContainer img {
+height: 10em;
+}
