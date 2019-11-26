@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { $ } from 'protractor';
 
 @Component({
@@ -7,8 +7,9 @@ import { $ } from 'protractor';
   styleUrls: ['./carousel.component.css']
 })
 
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit, OnDestroy {
   slideIndex: any = 1;
+  destroyed = false;
 
   constructor() {
   }
@@ -53,8 +54,14 @@ export class CarouselComponent implements OnInit {
       window.setTimeout(() => {
         this.plusSlides(1);
 
-        _.bind(this)();
-      }, 2000);
+        if (!this.destroyed) {
+         _.bind(this)();
+        }
+      }, 5000);
     }.bind(this)());
+  }
+
+  ngOnDestroy() {
+    this.destroyed = true;
   }
 }

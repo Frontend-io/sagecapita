@@ -21,7 +21,8 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.css"
@@ -118,8 +119,17 @@
               "devServerTarget": "sagecapita:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/sagecapita",
+            "netlifyToken": "a4aff1ef75201a05f8fc73c1beddc267efed7cc82672d769cb89551f5c2f7978",
+            "siteId": "977e7b7a-99e3-4060-b181-5ec4d9393d96"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "sagecapita"
 }

@@ -2,3 +2,80 @@
 body {
   margin: 0;
 }
+
+.clearfix {
+  clear: both;
+}
+
+input:not([type="checkbox"]),
+button,
+select,
+textarea {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  height: 3.5em;
+  vertical-align: middle;
+  /* This is optional but it makes legacy IEs look better */
+  background: none;
+  border: 1px solid;
+  -webkit-border-radius: .2em;
+  -moz-border-radius: .2em;
+  border-radius: .2em;
+}
+
+input:not([type="checkbox"]), select,textarea {
+  padding: 0 .7em;
+}
+
+input:not([type="checkbox"]), select{
+  width: 20em;
+}
+
+textarea{
+  width: 20.5em;
+}
+
+input:not([type="checkbox"]){
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  width: 100%
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+}
+
+@media (min-width:961px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    display: table;
+  }
+}
