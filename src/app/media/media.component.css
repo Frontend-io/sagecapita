@@ -1,0 +1,213 @@
+input:not([type="checkbox"]),
+select {
+  border-color: #ccc;
+  background-color: #fff;
+}
+
+input:not([type="checkbox"])::-moz-placeholder,
+select,
+input:not([type="checkbox"])::-webkit-input-placeholder,
+input:not([type="checkbox"])::placeholder {
+  font-weight: 700;
+  color: rgb(2, 36, 58);
+}
+
+input:not([type="checkbox"]),
+select,
+button {
+  height: 2.5em;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  margin-right: .5em;
+}
+
+button {
+  color: rgb(2, 36, 58);
+  background: #fff;
+  border-color: rgb(2, 36, 58);
+}
+
+button.filled,
+button.active {
+  background: rgb(2, 36, 58);
+  color: #fff;
+}
+
+button:hover {
+  background: rgb(2, 36, 58);
+  color: #fff;
+  border-color: rgb(2, 36, 58);
+}
+
+button.filled:hover,
+button.active:hover {
+  color: rgb(2, 36, 58);
+  background: #fff;
+}
+
+#pressTextContainer {
+  padding: 1em 2em 1em 2em;
+}
+
+#pressFormContainer {
+  padding: 1em 2em 2em 2em;
+  background: #f4f4f5;
+}
+
+#pressContainer {
+  padding: 2em;
+  border-bottom: 1px solid #eee;
+}
+
+#pressFormContainer p {
+  margin: 0;
+  margin-top: 1em;
+  text-align: center;
+}
+
+#pressFormContainer .flexRowWrap>p {
+  width: 100%;
+}
+
+#pressFormContainer .flexRowWrap>div {
+  width: 100%;
+  padding-top: 1em;
+}
+
+#pressArchiveContainer button:not(.active) {
+  border-color: #999;
+  color: #999;
+}
+
+#pressArchiveContainer .flexRowWrap button:hover {
+  border-color: rgb(2, 36, 58);
+  color: rgb(2, 36, 58);
+  background: #fff;
+}
+
+#pressArchiveContainer h1,
+#featuredArticlesHeading p {
+  margin-bottom: 0;
+}
+
+#pressArchiveContainer .flexRowWrap>div {
+  margin-top: 1em;
+  width: 8em;
+}
+
+#headlineSearchFormContainer {
+  margin: 1em 0;
+}
+
+#headlineSearchFormContainer .flexRowWrap {
+  justify-content: center;
+}
+
+#headlineSearchFormContainer .flexRowWrap>div,
+#featuredArticlesBtns>div,
+#featuredArticlesResults table,
+#featuredArticlesBottom>div {
+  margin-top: 1em;
+}
+
+#headlineSearchFormContainer .flexRowWrap input {
+  border-color: rgb(2, 36, 58);
+}
+
+#headlineSearchFormContainer .flexRowWrap>div,
+#headlineSearchFormContainer .flexRowWrap input,
+#headlineSearchFormContainer .flexRowWrap button,
+#featuredArticlesHeading,
+#featuredArticlesBtns,
+#featuredArticlesBtns>div,
+#featuredArticlesResults table,
+#featuredArticlesBottom>div {
+  width: 100%;
+}
+
+#featuredArticles {
+  border: 0 solid #ccc;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding: .5em 0 1.5em 0;
+}
+
+#featuredArticlesResults table td {
+  border-bottom: 1px solid #e1e1e1;
+  padding: .8em 0;
+}
+
+#featuredArticlesResults table tr>td:first-child {
+  padding-right: 1em;
+}
+
+#featuredArticlesResults p {
+  margin: 0;
+  line-height: 1em;
+  vertical-align: middle;
+}
+
+#featuredArticlesResults img {
+  width: 6em;
+  vertical-align: middle;
+  display: none;
+}
+
+#featuredArticlesBottom {
+  padding: 1em 0 1em 0;
+}
+
+@media (min-width:961px) {
+  #pressFormContainer .flexRowWrap>div {
+    width: 19%;
+  }
+
+  #pressFormContainer .flexRowWrap>p,
+  #headlineSearchFormContainer .flexRowWrap>div {
+    width: auto;
+  }
+
+  #pressFormContainer p {
+    text-align: left;
+  }
+
+  #headlineSearchFormContainer .flexRowWrap button {
+    margin-left: .5em;
+  }
+
+  #featuredArticlesHeading,
+  #featuredArticlesBtns {
+    width: 50%;
+  }
+
+  #headlineSearchFormContainer .flexRowWrap input {
+    width: 20em;
+  }
+
+  #headlineSearchFormContainer .flexRowWrap button {
+    width: 10em;
+  }
+
+  #featuredArticlesBtns>div,
+  #featuredArticlesResults table {
+    width: 49%;
+  }
+
+  #featuredArticlesResults img {
+    display: block;
+  }
+
+  #featuredArticlesResults table tr>td:first-child {
+    padding-right: 0;
+  }
+
+  #featuredArticlesBottom>div {
+    width: 33.3%;
+  }
+
+  #featuredArticlesBottom .right {
+    float: right;
+  }
+}
