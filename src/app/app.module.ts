@@ -12,6 +12,7 @@ import { MediaComponent } from './media/media.component';
 import { ContactComponent } from './contact/contact.component';
 import { JoinComponent } from './join/join.component';
 import { PropertySearchComponent } from './property-search/property-search.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PropertySearchComponent } from './property-search/property-search.compo
     MediaComponent,
     ContactComponent,
     JoinComponent,
-    PropertySearchComponent
+    PropertySearchComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
