@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
+  font-family: 'Hind', sans-serif;
+  color: rgb(2, 36, 58);
 }
 
 .clearfix {
@@ -17,7 +19,6 @@ textarea {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */
-  height: 3.5em;
   vertical-align: middle;
   /* This is optional but it makes legacy IEs look better */
   background: none;
@@ -29,6 +30,7 @@ textarea {
 
 input:not([type="checkbox"]), select,textarea {
   padding: 0 .7em;
+  height: 3.5em;
 }
 
 input:not([type="checkbox"]), select{
@@ -37,6 +39,28 @@ input:not([type="checkbox"]), select{
 
 textarea{
   width: 20.5em;
+}
+
+.selectChevDownElement>select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(./assets/chevron-down.png) 96% / 5% no-repeat #EEE;
+  cursor: pointer;
+}
+
+/* CAUTION: Internet Explorer hackery ahead */
+.selectChevDownElement>select::-ms-expand {
+  display: none;
+  /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+.selectChevDownElement>select {
+    background: none\9;
+    padding: 5px\9;
+  }
 }
 
 input:not([type="checkbox"]){
@@ -52,7 +76,8 @@ input:focus {
 button {
   display: block;
   margin: 0 auto;
-  width: 100%
+  width: 100%;
+ font-weight: 700;
 }
 
 ul li {
@@ -70,6 +95,12 @@ button {
 button:hover,
 button:focus {
   outline: none;
+}
+
+.flexRowWrap{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 @media (min-width:961px) {

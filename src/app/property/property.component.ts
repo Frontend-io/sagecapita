@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-property',
   templateUrl: './property.component.html',
-  styleUrls: ['./property.component.css']
+  styleUrls: ['./property.component.css', '../app.property-search.css']
 })
 export class PropertyComponent implements OnInit {
 

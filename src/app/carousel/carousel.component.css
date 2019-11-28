@@ -53,6 +53,7 @@ margin-top: 0;
 
 .textContainer button {
   margin: 1.3em 0;
+  height: 3.5em;
 }
 
 .textContainer button:hover {

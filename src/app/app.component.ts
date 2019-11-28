@@ -1,17 +1,26 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NavigateEventService } from './navigate-event.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: [
     './app.component.css',
-    './app.component-topnav-dropdown.css',
-    './app.component-common.css'
-  ]
+    './app.component-topnav-dropdown.css'
+  ],
+  providers: [NavigateEventService]
 })
 
 export class AppComponent implements OnInit, OnDestroy {
   title = 'sagecapita';
+  page = document.location.pathname;
+
+  constructor(private navigateEventService: NavigateEventService) {
+    navigateEventService.navigation$.subscribe(
+      navigation => {
+        this.page = JSON.parse(navigation).url;
+      });
+  }
 
   onDropDownClick(dropdown) {
     /* When the user clicks on the button,

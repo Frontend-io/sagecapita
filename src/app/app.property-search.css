@@ -1,0 +1,146 @@
+#propertySearch {
+  padding: .3em 2em 2em 2em;
+  background: #064A77;
+}
+
+.formGroup.flex {
+  justify-content: space-between;
+}
+
+.formGroup {
+  margin-top: 1.5em;
+}
+
+.formElement.flex {
+  flex-basis: 100%;
+}
+
+.formElement.float button {
+  width: 3em;
+  float: right;
+  margin-left: .8em;
+}
+
+.formElement.float button>svg {
+  display: inline;
+}
+
+.formElement.hiddenOverflow {
+  overflow: hidden;
+}
+
+.formElement.hiddenOverflow>input {
+  width: 100%;
+}
+
+.formElement {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.formElement>select,
+.formElement button,
+.formElement input {
+  height: 2.3em;
+  padding: 0 .3em;
+  border-radius: .2em;
+  margin-top: .5em;
+}
+
+.formElement button,
+.formElement>select {
+  width: 100%;
+}
+
+.formElement button {
+  padding: .2em .5em .1em .2em;
+  border-width: 1px;
+  border-color: #fff;
+  color: #fff;
+  display: inline;
+}
+
+.formElement input {
+  background: #fff;
+  border: 0;
+}
+
+.formElement>select {
+  border: 1px solid #CCC;
+}
+
+.formElement>select:hover {
+  background-color: #ccc;
+}
+
+.formGroup h4 {
+  color: #fff;
+  margin: .8em 0;
+}
+
+.formElement>button span {
+  display: inline;
+}
+
+.formElement>button svg {
+  display: none;
+}
+
+/* .formGroup.flex {
+  display: flex;
+  flex-flow: row wrap;
+} */
+
+/* CAUTION: Internet Explorer hackery ahead */
+.formElement>select::-ms-expand {
+  display: none;
+  /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+  .formElement>select {
+    background: none\9;
+    padding: 5px\9;
+  }
+}
+
+@media (min-width:961px) {
+  .formElement>select {
+    width: 15em;
+  }
+
+  .formElement>button {
+    width: 3em;
+  }
+
+  .formElement.flex {
+    flex-basis: auto;
+  }
+
+  .formElement button span {
+    display: none;
+  }
+
+  .formElement button svg {
+    display: inline;
+  }
+
+  .formGroup h4 {
+    float: left;
+    margin-right: 3em;
+  }
+
+  .formElement.hiddenOverflow>input {
+    width: 16em;
+  }
+
+  .formElement.float {
+    display: table;
+    margin: 0 auto;
+  }
+}
