@@ -10,6 +10,7 @@ import { $ } from 'protractor';
 export class CarouselComponent implements OnInit, OnDestroy {
   slideIndex: any = 1;
   destroyed = false;
+  timeout = null;
 
   constructor() {
   }
@@ -51,7 +52,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.showSlides(this.slideIndex);
 
     (function _() {
-      window.setTimeout(() => {
+      this.timeout = window.setTimeout(() => {
+        this.timeout = null;
+
         this.plusSlides(1);
 
         if (!this.destroyed) {
@@ -63,5 +66,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed = true;
+    window.clearTimeout(this.timeout);
+    this.timeout = null;
   }
 }

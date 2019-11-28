@@ -1,683 +1,89 @@
-<main>
-  <div class="menuHeaderContainer">
-    <div class="container">
-      <header>
-        <div id="logo">
-          <a href="#">
-            <img src="../assets/logo.png" />
-          </a>
-        </div>
-        <nav id="desktop">
-          <div id="searchBar">
-            <ul>
-              <li>
-                <form>
-                  <input type="text" placeholder="SEARCH BY CODE" />
-                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">
-                    <path
-                      d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-                  </svg>
-                </form>
-              </li>
-              <li>
-                <button class="noBorderBtn">LOGIN</button>
-              </li>
-              <li>
-                <button class="noBorderBtn">WISHLIST</button>&nbsp;&nbsp;
-                <div class="dropdown">
-                <button class="dropbtn" (click) = "onDropDownClick('myDropdown')">ENG <img src="../assets/chevron-down.png" alt="Chevron down" /></button>&nbsp;
+<div class="menuHeaderContainer">
+  <div class="container">
+    <header>
+      <div id="logo">
+        <a [routerLink]="['/']" href="#">
+          <img src="../assets/logo.png" />
+        </a>
+      </div>
+      <nav id="desktop">
+        <div id="searchBar">
+          <ul>
+            <li>
+              <form>
+                <input type="text" placeholder="SEARCH BY CODE" />
+                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">
+                  <path
+                    d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+                </svg>
+              </form>
+            </li>
+            <li>
+              <button class="noBorderBtn">LOGIN</button>
+            </li>
+            <li>
+              <button class="noBorderBtn">WISHLIST</button>&nbsp;&nbsp;
+              <div class="dropdown">
+                <button class="dropbtn" (click)="onDropDownClick('myDropdown')">ENG <img
+                    src="../assets/chevron-down.png" alt="Chevron down" /></button>&nbsp;
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#">ITALIANO</a> 
-                    <a href="#">ENGLISH</a>
-                    <a href="#">FRANCIAS</a>
-                    <a href="#">ESPANA</a>
-                    <a href="#">DEUTSCH</a>
-                  </div>
-                </div> 
-                <div class="dropdown">
-                <button class="dropbtn" (click) = "onDropDownClick('myDropdown1')">$ <img src="../assets/chevron-down.png" alt="Chevron down" /></button>
+                  <a href="#">ITALIANO</a>
+                  <a href="#">ENGLISH</a>
+                  <a href="#">FRANCIAS</a>
+                  <a href="#">ESPANA</a>
+                  <a href="#">DEUTSCH</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn" (click)="onDropDownClick('myDropdown1')">$ <img src="../assets/chevron-down.png"
+                    alt="Chevron down" /></button>
                 <div id="myDropdown1" class="dropdown-content">
-                    <a href="#">US DOLLAR &#36;</a> 
-                    <a href="#">EURO &#163;</a>
-                    <a href="#">UK POUND &#8364;</a>
-                  </div>
+                  <a href="#">US DOLLAR &#36;</a>
+                  <a href="#">EURO &#163;</a>
+                  <a href="#">UK POUND &#8364;</a>
+                </div>
               </div>
-              </li>
-            </ul>
-          </div>
-          <div id="menuList">
-            <ul>
-              <li><a href="#">PROPERTY</a></li>
-              <li><a href="#">SERVICES</a></li>
-              <li><a href="#">THE FIRM</a></li>
-              <li><a href="#">MEDIA</a></li>
-              <li><a href="#">CONTACT</a></li>
-              <li><a href="#">JOIN US</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div id="mobileMenu">
-          <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
-            <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
-          </svg>
+            </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-      </header>
-      <nav id="mobile">
-        <ul>
-          <li><a href="#">PROPERTY</a></li>
-          <li><a href="#">SERVICES</a></li>
-          <li><a href="#">THE FIRM</a></li>
-          <li><a href="#">MEDIA</a></li>
-          <li><a href="#">CONTACT</a></li>
-          <li><a href="#">JOIN US</a></li>
-          <li><a href="#">X</a></li>
-        </ul>
+        <div id="menuList">
+          <ul>
+            <li [ngClass]="{'active' : page==='/property'}"><a [routerLink]="['/property']" href="#">PROPERTY</a></li>
+            <li [ngClass]="{'active' : page==='/services'}"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
+            <li [ngClass]="{'active' : page==='/firm'}"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
+            <li [ngClass]="{'active' : page==='/media'}"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
+            <li [ngClass]="{'active' : page==='/contact'}"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
+            <li [ngClass]="{'active' : page==='/join'}"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
+          </ul>
+        </div>
       </nav>
-    </div>
+      <div id="mobileMenu">
+        <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
+          <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
+        </svg>
+      </div>
+      <div class="clearfix"></div>
+    </header>
+    <nav id="mobile">
+      <ul>
+        <li [ngClass]="{'active' : page==='/property'}"><a [routerLink]="['/property']" href="#">PROPERTY</a></li>
+        <li [ngClass]="{'active' : page==='/services'}"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
+        <li [ngClass]="{'active' : page==='/firm'}"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
+        <li [ngClass]="{'active' : page==='/media'}"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
+        <li [ngClass]="{'active' : page==='/contact'}"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
+        <li [ngClass]="{'active' : page==='/join'}"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
+        <li><a href="#">X</a></li>
+      </ul>
+    </nav>
   </div>
-
-
-
+</div>
+<div *ngIf="page !== '/'" id="headerHeight"></div>
+<main>
   <router-outlet></router-outlet>
-
-
-
-
-  <div>
-    <app-carousel></app-carousel>
-  </div>
-  <div id="propertySearchContainer">
-    <span id="propertySearchHeading">
-      <span>SEARCH</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span>1593 PROPERTIES</span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img src="../assets/chevron-down-white.png" alt="Chevron down" />
-    </span>
-    <div id="propertySearch">
-      <div class="container">
-        <form id="propertySearchForm">
-          <div class="formGroup flex">
-            <div class="formElement flex">
-              <select name="regions" onchange="choose_element_mobile(this.value)">
-                <option value="Italy">Italy</option>
-                <option value="All">All</option>
-                <option value="Campania">Campania (45)</option>
-                <option value="Emilia Romagna">Emilia Romagna (48)</option>
-                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-                <option value="Lazio">Lazio (61)</option>
-                <option value="Liguria">Liguria (69)</option>
-                <option value="Lombardy">Lombardy (314)</option>
-                <option value="Marche">Marche (15)</option>
-                <option value="Piedmont">Piedmont (76)</option>
-                <option value="Sardinia">Sardinia (12)</option>
-                <option value="Sicily">Sicily (9)</option>
-                <option value="Tuscany">Tuscany (108)</option>
-                <option value="Umbria">Umbria (39)</option>
-                <option value="Veneto">Veneto (61)</option>
-              </select>
-            </div>
-            <div class="formElement flex">
-              <select name="location" onchange="choose_element_mobile(this.value)">
-                <option value="Location">Location</option>
-                <option value="Italy">Italy</option>
-                <option value="Campania">Campania (45)</option>
-                <option value="Emilia Romagna">Emilia Romagna (48)</option>
-                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-                <option value="Lazio">Lazio (61)</option>
-                <option value="Liguria">Liguria (69)</option>
-                <option value="Lombardy">Lombardy (314)</option>
-                <option value="Marche">Marche (15)</option>
-                <option value="Piedmont">Piedmont (76)</option>
-                <option value="Sardinia">Sardinia (12)</option>
-                <option value="Sicily">Sicily (9)</option>
-                <option value="Tuscany">Tuscany (108)</option>
-                <option value="Umbria">Umbria (39)</option>
-                <option value="Veneto">Veneto (61)</option>
-              </select>
-            </div>
-            <div class="formElement flex">
-              <select name="type" onchange="choose_element_mobile(this.value)">
-                <option value="All">All</option>
-                <option value="Italy">Italy</option>
-                <option value="Campania">Campania (45)</option>
-                <option value="Emilia Romagna">Emilia Romagna (48)</option>
-                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-                <option value="Lazio">Lazio (61)</option>
-                <option value="Liguria">Liguria (69)</option>
-                <option value="Lombardy">Lombardy (314)</option>
-                <option value="Marche">Marche (15)</option>
-                <option value="Piedmont">Piedmont (76)</option>
-                <option value="Sardinia">Sardinia (12)</option>
-                <option value="Sicily">Sicily (9)</option>
-                <option value="Tuscany">Tuscany (108)</option>
-                <option value="Umbria">Umbria (39)</option>
-                <option value="Veneto">Veneto (61)</option>
-              </select>
-            </div>
-            <div class="formElement flex">
-              <select name="lifestyle" onchange="choose_element_mobile(this.value)">
-                <option value="Lifestyle">Lifestyle</option>
-                <option value="All">All</option>
-                <option value="Campania">Campania (45)</option>
-                <option value="Emilia Romagna">Emilia Romagna (48)</option>
-                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-                <option value="Lazio">Lazio (61)</option>
-                <option value="Liguria">Liguria (69)</option>
-                <option value="Lombardy">Lombardy (314)</option>
-                <option value="Marche">Marche (15)</option>
-                <option value="Piedmont">Piedmont (76)</option>
-                <option value="Sardinia">Sardinia (12)</option>
-                <option value="Sicily">Sicily (9)</option>
-                <option value="Tuscany">Tuscany (108)</option>
-                <option value="Umbria">Umbria (39)</option>
-                <option value="Veneto">Veneto (61)</option>
-              </select>
-            </div>
-            <div class="formElement flex">
-              <select name="regions" onchange="choose_element_mobile(this.value)">
-                <option value="Price">Price</option>
-                <option value="All">All</option>
-                <option value="Campania">Campania (45)</option>
-                <option value="Emilia Romagna">Emilia Romagna (48)</option>
-                <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-                <option value="Lazio">Lazio (61)</option>
-                <option value="Liguria">Liguria (69)</option>
-                <option value="Lombardy">Lombardy (314)</option>
-                <option value="Marche">Marche (15)</option>
-                <option value="Piedmont">Piedmont (76)</option>
-                <option value="Sardinia">Sardinia (12)</option>
-                <option value="Sicily">Sicily (9)</option>
-                <option value="Tuscany">Tuscany (108)</option>
-                <option value="Umbria">Umbria (39)</option>
-                <option value="Veneto">Veneto (61)</option>
-              </select>
-            </div>
-            <div class="formElement flex">
-              <button>
-                <span>SEARCH</span>
-                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
-                  <path
-                    d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="formGroup">
-            <div class="formElement float">
-              <h4>SEARCH BY PROPERTY</h4>
-              <button>
-                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
-                  <path
-                    d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-                </svg>
-              </button>
-              <div class="formElement hiddenOverflow">
-                <input type="text" placeholder="LOCATION OR CODE" />
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>          
-  <section id="propertyBest">
-    <h3>TOP SELECTIONS</h3>
-    <div class="propertyBestProperties">
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-    </div>
-    <button>SEE ALL (23)</button>
-    <hr />
-  </section>
-  <section id="exclusivePropertiesContainer">
-    <h3>EXCLUSIVE PROPERTIES</h3>
-    <div class="propertyBestProperties">
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">Elegant apartment close to Florence's cathedral</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-    </div>
-    <button>SEE ALL (23)</button>
-  </section>
-  <section id="propertyInfo">
-    <h1>Luxury Italian Real Estate</h1>
-    <p><strong>WELCOME TO OUR EXCLUSIVE COLLECTION OF LUXURY VILLAS</strong></p>
-    <p>Lionard is a real estate brokerage firm that handles over one thousand villas for sale in Italy. Our
-      outstanding portfolio includes true dream homes, luxury villas, castles for sale and luxury estates that can
-      satisfy all needs.<br />Lionard offers a constantly updated selection of splendid villas for sale from all over
-      Italy with the purpose to offer its clients a full catalogue inclusive of prestigious estates and dream homes,
-      located in the most extraordinary areas of Italy. Thanks to a selected portfolio which includes castles for
-      sale, luxury apartments, villas and country estates, Lionard is able to offer professional guidance in the
-      choice of your ideal property, with the support of its expertise and knowledge combined with total
-      confidentiality and reserve.</p>
-  </section>
-  <section id="videoGallery">
-    <h3><strong>VIDEO GALLERY</strong></h3>
-    <div id="videoGalleryContent">
-      <div id="videoGalleryExclusive">
-        <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
-        <hr />
-        <p><strong>LUCCA</strong></p>
-        <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.
-          </small></p>
-        <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
-        <h3>ON APPLICATION</h3>
-        <button class="filled">SHOW</button>
-        <button>ASK FOR INFORMATION</button>
-      </div>
-      <div id="videoGalleryFullVideo">
-        <video width="100%">
-          <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div id="videoGalleryFullVideoBtns">
-          <button>GET FULL VIDEO</button>
-          <button class="share"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-              height="1em">
-              <path
-                d="M 20 0 C 17.789063 0 16 1.789063 16 4 C 16 4.277344 16.039063 4.550781 16.09375 4.8125 L 7 9.375 C 6.265625 8.535156 5.203125 8 4 8 C 1.789063 8 0 9.789063 0 12 C 0 14.210938 1.789063 16 4 16 C 5.203125 16 6.265625 15.464844 7 14.625 L 16.09375 19.1875 C 16.039063 19.449219 16 19.722656 16 20 C 16 22.210938 17.789063 24 20 24 C 22.210938 24 24 22.210938 24 20 C 24 17.789063 22.210938 16 20 16 C 18.796875 16 17.734375 16.535156 17 17.375 L 7.90625 12.8125 C 7.960938 12.550781 8 12.277344 8 12 C 8 11.722656 7.960938 11.449219 7.90625 11.1875 L 17 6.625 C 17.734375 7.464844 18.796875 8 20 8 C 22.210938 8 24 6.210938 24 4 C 24 1.789063 22.210938 0 20 0 Z" />
-            </svg></button>
-        </div>
-      </div>
-      <div id="videoGalleryList">
-        <div id="videoGalleryListContainer">
-          <table>
-            <tbody>
-              <tr>
-                <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-                <td>
-                  <p><strong><small>Island of Stromboli</small></strong></p>
-                  <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                  <div class="videoGalleryListBtns">
-                    <button class="filled">SHOW</button>
-                    <button>FULL VIDEO</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-                <td>
-                  <p><strong><small>Island of Stromboli</small></strong></p>
-                  <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                  <div class="videoGalleryListBtns">
-                    <button class="filled">SHOW</button>
-                    <button>FULL VIDEO</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-                <td>
-                  <p><strong><small>Island of Stromboli</small></strong></p>
-                  <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                  <div class="videoGalleryListBtns">
-                    <button class="filled">SHOW</button>
-                    <button>FULL VIDEO</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-                <td>
-                  <p><strong><small>Island of Stromboli</small></strong></p>
-                  <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                  <div class="videoGalleryListBtns">
-                    <button class="filled">SHOW</button>
-                    <button>FULL VIDEO</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <button class="filled">SEE ALL (23)</button>
-      </div>
-    </div>
-  </section>
-  <section id="propertyContact">
-    <h3>CONTACT</h3>
-    <p>Leave your request and we'll contact you in the next 24 hours.</p>
-    <form>
-      <div id="contactElementContainer">
-        <div class="contactElement">
-          <input type="text" placeholder="*FIRST NAME" />
-        </div>
-        <div class="contactElement">
-          <input type="text" placeholder="*LAST NAME" />
-        </div>
-        <div class="contactElement">
-          <input type="text" placeholder="*EMAIL" />
-        </div>
-        <div class="contactElement">
-          <input type="text" placeholder="*TELEPHONE" />
-        </div>
-        <div class="contactElement">
-          <select>
-            <option disabled>*LANGUAGE</option>
-            <option>ENGLISH</option>
-            <option>ITALINO</option>
-            <option>FRANCIAS</option>
-            <option>ESPANOL</option>
-            <option>DEUTSCH</option>
-          </select>
-        </div>
-        <div class="contactElement">
-          <select>
-            <option disabled>*COUNTRY</option>
-            <option>ENGLAND</option>
-            <option>ITALIA</option>
-            <option>FRANCE</option>
-            <option>ESPANA</option>
-            <option>DEUTSCHLAND</option>
-          </select>
-        </div>
-        <div class="contactElement">
-          <textarea></textarea>
-        </div>
-      </div>
-      <p>
-        <input type="checkbox">
-        I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
-      </p>
-      <button>SEND</button>
-    </form>
-  </section>
-  <section id="propertyGroups">
-    <h3><strong>SEARCH BY</strong></h3>
-    <div id="propertyGroupsBtns">
-      <button class="active">TOP LOCATION</button>
-      <button>LIFESTYLE</button>
-      <button>TYPE</button>
-    </div>
-    <div id="propertyGroupsList">
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-    </div>
-  </section>
-  <section id="productInfo1">
-    <div id="productInfo1Content">
-      <div>
-        <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
-      </div>
-      <div id="productInfo1Text">
-        <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
-        <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-        <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Italy founded on April
-          21
-          753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-          populated city in Italy with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
-          For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
-          there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
-          surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
-          forum, Paleo-Christian basilicas to medieva...</p>
-        <button>READ MORE</button>
-      </div>
-    </div>
-    <div id="productInfo1BlogBand">
-      <strong>LIONARD BLOG</strong><button>SEE ALL NEWS</button>
-    </div>
-  </section>
-  <section id="latestAcquisitionsContainer">
-    <h3>LATEST ACQUISITIONS</h3>
-    <div class="propertyBestProperties">
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">Elegant apartment close to Florence's cathedral</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-      <article>
-        <a href="#">
-          <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-          <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-          <div class="propertyDataContainer">
-            <div class="propertyData">
-              <div class="propertyDataContent">
-                <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-                <p class="propertyDataStatus">On Application</p>
-                <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-                <p class="propertyDataCode"><small>Code. 1151</small></p>
-              </div>
-              <div class="propertyDataOverlay"></div>
-            </div>
-          </div>
-        </a>
-      </article>
-    </div>
-    <button>SEE ALL (72)</button>
-  </section>
-  <section id="closingInfo">
-    <h1>Welcome to the most complete selection of luxury homes for sale in Italy</h1>
-    <p>You will find the most complete and exclusive collection of properties for sale in Italy featuring luxury villas,
-      historic homes, castles, apartments, vineyards and farmhouses in the most sought-after regions of Italy including
-      Tuscany, Lombardy, Piedmont, Veneto, Liguria, Lazio and Sardinia. We hand pick our properties and select the best
-      listings to offer you from the most desirable locations such as Venice, Florence, Rome, Siena, Capri, Milan,
-      Lucca, Turin, Porto Cervo, Portofino, Madonna di Campiglio and Forte dei Marmi. Transparency, expertise and
-      dedication go hand in hand with our vast experience which accompanies every single Lionard property.</p>
-  </section>
 </main>
-<footer>
+<footer class="flexRowWrap">
   <section>
-    <img src="../assets/logo.png" alt="sagecapita logo" />
+    <a [routerLink]="['/']" href="#"><img src="../assets/logo.png" alt="sagecapita logo" /></a>
     <p><small>Privacy - GDPR 679/2016 - Terms and Conditions - Site Map</small></p>
     <p><small><strong>LIONARD SPA | P.I. 01660450477</strong></small></p>
     <p><small>Copyright © 2019 | All texts and photographs are the property of Lionard Real Estate | Inc. All Rights
@@ -698,19 +104,34 @@
   <section>
     <div id="socialLinks">
       <span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 24 24"><path d="M16.403,9H14V7c0-1.032,0.084-1.682,1.563-1.682h0.868c0.552,0,1-0.448,1-1V3.064c0-0.523-0.401-0.97-0.923-1.005 C15.904,2.018,15.299,1.999,14.693,2C11.98,2,10,3.657,10,6.699V9H8c-0.552,0-1,0.448-1,1v2c0,0.552,0.448,1,1,1l2-0.001V21 c0,0.552,0.448,1,1,1h2c0.552,0,1-0.448,1-1v-8.003l2.174-0.001c0.508,0,0.935-0.381,0.993-0.886l0.229-1.996 C17.465,9.521,17.001,9,16.403,9z"/></svg>          
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 24 24">
+          <path
+            d="M16.403,9H14V7c0-1.032,0.084-1.682,1.563-1.682h0.868c0.552,0,1-0.448,1-1V3.064c0-0.523-0.401-0.97-0.923-1.005 C15.904,2.018,15.299,1.999,14.693,2C11.98,2,10,3.657,10,6.699V9H8c-0.552,0-1,0.448-1,1v2c0,0.552,0.448,1,1,1l2-0.001V21 c0,0.552,0.448,1,1,1h2c0.552,0,1-0.448,1-1v-8.003l2.174-0.001c0.508,0,0.935-0.381,0.993-0.886l0.229-1.996 C17.465,9.521,17.001,9,16.403,9z" />
+        </svg>
       </span>
       <span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 24 24"><path d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"/></svg>          
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 24 24">
+          <path
+            d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z" />
+        </svg>
       </span>
       <span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 30 30"><path d="M9,25H4V10h5V25z M6.501,8C5.118,8,4,6.879,4,5.499S5.12,3,6.501,3C7.879,3,9,4.121,9,5.499C9,6.879,7.879,8,6.501,8z M27,25h-4.807v-7.3c0-1.741-0.033-3.98-2.499-3.98c-2.503,0-2.888,1.896-2.888,3.854V25H12V9.989h4.614v2.051h0.065 c0.642-1.18,2.211-2.424,4.551-2.424c4.87,0,5.77,3.109,5.77,7.151C27,16.767,27,25,27,25z"/></svg>          
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(2, 36, 58)" viewBox="0 0 30 30">
+          <path
+            d="M9,25H4V10h5V25z M6.501,8C5.118,8,4,6.879,4,5.499S5.12,3,6.501,3C7.879,3,9,4.121,9,5.499C9,6.879,7.879,8,6.501,8z M27,25h-4.807v-7.3c0-1.741-0.033-3.98-2.499-3.98c-2.503,0-2.888,1.896-2.888,3.854V25H12V9.989h4.614v2.051h0.065 c0.642-1.18,2.211-2.424,4.551-2.424c4.87,0,5.77,3.109,5.77,7.151C27,16.767,27,25,27,25z" />
+        </svg>
       </span>
       <span>
-          <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"/></svg>
+        <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <path
+            d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z" />
+        </svg>
       </span>
       <span>
-        <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path fill-rule="evenodd" d="M 13 5 L 16 14 L 16 20 L 18 20 L 18 14 L 21 5 L 19 5 L 17 11 L 15 5 Z M 24 9 C 22.933594 9 22.410156 9.167969 21.757813 9.703125 C 21.132813 10.230469 20.960938 10.636719 21 12 L 21 17 C 21 17.996094 21.164063 18.652344 21.765625 19.234375 C 22.390625 19.816406 22.980469 20 24 20 C 25.066406 20 25.648438 19.816406 26.25 19.234375 C 26.875 18.675781 27 17.996094 27 17 L 27 12 C 27 11.117188 26.84375 10.28125 26.238281 9.722656 C 25.613281 9.148438 24.96875 9 24 9 Z M 29 9 L 29 18 C 29 18.972656 29.980469 20 31 20 C 32.019531 20 32.558594 19.488281 33 19 L 33 20 L 35 20 L 35 9 L 33 9 L 33 17 C 32.988281 17.683594 32.183594 18 32 18 C 31.792969 18 31 17.957031 31 17 L 31 9 Z M 24 11 C 24.300781 11 25 10.996094 25 12 L 25 17 C 25 17.96875 24.324219 18 24 18 C 23.699219 18 23 17.988281 23 17 L 23 12 C 23 11.183594 23.433594 11 24 11 Z M 10 22 C 6.40625 22 4 24.382813 4 28 L 4 37.5 C 4 41.117188 6.40625 44 10 44 L 40 44 C 43.59375 44 46 41.617188 46 38 L 46 28 C 46 24.382813 43.59375 22 40 22 Z M 12 26 L 18 26 L 18 28 L 16 28 L 16 40 L 14 40 L 14 28 L 12 28 Z M 26 26 L 28 26 L 28 30 C 28.230469 29.640625 28.574219 29.355469 28.902344 29.195313 C 29.222656 29.03125 29.546875 28.9375 29.875 28.9375 C 30.523438 28.9375 31.03125 29.171875 31.378906 29.609375 C 31.726563 30.050781 32 30.636719 32 31.5 L 32 37.5 C 32 38.242188 31.75 38.703125 31.421875 39.097656 C 31.101563 39.492188 30.621094 39.992188 30 40 C 28.949219 40.011719 28.386719 39.449219 28 39 L 28 40 L 26 40 Z M 18 29 L 20 29 L 20 37 C 20 37.230469 20.269531 38.007813 21 38 C 21.8125 37.992188 21.820313 37.234375 22 37 L 22 29 L 24 29 L 24 40 L 22 40 L 22 39 C 21.628906 39.4375 21.4375 39.574219 21.019531 39.78125 C 20.605469 40.015625 20.183594 40 19.792969 40 C 19.308594 40 18.757813 39.5625 18.5 39.234375 C 18.269531 38.933594 18 38.625 18 38 Z M 36.199219 29 C 37.148438 29 37.816406 29.203125 38.320313 29.734375 C 38.835938 30.265625 39 30.886719 39 31.886719 L 39 35 L 35 35 L 35 36.546875 C 35 37.105469 35.074219 37.460938 35.21875 37.671875 C 35.355469 37.902344 35.632813 38.003906 36 38 C 36.40625 37.996094 36.664063 37.914063 36.800781 37.730469 C 36.941406 37.566406 37 37.101563 37 36.5 L 37 36 L 39 36 L 39 36.59375 C 39 37.683594 38.914063 38.496094 38.375 39.027344 C 37.867188 39.585938 37.074219 39.84375 36.035156 39.84375 C 35.085938 39.84375 34.34375 39.5625 33.8125 38.984375 C 33.28125 38.40625 33.003906 37.613281 33.003906 36.59375 L 33.003906 31.886719 C 33.003906 30.980469 33.320313 30.308594 33.902344 29.710938 C 34.371094 29.230469 35.25 29 36.199219 29 Z M 29 30.5 C 28.449219 30.5 28.007813 30.996094 28 31.5 L 28 37.5 C 28.007813 37.789063 28.449219 38 29 38 C 29.550781 38 30 37.574219 30 37.023438 L 30 32 C 30 31 29.550781 30.5 29 30.5 Z M 36 31 C 35.449219 31 35.007813 31.464844 35 32 L 35 33 L 37 33 L 37 32 C 37 31.386719 36.550781 31 36 31 Z"/></svg>
+        <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <path fill-rule="evenodd"
+            d="M 13 5 L 16 14 L 16 20 L 18 20 L 18 14 L 21 5 L 19 5 L 17 11 L 15 5 Z M 24 9 C 22.933594 9 22.410156 9.167969 21.757813 9.703125 C 21.132813 10.230469 20.960938 10.636719 21 12 L 21 17 C 21 17.996094 21.164063 18.652344 21.765625 19.234375 C 22.390625 19.816406 22.980469 20 24 20 C 25.066406 20 25.648438 19.816406 26.25 19.234375 C 26.875 18.675781 27 17.996094 27 17 L 27 12 C 27 11.117188 26.84375 10.28125 26.238281 9.722656 C 25.613281 9.148438 24.96875 9 24 9 Z M 29 9 L 29 18 C 29 18.972656 29.980469 20 31 20 C 32.019531 20 32.558594 19.488281 33 19 L 33 20 L 35 20 L 35 9 L 33 9 L 33 17 C 32.988281 17.683594 32.183594 18 32 18 C 31.792969 18 31 17.957031 31 17 L 31 9 Z M 24 11 C 24.300781 11 25 10.996094 25 12 L 25 17 C 25 17.96875 24.324219 18 24 18 C 23.699219 18 23 17.988281 23 17 L 23 12 C 23 11.183594 23.433594 11 24 11 Z M 10 22 C 6.40625 22 4 24.382813 4 28 L 4 37.5 C 4 41.117188 6.40625 44 10 44 L 40 44 C 43.59375 44 46 41.617188 46 38 L 46 28 C 46 24.382813 43.59375 22 40 22 Z M 12 26 L 18 26 L 18 28 L 16 28 L 16 40 L 14 40 L 14 28 L 12 28 Z M 26 26 L 28 26 L 28 30 C 28.230469 29.640625 28.574219 29.355469 28.902344 29.195313 C 29.222656 29.03125 29.546875 28.9375 29.875 28.9375 C 30.523438 28.9375 31.03125 29.171875 31.378906 29.609375 C 31.726563 30.050781 32 30.636719 32 31.5 L 32 37.5 C 32 38.242188 31.75 38.703125 31.421875 39.097656 C 31.101563 39.492188 30.621094 39.992188 30 40 C 28.949219 40.011719 28.386719 39.449219 28 39 L 28 40 L 26 40 Z M 18 29 L 20 29 L 20 37 C 20 37.230469 20.269531 38.007813 21 38 C 21.8125 37.992188 21.820313 37.234375 22 37 L 22 29 L 24 29 L 24 40 L 22 40 L 22 39 C 21.628906 39.4375 21.4375 39.574219 21.019531 39.78125 C 20.605469 40.015625 20.183594 40 19.792969 40 C 19.308594 40 18.757813 39.5625 18.5 39.234375 C 18.269531 38.933594 18 38.625 18 38 Z M 36.199219 29 C 37.148438 29 37.816406 29.203125 38.320313 29.734375 C 38.835938 30.265625 39 30.886719 39 31.886719 L 39 35 L 35 35 L 35 36.546875 C 35 37.105469 35.074219 37.460938 35.21875 37.671875 C 35.355469 37.902344 35.632813 38.003906 36 38 C 36.40625 37.996094 36.664063 37.914063 36.800781 37.730469 C 36.941406 37.566406 37 37.101563 37 36.5 L 37 36 L 39 36 L 39 36.59375 C 39 37.683594 38.914063 38.496094 38.375 39.027344 C 37.867188 39.585938 37.074219 39.84375 36.035156 39.84375 C 35.085938 39.84375 34.34375 39.5625 33.8125 38.984375 C 33.28125 38.40625 33.003906 37.613281 33.003906 36.59375 L 33.003906 31.886719 C 33.003906 30.980469 33.320313 30.308594 33.902344 29.710938 C 34.371094 29.230469 35.25 29 36.199219 29 Z M 29 30.5 C 28.449219 30.5 28.007813 30.996094 28 31.5 L 28 37.5 C 28.007813 37.789063 28.449219 38 29 38 C 29.550781 38 30 37.574219 30 37.023438 L 30 32 C 30 31 29.550781 30.5 29 30.5 Z M 36 31 C 35.449219 31 35.007813 31.464844 35 32 L 35 33 L 37 33 L 37 32 C 37 31.386719 36.550781 31 36 31 Z" />
+        </svg>
       </span>
     </div>
     <div>
@@ -719,7 +140,7 @@
           properties.</small></p>
       <div id="newsletterContainer">
         <form>
-          <div id="newsletterFormGroup">            
+          <div id="newsletterFormGroup" class="flexRowWrap">
             <div id="newsletterEmail">
               <input type="text" placeholder="INSERT YOUR EMAIL" />
             </div>
@@ -728,8 +149,9 @@
           </div>
         </form>
       </div>
-      <p><input type="checkbox" /> <small>I declare that i have read the privacy policy and agree to the use and processing of
-        data</small></p>
+      <p><input type="checkbox" /> <small>I declare that i have read the privacy policy and agree to the use and
+          processing of
+          data</small></p>
     </div>
   </section>
 </footer>

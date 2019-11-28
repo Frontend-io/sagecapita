@@ -1,0 +1,161 @@
+#searchBand {
+  background: rgb(2, 36, 58);
+  padding: .5em 2em 2em 2em;
+}
+
+.searchSectionFormContainerElement>select {
+  height: 2.5em;
+  border-color: #ccc;
+  margin-right: .5em;
+  color: rgb(2, 36, 58);
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: .6em;
+}
+
+#searchSection {
+  padding: 3em 2em 0 2em;
+}
+
+#searchResults {
+  padding: 0 2em 3em 2em;
+}
+
+#searchSection p {
+  color: #aaa;
+}
+
+#searchSection h2 {
+  text-align: center;
+}
+
+.paginatorEllipsis {
+  content: url('../../assets/ellipsis.png');
+}
+
+.paginatorPrevArrow {
+  content: url('../../assets/left-arrow.png');
+}
+
+.paginatorNextArrow {
+  content: url('../../assets/right-arrow.png');
+}
+
+.paginatorPageNumber {
+  border: 1px solid#aaa;
+}
+
+.paginatorPageNumber.active {
+  border-color: rgb(2, 36, 58);
+}
+
+.paginatorPageNumber.disabled {
+  color: #aaa;
+}
+
+.paginatorPageNumber,
+.paginatorEllipsis,
+.paginatorPrevArrow,
+.paginatorNextArrow {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  font-weight: 700;
+  padding-top: .2em;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 0 .1em;
+}
+
+.paginator {
+  margin: 0 auto;
+  display: table;
+}
+
+.searchResultsBody {
+  background: rgb(2, 36, 58);
+  color: #fff;
+  padding: .8em;
+}
+
+.searchResultsBody p {
+  margin: 0 .8em 0 0;
+}
+
+.searchResultsBodyTopText img {
+  height: 24px;
+}
+
+.searchResultsBody .left {
+  float: left;
+}
+
+.searchResultsBody .right {
+  float: right;
+}
+
+.searchResultsBody button {
+  height: 2.5em;
+  color: #fff;
+  margin: .5em 0 0 0;
+}
+
+.searchResultsBody button.filled {
+  background: #fff;
+  color: rgb(2, 36, 58);
+}
+
+.searchResultsBody button.filled:hover {
+  color: #fff;
+  background: rgb(2, 36, 58);
+}
+
+.searchResultsImgContainer {
+  overflow: hidden;
+  height: 17em;
+}
+
+.searchResultsBody3btn>button.searchResultsBody2btn>button,
+
+#searchResultsContainer>article,
+.searchSectionFormContainerElement {
+  width: 100%;
+}
+
+.searchResultsImgContainer>img {
+  height: 100%;
+}
+
+#searchResultsContainer>article {
+  margin-top: 1em;
+}
+
+@media (min-width:961px) {
+  .searchSectionFormContainerElement>select {
+    width: 15em;
+  }
+
+  .searchSectionFormContainerElement {
+    width: auto;
+  }
+
+  #searchResultsContainer>article {
+    width: 49.5%;
+  }
+
+  .searchResultsBody3btn>button {
+    width: 32%;
+  }
+
+  .searchResultsBody2btn>button {
+    width: 49%;
+  }
+
+  .searchResultsImgContainer>img {
+    width: 100%;
+  }
+
+  .searchResultsBody {
+    margin-top: .5em;
+  }
+}
