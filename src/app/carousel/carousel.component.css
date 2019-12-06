@@ -195,11 +195,15 @@ margin-top: 0;
   .contentMobileHide {
     display: block;
   }
-}
 
-@media (min-width:961px) {
   .textContainer {
     top: 8.5em;
     bottom:auto;
+  }
+}
+
+@media (min-width:1600px) {
+  .textContainer {
+    width: 20%;
   }
 }

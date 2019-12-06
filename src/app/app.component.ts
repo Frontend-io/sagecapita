@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private navigateEventService: NavigateEventService) {
     navigateEventService.navigation$.subscribe(
       navigation => {
-        this.page = JSON.parse(navigation).url;
+        this.page = /*JSON.parse(navigation).url*/document.location.pathname;
       });
   }
 

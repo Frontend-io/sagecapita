@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PropertyComponent } from './property/property.component';
 import { ServicesComponent } from './links-services/services.component';
@@ -25,15 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule {
-  // constructor(private router: Router) {
-  //   this.router.events
-  //     .subscribe(
-  //       (event: NavigationEvent) => {
-  //         if (event instanceof NavigationStart) {
-  //           console.log(event);
-
-  //         }
-  //       });
-  // }
-}
+export class AppRoutingModule {}

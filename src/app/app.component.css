@@ -52,7 +52,7 @@ header nav#desktop #searchBar ul {
 }
 
 header ul li {
-  padding: .1em 1.2em;
+  padding: .11em 1.2em;
 }
 
 header ul li:first-child {
@@ -146,27 +146,37 @@ nav#desktop form input::placeholder {
 }
 
 footer {
-  padding: 1em 3em 3em 3em;
+  padding: 1em 3em 1em 3em;
   text-align: center;
   color: rgb(2, 36, 58);
 }
 
-footer img {
+/* footer img {
   height: 10em;
-}
+} */
 
-footer>section {
+footer .flexRowWrap>section {
   width: 100%;
+  margin-top: .9em;
 }
 
 .addressInfo {
   display: table;
-  margin: 2em auto;
+  margin: 0 auto .5em;    
 }
 
-.addressInfo>p {
-  margin: .3em 0;
+footer p{
+  margin: .1em 0;
+  line-height: 1.2em;
 }
+
+#newsletterContainer{
+  margin-top: .8em;
+}
+
+/* .addressInfo>p {
+  
+} */
 
 #newsletterEmail {
   margin-bottom: .4em;
@@ -197,7 +207,7 @@ footer>section {
 
 #socialLinks {
   text-align: center;
-  margin-top: 2em;
+  margin: 1.8em 0 1em 0;
 }
 
 #socialLinks svg {
@@ -220,7 +230,7 @@ footer>section {
     display: none;
   }
 
-  footer>section {
+  footer .flexRowWrap>section {
     width: 33.3%;
   }
 

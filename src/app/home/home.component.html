@@ -5,30 +5,30 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span>1593 PROPERTIES</span>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="../assets/chevron-down-white.png" alt="Chevron down" />
+    <a href="#propertySearchContainer"><img src="../assets/chevron-down-white.png" alt="Chevron down" /></a>
   </span>
   <div id="propertySearch">
     <div class="container">
       <app-property-search></app-property-search>
-  <form>
-    <div class="formGroup">
-        <div class="formElement float">
-          <h4>SEARCH BY PROPERTY</h4>
-          <button>
-            <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
-              <path
-                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-            </svg>
-          </button>
-          <div class="formElement hiddenOverflow">
-            <input type="text" placeholder="LOCATION OR CODE" />
+      <form>
+        <div class="formGroup">
+          <div class="formElement float">
+            <h4>SEARCH BY PROPERTY</h4>
+            <button>
+              <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
+                <path
+                  d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+              </svg>
+            </button>
+            <div class="formElement hiddenOverflow">
+              <input type="text" placeholder="LOCATION OR CODE" />
+            </div>
+            <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
         </div>
-      </div>
-  </form>
-</div>
-</div>
+      </form>
+    </div>
+  </div>
 </div>
 <section id="propertyBest">
   <h3>TOP SELECTIONS</h3>
@@ -163,16 +163,20 @@
   <button>SEE ALL (23)</button>
 </section>
 <section id="propertyInfo">
-  <h1>Luxury Italian Real Estate</h1>
-  <p><strong>WELCOME TO OUR EXCLUSIVE COLLECTION OF LUXURY VILLAS</strong></p>
-  <p>Sage Capita is a real estate brokerage firm that handles over one thousand villas for sale in Italy. Our
-    outstanding portfolio includes true dream homes, luxury villas, castles for sale and luxury estates that can
-    satisfy all needs.<br />Sage Capita offers a constantly updated selection of splendid villas for sale from all over
-    Italy with the purpose to offer its clients a full catalogue inclusive of prestigious estates and dream homes,
-    located in the most extraordinary areas of Italy. Thanks to a selected portfolio which includes castles for
-    sale, luxury apartments, villas and country estates, Sage Capita is able to offer professional guidance in the
-    choice of your ideal property, with the support of its expertise and knowledge combined with total
-    confidentiality and reserve.</p>
+ <div class="container">
+    <div class="flexRowWrap">
+        <aside>
+          <app-info-aside></app-info-aside>
+        </aside>
+        <article class="verticalAlign"> 
+          <div>
+            <h1><strong>Largest Selection of Luxury Homes for Sale in Nigeria</strong></h1>
+          <p>We offer the largest collection of luxury and exclusive properties for sale in Nigeria, and several cities around the world. We pre-vet every property listed for fraud, pricing, market conditions and government regulations. We hand pick our properties and select the best listings to offer you the most desirable locations in Lagos, Abuja, Port Harcourt, Dubai, London, Florida and several other cities.</p>
+          <p>We’ve built a team of professionals with exceptional knowledge of the market and a commitment to service. Everyone shares expertise and information in order to meet your goals. Every property is backed by iron-clad agreements written to protect our clients and their investments. Our legal team conducts thorough verification on our properties and only approves a listing once it passes our rigorous verification protocols.</p>
+          </div>
+        </article>
+      </div>
+ </div>
 </section>
 <section id="videoGallery">
   <h3><strong>VIDEO GALLERY</strong></h3>
@@ -189,8 +193,8 @@
       <button>ASK FOR INFORMATION</button>
     </div>
     <div id="videoGalleryFullVideo">
-      <video width="100%">
-        <source src="https://cdn-maps.Sage Capita.com//Allegati/Sage Capita_RIF5118_720.mp4" type="video/mp4" />
+      <video width="100%" poster="../../assets/home-carousel/slide_2.jpg" controls>
+        <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div id="videoGalleryFullVideoBtns">
@@ -257,54 +261,7 @@
     </div>
   </div>
 </section>
-<section id="propertyContact">
-  <h3>CONTACT</h3>
-  <p>Leave your request and we'll contact you in the next 24 hours.</p>
-  <form>
-    <div id="contactElementContainer">
-      <div class="contactElement">
-        <input type="text" placeholder="*FIRST NAME" />
-      </div>
-      <div class="contactElement">
-        <input type="text" placeholder="*LAST NAME" />
-      </div>
-      <div class="contactElement">
-        <input type="text" placeholder="*EMAIL" />
-      </div>
-      <div class="contactElement">
-        <input type="text" placeholder="*TELEPHONE" />
-      </div>
-      <div class="contactElement selectChevDownElement">
-        <select>
-          <option disabled>*LANGUAGE</option>
-          <option>ENGLISH</option>
-          <option>ITALINO</option>
-          <option>FRANCIAS</option>
-          <option>ESPANOL</option>
-          <option>DEUTSCH</option>
-        </select>
-      </div>
-      <div class="contactElement selectChevDownElement">
-        <select>
-          <option disabled>*COUNTRY</option>
-          <option>ENGLAND</option>
-          <option>ITALIA</option>
-          <option>FRANCE</option>
-          <option>ESPANA</option>
-          <option>DEUTSCHLAND</option>
-        </select>
-      </div>
-      <div class="contactElement">
-        <textarea></textarea>
-      </div>
-    </div>
-    <p>
-      <input type="checkbox">
-      I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
-    </p>
-    <button>SEND</button>
-  </form>
-</section>
+<app-contact-section></app-contact-section>
 <section id="propertyGroups">
   <h3><strong>SEARCH BY</strong></h3>
   <div id="propertyGroupsBtns">
@@ -383,10 +340,10 @@
     <div id="productInfo1Text">
       <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
       <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-      <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Italy founded on April
+      <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on April
         21
         753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-        populated city in Italy with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
+        populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
         For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
         there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
         surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
@@ -473,11 +430,17 @@
   <button>SEE ALL (72)</button>
 </section>
 <section id="closingInfo">
-  <h1>Welcome to the most complete selection of luxury homes for sale in Italy</h1>
-  <p>You will find the most complete and exclusive collection of properties for sale in Italy featuring luxury villas,
-    historic homes, castles, apartments, vineyards and farmhouses in the most sought-after regions of Italy including
-    Tuscany, Lombardy, Piedmont, Veneto, Liguria, Lazio and Sardinia. We hand pick our properties and select the best
-    listings to offer you from the most desirable locations such as Venice, Florence, Rome, Siena, Capri, Milan,
-    Lucca, Turin, Porto Cervo, Portofino, Madonna di Campiglio and Forte dei Marmi. Transparency, expertise and
-    dedication go hand in hand with our vast experience which accompanies every single Sage Capita property.</p>
+  <div class="container">
+      <h1><strong>Exceptional Luxury Real Estate Firm</strong></h1>
+      <p>Sage Capita is a luxury real estate brokerage firm, serving Nigeria and other important cities of the world.
+        Specializing in outstanding high-end investment portfolio that includes true dream homes, luxury villas, castles for
+        sale and luxury estates that can satisfy all needs. We offer a constantly updated selection of splendid villas for
+        sale with the purpose to offer our clients a full catalogue inclusive of prestigious estates and dream homes,
+        located in the most extraordinary areas of Nigeria and several important cities of the world.</p>
+      <p>With several years of experience, our consultants are able to offer professional guidance in the choice of your
+        ideal property, with the support of our expertise and knowledge combined with total confidentiality and reserve, we
+        help investors, buyers and sellers locate the finest properties and negotiate the best deals. Our team is small
+        enough to provide each of our clients with personal attention in order to meet their needs; large enough to deplore
+        advanced and highly sophisticated software platform to provide an unparallel brand exposure.</p>
+  </div>
 </section>

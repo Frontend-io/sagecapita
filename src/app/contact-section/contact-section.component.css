@@ -1,0 +1,76 @@
+#propertyContact {
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+  background: #f4f4f5;
+  text-align: center;
+  padding: .9em 1em;
+  color: rgb(2, 36, 58);
+}
+
+#propertyContact p {
+  margin: 0;
+}
+
+#contactElementContainer {
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -moz-flex-flow: column wrap;
+  flex-flow: column wrap;
+  height: 100%;
+  padding: 1em 0 1em 0;
+  overflow: hidden;
+}
+
+.contactElement>select {
+  border: 1px solid #CCC;
+}
+
+.contactElement {
+  margin-top: .5em;
+}
+
+.contactElement>input::-webkit-input-placeholder,
+.contactElement>input:-ms-input-placeholder,
+.contactElement>input::-moz-placeholder,
+.contactElement>input::placeholder,
+.contactElement>select {
+  color: rgb(1, 12, 20);
+  font-weight: 700;
+}
+
+.contactElement>input,
+.contactElement>select,
+.contactElement>textarea {
+  padding: .9em;
+  border-color: #ccc;
+  background-color: #fff;
+}
+
+.contactElement>textarea {
+  height: 6.7em;
+}
+
+#propertyContact button {
+  width: auto;
+  padding: .8em 2.5em;
+  height: auto;
+  margin-top: 1.5em;
+}
+
+#propertyContact button {
+  background: rgb(2, 36, 58);
+  color: #fff;
+  border-color: rgb(2, 36, 58);
+}
+
+#propertyContact button:hover {
+  background: #fff;
+  color: rgb(2, 36, 58);
+}
+
+@media (min-width:961px) {
+  #contactElementContainer {
+    height: 7em;
+  }
+}

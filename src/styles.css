@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: 'Hind', sans-serif;
   color: rgb(2, 36, 58);
+  letter-spacing: .02em;
 }
 
 .clearfix {
@@ -30,7 +31,7 @@ textarea {
 
 input:not([type="checkbox"]), select,textarea {
   padding: 0 .7em;
-  height: 3.5em;
+  height: 3em;
 }
 
 input:not([type="checkbox"]), select{
@@ -95,6 +96,13 @@ button {
 button:hover,
 button:focus {
   outline: none;
+}
+
+.verticalAlign {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .flexRowWrap{

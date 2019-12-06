@@ -1,0 +1,24 @@
+div{
+  padding: 0 2em;
+}
+
+button{
+    height: 3.6em;
+    margin-bottom: 1em;
+    border-color: rgb(2, 36, 58);
+  }
+  
+button:hover{
+    background: rgb(2, 36, 58);
+    color: #fff;
+  }
+  
+button.filled{
+    background: rgb(2, 36, 58);
+    color: #fff;
+  }
+  
+button.filled:hover{
+    background:transparent;
+    color:rgb(2, 36, 58);
+  }

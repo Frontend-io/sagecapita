@@ -13,6 +13,9 @@ import { ContactComponent } from './contact/contact.component';
 import { JoinComponent } from './join/join.component';
 import { PropertySearchComponent } from './property-search/property-search.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { ContactSectionComponent } from './contact-section/contact-section.component';
+import { InfoAsideComponent } from './info-aside/info-aside.component';
+import { InfoButtonAsideComponent } from './info-button-aside/info-button-aside.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { PaginatorComponent } from './paginator/paginator.component';
     ContactComponent,
     JoinComponent,
     PropertySearchComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ContactSectionComponent,
+    InfoAsideComponent,
+    InfoButtonAsideComponent
   ],
   imports: [
     BrowserModule,
