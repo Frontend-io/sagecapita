@@ -1,5 +1,5 @@
 #propertySearch {
-  padding: .3em 2em 2em 2em;
+  padding: 0 2em .2em 2em;
   background: #064A77;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .formGroup {
-  margin-top: 1.5em;
+  margin-top: .7em;
 }
 
 .formElement.flex {

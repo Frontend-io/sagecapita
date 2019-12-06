@@ -1,0 +1,56 @@
+#firmContainer {
+  padding-bottom: 3.5em;
+}
+
+#firmContainer aside, #firmContainer article{
+  margin-top: 1em;
+}
+
+#firmContainer article{
+  box-sizing: border-box;
+  padding: 0 2em;
+}
+
+#firmContainer article img,#firmContainer aside, #firmContainer article {
+  width: 100%;
+}
+
+#firmContainer article button {
+  width: 80%;
+  height: 3em;
+  background: rgb(2, 36, 58);
+  color: #fff;
+}
+
+#firmContainer article button:hover {
+    color: rgb(2, 36, 58);
+    background: #fff;
+}
+
+#firmContainer{
+    border-bottom: 1px solid #f4f4f5;
+}
+
+#firmContainer article h1{
+  margin: 0;
+}
+
+hr {
+  border-width: 0;
+  border-top-width: 1px;
+  margin: 1em 0;
+}
+
+@media (min-width:961px) {
+  #firmContainer article button {
+    width: 50%;
+  }
+
+  #firmContainer aside{
+    width: 28%;
+  }
+  
+  #firmContainer article{
+    width: 68%;
+  }
+}

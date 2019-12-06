@@ -1,0 +1,89 @@
+#contactContainer {
+  padding-bottom: 2.2em;
+}
+
+.contactOfficesContainer img,
+.contactOfficesInfo>div,
+.contactOfficesContainer,
+#mainColsContainer>article,
+#mainColsContainer>aside {
+  width: 100%;
+}
+
+#mainColsContainer>article,
+#mainColsContainer>aside{
+  margin-top: 1em;
+} 
+
+#mainColsContainer>article{
+  padding: 0 2em;
+  box-sizing: border-box;
+}
+
+#mainColsContainer>article>h1{
+    margin: 0;
+}
+
+#mainColsContainer>article>p{
+    margin-bottom: 0;
+}
+
+.contactOfficesInfo button {
+  height: 3em;
+  float: right;
+}
+
+.contactOfficesInfo button:hover {
+    background: rgb(2, 36, 58);
+    color: #fff;
+    border-color: rgb(2, 36, 58);
+}
+
+.contactOfficesInfo p {
+  margin: 0;
+  line-height: 1.2em;
+}
+
+/* .contactOfficesInfo p+p {
+  margin-top: .5em;
+} */
+
+hr {
+  border-width: 0;
+  border-top-width: 1px;
+}
+
+.contactOfficesContainer h4{
+    margin: 1.5em 0 .5em 0;
+}
+
+.contactOfficesContainer>hr {
+  border-top-color: #ccc;
+  margin: 1.5em 0;
+}
+
+.contactOfficesContainer {
+  margin-top: .5em;
+}
+
+@media (min-width:961px) {
+  .contactOfficesInfo>div {
+    width: 40%;
+  }
+
+  /* .contactOfficesInfo button{
+        width: 12em;
+    } */
+
+  .contactOfficesContainer {
+    width: 47%;
+  }
+
+  #mainColsContainer>aside {
+    width: 28%;
+  }
+
+  #mainColsContainer>article {
+    width: 68%;
+  }
+}

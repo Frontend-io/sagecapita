@@ -1,3 +1,7 @@
+#pressContainer {
+  margin-bottom: .6em;
+}
+
 input:not([type="checkbox"]),
 select {
   border-color: #ccc;
@@ -49,6 +53,10 @@ button.active:hover {
 
 #pressTextContainer {
   padding: 1em 2em 1em 2em;
+}
+
+#pressTextContainer h1{
+  margin: 0; 
 }
 
 #pressFormContainer {
@@ -157,6 +165,11 @@ button.active:hover {
 
 #featuredArticlesBottom {
   padding: 1em 0 1em 0;
+}
+
+hr {
+  border-width: 0;
+  border-top-width: 1px;
 }
 
 @media (min-width:961px) {

@@ -1,0 +1,26 @@
+h1 {
+  margin: 1em 0;
+  line-height: 1.2em;
+}
+
+p {
+  margin: .1em 0;
+  line-height: 1.1em;
+}
+
+p a {
+  color: rgb(2, 36, 58);
+}
+
+aside {
+  padding: 2em;
+  text-align: center;
+}
+
+img{
+  width: 4em;
+}
+
+video{
+  margin-top: 1.5em;
+}

@@ -147,7 +147,6 @@
 }
 
 #propertyInfo {
-  padding: 3em;
   text-align: center;
   background: #f4f4f5;
   color: rgb(1, 23, 37);
@@ -172,15 +171,13 @@
 }
 
 #videoGalleryList button:hover,
-#videoGalleryList button.filled,
-#propertyContact button {
+#videoGalleryList button.filled {
   background: rgb(2, 36, 58);
   color: #fff;
   border-color: rgb(2, 36, 58);
 }
 
-#videoGalleryList button.filled:hover,
-#propertyContact button:hover {
+#videoGalleryList button.filled:hover {
   color: rgb(2, 36, 58);
   background: #fff;
 }
@@ -227,8 +224,7 @@ hr {
   height: 3.5em;
 }
 
-#videoGalleryExclusive button:hover,
-#propertyContact button:hover {
+#videoGalleryExclusive button:hover {
   background: #fff;
   color: rgb(2, 36, 58);
 }
@@ -290,66 +286,6 @@ hr {
 #videoGalleryList>button {
   width: 100%;
   margin-top: 1em;
-}
-
-#propertyContact {
-  border: 1px solid #ccc;
-  border-left: none;
-  border-right: none;
-  background: #f4f4f5;
-  text-align: center;
-  padding: 2em 0;
-  color: rgb(2, 36, 58);
-}
-
-#propertyContact p {
-  margin: 0;
-}
-
-#contactElementContainer {
-  display: flex;
-  -webkit-flex-flow: column wrap;
-  -moz-flex-flow: column wrap;
-  flex-flow: column wrap;
-  height: 100%;
-  padding: 2em 0 1em 0;
-  overflow: hidden;
-}
-
-.contactElement>select {
-  border: 1px solid #CCC;
-}
-
-.contactElement {
-  margin-top: .5em;
-}
-
-.contactElement>input::-webkit-input-placeholder,
-.contactElement>input:-ms-input-placeholder,
-.contactElement>input::-moz-placeholder,
-.contactElement>input::placeholder,
-.contactElement>select {
-  color: rgb(1, 12, 20);
-  font-weight: 700;
-}
-
-.contactElement>input,
-.contactElement>select,
-.contactElement>textarea {
-  padding: .9em;
-  border-color: #ccc;
-  background-color: #fff;
-}
-
-.contactElement>textarea {
-  height: 7.7em;
-}
-
-#propertyContact button {
-  width: auto;
-  padding: .8em 2.5em;
-  height: auto;
-  margin-top: 2.5em;
 }
 
 #propertyGroups {
@@ -507,6 +443,19 @@ hr {
   text-align: center;
 }
 
+#propertyInfo .flexRowWrap>aside,#propertyInfo .flexRowWrap>article{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#propertyInfo .flexRowWrap>aside{
+  background: #fff;
+}
+
+#propertyInfo .flexRowWrap>article h1{
+  margin-top: 0;
+}
+
 @media (min-width:961px) {
   #propertySearchHeading {
     display: inline;
@@ -518,6 +467,7 @@ hr {
   #exclusivePropertiesContainer article,
   #latestAcquisitionsContainer article {
     width: 49.5%;
+    height: 18em;
   }
 
   #videoGalleryFullVideo {
@@ -543,10 +493,6 @@ hr {
     flex: 2;
   }
 
-  #contactElementContainer {
-    height: 7em;
-  }
-
   #propertyGroupsBtns>button {
     margin-right: 1.5em;
   }
@@ -569,6 +515,18 @@ hr {
 
   #productInfo1Content>div {
     width: 50%;
+  }
+
+  #propertyInfo .flexRowWrap>article{
+    width: 65%;
+  }
+  
+  #propertyInfo .flexRowWrap>aside{
+    width: 30%;
+  }
+
+  .propertyBestProperties{
+    padding: 0 .2em;
   }
 }
 
