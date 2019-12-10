@@ -204,6 +204,7 @@ margin-top: 0;
 
 @media (min-width:1600px) {
   .textContainer {
+    margin-top: 2em;
     width: 20%;
   }
 }
