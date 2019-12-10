@@ -1,21 +1,8 @@
-#propertySearch {
-  padding: 0 2em .2em 2em;
-  background: #064A77;
-}
-
-.formGroup.flex {
-  justify-content: space-between;
-}
-
-.formGroup {
+/* .formGroup {
   margin-top: .7em;
-}
+} */
 
-.formElement.flex {
-  flex-basis: 100%;
-}
-
-.formElement.float button {
+/* .formElement.float button {
   width: 3em;
   float: right;
   margin-left: .8em;
@@ -23,15 +10,7 @@
 
 .formElement.float button>svg {
   display: inline;
-}
-
-.formElement.hiddenOverflow {
-  overflow: hidden;
-}
-
-.formElement.hiddenOverflow>input {
-  width: 100%;
-}
+} */
 
 .formElement {
   -webkit-box-sizing: border-box;
@@ -46,13 +25,13 @@
 .formElement button,
 .formElement input {
   height: 2.3em;
-  padding: 0 .3em;
   border-radius: .2em;
-  margin-top: .5em;
+  margin-top: 1em;
+  /* margin: .5em; */
+  width: 100%;
 }
 
-.formElement button,
-.formElement>select {
+.formElement.flex{
   width: 100%;
 }
 
@@ -64,10 +43,10 @@
   display: inline;
 }
 
-.formElement input {
+/* .formElement input {
   background: #fff;
   border: 0;
-}
+} */
 
 .formElement>select {
   border: 1px solid #CCC;
@@ -90,11 +69,6 @@
   display: none;
 }
 
-/* .formGroup.flex {
-  display: flex;
-  flex-flow: row wrap;
-} */
-
 /* CAUTION: Internet Explorer hackery ahead */
 .formElement>select::-ms-expand {
   display: none;
@@ -110,18 +84,6 @@
 }
 
 @media (min-width:961px) {
-  .formElement>select {
-    width: 15em;
-  }
-
-  .formElement>button {
-    width: 3em;
-  }
-
-  .formElement.flex {
-    flex-basis: auto;
-  }
-
   .formElement button span {
     display: none;
   }
@@ -130,17 +92,47 @@
     display: inline;
   }
 
-  .formGroup h4 {
+  /* .formGroup h4 {
     float: left;
     margin-right: 3em;
-  }
+  } */
 
-  .formElement.hiddenOverflow>input {
+  /* .formElement.hiddenOverflow>input {
     width: 16em;
-  }
+  } */
 
-  .formElement.float {
+  /* .formElement.float {
     display: table;
     margin: 0 auto;
+  } */
+
+  .formElement.flex{
+    flex-grow: 1;
   }
+  
+  .formElement.flex.selectChevDownElement{
+    flex-grow: 4;
+  }
+
+  .formElement.flex{
+    padding: 0 .2em;
+  }
+  
+  .formElement.flex:first-child{
+    padding-left: 0;
+  }
+  
+  .formElement.flex:last-child{
+    padding-right: 0;
+  }
+
+  .formElement.flex{
+    width: auto;
+  }
+
+  .formElement>select,
+.formElement button,
+.formElement input {
+  margin-top: .5em;
+}
 }

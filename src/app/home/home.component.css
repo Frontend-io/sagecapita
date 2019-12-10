@@ -12,12 +12,11 @@
   margin-left: 0;
 }
 
-#propertySearchHeading>img {
+#propertySearchHeading img {
   height: 1.5em;
   vertical-align: middle;
-  cursor: pointer;
 }
-
+ 
 #propertyBest,
 #exclusivePropertiesContainer,
 #latestAcquisitionsContainer {
@@ -443,17 +442,72 @@ hr {
   text-align: center;
 }
 
-#propertyInfo .flexRowWrap>aside,#propertyInfo .flexRowWrap>article{
+#propertyInfo .flexRowWrap>aside,
+#propertyInfo .flexRowWrap>article {
   width: 100%;
   box-sizing: border-box;
 }
 
-#propertyInfo .flexRowWrap>aside{
+#propertyInfo .flexRowWrap>aside {
   background: #fff;
 }
 
-#propertyInfo .flexRowWrap>article h1{
+#propertyInfo .flexRowWrap>article{
+  padding: 2em;
+}
+
+#propertyInfo .flexRowWrap>article h1 {
   margin-top: 0;
+}
+
+#propertySearchBottom>button {
+  width: 3em;
+  float: right;
+  padding: .2em .5em .1em .2em;
+  border-width: 1px;
+  border-color: #fff;
+  color: #fff; 
+  height: 2.3em;
+}
+
+#propertySearchBottom>h4 {
+  margin: 0;
+}
+
+#propertySearchBottomInputContainer {
+  overflow: hidden;
+}
+
+#propertySearchBottomInputContainer>input {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border: 0;
+  height: 2.3em;
+}
+
+#propertySearchBottom>h4{
+  margin-top: 1.3em;
+}
+
+#propertySearchBottomInputContainer{
+  margin-top: 1em;
+}
+
+#propertySearchBottom>button{
+  margin-top: 1.15em;
+}
+
+#propertySearch{
+  padding-top: .7em;
+  padding-bottom: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  background: #064A77;
+}
+
+#propertySearchBottom>button {
+  margin-left: .6em;
 }
 
 @media (min-width:961px) {
@@ -517,16 +571,40 @@ hr {
     width: 50%;
   }
 
-  #propertyInfo .flexRowWrap>article{
+  #propertyInfo .flexRowWrap>article {
     width: 65%;
+    padding: 0;
   }
-  
-  #propertyInfo .flexRowWrap>aside{
+
+  #propertyInfo .flexRowWrap>aside {
     width: 30%;
   }
 
-  .propertyBestProperties{
+  .propertyBestProperties {
     padding: 0 .2em;
+  }
+
+  #closingInfo {
+    padding-left: 6em;
+    padding-right: 6em;
+  }
+
+  #propertySearchBottom>h4 {
+    margin-right: 3em;
+    float: left;
+  }
+
+  #propertySearchBottom{
+    width: 40%;
+    margin: 0 auto;
+    display: table;
+  }
+
+  #propertySearch{
+    padding-top: 1.7em;
+  padding-bottom: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
   }
 }
 

@@ -57,6 +57,7 @@
   margin: .5em 0 0 0;
 }
 
+.searchResultsBody button:hover,
 .searchResultsBody button.filled {
   background: #fff;
   color: rgb(2, 36, 58);

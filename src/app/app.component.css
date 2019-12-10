@@ -252,4 +252,9 @@ footer p{
     width: 8em;
     margin-left: .5em;
   }
+
+  footer {
+    padding-left: 6em; 
+    padding-right: 6em;
+  }
 }

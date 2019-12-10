@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', '../app.property-search.css']
+  styleUrls: ['./home.component.css', '../shared/app.properties-search.css']
 })
 export class HomeComponent implements OnInit {
 
