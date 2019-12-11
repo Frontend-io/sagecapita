@@ -31,12 +31,18 @@
 .contactOfficesInfo button {
   height: 3em;
   float: right;
+  border-color: #064A77;
+  color: #064A77;
+}
+
+a{
+  color: #064A77;
 }
 
 .contactOfficesInfo button:hover {
-    background: rgb(2, 36, 58);
+    background: #064A77;
     color: #fff;
-    border-color: rgb(2, 36, 58);
+    border-color: #064A77;
 }
 
 .contactOfficesInfo p {

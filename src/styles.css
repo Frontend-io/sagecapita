@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Hind', sans-serif;
-  color: rgb(2, 36, 58);
+  color: #064A77;
   letter-spacing: .02em;
 }
 
@@ -29,16 +29,19 @@ textarea {
   border-radius: .2em;
 }
 
-input:not([type="checkbox"]), select,textarea {
+input:not([type="checkbox"]),
+select,
+textarea {
   padding: 0 .7em;
   height: 3em;
 }
 
-input:not([type="checkbox"]), select{
+input:not([type="checkbox"]),
+select {
   width: 20em;
 }
 
-textarea{
+textarea {
   width: 20.5em;
 }
 
@@ -46,7 +49,7 @@ textarea{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(./assets/chevron-down.png) 96% / 5% no-repeat #EEE;
+  background: url(./assets/chevron-down.png) 96% / 1em no-repeat #EEE;
   cursor: pointer;
 }
 
@@ -58,13 +61,13 @@ textarea{
 
 /* Target Internet Explorer 9 to undo the custom arrow */
 @media screen and (min-width:0\0) {
-.selectChevDownElement>select {
+  .selectChevDownElement>select {
     background: none\9;
     padding: 5px\9;
   }
 }
 
-input:not([type="checkbox"]){
+input:not([type="checkbox"]) {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -78,7 +81,7 @@ button {
   display: block;
   margin: 0 auto;
   width: 100%;
- font-weight: 700;
+  font-weight: 700;
 }
 
 ul li {
@@ -105,16 +108,81 @@ button:focus {
   justify-content: center;
 }
 
-.flexRowWrap{
+.flexRowWrap {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
 
+p {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2,
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+input,
+textarea,
+select {
+  color: #9fa4a8;;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.container {
+  margin: 0 auto;
+  display: table;
+}
+
 @media (min-width:961px) {
+  /* .container {
+    width: 95%;
+  } */
+}
+
+@media (min-width:1025px) { 
+  .container {
+    width: 95%;
+  }
+ }
+
+@media (min-width:1281px) { 
   .container {
     width: 90%;
-    margin: 0 auto;
-    display: table;
+  }
+ }
+
+ @media screen and (min-width: 1400px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .container {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .container {
+    width: 60%;
   }
 }

@@ -1,20 +1,24 @@
 #searchBand {
-  background: rgb(2, 36, 58);
-  padding: .5em 2em 2em 2em;
+  background: #064A77;
+  padding: .5em 2em .9em 2em;
 }
 
 .searchSectionFormContainerElement>select {
   height: 2.5em;
   border-color: #ccc;
   margin-right: .5em;
-  color: rgb(2, 36, 58);
+  color: #064A77;
   background-color: #fff;
   width: 100%;
   margin-bottom: .6em;
 }
 
 #searchSection {
-  padding: 3em 2em 0 2em;
+  padding: 2em 2em 0 2em;
+}
+
+#searchSection h1{
+  margin: 0;
 }
 
 #searchResults {
@@ -30,7 +34,7 @@
 }
 
 .searchResultsBody {
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
   padding: .8em;
 }
@@ -60,12 +64,12 @@
 .searchResultsBody button:hover,
 .searchResultsBody button.filled {
   background: #fff;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 .searchResultsBody button.filled:hover {
   color: #fff;
-  background: rgb(2, 36, 58);
+  background: #064A77;
 }
 
 .searchResultsImgContainer {

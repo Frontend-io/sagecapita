@@ -18,12 +18,12 @@
 #firmContainer article button {
   width: 80%;
   height: 3em;
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
 }
 
 #firmContainer article button:hover {
-    color: rgb(2, 36, 58);
+    color: #064A77;
     background: #fff;
 }
 

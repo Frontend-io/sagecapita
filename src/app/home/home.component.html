@@ -1,12 +1,14 @@
 <app-carousel></app-carousel>
 <div id="propertySearchContainer">
-  <span id="propertySearchHeading">
-    <span>SEARCH</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span>1593 PROPERTIES</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#propertySearchContainer"><img src="../assets/chevron-down-white.png" alt="Chevron down" /></a>
-  </span>
+  <div class="container">
+    <span id="propertySearchHeading">
+      <span>SEARCH</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>1593 PROPERTIES</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#propertySearchContainer"><img src="../assets/chevron-down-white.png" alt="Chevron down" /></a>
+    </span>
+  </div>
   <div id="propertySearch">
     <div class="container">
       <app-properties-search></app-properties-search>
@@ -85,7 +87,7 @@
       </a>
     </article>
   </div>
-  <button>SEE ALL (23)</button>
+  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
   <hr />
 </section>
 <section id="exclusivePropertiesContainer">
@@ -160,105 +162,118 @@
       </a>
     </article>
   </div>
-  <button>SEE ALL (23)</button>
+  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
 </section>
 <section id="propertyInfo">
- <div class="container">
+  <div class="container">
     <div class="flexRowWrap">
-        <aside>
-          <app-info-aside></app-info-aside>
-        </aside>
-        <article class="verticalAlign"> 
-          <div>
-            <h1><strong>Largest Selection of Luxury Homes for Sale in Nigeria</strong></h1>
-          <p>We offer the largest collection of luxury and exclusive properties for sale in Nigeria, and several cities around the world. We pre-vet every property listed for fraud, pricing, market conditions and government regulations. We hand pick our properties and select the best listings to offer you the most desirable locations in Lagos, Abuja, Port Harcourt, Dubai, London, Florida and several other cities.</p>
-          <p>We’ve built a team of professionals with exceptional knowledge of the market and a commitment to service. Everyone shares expertise and information in order to meet your goals. Every property is backed by iron-clad agreements written to protect our clients and their investments. Our legal team conducts thorough verification on our properties and only approves a listing once it passes our rigorous verification protocols.</p>
-          </div>
-        </article>
-      </div>
- </div>
+      <aside>
+        <app-info-aside></app-info-aside>
+      </aside>
+      <article class="verticalAlign">
+        <div>
+          <h1><strong>Largest Selection of Luxury Homes for Sale in Nigeria</strong></h1>
+          <p>We offer the largest collection of luxury and exclusive properties for sale in Nigeria, and several cities
+            around the world. We pre-vet every property listed for fraud, pricing, market conditions and government
+            regulations. We hand pick our properties and select the best listings to offer you the most desirable
+            locations in Lagos, Abuja, Port Harcourt, Dubai, London, Florida and several other cities.</p>
+          <p>We’ve built a team of professionals with exceptional knowledge of the market and a commitment to service.
+            Everyone shares expertise and information in order to meet your goals. Every property is backed by iron-clad
+            agreements written to protect our clients and their investments. Our legal team conducts thorough
+            verification on our properties and only approves a listing once it passes our rigorous verification
+            protocols.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section>
+    <h3 style="text-align: center;"><strong>VIDEO GALLERY</strong></h3>
 </section>
 <section id="videoGallery">
-  <h3><strong>VIDEO GALLERY</strong></h3>
-  <div id="videoGalleryContent">
-    <div id="videoGalleryExclusive">
-      <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
-      <hr />
-      <p><strong>LUCCA</strong></p>
-      <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.
-        </small></p>
-      <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
-      <h3>ON APPLICATION</h3>
-      <button class="filled">SHOW</button>
-      <button>ASK FOR INFORMATION</button>
-    </div>
-    <div id="videoGalleryFullVideo">
-      <video width="100%" poster="../../assets/home-carousel/slide_2.jpg" controls>
-        <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div id="videoGalleryFullVideoBtns">
-        <button>GET FULL VIDEO</button>
-        <button class="share"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-            height="1em">
-            <path
-              d="M 20 0 C 17.789063 0 16 1.789063 16 4 C 16 4.277344 16.039063 4.550781 16.09375 4.8125 L 7 9.375 C 6.265625 8.535156 5.203125 8 4 8 C 1.789063 8 0 9.789063 0 12 C 0 14.210938 1.789063 16 4 16 C 5.203125 16 6.265625 15.464844 7 14.625 L 16.09375 19.1875 C 16.039063 19.449219 16 19.722656 16 20 C 16 22.210938 17.789063 24 20 24 C 22.210938 24 24 22.210938 24 20 C 24 17.789063 22.210938 16 20 16 C 18.796875 16 17.734375 16.535156 17 17.375 L 7.90625 12.8125 C 7.960938 12.550781 8 12.277344 8 12 C 8 11.722656 7.960938 11.449219 7.90625 11.1875 L 17 6.625 C 17.734375 7.464844 18.796875 8 20 8 C 22.210938 8 24 6.210938 24 4 C 24 1.789063 22.210938 0 20 0 Z" />
-          </svg></button>
+  <div class="container">
+    <div style="background: #fff; ">
+      <div id="videoGalleryContent">
+        <div id="videoGalleryExclusive">
+          <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
+          <hr />
+          <p><strong>LUCCA</strong></p>
+          <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.
+            </small></p>
+          <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
+          <h3>ON APPLICATION</h3>
+          <button class="filled">SHOW</button>
+          <button>ASK FOR INFORMATION</button>
+        </div>
+        <div id="videoGalleryFullVideo">
+          <video width="100%" height="100%" poster="../../assets/home-carousel/slide_2.jpg" controls>
+            <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div id="videoGalleryFullVideoBtns">
+            <button>GET FULL VIDEO</button>
+            <button class="share"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
+                height="1em">
+                <path
+                  d="M 20 0 C 17.789063 0 16 1.789063 16 4 C 16 4.277344 16.039063 4.550781 16.09375 4.8125 L 7 9.375 C 6.265625 8.535156 5.203125 8 4 8 C 1.789063 8 0 9.789063 0 12 C 0 14.210938 1.789063 16 4 16 C 5.203125 16 6.265625 15.464844 7 14.625 L 16.09375 19.1875 C 16.039063 19.449219 16 19.722656 16 20 C 16 22.210938 17.789063 24 20 24 C 22.210938 24 24 22.210938 24 20 C 24 17.789063 22.210938 16 20 16 C 18.796875 16 17.734375 16.535156 17 17.375 L 7.90625 12.8125 C 7.960938 12.550781 8 12.277344 8 12 C 8 11.722656 7.960938 11.449219 7.90625 11.1875 L 17 6.625 C 17.734375 7.464844 18.796875 8 20 8 C 22.210938 8 24 6.210938 24 4 C 24 1.789063 22.210938 0 20 0 Z" />
+              </svg></button>
+          </div>
+        </div>
+        <div id="videoGalleryList">
+          <div id="videoGalleryListContainer">
+            <table>
+              <tbody>
+                <tr>
+                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <td>
+                    <p><strong><small>Island of Stromboli</small></strong></p>
+                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
+                    <div class="videoGalleryListBtns">
+                      <button class="filled">SHOW</button>
+                      <button>FULL VIDEO</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <td>
+                    <p><strong><small>Island of Stromboli</small></strong></p>
+                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
+                    <div class="videoGalleryListBtns">
+                      <button class="filled">SHOW</button>
+                      <button>FULL VIDEO</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <td>
+                    <p><strong><small>Island of Stromboli</small></strong></p>
+                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
+                    <div class="videoGalleryListBtns">
+                      <button class="filled">SHOW</button>
+                      <button>FULL VIDEO</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <td>
+                    <p><strong><small>Island of Stromboli</small></strong></p>
+                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
+                    <div class="videoGalleryListBtns">
+                      <button class="filled">SHOW</button>
+                      <button>FULL VIDEO</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
+        </div>
       </div>
-    </div>
-    <div id="videoGalleryList">
-      <div id="videoGalleryListContainer">
-        <table>
-          <tbody>
-            <tr>
-              <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-              <td>
-                <p><strong><small>Island of Stromboli</small></strong></p>
-                <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                <div class="videoGalleryListBtns">
-                  <button class="filled">SHOW</button>
-                  <button>FULL VIDEO</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-              <td>
-                <p><strong><small>Island of Stromboli</small></strong></p>
-                <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                <div class="videoGalleryListBtns">
-                  <button class="filled">SHOW</button>
-                  <button>FULL VIDEO</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-              <td>
-                <p><strong><small>Island of Stromboli</small></strong></p>
-                <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                <div class="videoGalleryListBtns">
-                  <button class="filled">SHOW</button>
-                  <button>FULL VIDEO</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
-              <td>
-                <p><strong><small>Island of Stromboli</small></strong></p>
-                <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                <div class="videoGalleryListBtns">
-                  <button class="filled">SHOW</button>
-                  <button>FULL VIDEO</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-      <button class="filled">SEE ALL (23)</button>
-    </div>
   </div>
 </section>
 <app-contact-section></app-contact-section>
@@ -333,34 +348,36 @@
   </div>
 </section>
 <section id="productInfo1">
-  <div id="productInfo1Content">
-    <div>
-      <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
-    </div>
-    <div id="productInfo1Text">
-      <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
-      <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-      <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on April
-        21
-        753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-        populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
-        For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
-        there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
-        surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
-        forum, Paleo-Christian basilicas to medieva...</p>
-      <button>READ MORE</button>
-    </div>
-  </div>
-  <div id="productInfo1BlogBand">
+ <div class="container">
+    <div id="productInfo1Content">
+        <div class="verticalAlign">
+          <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
+        </div>
+        <div id="productInfo1Text">
+          <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
+          <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
+          <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on April
+            21
+            753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
+            populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
+            For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
+            there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
+            surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
+            forum, Paleo-Christian basilicas to medieva...</p>
+          <button>READ MORE</button>
+        </div>
+      </div>      
+ </div>
+ <div id="productInfo1BlogBand">
     <strong>Sage Capita BLOG</strong><button>SEE ALL NEWS</button>
-  </div>
+  </div> 
 </section>
 <section id="latestAcquisitionsContainer">
   <h3>LATEST ACQUISITIONS</h3>
   <div class="propertyBestProperties">
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/home-carousel/slide_22.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -411,7 +428,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/home-carousel/slide_21.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -427,20 +444,23 @@
       </a>
     </article>
   </div>
-  <button>SEE ALL (72)</button>
+  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (72)</button></a>
 </section>
 <section id="closingInfo">
   <div class="container">
-      <h1><strong>Exceptional Luxury Real Estate Firm</strong></h1>
-      <p>Sage Capita is a luxury real estate brokerage firm, serving Nigeria and other important cities of the world.
-        Specializing in outstanding high-end investment portfolio that includes true dream homes, luxury villas, castles for
-        sale and luxury estates that can satisfy all needs. We offer a constantly updated selection of splendid villas for
-        sale with the purpose to offer our clients a full catalogue inclusive of prestigious estates and dream homes,
-        located in the most extraordinary areas of Nigeria and several important cities of the world.</p>
-      <p>With several years of experience, our consultants are able to offer professional guidance in the choice of your
-        ideal property, with the support of our expertise and knowledge combined with total confidentiality and reserve, we
-        help investors, buyers and sellers locate the finest properties and negotiate the best deals. Our team is small
-        enough to provide each of our clients with personal attention in order to meet their needs; large enough to deplore
-        advanced and highly sophisticated software platform to provide an unparallel brand exposure.</p>
+    <h1><strong>Exceptional Luxury Real Estate Firm</strong></h1>
+    <p>Sage Capita is a luxury real estate brokerage firm, serving Nigeria and other important cities of the world.
+      Specializing in outstanding high-end investment portfolio that includes true dream homes, luxury villas, castles
+      for
+      sale and luxury estates that can satisfy all needs. We offer a constantly updated selection of splendid villas for
+      sale with the purpose to offer our clients a full catalogue inclusive of prestigious estates and dream homes,
+      located in the most extraordinary areas of Nigeria and several important cities of the world.</p>
+    <p>With several years of experience, our consultants are able to offer professional guidance in the choice of your
+      ideal property, with the support of our expertise and knowledge combined with total confidentiality and reserve,
+      we
+      help investors, buyers and sellers locate the finest properties and negotiate the best deals. Our team is small
+      enough to provide each of our clients with personal attention in order to meet their needs; large enough to
+      deplore
+      advanced and highly sophisticated software platform to provide an unparallel brand exposure.</p>
   </div>
 </section>

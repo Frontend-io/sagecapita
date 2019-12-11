@@ -16,11 +16,11 @@
   height: 1.5em;
   vertical-align: middle;
 }
- 
+
 #propertyBest,
 #exclusivePropertiesContainer,
 #latestAcquisitionsContainer {
-  padding: 2em 0 .6em 0;
+  padding: 1.3em 0 .6em 0;
 }
 
 #exclusivePropertiesContainer,
@@ -36,14 +36,13 @@
 #exclusivePropertiesContainer h3,
 #latestAcquisitionsContainer h3 {
   text-align: center;
-  color: rgb(1, 23, 37);
 }
 
 .propertyBestProperties>article {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .propertyBestProperties .propertyStar {
@@ -54,11 +53,11 @@
   height: 25px;
 }
 
-#propertyBest>h3,
-#exclusivePropertiesContainer>h3,
-#latestAcquisitionsContainer>h3 {
+#propertyBest h3,
+#exclusivePropertiesContainer h3,
+#latestAcquisitionsContainer h3 {
   margin: 0 0 1.4em 0;
-  color: rgb(1, 23, 37);
+  margin-bottom: .9em;
 }
 
 .propertyBestProperties .propertyImage {
@@ -70,6 +69,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 5.5em;
 }
 
 .propertyData {
@@ -120,21 +120,34 @@
   font-weight: 700;
 }
 
-#propertyBest>button,
-#exclusivePropertiesContainer>button,
-#latestAcquisitionsContainer>button {
+#propertyBest button,
+#exclusivePropertiesContainer button,
+#latestAcquisitionsContainer button {
   width: auto;
   padding: .6em 5em;
   height: auto;
-  border-color: rgb(2, 36, 58);
-  color: rgb(2, 36, 58);
 }
 
-#propertyBest>button:hover,
-#exclusivePropertiesContainer>button:hover,
-#latestAcquisitionsContainer>button:hover {
-  background: rgb(2, 36, 58);
+#propertyBest button,
+#exclusivePropertiesContainer button,
+#latestAcquisitionsContainer button,
+#propertyBest button.filled:hover,
+#exclusivePropertiesContainer button.filled:hover,
+#latestAcquisitionsContainer button.filled:hover {
+  background: #fff;
+  color: #064A77;
+  border-color: #064A77;
+}
+
+#propertyBest button.filled,
+#exclusivePropertiesContainer button.filled,
+#latestAcquisitionsContainer button.filled,
+#propertyBest button:hover,
+#exclusivePropertiesContainer button:hover,
+#latestAcquisitionsContainer button:hover {
+  background: #064A77;
   color: #fff;
+  border-color: #064A77;
 }
 
 #propertyBest>hr,
@@ -148,16 +161,17 @@
 #propertyInfo {
   text-align: center;
   background: #f4f4f5;
-  color: rgb(1, 23, 37);
+  color:  #064A77;
 }
 
-#videoGallery {
-  padding: 3.5em 0;
-}
+/* #videoGallery {
+  background: #064A77;
+} */
 
-#videoGallery>h3 {
+#videoGallery h3 {
   text-align: center;
-  color: rgb(1, 23, 37);
+  margin-top: 0;
+  color: #fff;
 }
 
 #videoGalleryList button {
@@ -171,13 +185,13 @@
 
 #videoGalleryList button:hover,
 #videoGalleryList button.filled {
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
-  border-color: rgb(2, 36, 58);
+  border-color: #064A77;
 }
 
 #videoGalleryList button.filled:hover {
-  color: rgb(2, 36, 58);
+  color: #064A77;
   background: #fff;
 }
 
@@ -207,9 +221,16 @@
   margin-top: 2em;
 }
 
-#videoGalleryExclusive>h3 {
-  margin-top: 0;
+#videoGalleryList {
+  border-right: 4px solid #fff;
 }
+
+
+#videoGalleryContent {
+  border-left: 4px solid #fff;
+}
+
+#videoGalleryExclusive h3 {}
 
 hr {
   border: none;
@@ -218,30 +239,30 @@ hr {
 
 #videoGalleryExclusive button {
   border-color: #fff;
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
   height: 3.5em;
 }
 
 #videoGalleryExclusive button:hover {
   background: #fff;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 #videoGalleryExclusive button.filled:hover {
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
 }
 
 #videoGalleryExclusive button.filled {
   background: #fff;
-  color: rgb(2, 36, 58);
+  color: #064A77;
   margin-bottom: 1em;
 }
 
 #videoGalleryExclusive {
   padding: 1.5em;
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
   height: 100%;
 }
@@ -251,7 +272,7 @@ hr {
 }
 
 #videoGalleryList p {
-  margin: .3em 0 .3em 0;
+  margin: 0 0 .3em 0;
 }
 
 #videoGalleryList td {
@@ -260,11 +281,13 @@ hr {
 
 #videoGalleryFullVideo button {
   width: auto;
-  background: rgb(2, 36, 58);
+  background: #064A77;
+  border-color: #064A77;
   height: auto;
   color: #fff;
   padding: .6em 1.5em;
   display: inline;
+  margin: 0 .2em;
 }
 
 #videoGalleryFullVideo button.share {
@@ -282,34 +305,34 @@ hr {
   overflow: auto;
 }
 
-#videoGalleryList>button {
+#videoGalleryList button {
   width: 100%;
   margin-top: 1em;
 }
 
 #propertyGroups {
   text-align: center;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
-#propertyGroupsBtns>button {
+#propertyGroupsBtns button {
   width: 15em;
   display: inline;
   margin: auto;
   padding: .5em 0;
-  border-color: rgb(2, 36, 58);
-  color: rgb(2, 36, 58);
+  border-color: #064A77;
+  color: #064A77;
   margin-bottom: .5em;
 }
 
-#propertyGroupsBtns>button.active {
-  background: rgb(2, 36, 58);
+#propertyGroupsBtns button.active {
+  background: #064A77;
   color: #fff;
 }
 
-#propertyGroupsBtns>button:not(.active):hover {
+#propertyGroupsBtns button:not(.active):hover {
   color: #fff;
-  background: rgb(2, 36, 58);
+  background: #064A77;
 }
 
 #propertyGroupsList {
@@ -319,7 +342,7 @@ hr {
 #propertyGroupsList>.propertyGroupsItem {
   width: 100%;
   position: relative;
-  height: 25em;
+  height: 24em;
   overflow: hidden;
   margin-top: .5em;
 }
@@ -354,14 +377,14 @@ hr {
   margin: 0;
 }
 
-.propertyGroupsItemContent>button {
+.propertyGroupsItemContent button {
   width: 9.5em;
   padding: .5em 0;
   background: #fff;
   border-color: #fff;
   font-size: 70%;
   margin-top: 1.2em;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 .propertyGroupsItemOverlay {
@@ -370,7 +393,7 @@ hr {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgb(2, 36, 58);
+  background: #064A77;
   opacity: .2;
   transition-duration: 500ms;
 }
@@ -384,11 +407,13 @@ hr {
   font-style: italic;
 }
 
+#productInfo1 {
+  background: #f4f4f5;
+}
+
 #productInfo1Content {
   padding: .4em 0;
-  background: #f4f4f5;
-  margin-top: 3.5em;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 #productInfo1Content>div {
@@ -396,20 +421,24 @@ hr {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: .5em;
+  /* margin-top: .5em; */
 }
 
 #productInfo1Text {
-  padding: .3em 2.5em;
+  padding: 1em 2.5em;
   text-align: center;
 }
 
-#productInfo1Text>button {
+#productInfo1Text>h1 {
+  margin-top: 0;
+}
+
+#productInfo1Text button {
   width: 12em;
   padding: .6em 0;
   color: #fff;
-  border-color: rgb(2, 36, 58);
-  background: rgb(2, 36, 58);
+  border-color: #064A77;
+  background: #064A77;
   font-size: 70%;
 }
 
@@ -418,13 +447,13 @@ hr {
 }
 
 #productInfo1BlogBand {
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
   text-align: center;
   padding: 1em 0;
 }
 
-#productInfo1BlogBand>button {
+#productInfo1BlogBand button {
   width: 13em;
   display: inline;
   margin: auto;
@@ -438,7 +467,7 @@ hr {
 #closingInfo {
   padding: 1.5em 2.5em;
   background: #f4f4f5;
-  color: rgb(2, 36, 58);
+  color: #064A77;
   text-align: center;
 }
 
@@ -452,7 +481,7 @@ hr {
   background: #fff;
 }
 
-#propertyInfo .flexRowWrap>article{
+#propertyInfo .flexRowWrap>article {
   padding: 2em;
 }
 
@@ -460,13 +489,13 @@ hr {
   margin-top: 0;
 }
 
-#propertySearchBottom>button {
+#propertySearchBottom button {
   width: 3em;
   float: right;
   padding: .2em .5em .1em .2em;
   border-width: 1px;
   border-color: #fff;
-  color: #fff; 
+  color: #fff;
   height: 2.3em;
 }
 
@@ -483,22 +512,22 @@ hr {
   overflow: hidden;
   background: #fff;
   border: 0;
-  height: 2.3em;
+  height: 2.4em;
 }
 
-#propertySearchBottom>h4{
+#propertySearchBottom>h4 {
   margin-top: 1.3em;
 }
 
-#propertySearchBottomInputContainer{
+#propertySearchBottomInputContainer {
   margin-top: 1em;
 }
 
-#propertySearchBottom>button{
+#propertySearchBottom button {
   margin-top: 1.15em;
 }
 
-#propertySearch{
+#propertySearch {
   padding-top: .7em;
   padding-bottom: 1.5em;
   padding-left: 2em;
@@ -506,7 +535,7 @@ hr {
   background: #064A77;
 }
 
-#propertySearchBottom>button {
+#propertySearchBottom button {
   margin-left: .6em;
 }
 
@@ -521,7 +550,8 @@ hr {
   #exclusivePropertiesContainer article,
   #latestAcquisitionsContainer article {
     width: 49.5%;
-    height: 18em;
+    height: 20em;
+    background: #064A77;
   }
 
   #videoGalleryFullVideo {
@@ -535,7 +565,17 @@ hr {
   }
 
   #videoGalleryListContainer {
-    height: 363.1px;
+    height: 400px;
+  }
+
+  #videoGalleryListContainer table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 0;
+  }
+
+  #videoGalleryListContainer th {
+    vertical-align: top;
   }
 
   #videoGalleryExclusive,
@@ -547,11 +587,11 @@ hr {
     flex: 2;
   }
 
-  #propertyGroupsBtns>button {
+  #propertyGroupsBtns button {
     margin-right: 1.5em;
   }
 
-  #propertyGroupsBtns>button:last-child {
+  #propertyGroupsBtns button:last-child {
     margin-right: 0;
   }
 
@@ -561,6 +601,7 @@ hr {
 
   .propertyGroupsItem>img {
     height: 100%;
+    width: auto;
   }
 
   .propertyGroupsItemContent h2 {
@@ -594,17 +635,17 @@ hr {
     float: left;
   }
 
-  #propertySearchBottom{
+  #propertySearchBottom {
     width: 40%;
     margin: 0 auto;
     display: table;
   }
 
-  #propertySearch{
+  #propertySearch {
     padding-top: 1.7em;
-  padding-bottom: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 
@@ -616,5 +657,23 @@ hr {
   #exclusivePropertiesContainer article,
   #latestAcquisitionsContainer article {
     width: 24.5%;
+  }
+}
+
+@media (min-width: 1900px) {
+
+  #propertyBest article,
+  #exclusivePropertiesContainer article,
+  #latestAcquisitionsContainer article {
+    height: 28em;
+  }
+
+  #propertyGroupsList>.propertyGroupsItem {
+    height: 26em;
+  }
+
+  .propertyGroupsItem>img {
+    height: auto;
+    width: 100%;
   }
 }

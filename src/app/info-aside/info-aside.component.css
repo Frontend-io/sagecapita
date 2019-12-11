@@ -1,4 +1,4 @@
-h1 {
+h4 {
   margin: 1em 0;
   line-height: 1.2em;
 }
@@ -9,7 +9,7 @@ p {
 }
 
 p a {
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 aside {
