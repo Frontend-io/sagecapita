@@ -1,24 +1,45 @@
-div{
+div {
   padding: 0 2em;
 }
 
-button{
-    height: 3.6em;
-    margin-bottom: 1em;
-    border-color: rgb(2, 36, 58);
-  }
-  
-button:hover{
-    background: rgb(2, 36, 58);
-    color: #fff;
-  }
-  
-button.filled{
-    background: rgb(2, 36, 58);
-    color: #fff;
-  }
-  
-button.filled:hover{
-    background:transparent;
-    color:rgb(2, 36, 58);
-  }
+button {
+  height: 3.6em;
+  margin-bottom: 1em;
+  border-color: #064A77;
+  color: #064A77;
+}
+
+button.light {
+  background: #0297F1;
+  border-color: #0297F1;
+  color: #fff;
+}
+
+button.light:hover {
+  color: #0297F1;
+  background: #fff;
+  border-color: #0297F1;
+}
+
+button.filled, button:hover {
+  background: #064A77;
+  color: #fff;
+  border-color: #064A77;
+}
+
+button.orange{
+  color: #fff;
+  background: rgb(241, 116, 7);
+  border-color: rgb(241, 116, 7);
+}
+
+button.orange:hover {
+  background: #fff;
+  color: rgb(241, 116, 7);
+  border-color: rgb(241, 116, 7);
+}
+
+button.filled:hover {
+  background: transparent;
+  color: #064A77;
+}

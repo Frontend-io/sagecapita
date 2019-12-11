@@ -18,21 +18,29 @@ video {
   box-sizing: border-box;
 }
 
+h4{
+  font: 22px "Libre Baskerville";
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
 hr {
   border-width: 0;
   border-top-width: 1px;
-  margin: 1.6em 0;
+  margin: 1.2em 0;
 }
 
 #joinColsContainer>article>button {
   height: 3em;
   width: 100%;
   margin: 2.4em 0;
+  border-color:#064A77;
+  color: #064A77;
 }
 
 #joinColsContainer>article>button:hover {
-  background: rgb(2, 36, 58);
-  border-color: rgb(2, 36, 58);
+  background: #064A77;
+  border-color: #064A77;
   color: #fff;
 }
 
@@ -67,7 +75,7 @@ hr {
 
 
 a{
-  color:rgb(2, 36, 58);
+  color:#064A77;
 }
 
 
@@ -80,7 +88,7 @@ a{
   background: #f4f4f5;
   text-align: center;
   padding: .9em 1em 2em 1.5em;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 #joinFormContainer>.container> p {
@@ -142,14 +150,14 @@ a{
 }
 
 #joinFormContainer button {
-  background: rgb(2, 36, 58);
+  background: #064A77;
   color: #fff;
-  border-color: rgb(2, 36, 58);
+  border-color: #064A77;
 }
 
 #joinFormContainer button:hover {
   background: #fff;
-  color: rgb(2, 36, 58);
+  color: #064A77;
 }
 
 
@@ -170,6 +178,7 @@ a{
 
   #joinColsContainer>article>button{
     width: 35%;
+    
   }
 
 

@@ -60,9 +60,11 @@
   /* Container for image text */
   .caption-container {
     text-align: center;
-    background-color: rgb(2, 36, 58);;
-    padding: 2px 16px;
-    color: white;
+    background-color: #eee;
+    /* padding: 2px 16px; */
+    /* color: white; */
+    height: 10px;
+    overflow: hidden;
   }
   
   .row:after {
@@ -72,7 +74,7 @@
   }
 
   .row{
-    background: rgb(2, 36, 58);;
+    background: #064A77;
   }
   
   /* Six columns side by side */
@@ -83,8 +85,18 @@
     overflow: hidden;
   }
 
-  .column>img, .mySlides> img{
+  .column>img{
     width: 100%;
+  }
+
+  .mySlides{
+    background: #064A77;
+  }
+
+  .mySlides> img{
+    height: 100%;
+    margin: 0 auto;
+    display: block;
   }
   
   /* Add a transparency effect for thumnbail images */
