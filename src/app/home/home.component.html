@@ -37,7 +37,7 @@
   <div class="propertyBestProperties">
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -54,7 +54,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -71,7 +71,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -90,80 +90,7 @@
   <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
   <hr />
 </section>
-<section id="exclusivePropertiesContainer">
-  <h3>EXCLUSIVE PROPERTIES</h3>
-  <div class="propertyBestProperties">
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">Elegant apartment close to Florence's cathedral</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_1.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-  </div>
-  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
-</section>
+<app-exclusive-properties></app-exclusive-properties>
 <section id="propertyInfo">
   <div class="container">
     <div class="flexRowWrap">
@@ -188,7 +115,7 @@
   </div>
 </section>
 <section>
-    <h3 style="text-align: center;"><strong>VIDEO GALLERY</strong></h3>
+  <h3 style="text-align: center;"><strong>VIDEO GALLERY</strong></h3>
 </section>
 <section id="videoGallery">
   <div class="container">
@@ -206,7 +133,7 @@
           <button>ASK FOR INFORMATION</button>
         </div>
         <div id="videoGalleryFullVideo">
-          <video width="100%" height="100%" poster="../../assets/home-carousel/slide_2.jpg" controls>
+          <video width="100%" height="100%" poster="../../assets/image_1.jpg" controls>
             <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -224,7 +151,9 @@
             <table>
               <tbody>
                 <tr>
-                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <th>
+                    <div><img src="../assets/image1.jpg" alt="" /></div>
+                  </th>
                   <td>
                     <p><strong><small>Island of Stromboli</small></strong></p>
                     <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
@@ -235,7 +164,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <th>
+                    <div><img src="../assets/image2.jpg" alt="" /></div>
+                  </th>
                   <td>
                     <p><strong><small>Island of Stromboli</small></strong></p>
                     <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
@@ -246,7 +177,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <th>
+                    <div><img src="../assets/image1.jpg" alt="" /></div>
+                  </th>
                   <td>
                     <p><strong><small>Island of Stromboli</small></strong></p>
                     <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
@@ -257,7 +190,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><img src="../assets/home-carousel/slide_1.jpg" alt="" /></th>
+                  <th>
+                    <div><img src="../assets/image2.jpg" alt="" /></div>
+                  </th>
                   <td>
                     <p><strong><small>Island of Stromboli</small></strong></p>
                     <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
@@ -273,7 +208,7 @@
           <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
         </div>
       </div>
-      </div>
+    </div>
   </div>
 </section>
 <app-contact-section></app-contact-section>
@@ -348,36 +283,38 @@
   </div>
 </section>
 <section id="productInfo1">
- <div class="container">
+  <div class="container">
     <div id="productInfo1Content">
-        <div class="verticalAlign">
-          <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
-        </div>
-        <div id="productInfo1Text">
-          <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
-          <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-          <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on April
-            21
-            753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-            populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage Site.
-            For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
-            there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
-            surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
-            forum, Paleo-Christian basilicas to medieva...</p>
-          <button>READ MORE</button>
-        </div>
-      </div>      
- </div>
- <div id="productInfo1BlogBand">
+      <div class="verticalAlign">
+        <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
+      </div>
+      <div id="productInfo1Text">
+        <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
+        <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
+        <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on
+          April
+          21
+          753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
+          populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage
+          Site.
+          For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
+          there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
+          surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
+          forum, Paleo-Christian basilicas to medieva...</p>
+        <button>READ MORE</button>
+      </div>
+    </div>
+  </div>
+  <div id="productInfo1BlogBand">
     <strong>Sage Capita BLOG</strong><button>SEE ALL NEWS</button>
-  </div> 
+  </div>
 </section>
 <section id="latestAcquisitionsContainer">
   <h3>LATEST ACQUISITIONS</h3>
   <div class="propertyBestProperties">
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_22.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -394,7 +331,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_2.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -411,7 +348,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_3.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
@@ -428,7 +365,7 @@
     </article>
     <article>
       <a href="#">
-        <img class="propertyImage" src="../assets/home-carousel/slide_21.jpg" alt="best property 1" />
+        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
         <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">

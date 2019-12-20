@@ -2,7 +2,7 @@
       <form id="propertySearchForm">
         <div class="formGroup flex flexRowWrap">
           <div class="formElement flex selectChevDownElement">
-            <select name="regions" onchange="choose_element_mobile(this.value)">
+            <select name="regions" (change)="onSelectChange()">
               <option value="Nigeria">Nigeria</option>
               <option value="All">All</option>
               <option value="Campania">Campania (45)</option>
@@ -21,7 +21,7 @@
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="location" onchange="choose_element_mobile(this.value)">
+            <select name="location" (change)="onSelectChange()">
               <option value="Location">Location</option>
               <option value="Nigeria">Nigeria</option>
               <option value="Campania">Campania (45)</option>
@@ -40,7 +40,7 @@
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="type" onchange="choose_element_mobile(this.value)">
+            <select name="type" (change)="onSelectChange()">
               <option value="All">All</option>
               <option value="Nigeria">Nigeria</option>
               <option value="Campania">Campania (45)</option>
@@ -59,7 +59,7 @@
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="lifestyle" onchange="choose_element_mobile(this.value)">
+            <select name="lifestyle" (change)="onSelectChange()">
               <option value="Lifestyle">Lifestyle</option>
               <option value="All">All</option>
               <option value="Campania">Campania (45)</option>
@@ -78,7 +78,7 @@
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="regions" onchange="choose_element_mobile(this.value)">
+            <select name="regions" (change)="onSelectChange()">
               <option value="Price">Price</option>
               <option value="All">All</option>
               <option value="Campania">Campania (45)</option>

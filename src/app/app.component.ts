@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onDropDownClick(dropdown) {
     /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-    document.getElementById(dropdown).classList.toggle("show"); 
+    document.getElementById(dropdown).classList.toggle("show");
   }
 
   windowCloseDropDown(event) {

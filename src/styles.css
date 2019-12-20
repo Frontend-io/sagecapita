@@ -2,10 +2,10 @@
 body {
   margin: 0;
   font-family: 'Hind', sans-serif;
-  color: #064A77;
+  color: rgb(4, 37, 59);
   letter-spacing: .02em;
 }
-
+ 
 .clearfix {
   clear: both;
 }
