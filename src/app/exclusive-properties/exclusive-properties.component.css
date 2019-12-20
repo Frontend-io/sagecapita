@@ -1,0 +1,162 @@
+#exclusivePropertiesContainer {
+  padding: 1.3em 0 .6em 0;
+}
+
+#exclusivePropertiesContainer {
+  padding-bottom: 3em;
+}
+
+#exclusivePropertiesContainer h3 {
+  text-align: center;
+}
+
+#exclusivePropertiesContainer h3 {
+  margin: 0 0 1.4em 0;
+  margin-bottom: .9em;
+}
+
+#exclusivePropertiesContainer button {
+  width: auto;
+  padding: .6em 5em;
+  height: auto;
+}
+
+#exclusivePropertiesContainer button,
+#exclusivePropertiesContainer button.filled:hover {
+  background: #fff;
+  color: #064A77;
+  border-color: #064A77;
+}
+
+#exclusivePropertiesContainer button.filled,
+#exclusivePropertiesContainer button:hover {
+  background: #064A77;
+  color: #fff;
+  border-color: #064A77;
+}
+
+#exclusivePropertiesContainer>hr {
+  margin-top: 1.2em;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.propertyBestProperties>article {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.propertyBestProperties .propertyStar {
+  position: absolute;
+  top: 1.3em;
+  right: 1.3em;
+  cursor: pointer;
+  height: 25px;
+}
+
+.propertyBestProperties .propertyImage {
+  width: 100%;
+}
+
+.propertyBestProperties {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.propertyBestProperties {
+  justify-content: space-around;
+}
+
+.propertyBestProperties {
+  padding: 0 .2em;
+}
+
+.propertyDataContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  dmin-height: 5.5em;
+}
+
+/* .propertyData {
+    position: relative;
+  } */
+
+.propertyDataContent {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  padding: .8em;
+}
+
+.propertyDataOverlay {
+  background: #064A77;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: .8;
+}
+
+.propertyDataStatus {
+  font-weight: 700;
+}
+
+.propertyDataStatus,
+.propertyDataLocation,
+.propertyDataTitle,
+.propertyDataCode {
+  margin: .1em 0;
+  color: #fff;
+  line-height: 1.1em;
+}
+
+.propertyDataStatus,
+.propertyDataLocation,
+.propertyDataCode {
+  text-transform: uppercase;
+}
+
+.propertyDataCode {
+  text-align: right;
+}
+
+.propertyDataTitle {
+  text-transform: capitalize;
+}
+
+.propertyDataLocation,
+.propertyDataCode {
+  font-weight: 700;
+}
+
+.propertyDataLocation {
+  float: left;
+}
+
+#exclusivePropertiesContainer article {
+  height: 20em;
+}
+
+@media (min-width:961px) {
+  #exclusivePropertiesContainer article {
+    width: 49.5%;
+    background: #064A77;
+  }
+}
+
+@media (min-width: 1200px) {
+  #exclusivePropertiesContainer article {
+    width: 24.5%;
+  }
+}
+
+@media (min-width: 1900px) {
+  #exclusivePropertiesContainer article {
+    height: 28em;
+  }
+}
