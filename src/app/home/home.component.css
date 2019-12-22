@@ -140,7 +140,7 @@
 #btnBelowVideoGalleryFullVideo button:hover {
   background: #fff;
   color: #064A77;
-  border-color: #064A77; 
+  border-color: #064A77;
 }
 
 #propertyBest button.filled,
@@ -184,7 +184,7 @@
   width: 46%;
 }
 
-#btnBelowVideoGalleryFullVideo{
+#btnBelowVideoGalleryFullVideo {
   margin: 1em 0;
 }
 
@@ -203,7 +203,7 @@
 
 #videoGalleryList button.filled:hover,
 #videoGalleryListContainer .videoGalleryListBtns button.filled:hover {
-  color: #064A77; 
+  color: #064A77;
   background: #fff;
 }
 
@@ -238,10 +238,10 @@
 }
 
 #propertyBest article,
-  #latestAcquisitionsContainer article {
-    /* height: 20em; */
-    background: #064A77;
-  }
+#latestAcquisitionsContainer article {
+  height: 20em;
+  background: #064A77;
+}
 
 #videoGalleryExclusive,
 #videoGalleryFullVideo,
@@ -294,7 +294,8 @@ hr {
   height: 100%;
 }
 
-#videoGalleryExclusive h3, #videoGalleryExclusive p{
+#videoGalleryExclusive h3,
+#videoGalleryExclusive p {
   color: #fff;
 }
 
@@ -568,6 +569,17 @@ hr {
   margin-left: .6em;
 }
 
+@media (min-width:641px) {
+  #propertyBest article,
+  #latestAcquisitionsContainer article {
+    height: 32em;
+  }
+
+  #propertyGroupsList>.propertyGroupsItem {
+    width: 49%;
+  }
+}
+
 @media (min-width:961px) {
   #propertySearchHeading {
     display: inline;
@@ -581,7 +593,7 @@ hr {
     height: 20em;
   }
 
-  #btnBelowVideoGalleryFullVideo{
+  #btnBelowVideoGalleryFullVideo {
     display: none;
   }
 
@@ -609,21 +621,22 @@ hr {
     vertical-align: top;
   }
 
-  #videoGalleryExclusive,  #videoGalleryList {
+  #videoGalleryExclusive,
+  #videoGalleryList {
     flex: 1;
     display: block
   }
 
-  #videoGalleryList{
-flex:1.2;
+  #videoGalleryList {
+    flex: 1.2;
   }
 
   #videoGalleryFullVideo {
     flex: 2;
   }
 
-  #videoGallery>.container{
-    width:97%; 
+  #videoGallery>.container {
+    width: 97%;
   }
 
   #propertyGroupsBtns button {

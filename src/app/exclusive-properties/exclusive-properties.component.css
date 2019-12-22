@@ -140,6 +140,13 @@
 
 #exclusivePropertiesContainer article {
   background: #064A77;
+  height: 20em;
+}
+
+@media (min-width:641px) {
+  #exclusivePropertiesContainer article {
+    height: 32em;
+  }
 }
 
 @media (min-width:961px) {
