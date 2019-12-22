@@ -63,6 +63,9 @@
 
 .textContainer button:hover {
   background: #064A77;
+}
+
+.textContainer p, .textContainer h4{
   color: #fff;
 }
 
@@ -185,6 +188,10 @@
 
   .textContainer.right {
     right: 3em;
+  }
+
+  .textContainer {
+    bottom: auto;
   }
 }
 

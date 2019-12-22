@@ -17,7 +17,7 @@ import { InfoButtonAsideComponent } from './info-button-aside/info-button-aside.
 import { PropertiesSearchModule } from './shared/app.properties-search.module';
 import { PaginatorModule } from './shared/app.paginator.module';
 import { ContactSectionModule } from './shared/app.contact-section.module';
-import { ExclusivePropertiesComponent } from './exclusive-properties/exclusive-properties.component';
+import { ExclusivePropertiesModule } from './shared/app.exclusive-properties.module';
 
 @NgModule({
   declarations: [
@@ -30,13 +30,13 @@ import { ExclusivePropertiesComponent } from './exclusive-properties/exclusive-p
     ContactComponent,
     JoinComponent,
     InfoAsideComponent,
-    InfoButtonAsideComponent,
-    ExclusivePropertiesComponent
+    InfoButtonAsideComponent
   ],
   imports: [
     ContactSectionModule,
     PaginatorModule,
     PropertiesSearchModule,
+    ExclusivePropertiesModule,
     BrowserModule,
     AppRoutingModule
   ],
