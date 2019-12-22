@@ -126,7 +126,8 @@
 }
 
 #propertyBest button,
-#latestAcquisitionsContainer button {
+#latestAcquisitionsContainer button,
+#btnBelowVideoGalleryFullVideo button {
   width: auto;
   padding: .6em 5em;
   height: auto;
@@ -135,7 +136,8 @@
 #propertyBest button,
 #latestAcquisitionsContainer button,
 #propertyBest button.filled:hover,
-#latestAcquisitionsContainer button.filled:hover {
+#latestAcquisitionsContainer button.filled:hover,
+#btnBelowVideoGalleryFullVideo button:hover {
   background: #fff;
   color: #064A77;
   border-color: #064A77; 
@@ -144,7 +146,8 @@
 #propertyBest button.filled,
 #latestAcquisitionsContainer button.filled,
 #propertyBest button:hover,
-#latestAcquisitionsContainer button:hover {
+#latestAcquisitionsContainer button:hover,
+#btnBelowVideoGalleryFullVideo button {
   background: #064A77;
   color: #fff;
   border-color: #064A77;
@@ -160,11 +163,9 @@
 #propertyInfo {
   text-align: center;
   background: #f4f4f5;
-  color: #064A77;
 }
 
 /* #videoGallery {
-  background: #064A77;
 } */
 
 #videoGallery h3 {
@@ -183,6 +184,10 @@
   width: 46%;
 }
 
+#btnBelowVideoGalleryFullVideo{
+  margin: 1em 0;
+}
+
 #videoGalleryList button {
   width: 100%;
 }
@@ -198,7 +203,7 @@
 
 #videoGalleryList button.filled:hover,
 #videoGalleryListContainer .videoGalleryListBtns button.filled:hover {
-  color: #064A77;
+  color: #064A77; 
   background: #fff;
 }
 
@@ -234,7 +239,8 @@
 
 #propertyBest article,
   #latestAcquisitionsContainer article {
-    height: 20em;
+    /* height: 20em; */
+    background: #064A77;
   }
 
 #videoGalleryExclusive,
@@ -251,7 +257,7 @@
   border-left: 4px solid #fff;
 }
 
-#videoGalleryExclusive h3 {}
+/* #videoGalleryExclusive h3 {} */
 
 hr {
   border: none;
@@ -286,6 +292,10 @@ hr {
   background: #064A77;
   color: #fff;
   height: 100%;
+}
+
+#videoGalleryExclusive h3, #videoGalleryExclusive p{
+  color: #fff;
 }
 
 #videoGalleryFullVideo {
@@ -328,7 +338,7 @@ hr {
 
 #propertyGroups {
   text-align: center;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 #propertyGroupsBtns button {
@@ -337,7 +347,7 @@ hr {
   margin: auto;
   padding: .5em 0;
   border-color: #064A77;
-  color: #064A77;
+  /*color: #064A77;*/
   margin-bottom: .5em;
 }
 
@@ -376,7 +386,6 @@ hr {
   padding: 0 2em;
   position: absolute;
   left: 0;
-  color: #fff;
   z-index: 1;
   right: 0;
   top: 0;
@@ -391,11 +400,12 @@ hr {
 .propertyGroupsItemContent>h2,
 .propertyGroupsItemContent>h4 {
   margin: 0;
+  color: #fff;
 }
 
 .propertyGroupsItemContent>hr {
   width: 100%;
-  margin: 0;
+  margin: .5em 0;
 }
 
 .propertyGroupsItemContent button {
@@ -405,7 +415,7 @@ hr {
   border-color: #fff;
   font-size: 70%;
   margin-top: 1.2em;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 .propertyGroupsItemOverlay {
@@ -434,7 +444,6 @@ hr {
 
 #productInfo1Content {
   padding: .4em 0;
-  color: #064A77;
 }
 
 #productInfo1Content>div {
@@ -488,7 +497,6 @@ hr {
 #closingInfo {
   padding: 1.5em 2.5em;
   background: #f4f4f5;
-  color: #064A77;
   text-align: center;
 }
 
@@ -570,7 +578,11 @@ hr {
   #propertyBest article,
   #latestAcquisitionsContainer article {
     width: 49.5%;
-    background: #064A77;
+    height: 20em;
+  }
+
+  #btnBelowVideoGalleryFullVideo{
+    display: none;
   }
 
   #videoGalleryFullVideo {

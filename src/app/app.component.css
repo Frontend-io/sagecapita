@@ -40,7 +40,7 @@ header nav#desktop #searchBar ul {
 
 #desktop #searchBar svg {
   cursor: pointer;
-  fill: #064A77;;
+  fill: rgb(4, 37, 59);
 }
 
 #desktop #searchBar img {
@@ -77,7 +77,7 @@ header nav#desktop #menuList ul li.active, header nav#desktop #menuList ul li:ho
 }
 
 header ul li a {
-  color: #064A77;;
+  /*color: #064A77;*/
   font-weight: 700;
 }
 
@@ -135,7 +135,7 @@ nav#desktop form input {
   border-bottom-width: 1px;
   border-bottom-color: #064A77;
   width: auto;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 nav#desktop button,
@@ -147,12 +147,12 @@ nav#desktop button {
   margin: 0;
   width: inherit;
   border-color: #064A77;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 nav#desktop button.noBorderBtn {
   border-color: transparent;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 nav#desktop form input::placeholder {
@@ -162,11 +162,11 @@ nav#desktop form input::placeholder {
 footer {
   padding: 1em 3em 1em 3em;
   text-align: center;
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 footer a{
-  color: #064A77;
+  /*color: #064A77;*/
 }
 
 /* footer img {

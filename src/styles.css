@@ -2,8 +2,11 @@
 body {
   margin: 0;
   font-family: 'Hind', sans-serif;
-  color: rgb(4, 37, 59);
   letter-spacing: .02em;
+}
+
+h1,h2,h3,h4,h5,h6,a, p, button{
+  color: rgb(4, 37, 59);
 }
  
 .clearfix {
@@ -139,7 +142,7 @@ textarea {
 input,
 textarea,
 select {
-  color: #9fa4a8;;
+  color: #9fa4a8;
 }
 
 h3 {
