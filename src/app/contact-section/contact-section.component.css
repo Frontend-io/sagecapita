@@ -83,7 +83,7 @@
   color: #064A77;
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
   #contactElementContainer {
     height: 6.5em;
   }

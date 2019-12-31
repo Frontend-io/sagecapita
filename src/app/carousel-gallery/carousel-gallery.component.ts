@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { PropertyService } from '../shared/property.service';
+
+import { Property } from '../shared/property';
 
 @Component({
   selector: 'app-carousel-gallery',
@@ -6,12 +11,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel-gallery.component.css']
 })
 export class CarouselGalleryComponent implements OnInit {
+  property: Property;
+
   slideIndex = 1;
 
-  constructor() { }
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap =>
+      this.property = this.propertyService.getProperty(paramMap.get('code'))
+    );
+  }
+
+  onRenderSlides(): string {
     this.showSlides(this.slideIndex);
+
+    return '';
   }
 
   plusSlides(n) {

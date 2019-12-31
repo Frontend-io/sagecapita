@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { NavigateEventService } from './navigate-event.service';
+
+import { fadeAnimation } from './animations/fade.animation';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +11,34 @@ import { NavigateEventService } from './navigate-event.service';
     './app.component.css',
     './app.component-topnav-dropdown.css'
   ],
+  animations: [fadeAnimation],
   providers: [NavigateEventService]
 })
 
 export class AppComponent implements OnInit, OnDestroy {
   title = 'sagecapita';
   page = document.location.pathname;
+  isPageLoading = false;
 
   constructor(private navigateEventService: NavigateEventService) {
     navigateEventService.navigation$.subscribe(
       navigation => {
         this.page = /*JSON.parse(navigation).url*/document.location.pathname;
       });
+
+    navigateEventService.navigationStart$.subscribe(
+      navigation => {
+        this.isPageLoading = true;
+      });
+
+    navigateEventService.navigationStop$.subscribe(
+      navigation => {
+        this.isPageLoading = false;
+      });
+  }
+
+  public getRouterOutletState(outlet) {
+    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
   onDropDownClick(dropdown) {

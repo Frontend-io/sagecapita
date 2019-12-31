@@ -1,0 +1,85 @@
+#propertyBest {
+  padding: 1.3em 0 .6em 0;
+}
+
+#propertyBest h3 {
+  text-align: center;
+  margin: 0 0 1.4em 0;
+  margin-bottom: .9em;
+}
+
+#propertyBest button {
+  width: auto;
+  padding: .6em 5em;
+  height: auto;
+}
+
+#propertyBest button,
+#propertyBest button.filled:hover {
+  background: #fff;
+  color: #064A77;
+  border-color: #064A77;
+}
+
+#propertyBest button.filled,
+#propertyBest button:hover {
+  background: #064A77;
+  color: #fff;
+  border-color: #064A77;
+}
+
+#propertyBest>hr {
+  margin-top: 1.2em;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+#propertyBest article {
+  height: 19em;
+  background: #064A77;
+}
+
+.propertyBestProperties article {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1em;
+  }
+
+  .propertyBestProperties{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .propertyBestProperties{
+    justify-content: space-around;
+  }
+
+@media only screen and (min-width:641px) {
+  #propertyBest article {
+    height: 32em;
+  }
+}
+
+@media only screen and (min-width:961px) {
+  #propertyBest article {
+    width: 49.5%;
+    height: 19em;
+  }
+
+  .propertyBestProperties {
+    padding: 0 .2em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #propertyBest article {
+    width: 33%;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  #propertyBest article {
+    height: 25em;
+  }
+}

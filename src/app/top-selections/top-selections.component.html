@@ -1,0 +1,10 @@
+<section id="propertyBest">
+    <h3>TOP SELECTIONS</h3>
+    <div class="propertyBestProperties">
+      <article *ngFor="let topSelection of topSelections">
+        <app-property-thumbnail [property]="topSelection"></app-property-thumbnail>
+      </article>
+    </div>
+    <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL</button></a>
+    <hr />
+  </section>

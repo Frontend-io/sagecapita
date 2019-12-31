@@ -1,0 +1,9 @@
+<section id="latestAcquisitionsContainer">
+    <h3>LATEST ACQUISITIONS</h3>
+    <div class="propertyBestProperties">
+      <article *ngFor="let latestAcquisition of latestAcquisitions">
+        <app-property-thumbnail [property]="latestAcquisition"></app-property-thumbnail>
+      </article>
+    </div>
+    <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL</button></a>
+  </section>

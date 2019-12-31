@@ -72,7 +72,7 @@ hr {
   margin-top: .5em;
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
   .contactOfficesInfo>div {
     width: 40%;
   }

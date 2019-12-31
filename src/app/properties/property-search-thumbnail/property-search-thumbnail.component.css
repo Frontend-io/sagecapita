@@ -1,0 +1,69 @@
+.searchResultsBody3btn a,
+.searchResultsBody2btn a {
+  width: 100%;
+}
+
+.searchResultsImgContainer {
+  overflow: hidden;
+  height: 17em;
+}
+
+.searchResultsImgContainer>img {
+  height: 100%;
+}
+
+.searchResultsBody {
+  background: #064A77;
+  padding: .8em;
+}
+
+.searchResultsBody p {
+  margin: 0 .8em 0 0;
+  color: #fff;
+}
+
+.searchResultsBody .left {
+  float: left;
+}
+
+.searchResultsBody .right {
+  float: right;
+}
+
+.searchResultsBody button {
+  height: 2.5em;
+  color: #fff;
+  margin: .5em 0 0 0;
+}
+
+.searchResultsBody button:hover,
+.searchResultsBody button.filled {
+  background: #fff;
+  color: #064A77;
+}
+
+.searchResultsBody button.filled:hover {
+  color: #fff;
+  background: #064A77;
+}
+
+.searchResultsBodyTopText img {
+  height: 24px;
+}
+
+@media only screen and (min-width:641px) {
+  .searchResultsImgContainer>img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width:961px) {
+  .searchResultsBody2btn a {
+    width: 49%;
+  }
+
+  .searchResultsBody3btn a  {
+    width: 32%;
+  }
+}

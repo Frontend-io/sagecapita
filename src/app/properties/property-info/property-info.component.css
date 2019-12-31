@@ -1,0 +1,69 @@
+#body {
+    padding: 3em 2em;
+  }
+  
+  #body aside,
+  #body article,
+  .articleTopCol {
+    width: 100%;
+  }
+  
+  .articleTopCol {
+    margin-bottom: 1em;
+  }
+  
+  .articleTopCol p {
+    margin: 0;
+  }
+  
+  .articleTopCol h3 {
+    margin: .3em 0 2.15em 0;
+  }
+  
+  .articleTopCol>button {
+    height: 3em;
+    background: #064A77;
+    color: #fff;
+  }
+  
+  .articleTopCol>button:hover {
+    color: #064A77;
+    background: #fff;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #064A77;
+  }
+  
+  aside hr {
+    margin: 0;
+  }
+  
+  #body aside h1 {
+    text-overflow: ellipsis;
+    margin-top: 0;
+  }
+  
+  .asideSmItem {
+    margin: 1.3em 0;
+  }
+  
+  .asideSmItem p {
+    margin: .1em 0;
+  }
+  
+  @media only screen and (min-width:961px) {
+    #body aside {
+      width: 28%;
+    }
+  
+    #body article {
+      width: 68%;
+    }
+  
+    .articleTopCol {
+      width: 49%;
+    }
+  }
+  

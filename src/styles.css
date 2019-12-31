@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+
 body {
   margin: 0;
   font-family: 'Hind', sans-serif;
@@ -117,6 +119,12 @@ button:focus {
   justify-content: space-between;
 }
 
+.positionFixed {
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+}
+
 p {
   font-size: 14px;
 }
@@ -140,9 +148,21 @@ textarea {
 }
 
 input,
-textarea,
-select {
-  color: #9fa4a8;
+textarea{
+  color: rgb(4, 37, 59);
+}
+
+select{
+  color: rgb(4, 37, 59, .5);
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder
+input::placeholder,
+textarea::placeholder{
+  color: rgb(4, 37, 59, .5);
 }
 
 h3 {
@@ -156,19 +176,19 @@ h3 {
   display: table;
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
   /* .container {
     width: 95%;
   } */
 }
 
-@media (min-width:1025px) { 
+@media only screen and (min-width:1025px) { 
   .container {
     width: 95%;
   }
  }
 
-@media (min-width:1281px) { 
+@media only screen and (min-width:1281px) { 
   .container {
     width: 90%;
   }
@@ -189,3 +209,5 @@ h3 {
     width: 60%;
   }
 }
+
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

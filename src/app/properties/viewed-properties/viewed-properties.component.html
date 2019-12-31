@@ -1,0 +1,9 @@
+<section id="exclusivePropertiesContainer">
+    <h3>VIEWED PROPERTIES</h3>
+    <div class="propertyBestProperties">
+      <article *ngFor="let viewedProperty of viewedProperties">
+        <app-property-thumbnail [property]="viewedProperty"></app-property-thumbnail>
+      </article>
+    </div>
+    <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL</button></a>
+  </section>

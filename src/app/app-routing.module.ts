@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FirmComponent } from './firm/firm.component';
 import { JoinComponent } from './join/join.component';
 import { MediaComponent } from './media/media.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,12 +15,13 @@ const routes: Routes = [
   { path: 'firm', component: FirmComponent },
   { path: 'join', component: JoinComponent },
   { path: 'media', component: MediaComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) }
+  // { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 
