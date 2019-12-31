@@ -1,0 +1,65 @@
+.propertyGroupsItemContent {
+    padding: 0 2em;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    pointer-events: none;
+  }
+  
+  .propertyGroupsItemContent>h2,
+  .propertyGroupsItemContent>h4 {
+    margin: 0;
+    color: #fff;
+  }
+  
+  .propertyGroupsItemContent>hr {
+    width: 100%;
+    margin: .5em 0;
+    border-width:0;
+    border-bottom-width: 0.01em;
+    border-color: #eee;
+  }
+  
+  .propertyGroupsItemContent button {
+    width: 9.5em;
+    padding: .5em 0;
+    background: #fff;
+    border-color: #fff;
+    font-size: 70%;
+    margin-top: 1.2em;
+    /*color: #064A77;*/
+    pointer-events: all;
+  }
+  
+  .propertyGroupsItemContent h2 {
+    font-size: 2.2em;
+    font-style: italic;
+  }
+
+  .propertyGroupsItemOverlay {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #064A77;
+    opacity: .2;
+    transition-duration: 500ms;
+  }
+  
+  .propertyGroupsItemOverlay:hover {
+    opacity: .8;
+  }
+
+  @media only screen and (min-width:961px) {
+    .propertyGroupsItemContent h2 {
+        font-size: 1.5em;
+      }
+  }

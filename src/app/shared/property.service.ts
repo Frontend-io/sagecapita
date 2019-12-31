@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Property } from '../shared/property';
+
+import { Property } from './property';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,15 @@ export class PropertyService {
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: '5 - bedrooms fully detached with servant quarters',
+      type: '5 - Bedrooms fully detached with servant quarters',
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        '2 - exquisive large living rooms',
-        '1 ante room',
-        '1 guest toilet',
-        '1 private family lounge',
-        '1 study room',
+        '2 - Exquisive large living rooms',
+        '1 Ante room',
+        '1 Guest toilet',
+        '1 Private family lounge',
+        '1 Study room',
         '1 Lavish expansive kitchen with, island, store room and back door exit',
         `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
@@ -43,9 +44,9 @@ export class PropertyService {
       price: 5000000,
       price_lower_range: null,
       price_upper_range: null,
-      side_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached',
-      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters',
-      description_text: `Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters
+      side_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached',
+      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+      description_text: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
       within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`
     }, {
       code: '2',
@@ -63,15 +64,15 @@ export class PropertyService {
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: '5 - bedrooms fully detached with servant quarters',
+      type: '5 - Bedrooms fully detached with servant quarters',
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        '2 - exquisive large living rooms',
-        '1 ante room',
-        '1 guest toilet',
-        '1 private family lounge',
-        '1 study room',
+        '2 - Exquisive large living rooms',
+        '1 Ante room',
+        '1 Guest toilet',
+        '1 Private family lounge',
+        '1 Study room',
         '1 Lavish expansive kitchen with, island, store room and back door exit',
         `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
@@ -83,9 +84,9 @@ export class PropertyService {
       price: null,
       price_lower_range: 2000000,
       price_upper_range: 5000000,
-      side_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached',
-      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters',
-      description_text: `Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters
+      side_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached',
+      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+      description_text: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
       within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`
     }, {
       code: '3',
@@ -103,15 +104,15 @@ export class PropertyService {
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: '5 - bedrooms fully detached with servant quarters',
+      type: '5 - Bedrooms fully detached with servant quarters',
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        '2 - exquisive large living rooms',
-        '1 ante room',
-        '1 guest toilet',
-        '1 private family lounge',
-        '1 study room',
+        '2 - Exquisive large living rooms',
+        '1 Ante room',
+        '1 Guest toilet',
+        '1 Private family lounge',
+        '1 Study room',
         '1 Lavish expansive kitchen with, island, store room and back door exit',
         `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
@@ -123,9 +124,9 @@ export class PropertyService {
       price: null,
       price_lower_range: null,
       price_upper_range: null,
-      side_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached',
-      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters',
-      description_text: `Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters
+      side_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached',
+      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+      description_text: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
       within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`
     }, {
       code: '4',
@@ -143,15 +144,15 @@ export class PropertyService {
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: '5 - bedrooms fully detached with servant quarters',
+      type: '5 - Bedrooms fully detached with servant quarters',
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        '2 - exquisive large living rooms',
-        '1 ante room',
-        '1 guest toilet',
-        '1 private family lounge',
-        '1 study room',
+        '2 - Exquisive large living rooms',
+        '1 Ante room',
+        '1 Guest toilet',
+        '1 Private family lounge',
+        '1 Study room',
         '1 Lavish expansive kitchen with, island, store room and back door exit',
         `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
@@ -163,9 +164,9 @@ export class PropertyService {
       price: 5000000,
       price_lower_range: null,
       price_upper_range: null,
-      side_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached',
-      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters',
-      description_text: `Newly Built & Lavishly Finished Brand New 5 - bedrooms fully detached with servant quarters
+      side_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached',
+      heading_title: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+      description_text: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
       within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`
     }
   ];
@@ -198,10 +199,6 @@ export class PropertyService {
   }
 
   getViewedProperties(): Array<Property> {
-    return this.properties;
-  }
-
-  groupProperties(group: string = 'top_selection'): Array<Property> {
     return this.properties;
   }
 

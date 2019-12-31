@@ -62,6 +62,7 @@
 }
 
 .textContainer button:hover {
+  color: #fff;
   background: #064A77;
 }
 
