@@ -1,0 +1,19 @@
+<div>
+    <a href="#" [routerLink]="['/properties/' + property.code]">
+        <img class="propertyImage" [src]="'../assets/' + property.photo"  alt="Property photo" />
+        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
+        <div class="propertyDataContainer">
+          <div class="propertyData">
+            <div class="propertyDataContent">
+              <p class="propertyDataTitle">{{property.main_title}}</p>
+              <p class="propertyDataStatus" *ngIf="property.is_on_application">ON APPLICATION</p>
+              <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</p>
+              <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | number}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | number}}</p>
+              <p class="propertyDataLocation"><small>{{property?.suburb}} - {{property.city}} - {{property.state}}</small></p>
+              <p class="propertyDataCode"><small>Code. {{property.code}}</small></p>
+            </div>
+            <div class="propertyDataOverlay"></div>
+          </div>
+        </div>
+      </a>
+</div>

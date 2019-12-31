@@ -15,7 +15,7 @@
       <form>
         <div class="formGroup">
           <div id="propertySearchBottom">
-            <h4>SEARCH BY PROPERTY</h4>
+            <h4>SEARCH BY CODE</h4>
             <button>
               <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
                 <path
@@ -23,7 +23,7 @@
               </svg>
             </button>
             <div id="propertySearchBottomInputContainer">
-              <input type="text" placeholder="LOCATION OR CODE" />
+              <input type="text" placeholder="PROPERTY CODE" />
             </div>
             <div class="clearfix"></div>
           </div>
@@ -32,64 +32,9 @@
     </div>
   </div>
 </div>
-<section id="propertyBest">
-  <h3>TOP SELECTIONS</h3>
-  <div class="propertyBestProperties">
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-  </div>
-  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
-  <hr />
-</section>
+<div style="margin-top: -2.5em;">
+  <app-top-selections></app-top-selections>
+</div>
 <app-exclusive-properties></app-exclusive-properties>
 <section id="propertyInfo">
   <div class="container">
@@ -215,76 +160,7 @@
   </div>
 </section>
 <app-contact-section></app-contact-section>
-<section id="propertyGroups">
-  <h3><strong>SEARCH BY</strong></h3>
-  <div id="propertyGroupsBtns">
-    <button class="active">TOP LOCATION</button>
-    <button>LIFESTYLE</button>
-    <button>TYPE</button>
-  </div>
-  <div id="propertyGroupsList">
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-    <div class="propertyGroupsItem">
-      <img src="../assets/property-group.jpg" alt="property groups" />
-      <div class="propertyGroupsItemContent">
-        <h2>Capri</h2>
-        <hr />
-        <h4>21 PROPERTIES</h4>
-        <button>SEE ALL</button>
-      </div>
-      <div class="propertyGroupsItemOverlay"></div>
-    </div>
-  </div>
-</section>
+<app-property-groups></app-property-groups>
 <section id="productInfo1">
   <div class="container">
     <div id="productInfo1Content">
@@ -312,80 +188,7 @@
     <strong>Sage Capita BLOG</strong><button>SEE ALL NEWS</button>
   </div>
 </section>
-<section id="latestAcquisitionsContainer">
-  <h3>LATEST ACQUISITIONS</h3>
-  <div class="propertyBestProperties">
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image2.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">Elegant apartment close to Florence's cathedral</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="#">
-        <img class="propertyImage" src="../assets/image1.jpg" alt="best property 1" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
-        <div class="propertyDataContainer">
-          <div class="propertyData">
-            <div class="propertyDataContent">
-              <p class="propertyDataTitle">brunelleschi castle for sale near florence</p>
-              <p class="propertyDataStatus">On Application</p>
-              <p class="propertyDataLocation"><small>Tuscany - Florence-Region</small></p>
-              <p class="propertyDataCode"><small>Code. 1151</small></p>
-            </div>
-            <div class="propertyDataOverlay"></div>
-          </div>
-        </div>
-      </a>
-    </article>
-  </div>
-  <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (72)</button></a>
-</section>
+<app-latest-acquisitions></app-latest-acquisitions>
 <section id="closingInfo">
   <div class="container">
     <h1><strong>Exceptional Luxury Real Estate Firm</strong></h1>

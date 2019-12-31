@@ -166,7 +166,7 @@
   }
 }
 
-@media (min-width:481px) {
+@media only screen and (min-width:481px) {
   .contentMobileHide {
     display: block;
   }
@@ -176,8 +176,7 @@
   }
 }
 
-
-@media (min-width:641px) {
+@media only screen and (min-width:641px) {
   .textContainer {
     width: 45%;
   }
@@ -195,7 +194,7 @@
   }
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
   .textContainer {
     width: 30%;
   }
@@ -214,7 +213,7 @@
   }
 }
 
-@media (min-width:1600px) {
+@media only screen and (min-width:1600px) {
   .textContainer {
     margin-top: 2em;
     width: 20%;

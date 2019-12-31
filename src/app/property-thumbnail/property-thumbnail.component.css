@@ -1,0 +1,71 @@
+.propertyStar {
+    position: absolute;
+    top: 1.3em;
+    right: 1.3em;
+    cursor: pointer;
+    height: 25px;
+  }
+  
+  .propertyImage {
+    width: 100%;
+  }
+  
+  .propertyDataContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .propertyDataContent {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    padding: .8em;
+  }
+  
+  .propertyDataOverlay {
+    background: #064A77;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+  }
+  
+  .propertyDataStatus {
+    font-weight: 700;
+  }
+  
+  .propertyDataStatus,
+  .propertyDataLocation,
+  .propertyDataTitle,
+  .propertyDataCode {
+    margin: .1em 0;
+    color: #fff;
+    line-height: 1.1em;
+  }
+  
+  .propertyDataStatus,
+  .propertyDataLocation,
+  .propertyDataCode {
+    text-transform: uppercase;
+  }
+  
+  .propertyDataLocation {
+    float: left;
+  }
+  
+  .propertyDataCode {
+    text-align: right;
+  }
+  
+  .propertyDataTitle {
+    text-transform: capitalize;
+  }
+  
+  .propertyDataLocation,
+  .propertyDataCode {
+    font-weight: 700;
+  }

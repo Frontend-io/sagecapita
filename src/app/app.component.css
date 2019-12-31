@@ -211,7 +211,6 @@ footer p{
   width: 100%;
   height: 3em;
   border-color: #ccc;
-  color: #aaa;
 }
 
 #newsletterFormGroup button {
@@ -238,7 +237,7 @@ footer p{
   height: 169px;
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
   nav#desktop {
     display: inline;
   }

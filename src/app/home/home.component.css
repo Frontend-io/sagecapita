@@ -4,6 +4,11 @@
   z-index: 111;
 }
 
+#propertySearchContainer>.container {
+  margin: auto;
+  display: block;
+}
+
 #propertySearchHeading {
   padding: .8em 1.2em 0 1.2em;
   background: #064A77;
@@ -15,149 +20,25 @@
 #propertySearchHeading img {
   height: 1.5em;
   vertical-align: middle;
+  display: none;
 }
 
-#propertyBest,
-#latestAcquisitionsContainer {
-  padding: 1.3em 0 .6em 0;
-}
-
-#latestAcquisitionsContainer {
-  padding-bottom: 3em;
-}
-
-#propertyBest {
-  margin-top: -2.5em;
-}
-
-#propertyBest h3,
-#latestAcquisitionsContainer h3 {
-  text-align: center;
-}
-
-.propertyBestProperties article {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 1em;
-}
-
-.propertyBestProperties .propertyStar {
-  position: absolute;
-  top: 1.3em;
-  right: 1.3em;
-  cursor: pointer;
-  height: 25px;
-}
-
-#propertyBest h3,
-#latestAcquisitionsContainer h3 {
-  margin: 0 0 1.4em 0;
-  margin-bottom: .9em;
-}
-
-.propertyBestProperties .propertyImage {
-  width: 100%;
-}
-
-.propertyDataContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  /* min-height: 5.5em; */
-}
-
-/* .propertyData {
-  position: relative;
-} */
-
-.propertyDataContent {
-  position: relative;
-  z-index: 1;
-  top: 0;
-  padding: .8em;
-}
-
-.propertyDataOverlay {
-  background: #064A77;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: .8;
-}
-
-.propertyDataStatus {
-  font-weight: 700;
-}
-
-.propertyDataStatus,
-.propertyDataLocation,
-.propertyDataTitle,
-.propertyDataCode {
-  margin: .1em 0;
-  color: #fff;
-  line-height: 1.1em;
-}
-
-.propertyDataStatus,
-.propertyDataLocation,
-.propertyDataCode {
-  text-transform: uppercase;
-}
-
-.propertyDataLocation {
-  float: left;
-}
-
-.propertyDataCode {
-  text-align: right;
-}
-
-.propertyDataTitle {
-  text-transform: capitalize;
-}
-
-.propertyDataLocation,
-.propertyDataCode {
-  font-weight: 700;
-}
-
-#propertyBest button,
-#latestAcquisitionsContainer button,
 #btnBelowVideoGalleryFullVideo button {
   width: auto;
   padding: .6em 5em;
   height: auto;
 }
 
-#propertyBest button,
-#latestAcquisitionsContainer button,
-#propertyBest button.filled:hover,
-#latestAcquisitionsContainer button.filled:hover,
 #btnBelowVideoGalleryFullVideo button:hover {
   background: #fff;
   color: #064A77;
-  border-color: #064A77; 
+  border-color: #064A77;
 }
 
-#propertyBest button.filled,
-#latestAcquisitionsContainer button.filled,
-#propertyBest button:hover,
-#latestAcquisitionsContainer button:hover,
 #btnBelowVideoGalleryFullVideo button {
   background: #064A77;
   color: #fff;
   border-color: #064A77;
-}
-
-#propertyBest>hr,
-#latestAcquisitionsContainer>hr {
-  margin-top: 1.2em;
-  border: none;
-  border-top: 1px solid #ddd;
 }
 
 #propertyInfo {
@@ -184,7 +65,7 @@
   width: 46%;
 }
 
-#btnBelowVideoGalleryFullVideo{
+#btnBelowVideoGalleryFullVideo {
   margin: 1em 0;
 }
 
@@ -203,7 +84,7 @@
 
 #videoGalleryList button.filled:hover,
 #videoGalleryListContainer .videoGalleryListBtns button.filled:hover {
-  color: #064A77; 
+  color: #064A77;
   background: #fff;
 }
 
@@ -223,25 +104,15 @@
 
 .videoGalleryListBtns,
 #videoGalleryContent,
-#propertyGroupsList,
-.propertyBestProperties,
 #productInfo1Content {
   display: flex;
   flex-flow: row wrap;
 }
 
 .videoGalleryListBtns,
-#videoGalleryContent,
-#propertyGroupsList,
-.propertyBestProperties {
+#videoGalleryContent {
   justify-content: space-around;
 }
-
-#propertyBest article,
-  #latestAcquisitionsContainer article {
-    /* height: 20em; */
-    background: #064A77;
-  }
 
 #videoGalleryExclusive,
 #videoGalleryFullVideo,
@@ -294,7 +165,8 @@ hr {
   height: 100%;
 }
 
-#videoGalleryExclusive h3, #videoGalleryExclusive p{
+#videoGalleryExclusive h3,
+#videoGalleryExclusive p {
   color: #fff;
 }
 
@@ -336,106 +208,9 @@ hr {
   overflow: auto;
 }
 
-#propertyGroups {
-  text-align: center;
-  /*color: #064A77;*/
-}
-
-#propertyGroupsBtns button {
-  width: 15em;
-  display: inline;
-  margin: auto;
-  padding: .5em 0;
-  border-color: #064A77;
-  /*color: #064A77;*/
-  margin-bottom: .5em;
-}
-
-#propertyGroupsBtns button.active {
-  background: #064A77;
-  color: #fff;
-}
-
 #videoGalleryExclusive,
 #videoGalleryList {
   display: none
-}
-
-#propertyGroupsBtns button:not(.active):hover {
-  color: #fff;
-  background: #064A77;
-}
-
-#propertyGroupsList {
-  margin: 1em 0;
-}
-
-#propertyGroupsList>.propertyGroupsItem {
-  width: 100%;
-  position: relative;
-  height: 24em;
-  overflow: hidden;
-  margin-top: .5em;
-}
-
-.propertyGroupsItem>img {
-  width: 100%;
-}
-
-.propertyGroupsItemContent {
-  padding: 0 2em;
-  position: absolute;
-  left: 0;
-  z-index: 1;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  pointer-events: none;
-}
-
-.propertyGroupsItemContent>h2,
-.propertyGroupsItemContent>h4 {
-  margin: 0;
-  color: #fff;
-}
-
-.propertyGroupsItemContent>hr {
-  width: 100%;
-  margin: .5em 0;
-}
-
-.propertyGroupsItemContent button {
-  width: 9.5em;
-  padding: .5em 0;
-  background: #fff;
-  border-color: #fff;
-  font-size: 70%;
-  margin-top: 1.2em;
-  /*color: #064A77;*/
-}
-
-.propertyGroupsItemOverlay {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #064A77;
-  opacity: .2;
-  transition-duration: 500ms;
-}
-
-.propertyGroupsItemOverlay:hover {
-  opacity: .8;
-}
-
-.propertyGroupsItemContent h2 {
-  font-size: 2.2em;
-  font-style: italic;
 }
 
 #productInfo1 {
@@ -568,20 +343,23 @@ hr {
   margin-left: .6em;
 }
 
-@media (min-width:961px) {
+@media only screen and (min-width:961px) {
+  #propertySearchContainer>.container {
+    margin: 0 auto;
+    display: table;
+  }
+
   #propertySearchHeading {
     display: inline;
     margin-left: 2em;
     padding-bottom: .8em;
   }
 
-  #propertyBest article,
-  #latestAcquisitionsContainer article {
-    width: 49.5%;
-    height: 20em;
+  #propertySearchHeading img {
+    display: inline;
   }
 
-  #btnBelowVideoGalleryFullVideo{
+  #btnBelowVideoGalleryFullVideo {
     display: none;
   }
 
@@ -609,42 +387,22 @@ hr {
     vertical-align: top;
   }
 
-  #videoGalleryExclusive,  #videoGalleryList {
+  #videoGalleryExclusive,
+  #videoGalleryList {
     flex: 1;
     display: block
   }
 
-  #videoGalleryList{
-flex:1.2;
+  #videoGalleryList {
+    flex: 1.2;
   }
 
   #videoGalleryFullVideo {
     flex: 2;
   }
 
-  #videoGallery>.container{
-    width:97%; 
-  }
-
-  #propertyGroupsBtns button {
-    margin-right: 1.5em;
-  }
-
-  #propertyGroupsBtns button:last-child {
-    margin-right: 0;
-  }
-
-  #propertyGroupsList>.propertyGroupsItem {
-    width: 16%;
-  }
-
-  .propertyGroupsItem>img {
-    height: 100%;
-    width: auto;
-  }
-
-  .propertyGroupsItemContent h2 {
-    font-size: 1.5em;
+  #videoGallery>.container {
+    width: 97%;
   }
 
   #productInfo1Content>div {
@@ -658,10 +416,6 @@ flex:1.2;
 
   #propertyInfo .flexRowWrap>aside {
     width: 30%;
-  }
-
-  .propertyBestProperties {
-    padding: 0 .2em;
   }
 
   #closingInfo {
@@ -685,32 +439,5 @@ flex:1.2;
     padding-bottom: 1em;
     padding-left: 2em;
     padding-right: 2em;
-  }
-}
-
-@media (min-width: 1200px) {
-  #propertyBest article {
-    width: 33%;
-  }
-
-  #latestAcquisitionsContainer article {
-    width: 24.5%;
-  }
-}
-
-@media (min-width: 1900px) {
-
-  #propertyBest article,
-  #latestAcquisitionsContainer article {
-    height: 28em;
-  }
-
-  #propertyGroupsList>.propertyGroupsItem {
-    height: 26em;
-  }
-
-  .propertyGroupsItem>img {
-    height: auto;
-    width: 100%;
   }
 }

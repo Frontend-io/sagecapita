@@ -1,0 +1,23 @@
+<div class="searchResultsImgContainer">
+  <img [src]="'../../assets/' + property.photo" alt="Property photo" />
+</div>
+<div class="searchResultsBody">
+  <div class="searchResultsBodyTopText">
+    <p class="left">{{property.main_title}}</p>
+    <div class="right"><img src="../../assets/star-white.png" alt="Favorite" /></div>
+    <div class="clearfix"></div>
+  </div>
+  <p *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</p>
+  <p *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | number}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | number}}</p>
+  <p *ngIf="property.is_on_application"><strong>ON APPLICATION</strong></p>
+  <div class="searchResultsBodyBottomText">
+    <p class="left"><small><strong>AREA IN METRES: <span>{{property.interior_surface}}</span> sqm</strong></small></p>
+    <p class="right"><small><strong>CODE: <span>{{property.code}}</span></strong></small></p>
+    <div class="clearfix"></div>
+  </div>
+  <div [ngClass]="property.video ? 'searchResultsBody3btn' : 'searchResultsBody3btn'" class="flexRowWrap">
+    <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">VIEW PROPERTY</button></a>
+    <a><button>ASK FOR INFORMATION</button></a>
+    <a [href]="property.video" *ngIf="property.video"><button>PLAY VIDEO &#9658;</button></a>
+  </div>
+</div>
