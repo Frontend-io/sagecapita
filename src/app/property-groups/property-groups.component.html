@@ -1,70 +1,13 @@
 <section id="propertyGroups">
     <h3><strong>SEARCH BY</strong></h3>
     <div id="propertyGroupsBtns">
-      <button class="active">TOP LOCATION</button>
-      <button>LIFESTYLE</button>
-      <button>TYPE</button>
+      <button [ngClass]="{'active': activeGroup === 'city'}" (click)="selectPropertyGroup('city');">TOP CITIES</button>
+      <button [ngClass]="{'active': activeGroup === 'state'}" (click)="selectPropertyGroup('state');">TOP STATES</button>
+      <button [ngClass]="{'active': activeGroup === 'type'}" (click)="selectPropertyGroup('type');">TYPES</button>
     </div>
     <div id="propertyGroupsList">
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
-      </div>
-      <div class="propertyGroupsItem">
-        <img src="../assets/property-group.jpg" alt="property groups" />
-        <div class="propertyGroupsItemContent">
-          <h2>Capri</h2>
-          <hr />
-          <h4>21 PROPERTIES</h4>
-          <button>SEE ALL</button>
-        </div>
-        <div class="propertyGroupsItemOverlay"></div>
+      <div class="propertyGroupsItem" *ngFor="let propertyGroup of propertyGroups">
+        <app-property-group [propertyGroup]="propertyGroup"></app-property-group>
       </div>
     </div>
   </section>

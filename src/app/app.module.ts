@@ -27,6 +27,7 @@ import { TopSelectionsComponent } from './top-selections/top-selections.componen
 import { LatestAcquisitionsComponent } from './latest-acquisitions/latest-acquisitions.component';
 import { PropertyGroupsComponent } from './property-groups/property-groups.component';
 import { NavigationAnimationComponent } from './navigation-animation/navigation-animation.component';
+import { PropertyGroupComponent } from './property-group/property-group.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NavigationAnimationComponent } from './navigation-animation/navigation-
     TopSelectionsComponent,
     LatestAcquisitionsComponent,
     PropertyGroupsComponent,
-    NavigationAnimationComponent
+    NavigationAnimationComponent,
+    PropertyGroupComponent
   ],
   imports: [
     ContactSectionModule,
