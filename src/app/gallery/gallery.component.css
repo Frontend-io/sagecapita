@@ -1,0 +1,48 @@
+section {
+  padding: 3em 0;
+}
+
+#videoSearch {
+  background-color: #064A77;
+  padding: 1em 2em;
+}
+
+select {
+  background-color: #fff;
+  width: 100%;
+}
+
+#videoSearch button {
+  border-color: #fff;
+  width: auto;
+  text-align: right;
+  margin: 0;
+}
+
+aside,
+article {
+  width: 100%;
+}
+
+#videoSearchTitle>.right>small {
+  text-align: right;
+}
+
+#videoSearchTitle p {
+  color: #fff;
+  margin: 0;
+}
+
+.formControl {
+  margin-top: .5em;
+}
+
+@media screen and (min-width: 961px) {
+  aside {
+    width: 28%;
+  }
+
+  article {
+    width: 68%;
+  }
+}

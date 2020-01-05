@@ -96,4 +96,16 @@ export class PropertyGroupService {
   getPropertiesGroup(group: string = 'city'): Array<PropertyGroup> {
     return this.propertyGroups[group];
   }
+
+  getPropertyGroupsList() {
+    const propertyGroups = this.propertyGroups;
+    const propertyGroupsNames = Object.keys(propertyGroups);
+    const propertyGroupsList = {};
+
+    propertyGroupsNames.forEach((group) => {
+      propertyGroupsList[group] = propertyGroups[group].map(({name}) => name);
+    });
+
+    return propertyGroupsList;
+  }
 }
