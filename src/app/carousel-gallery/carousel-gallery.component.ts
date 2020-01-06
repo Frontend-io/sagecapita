@@ -11,16 +11,27 @@ import { Property } from '../shared/property';
   styleUrls: ['./carousel-gallery.component.css']
 })
 export class CarouselGalleryComponent implements OnInit {
-  property: Property;
+  public property: Property;
+  private code: string;
 
   slideIndex = 1;
 
-  constructor(private propertyService: PropertyService, private route: ActivatedRoute) { }
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getProperty(this.code);
+      });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap =>
-      this.property = this.propertyService.getProperty(paramMap.get('code'))
+      this.getProperty(paramMap.get('code'))
     );
+  }
+
+  getProperty(code) {
+    this.property = this.propertyService.getProperty(code);
+    this.code = code;
   }
 
   onRenderSlides(): string {
@@ -55,4 +66,4 @@ export class CarouselGalleryComponent implements OnInit {
     dots[this.slideIndex - 1].className += ' active';
     captionText.innerHTML = dots[this.slideIndex - 1].alt;
   }
-} 
+}

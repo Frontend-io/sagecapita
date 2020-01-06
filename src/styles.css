@@ -15,6 +15,15 @@ h1,h2,h3,h4,h5,h6,a, p, button{
   clear: both;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
 input:not([type="checkbox"]),
 button,
 select,
@@ -50,7 +59,8 @@ textarea {
   width: 20.5em;
 }
 
-.selectChevDownElement>select {
+/*.selectChevDownElement>*/
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -59,14 +69,16 @@ textarea {
 }
 
 /* CAUTION: Internet Explorer hackery ahead */
-.selectChevDownElement>select::-ms-expand {
+/*.selectChevDownElement>*/
+select::-ms-expand {
   display: none;
   /* Remove default arrow in Internet Explorer 10 and 11 */
 }
 
 /* Target Internet Explorer 9 to undo the custom arrow */
 @media screen and (min-width:0\0) {
-  .selectChevDownElement>select {
+  /*.selectChevDownElement>*/
+  select {
     background: none\9;
     padding: 5px\9;
   }

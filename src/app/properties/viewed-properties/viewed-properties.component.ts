@@ -12,9 +12,18 @@ import { PropertyService } from '../../shared/property.service';
 export class ViewedPropertiesComponent implements OnInit {
   viewedProperties: Array <Property>;
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getViewedProperties();
+      });
+   }
 
   ngOnInit() {
+    this.getViewedProperties();
+  }
+
+  getViewedProperties() {
     this.viewedProperties = this.propertyService.getViewedProperties();
   }
 

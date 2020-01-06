@@ -23,26 +23,8 @@
           </li>
           <li>
             <button class="noBorderBtn">FAVORITES</button>&nbsp;&nbsp;
-            <div class="dropdown">
-              <button class="dropbtn" (click)="onDropDownClick('myDropdown')">ENG <img src="../assets/chevron-down.png"
-                  alt="Chevron down" /></button>&nbsp;
-              <div id="myDropdown" class="dropdown-content">
-                <a href="#">ITALIANO</a>
-                <a href="#">ENGLISH</a>
-                <a href="#">FRANCIAS</a>
-                <a href="#">ESPANA</a>
-                <a href="#">DEUTSCH</a>
-              </div>
-            </div>
-            <div class="dropdown">
-              <button class="dropbtn" (click)="onDropDownClick('myDropdown1')">$ <img src="../assets/chevron-down.png"
-                  alt="Chevron down" /></button>
-              <div id="myDropdown1" class="dropdown-content">
-                <a href="#">US DOLLAR &#36;</a>
-                <a href="#">EURO &#163;</a>
-                <a href="#">UK POUND &#8364;</a>
-              </div>
-            </div>
+            <app-language-button></app-language-button>
+            <app-currency-button></app-currency-button>            
           </li>
         </ul>
       </div>

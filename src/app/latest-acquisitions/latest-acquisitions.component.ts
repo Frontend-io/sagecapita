@@ -10,11 +10,20 @@ import { PropertyService } from '../shared/property.service';
   styleUrls: ['./latest-acquisitions.component.css']
 })
 export class LatestAcquisitionsComponent implements OnInit {
-  latestAcquisitions: Array <Property>;
+  latestAcquisitions: Array<Property>;
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getLatestAcquisitions();
+      });
+  }
 
   ngOnInit() {
+    this.getLatestAcquisitions();
+  }
+
+  getLatestAcquisitions() {
     this.latestAcquisitions = this.propertyService.getLatestAcquisitions();
   }
 

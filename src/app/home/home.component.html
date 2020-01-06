@@ -70,8 +70,7 @@
           <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
           <hr />
           <p><strong>LUCCA</strong></p>
-          <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.
-            </small></p>
+          <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.</small></p>
           <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
           <h3>ON APPLICATION</h3>
           <button class="filled">SHOW</button>
@@ -95,65 +94,7 @@
           <a href="#"><button>SEE ALL</button></a>
         </div>
         <div id="videoGalleryList">
-          <div id="videoGalleryListContainer">
-            <table>
-              <tbody>
-                <tr>
-                  <th>
-                    <div><img src="../assets/image1.jpg" alt="" /></div>
-                  </th>
-                  <td>
-                    <p><strong><small>Island of Stromboli</small></strong></p>
-                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                    <div class="videoGalleryListBtns">
-                      <button class="filled">SHOW</button>
-                      <button>FULL VIDEO</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <div><img src="../assets/image2.jpg" alt="" /></div>
-                  </th>
-                  <td>
-                    <p><strong><small>Island of Stromboli</small></strong></p>
-                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                    <div class="videoGalleryListBtns">
-                      <button class="filled">SHOW</button>
-                      <button>FULL VIDEO</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <div><img src="../assets/image1.jpg" alt="" /></div>
-                  </th>
-                  <td>
-                    <p><strong><small>Island of Stromboli</small></strong></p>
-                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                    <div class="videoGalleryListBtns">
-                      <button class="filled">SHOW</button>
-                      <button>FULL VIDEO</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <div><img src="../assets/image2.jpg" alt="" /></div>
-                  </th>
-                  <td>
-                    <p><strong><small>Island of Stromboli</small></strong></p>
-                    <p><small>The untouched Island of Stromboli, in Sicily, is home to thi...</small></p>
-                    <div class="videoGalleryListBtns">
-                      <button class="filled">SHOW</button>
-                      <button>FULL VIDEO</button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL (23)</button></a>
+          <app-home-gallery></app-home-gallery>
         </div>
       </div>
     </div>
@@ -185,7 +126,7 @@
     </div>
   </div>
   <div id="productInfo1BlogBand">
-    <strong>Sage Capita BLOG</strong><button>SEE ALL NEWS</button>
+    <strong>Sage Capita BLOG</strong><a href="#" routerLink="/media"><button>SEE ALL NEWS</button></a>
   </div>
 </section>
 <app-latest-acquisitions></app-latest-acquisitions>

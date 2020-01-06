@@ -10,11 +10,20 @@ import { PropertyService } from '../shared/property.service';
   styleUrls: ['./exclusive-properties.component.css']
 })
 export class ExclusivePropertiesComponent implements OnInit {
-  exclusiveProperties: Array <Property>;
+  exclusiveProperties: Array<Property>;
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getExclusiveProperties();
+      });
+  }
 
   ngOnInit() {
+    this.getExclusiveProperties();
+  }
+
+  getExclusiveProperties() {
     this.exclusiveProperties = this.propertyService.getExclusiveProperties();
   }
 }

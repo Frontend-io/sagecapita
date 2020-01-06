@@ -4,7 +4,7 @@ import { getCurrencySymbol } from '@angular/common';
 
 import { PropertyService } from '../../shared/property.service';
 
-import { Property } from '../../shared/property';
+// import { Property } from '../../shared/property';
 
 @Component({
   selector: 'app-property-info',
@@ -12,14 +12,25 @@ import { Property } from '../../shared/property';
   styleUrls: ['./property-info.component.css']
 })
 export class PropertyInfoComponent implements OnInit {
-  property: Property;
+  public property;
+  private code: string;
 
-  constructor(private propertyService: PropertyService, private route: ActivatedRoute) { }
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute) { 
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getProperty(this.code);
+      });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap =>
-      this.property = this.propertyService.getProperty(paramMap.get('code'))
+      this.getProperty(paramMap.get('code'))
     );
+  }
+
+  getProperty(code) {
+    this.property = this.propertyService.getProperty(code)
+    this.code = code;
   }
 
   getCurrencySymbol(currency) {

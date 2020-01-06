@@ -1,0 +1,83 @@
+#videoGalleryListContainer .videoGalleryListBtns button,
+button {
+  height: 3.5em;
+  margin: 0;
+  font-size: 55%;
+  border-color: #aaa;
+  color: #aaa;
+}
+
+#videoGalleryListContainer .videoGalleryListBtns a{
+    width: 46%;
+}
+
+button {
+  width: 100%;
+}
+
+#videoGalleryListContainer .videoGalleryListBtns button:hover,
+button:hover,
+#videoGalleryListContainer .videoGalleryListBtns button.filled,
+button.filled {
+  background: #064A77;
+  color: #fff;
+  border-color: #064A77;
+}
+
+button.filled:hover,
+#videoGalleryListContainer .videoGalleryListBtns button.filled:hover {
+  color: #064A77;
+  background: #fff;
+}
+
+button {
+  margin-top: 1em;
+}
+
+#videoGalleryListContainer table th div {
+  height: 7em;
+  width: 7em;
+  overflow: hidden;
+}
+
+#videoGalleryListContainer table th img {
+  width: 100%;
+}
+
+#videoGalleryListContainer p {
+  margin: 0 0 .3em 0;
+}
+
+#videoGalleryListContainer td {
+  padding-left: .5em;
+}
+
+#videoGalleryListContainer {
+  height: auto;
+  overflow: auto;
+}
+
+.videoGalleryListBtns {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.videoGalleryListBtns {
+  justify-content: space-around;
+}
+
+@media only screen and (min-width:961px) {
+  #videoGalleryListContainer {
+    height: 400px;
+  }
+
+  #videoGalleryListContainer table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 0;
+  }
+
+  #videoGalleryListContainer th {
+    vertical-align: top;
+  }
+}

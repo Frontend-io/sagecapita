@@ -28,6 +28,10 @@ import { LatestAcquisitionsComponent } from './latest-acquisitions/latest-acquis
 import { PropertyGroupsComponent } from './property-groups/property-groups.component';
 import { NavigationAnimationComponent } from './navigation-animation/navigation-animation.component';
 import { PropertyGroupComponent } from './property-group/property-group.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { HomeGalleryComponent } from './home-gallery/home-gallery.component';
+import { LanguageButtonComponent } from './language-button/language-button.component';
+import { CurrencyButtonComponent } from './currency-button/currency-button.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { PropertyGroupComponent } from './property-group/property-group.componen
     LatestAcquisitionsComponent,
     PropertyGroupsComponent,
     NavigationAnimationComponent,
-    PropertyGroupComponent
+    PropertyGroupComponent,
+    GalleryComponent,
+    HomeGalleryComponent,
+    LanguageButtonComponent,
+    CurrencyButtonComponent
   ],
   imports: [
     ContactSectionModule,

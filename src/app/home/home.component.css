@@ -55,61 +55,16 @@
   color: #fff;
 }
 
-#videoGalleryListContainer .videoGalleryListBtns button,
-#videoGalleryList button {
-  height: 3.5em;
-  margin: 0;
-  font-size: 55%;
-  border-color: #aaa;
-  color: #aaa;
-  width: 46%;
-}
-
 #btnBelowVideoGalleryFullVideo {
   margin: 1em 0;
 }
 
-#videoGalleryList button {
-  width: 100%;
-}
-
-#videoGalleryListContainer .videoGalleryListBtns button:hover,
-#videoGalleryList button:hover,
-#videoGalleryListContainer .videoGalleryListBtns button.filled,
-#videoGalleryList button.filled {
-  background: #064A77;
-  color: #fff;
-  border-color: #064A77;
-}
-
-#videoGalleryList button.filled:hover,
-#videoGalleryListContainer .videoGalleryListBtns button.filled:hover {
-  color: #064A77;
-  background: #fff;
-}
-
-#videoGalleryList button {
-  margin-top: 1em;
-}
-
-#videoGalleryList table th div {
-  height: 7em;
-  width: 7em;
-  overflow: hidden;
-}
-
-#videoGalleryList table th img {
-  width: 100%;
-}
-
-.videoGalleryListBtns,
 #videoGalleryContent,
 #productInfo1Content {
   display: flex;
   flex-flow: row wrap;
 }
 
-.videoGalleryListBtns,
 #videoGalleryContent {
   justify-content: space-around;
 }
@@ -127,8 +82,6 @@
 #videoGalleryContent {
   border-left: 4px solid #fff;
 }
-
-/* #videoGalleryExclusive h3 {} */
 
 hr {
   border: none;
@@ -174,14 +127,6 @@ hr {
   position: relative;
 }
 
-#videoGalleryList p {
-  margin: 0 0 .3em 0;
-}
-
-#videoGalleryList td {
-  padding-left: .5em;
-}
-
 #videoGalleryFullVideo button {
   width: auto;
   background: #064A77;
@@ -201,11 +146,6 @@ hr {
   position: absolute;
   top: 1em;
   right: 1em;
-}
-
-#videoGalleryListContainer {
-  height: auto;
-  overflow: auto;
 }
 
 #videoGalleryExclusive,
@@ -371,20 +311,6 @@ hr {
   #videoGalleryFullVideo,
   #videoGalleryList {
     margin-top: 0;
-  }
-
-  #videoGalleryListContainer {
-    height: 400px;
-  }
-
-  #videoGalleryListContainer table {
-    border-spacing: 0;
-    border-collapse: collapse;
-    padding: 0;
-  }
-
-  #videoGalleryListContainer th {
-    vertical-align: top;
   }
 
   #videoGalleryExclusive,
