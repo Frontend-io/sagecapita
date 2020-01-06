@@ -11,7 +11,7 @@ import { Property } from '../shared/property';
   styleUrls: ['./carousel-gallery.component.css']
 })
 export class CarouselGalleryComponent implements OnInit {
-  private property: Property;
+  public property: Property;
   private code: string;
 
   slideIndex = 1;

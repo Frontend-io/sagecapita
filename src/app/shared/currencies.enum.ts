@@ -1,5 +1,5 @@
 export enum Currencies {
     USD = 'USD',
-    GDP = 'GPB',
+    GBP = 'GBP',
     NGN = 'NGN'
 }

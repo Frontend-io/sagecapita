@@ -50,11 +50,14 @@ export class PropertyService {
       is_exclusive: false,
       is_on_application: false,
       currency: Currencies.NGN,
-      price: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
+      price: { GBP: 5000000, NGN: 50000000, USD: 5005000 },
       price_lower_range: null,
       price_upper_range: null,
       side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
+      heading_title: {
+        EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+        FR: 'Omelette du fromage'
+      },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
     within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
@@ -95,10 +98,13 @@ export class PropertyService {
       is_on_application: false,
       currency: Currencies.NGN,
       price: null,
-      price_lower_range: { GPB: 2000000, NGN: 20000000, USD: 2000200 },
-      price_upper_range: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
+      price_lower_range: { GBP: 2000000, NGN: 20000000, USD: 2000200 },
+      price_upper_range: { GBP: 5000000, NGN: 50000000, USD: 5005000 },
       side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
+      heading_title: {
+        EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+        FR: 'Omelette du fromage'
+      },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
     within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
@@ -182,7 +188,7 @@ export class PropertyService {
       is_exclusive: false,
       is_on_application: false,
       currency: Currencies.NGN,
-      price: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
+      price: { GBP: 5000000, NGN: 50000000, USD: 5005000 },
       price_lower_range: null,
       price_upper_range: null,
       side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
