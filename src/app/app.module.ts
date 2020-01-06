@@ -30,6 +30,8 @@ import { NavigationAnimationComponent } from './navigation-animation/navigation-
 import { PropertyGroupComponent } from './property-group/property-group.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeGalleryComponent } from './home-gallery/home-gallery.component';
+import { LanguageButtonComponent } from './language-button/language-button.component';
+import { CurrencyButtonComponent } from './currency-button/currency-button.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { HomeGalleryComponent } from './home-gallery/home-gallery.component';
     NavigationAnimationComponent,
     PropertyGroupComponent,
     GalleryComponent,
-    HomeGalleryComponent
+    HomeGalleryComponent,
+    LanguageButtonComponent,
+    CurrencyButtonComponent
   ],
   imports: [
     ContactSectionModule,

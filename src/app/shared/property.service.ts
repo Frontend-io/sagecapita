@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Subject } from 'rxjs';
+
 import { Property } from './property';
 import { Currencies } from './currencies.enum';
+
+import { CurrencyService } from './currency.service';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertyService {
-  properties: Array<Property> = [
+  // after fetch from server, store in originalProperties (overwrite)
+  private originalProperties: Array<Property> = [
     {
       code: '1',
       photo: 'image_1.jpg',
@@ -21,38 +27,38 @@ export class PropertyService {
         'home-carousel/slide_3.jpg'
       ],
       video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
-      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
+      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: 'Omelette du fromage' },
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: '' },
+      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        { EN: '2 - Exquisive large living rooms', FR: '' },
-        { EN: '1 Ante room', FR: '' },
-        { EN: '1 Guest toilet', FR: '' },
-        { EN: '1 Private family lounge', FR: '' },
-        { EN: '1 Study room', FR: '' },
-        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: '' },
+        { EN: '2 - Exquisive large living rooms', FR: 'Omelette du fromage' },
+        { EN: '1 Ante room', FR: 'Omelette du fromage' },
+        { EN: '1 Guest toilet', FR: 'Omelette du fromage' },
+        { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
+        { EN: '1 Study room', FR: 'Omelette du fromage' },
+        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
         {
-            EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: ''
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
         }
       ],
       is_exclusive: false,
       is_on_application: false,
       currency: Currencies.NGN,
-      price: { GPB: 5000000, NGN: 50000000, USD: 5005000},
+      price: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
       price_lower_range: null,
       price_upper_range: null,
-      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: '' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: '' },
+      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
+      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: ''
-    }
+    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+      }
     }, {
       code: '2',
       photo: 'image_1.jpg',
@@ -65,38 +71,38 @@ export class PropertyService {
         'home-carousel/slide_3.jpg'
       ],
       video: null,
-      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
+      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: 'Omelette du fromage' },
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: '' },
+      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        { EN: '2 - Exquisive large living rooms', FR: '' },
-        { EN: '1 Ante room', FR: '' },
-        { EN: '1 Guest toilet', FR: '' },
-        { EN: '1 Private family lounge', FR: '' },
-        { EN: '1 Study room', FR: '' },
-        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: '' },
+        { EN: '2 - Exquisive large living rooms', FR: 'Omelette du fromage' },
+        { EN: '1 Ante room', FR: 'Omelette du fromage' },
+        { EN: '1 Guest toilet', FR: 'Omelette du fromage' },
+        { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
+        { EN: '1 Study room', FR: 'Omelette du fromage' },
+        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
         {
-            EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: ''
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
         }
       ],
       is_exclusive: false,
       is_on_application: false,
       currency: Currencies.NGN,
       price: null,
-      price_lower_range: { GPB: 2000000, NGN: 20000000, USD: 2000200},
-      price_upper_range: { GPB: 5000000, NGN: 50000000, USD: 5005000},
-      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: '' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: '' },
+      price_lower_range: { GPB: 2000000, NGN: 20000000, USD: 2000200 },
+      price_upper_range: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
+      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
+      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: ''
-    }
+    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+      }
     }, {
       code: '3',
       photo: 'image_1.jpg',
@@ -109,24 +115,24 @@ export class PropertyService {
         'home-carousel/slide_3.jpg'
       ],
       video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
-      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
+      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: 'Omelette du fromage' },
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: '' },
+      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        { EN: '2 - Exquisive large living rooms', FR: '' },
-        { EN: '1 Ante room', FR: '' },
-        { EN: '1 Guest toilet', FR: '' },
-        { EN: '1 Private family lounge', FR: '' },
-        { EN: '1 Study room', FR: '' },
-        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: '' },
+        { EN: '2 - Exquisive large living rooms', FR: 'Omelette du fromage' },
+        { EN: '1 Ante room', FR: 'Omelette du fromage' },
+        { EN: '1 Guest toilet', FR: 'Omelette du fromage' },
+        { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
+        { EN: '1 Study room', FR: 'Omelette du fromage' },
+        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
         {
-            EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: ''
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
         }
       ],
       is_exclusive: false,
@@ -135,12 +141,12 @@ export class PropertyService {
       price: null,
       price_lower_range: null,
       price_upper_range: null,
-      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: '' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: '' },
+      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
+      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: ''
-    }
+    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+      }
     }, {
       code: '4',
       photo: 'image_1.jpg',
@@ -153,42 +159,81 @@ export class PropertyService {
         'home-carousel/slide_3.jpg'
       ],
       video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
-      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
+      main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: 'Omelette du fromage' },
       state: 'abuja',
       city: 'maitama',
       suburb: 'ministers hill',
-      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: '' },
+      type: { EN: '5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       interior_surface: 160,
       exterior_surface: 5000,
       features: [
-        { EN: '2 - Exquisive large living rooms', FR: '' },
-        { EN: '1 Ante room', FR: '' },
-        { EN: '1 Guest toilet', FR: '' },
-        { EN: '1 Private family lounge', FR: '' },
-        { EN: '1 Study room', FR: '' },
-        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: '' },
+        { EN: '2 - Exquisive large living rooms', FR: 'Omelette du fromage' },
+        { EN: '1 Ante room', FR: 'Omelette du fromage' },
+        { EN: '1 Guest toilet', FR: 'Omelette du fromage' },
+        { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
+        { EN: '1 Study room', FR: 'Omelette du fromage' },
+        { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
         {
-            EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
         masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: ''
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
         }
       ],
       is_exclusive: false,
       is_on_application: false,
       currency: Currencies.NGN,
-      price: { GPB: 5000000, NGN: 50000000, USD: 5005000},
+      price: { GPB: 5000000, NGN: 50000000, USD: 5005000 },
       price_lower_range: null,
       price_upper_range: null,
-      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: '' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: '' },
+      side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
+      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
       description_text: {
         EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: ''
-    }
+    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+      }
     }
   ];
+  // then mapCurrencyAndLanguage and store in properties cache variable (overwrite)
+  private properties: Array<Property>;
 
-  constructor(private http: HttpClient) { }
+  private subject = new Subject<void>();
+
+  public subject$ = this.subject.asObservable();
+
+  constructor(private http: HttpClient, private currencyService: CurrencyService, private languageService: LanguageService) {
+    this.properties = this.mapCurrencyAndLanguage(this.originalProperties);
+
+    this.currencyService.subject$.subscribe(
+      currency => {
+        this.properties = this.mapCurrencyAndLanguage(this.originalProperties, currency[1]);
+        this.subject.next();
+      });
+
+    this.languageService.subject$.subscribe(
+      lang => {
+        this.properties = this.mapCurrencyAndLanguage(this.originalProperties, undefined, lang);
+        this.subject.next();
+      });
+  }
+
+  private mapCurrencyAndLanguage(properties, currency = this.currencyService.getCurrency()[1], lang = this.languageService.getLang()) {
+
+    return properties.map((property) => {
+      return {
+        ...property,
+        main_title: property.main_title[lang],
+        type: property.type[lang],
+        features: property.features.map((feature) => feature[lang]),
+        currency: Currencies[currency],
+        price: property.price && property.price[currency],
+        price_lower_range: property.price_lower_range && property.price_lower_range[currency],
+        price_upper_range: property.price_upper_range && property.price_upper_range[currency],
+        side_title: property.side_title[lang],
+        heading_title: property.heading_title[lang],
+        description_text: property.description_text[lang]
+      };
+    });
+  }
 
   searchProperties(criteria: any = { state: 'abuja', city: 'maitama', type: null, size: null, price: null }): Array<Property> {
     return this.properties;

@@ -17,8 +17,6 @@ body {
   padding: 0 2em;
 }
 
-/* .menuHeaderContainer header {} */
-
 .menuHeaderContainer img {
   height: 10em;
 }
@@ -43,12 +41,12 @@ header nav#desktop #searchBar ul {
   fill: rgb(4, 37, 59);
 }
 
-#desktop #searchBar img {
+/* #desktop #searchBar img {
   height: 1em;
   margin: 0 0 0 .7em;
   vertical-align: text-top;
   pointer-events: none;
-}
+} */
 
 #desktop button {
   height: 2.2em;

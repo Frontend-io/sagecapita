@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { NavigateEventService } from './navigate-event.service';
 
@@ -8,14 +8,13 @@ import { fadeAnimation } from './animations/fade.animation';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: [
-    './app.component.css',
-    './app.component-topnav-dropdown.css'
+    './app.component.css'
   ],
   animations: [fadeAnimation],
   providers: [NavigateEventService]
 })
 
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'sagecapita';
   page = document.location.pathname;
   isPageLoading = false;
@@ -63,11 +62,6 @@ toggle between hiding and showing the dropdown content */
   }
 
   ngOnInit() {
-    // Close the dropdown menu if the user clicks outside of it
-    window.addEventListener('click', this.windowCloseDropDown);
   }
 
-  ngOnDestroy() {
-    window.removeEventListener('click', this.windowCloseDropDown);
-  }
 }

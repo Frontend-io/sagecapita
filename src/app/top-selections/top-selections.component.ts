@@ -12,9 +12,18 @@ import { PropertyService } from '../shared/property.service';
 export class TopSelectionsComponent implements OnInit {
   topSelections: Array <Property>;
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getTopSelections();
+      });
+   }
 
   ngOnInit() {
+    this.getTopSelections();
+  }
+
+  getTopSelections() {
     this.topSelections = this.propertyService.getTopSelections();
   }
 

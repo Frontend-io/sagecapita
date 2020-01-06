@@ -21,6 +21,12 @@
    display: block;
    font-weight: 700;
    text-transform: uppercase;
+   cursor: pointer;
+ }
+
+ .dropdown-content a.selected{
+   background-color: #064A77;
+   color: #fff;
  }
 
  /* Change color of dropdown links on hover */
@@ -32,3 +38,20 @@
  .show {
    display: block;
  }
+
+img {
+  height: 1em;
+  margin: 0 0 0 .7em;
+  vertical-align: text-top;
+  pointer-events: none;
+}
+
+button {
+  height: 2.2em;
+  padding: .1em 1em;
+  margin: 0;
+width: inherit;
+border-color:
+#064a77;
+display: inline;
+}

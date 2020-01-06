@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <button class="dropbtn" (click)="onDropDownClick('myDropdown')">{{lang}} <img
+      src="../assets/chevron-down.png" alt="Chevron down" /></button>&nbsp;
+  <div id="myDropdown" class="dropdown-content">
+    <a [ngClass]="{'selected': lang === 'EN'}" (click)="selectLang('EN')">EN</a>
+    <a [ngClass]="{'selected': lang === 'FR'}" (click)="selectLang('FR')">FR</a>
+  </div>
+</div>
