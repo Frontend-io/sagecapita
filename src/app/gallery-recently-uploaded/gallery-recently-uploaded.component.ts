@@ -14,9 +14,18 @@ import { Property } from '../shared/property';
 export class GalleryRecentlyUploadedComponent implements OnInit {
   public recentUploadedProperties: Property[];
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) { 
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getRecentlyUploaded();
+      });
+  }
 
   ngOnInit() {
+    this.getRecentlyUploaded();
+  }
+
+  getRecentlyUploaded() {
     this.recentUploadedProperties = this.propertyService.getRecentlyUploaded();
   }
 

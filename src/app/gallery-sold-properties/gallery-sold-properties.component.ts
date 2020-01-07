@@ -14,9 +14,18 @@ import { Property } from '../shared/property';
 export class GallerySoldPropertiesComponent implements OnInit {
   public soldProperties: Property[];
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) {
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getSoldProperties();
+      });
+  }
 
   ngOnInit() {
+    this.getSoldProperties();
+  }
+
+  getSoldProperties() {
     this.soldProperties = this.propertyService.getSoldProperties();
   }
 
