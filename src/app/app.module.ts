@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -32,6 +33,11 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { HomeGalleryComponent } from './home-gallery/home-gallery.component';
 import { LanguageButtonComponent } from './language-button/language-button.component';
 import { CurrencyButtonComponent } from './currency-button/currency-button.component';
+import { GalleryPropertyThumbnailComponent } from './gallery-property-thumbnail/gallery-property-thumbnail.component';
+import { GalleryMostSeenComponent } from './gallery-most-seen/gallery-most-seen.component';
+import { GalleryRecentlyUploadedComponent } from './gallery-recently-uploaded/gallery-recently-uploaded.component';
+import { GallerySoldPropertiesComponent } from './gallery-sold-properties/gallery-sold-properties.component';
+import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-main-property.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +59,12 @@ import { CurrencyButtonComponent } from './currency-button/currency-button.compo
     GalleryComponent,
     HomeGalleryComponent,
     LanguageButtonComponent,
-    CurrencyButtonComponent
+    CurrencyButtonComponent,
+    GalleryPropertyThumbnailComponent,
+    GalleryMostSeenComponent,
+    GalleryRecentlyUploadedComponent,
+    GallerySoldPropertiesComponent,
+    GalleryMainPropertyComponent
   ],
   imports: [
     ContactSectionModule,
@@ -69,7 +80,7 @@ import { CurrencyButtonComponent } from './currency-button/currency-button.compo
     MatProgressBarModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

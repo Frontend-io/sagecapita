@@ -1,0 +1,76 @@
+#mainPropertyContainer h4,
+#mainPropertyContainer p,
+#mainPropertyContainer h3 {
+    margin: 0;
+}
+
+#mainPropertyContainer h4,
+#mainPropertyContainer h3 {
+  font-family: 'Libre Baskerville', serif;
+}
+
+#mainPropertyContainer h4 {
+  font-weight: 700;
+}
+
+#mainPropertyContainer h3 {
+  letter-spacing: normal;
+  margin-top: .5em;
+}
+
+#mainPropertyContainer button {
+  height: 3em;
+  padding: 0 3em;
+  display: inline-block;
+  margin-top: .5em;
+}
+
+#mainPropertyContainer button.filled,
+#mainPropertyContainer button:hover {
+  border-color: #064A77;
+  background-color: #064A77;
+  color: #fff;
+}
+
+#mainPropertyContainer button.filled:hover {
+  border-color: rgb(4, 37, 59);
+  background-color: transparent;
+  color: rgb(4, 37, 59);
+}
+
+#mainPropertyDataContainer>div {
+  margin-top: .3em;
+}
+
+#mainPropertyTextContainer {
+  margin-top: .8em;
+}
+
+#mainPropertyTextContainer p {
+  line-height: 1.2em;
+}
+
+@media screen and (min-width: 461px) {
+  #mainPropertyContainer button {
+    width: auto;
+    margin: 0 0 0 .3em;
+  }
+
+  #mainPropertyBtnsContainer,
+  #mainPropertyDataContainer {
+    display: flex;
+    flex-flow: row;
+  }
+
+  #mainPropertyBtnsContainer {
+    justify-content: flex-end;
+  }
+
+  #mainPropertyDataContainer {
+    justify-content: space-between;
+  }
+
+  #mainPropertyDataContainer>div {
+    margin-top: 0;
+  }
+}

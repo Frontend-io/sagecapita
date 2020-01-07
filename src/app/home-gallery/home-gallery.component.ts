@@ -12,7 +12,7 @@ import { Property } from '../shared/property';
 export class HomeGalleryComponent implements OnInit {
   properties: Array<Property>;
 
-  constructor(private propertyService: PropertyService) { 
+  constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(
       () => {
         this.getHomeThumbnailProperties();
@@ -26,5 +26,4 @@ export class HomeGalleryComponent implements OnInit {
   getHomeThumbnailProperties() {
     this.properties = this.propertyService.getHomeThumbnailProperties();
   }
-
 }

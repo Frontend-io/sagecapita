@@ -16,11 +16,11 @@ export class LanguageService {
   constructor() {
   }
 
-  public getLang() {
+  public getLang(): string {
     return this.lang;
   }
 
-  public setLang(newlang: string) {
+  public setLang(newlang: string): void {
     if (this.lang === newlang) {
       return;
     }
@@ -29,7 +29,7 @@ export class LanguageService {
     this.onLanguageChange(newlang);
   }
 
-  private onLanguageChange(newlang: string) {
+  private onLanguageChange(newlang: string): void {
     this.subject.next(newlang);
   }
 }

@@ -7,8 +7,8 @@
             <div class="propertyDataContent">
               <p class="propertyDataTitle">{{property.main_title}}</p>
               <p class="propertyDataStatus" *ngIf="property.is_on_application">ON APPLICATION</p>
-              <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</p>
-              <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | number}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | number}}</p>
+              <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | numberMillions:'1.0-1'}}</p>
+              <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
               <p class="propertyDataLocation"><small>{{property?.suburb}} - {{property.city}} - {{property.state}}</small></p>
               <p class="propertyDataCode"><small>Code. {{property.code}}</small></p>
             </div>

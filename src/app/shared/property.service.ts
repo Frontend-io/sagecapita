@@ -14,10 +14,10 @@ import { LanguageService } from './language.service';
 })
 export class PropertyService {
   // after fetch from server, store in originalProperties (overwrite)
-  private originalProperties: Array<Property> = [
+  private originalProperties: Property[] = [
     {
       code: '1',
-      photo: 'image_1.jpg',
+      photo: 'image_3.jpg',
       photos: [
         'home-carousel/slide_1.jpg',
         'home-carousel/slide_2.jpg',
@@ -59,8 +59,9 @@ export class PropertyService {
         FR: 'Omelette du fromage'
       },
       description_text: {
-        EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+        EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+        masterfully crafted masters bedroom with fine quality Brazilian tiles.
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
       }
     }, {
       code: '2',
@@ -88,11 +89,6 @@ export class PropertyService {
         { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
         { EN: '1 Study room', FR: 'Omelette du fromage' },
         { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
-        {
-          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
-        masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
-        }
       ],
       is_exclusive: false,
       is_on_application: false,
@@ -135,12 +131,7 @@ export class PropertyService {
         { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
         { EN: '1 Study room', FR: 'Omelette du fromage' },
         { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
-        {
-          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
-        masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
-        }
-      ],
+       ],
       is_exclusive: false,
       is_on_application: true,
       currency: null,
@@ -148,10 +139,14 @@ export class PropertyService {
       price_lower_range: null,
       price_upper_range: null,
       side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
+      heading_title: {
+        EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+        FR: 'Omelette du fromage'
+      },
       description_text: {
-        EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+        EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+        masterfully crafted masters bedroom with fine quality Brazilian tiles.
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
       }
     }, {
       code: '4',
@@ -179,11 +174,6 @@ export class PropertyService {
         { EN: '1 Private family lounge', FR: 'Omelette du fromage' },
         { EN: '1 Study room', FR: 'Omelette du fromage' },
         { EN: '1 Lavish expansive kitchen with, island, store room and back door exit', FR: 'Omelette du fromage' },
-        {
-          EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
-        masterfully crafted masters bedroom with fine quality Brazilian tiles.
-        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
-        }
       ],
       is_exclusive: false,
       is_on_application: false,
@@ -192,15 +182,19 @@ export class PropertyService {
       price_lower_range: null,
       price_upper_range: null,
       side_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached', FR: 'Omelette du fromage' },
-      heading_title: { EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters', FR: 'Omelette du fromage' },
+      heading_title: {
+        EN: 'Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters',
+        FR: 'Omelette du fromage'
+      },
       description_text: {
-        EN: `Newly Built & Lavishly Finished Brand New 5 - Bedrooms fully detached with servant quarters
-    within the serenity and ambiance of Ministers Hill, just 3 minutes drive to maitama, Abuja.`, FR: 'Omelette du fromage'
+        EN: `The house stands on 2 floors, all bedrooms en suite, first class wardrobes,
+        masterfully crafted masters bedroom with fine quality Brazilian tiles.
+        Expansive  balcony with seat out. Great finishing, wonderful vicinity and easily accessible.`, FR: 'Omelette du fromage'
       }
     }
   ];
   // then mapCurrencyAndLanguage and store in properties cache variable (overwrite)
-  private properties: Array<Property>;
+  private properties: Property[];
 
   private subject = new Subject<void>();
 
@@ -222,7 +216,9 @@ export class PropertyService {
       });
   }
 
-  private mapCurrencyAndLanguage(properties, currency = this.currencyService.getCurrency()[1], lang = this.languageService.getLang()) {
+  private mapCurrencyAndLanguage(properties: Property[],
+                                 currency = this.currencyService.getCurrency()[1],
+                                 lang = this.languageService.getLang()): Property[] {
 
     return properties.map((property) => {
       return {
@@ -241,11 +237,11 @@ export class PropertyService {
     });
   }
 
-  searchProperties(criteria: any = { state: 'abuja', city: 'maitama', type: null, size: null, price: null }): Array<Property> {
+  searchProperties(criteria: any = { state: 'abuja', city: 'maitama', type: null, size: null, price: null }): Property[] {
     return this.properties;
   }
 
-  propertyCodeExists(code: string) {
+  propertyCodeExists(code: string): boolean {
     return this.properties.findIndex(property => property.code === code) !== -1;
   }
 
@@ -253,28 +249,44 @@ export class PropertyService {
     return this.properties.find(property => property.code === code);
   }
 
-  getTopSelections(): Array<Property> {
-    return this.properties.slice(0, 3);
+  getTopSelections(): Property[] {
+    return this.properties.slice(1, 4);
   }
 
   // only logged in users should see this
-  getExclusiveProperties(): Array<Property> {
+  getExclusiveProperties(): Property[] {
     return this.properties;
   }
 
-  getLatestAcquisitions(): Array<Property> {
+  getLatestAcquisitions(): Property[] {
     return this.properties;
   }
 
-  getViewedProperties(): Array<Property> {
+  getViewedProperties(): Property[] {
     return this.properties;
   }
 
-  getHomeGalleryProperties(): Array<Property> {
+  getHomeGalleryProperties(): Property[] {
     return this.properties;
   }
 
-  getHomeThumbnailProperties(): Array<Property> {
+  getHomeThumbnailProperties(): Property[] {
     return this.properties;
+  }
+
+  getMostSeen(): Property[] {
+    return this.properties.slice(1, 4);
+  }
+
+  getRecentlyUploaded(): Property[] {
+    return this.properties.slice(1, 4);
+  }
+
+  getSoldProperties(): Property[] {
+    return this.properties.slice(1, 4);
+  }
+
+  getMainGalleryProperty(): Property {
+    return this.properties[0];
   }
 }

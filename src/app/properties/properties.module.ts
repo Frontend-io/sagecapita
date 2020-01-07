@@ -16,7 +16,7 @@ import { ViewedPropertiesComponent } from './viewed-properties/viewed-properties
 import { PropertyInfoComponent } from './property-info/property-info.component';
 import { PropertyResultsComponent } from './property-results/property-results.component';
 import { PropertySearchThumbnailComponent } from './property-search-thumbnail/property-search-thumbnail.component';
-
+import { NumberMillionsModule } from '../shared/app.number-millions.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { PropertySearchThumbnailComponent } from './property-search-thumbnail/pr
     ExclusivePropertiesModule,
     PropertyThumbnailModule,
     CommonModule,
-    PropertiesRoutingModule
+    PropertiesRoutingModule,
+    NumberMillionsModule
   ]
 })
 export class PropertiesModule { }
