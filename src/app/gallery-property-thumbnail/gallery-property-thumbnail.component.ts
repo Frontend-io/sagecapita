@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getCurrencySymbol } from '@angular/common';
 
-import { Property } from '../shared/property';
+// import { Property } from '../shared/property';
 
 @Component({
   selector: 'app-gallery-property-thumbnail',
@@ -11,7 +11,7 @@ import { Property } from '../shared/property';
   ]
 })
 export class GalleryPropertyThumbnailComponent implements OnInit {
-  @Input () property: Property;
+  @Input () property;
 
   constructor() { }
 
