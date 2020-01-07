@@ -15,7 +15,7 @@ export class PropertyInfoComponent implements OnInit {
   public property;
   private code: string;
 
-  constructor(private propertyService: PropertyService, private route: ActivatedRoute) { 
+  constructor(private propertyService: PropertyService, private route: ActivatedRoute) {
     this.propertyService.subject$.subscribe(
       () => {
         this.getProperty(this.code);
@@ -28,12 +28,12 @@ export class PropertyInfoComponent implements OnInit {
     );
   }
 
-  getProperty(code) {
-    this.property = this.propertyService.getProperty(code)
+  getProperty(code: string) {
+    this.property = this.propertyService.getProperty(code);
     this.code = code;
   }
 
-  getCurrencySymbol(currency) {
+  getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
 

@@ -1,0 +1,73 @@
+.propertiesSectionItemMedtadataContainer>p,
+.propertiesSectionItemCodeInfoContainer>p,
+.propertiesSectionItemLocationContainer>p,
+.propertiesSectionItemTitleContainer>p {
+  margin: 0;
+}
+
+.propertiesSectionItemCodeInfoContainer>p.serif,
+.propertiesSectionItemTitleContainer>p {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.propertiesSectionItemImgContainer {
+  overflow: hidden;
+}
+
+.propertiesSectionItemImgContainer>img {
+  width: 100%;
+  display: block;
+}
+
+.propertiesSectionItemLocationContainer {
+  background-color: #064A77;
+  margin-top: .1em;
+}
+
+.propertiesSectionItemLocationContainer>p {
+  color: #fff;
+  font-size: 70%;
+  text-align: center;
+}
+
+.propertiesSectionItemTitleContainer>p {
+  letter-spacing: normal;
+  font-size: 90%;
+  padding: .3em 0;
+}
+
+.propertiesSectionItemCodeInfoContainer,
+.propertiesSectionItemMedtadataContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.propertiesSectionItemMedtadataContainer>p {
+  color: #888;
+}
+
+.propertiesSectionItemCodeInfoContainer>p,
+.propertiesSectionItemMedtadataContainer>p {
+  line-height: 1.4em;
+}
+
+.propertiesSectionItemCodeInfoContainer>p.code {
+  letter-spacing: .15em;
+}
+
+.propertiesSectionItemCodeInfoContainer>p {
+  font-size: 80%;
+}
+
+@media screen and (min-width: 461px) {
+  .propertiesSectionItemImgContainer {
+    height: 14em;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .propertiesSectionItemImgContainer {
+    height: 10em;
+  }
+}

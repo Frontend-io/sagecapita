@@ -1,0 +1,30 @@
+.propertiesSection>h4 {
+  margin: 0;
+}
+
+.propertiesSection {
+  margin-top: 3em;
+}
+
+.propertiesSection>hr {
+  border-width: 0;
+  border-top-width: 1px;
+  margin: .35em 0 1em 0;
+}
+
+.propertiesSectionItem {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 461px) {
+  .propertiesSectionItem {
+    width: 49%;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .propertiesSectionItem {
+    width: 32%;
+  }
+}

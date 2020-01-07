@@ -1,0 +1,21 @@
+<a href="#" [routerLink]="['/properties/' + property.code]">
+    <div class="propertiesSectionItemImgContainer">
+      <img [src]="'../assets/' + property.photo" alt="property photo" />
+    </div>
+    <div class="propertiesSectionItemLocationContainer">
+      <p><strong>{{property?.suburb | titlecase}} - {{property.city | titlecase}} - {{property.state | titlecase}}</strong></p>
+    </div>
+    <div class="propertiesSectionItemTitleContainer">
+      <p>{{property.main_title}}</p>
+    </div>
+    <div class="propertiesSectionItemCodeInfoContainer">
+      <p class="code"><strong>CODE: {{property.code}}</strong></p>
+      <p class="serif" *ngIf="property.is_on_application">ON APPLICATION</p>
+      <p class="serif" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</p>
+      <p class="serif" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
+    </div>
+    <div class="propertiesSectionItemMedtadataContainer">
+      <p><small>54880 Views</small></p>
+      <p><small>10 months ago</small></p>
+    </div>
+  </a>

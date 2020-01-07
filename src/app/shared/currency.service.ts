@@ -16,11 +16,11 @@ export class CurrencyService {
   constructor() {
   }
 
-  public getCurrency() {
+  public getCurrency(): Array<string> {
     return this.currency;
   }
 
-  public setCurrency(newcurrency) {
+  public setCurrency(newcurrency): void {
     if (this.currency && (newcurrency[0] === this.currency[0] && newcurrency[1] === this.currency[1])) {
       return;
     }
@@ -29,7 +29,7 @@ export class CurrencyService {
     this.onCurrencyChange(newcurrency);
   }
 
-  private onCurrencyChange(newcurrency) {
+  private onCurrencyChange(newcurrency): void {
     this.subject.next(newcurrency);
   }
 }
