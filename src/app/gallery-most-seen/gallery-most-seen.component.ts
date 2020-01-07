@@ -14,9 +14,18 @@ import { Property } from '../shared/property';
 export class GalleryMostSeenComponent implements OnInit {
   public mostSeenProperties: Property[];
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService) { 
+    this.propertyService.subject$.subscribe(
+      () => {
+        this.getMostSeen();
+      });
+  }
 
   ngOnInit() {
+    this.getMostSeen();
+  }
+
+  getMostSeen() {
     this.mostSeenProperties = this.propertyService.getMostSeen();
   }
 
