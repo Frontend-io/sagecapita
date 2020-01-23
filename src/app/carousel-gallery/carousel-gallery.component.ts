@@ -30,8 +30,13 @@ export class CarouselGalleryComponent implements OnInit {
   }
 
   getProperty(code) {
-    this.property = this.propertyService.getProperty(code);
-    this.code = code;
+    this.propertyService.getProperty(code)
+      .subscribe((property: Property) => {
+        this.property = property;
+        this.property['allPhotos'] = [this.property['photo'], ...this.property['photos']];
+        this.code = code;
+      }, (err: any) => {
+      });
   }
 
   onRenderSlides(): string {

@@ -14,6 +14,11 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.propertyGroupsList = this.propertyGroupService.getPropertyGroupsList();
+
+    this.propertyGroupService.getPropertyGroupsList().subscribe((propertyGroupsList) => {
+      this.propertyGroupsList = propertyGroupsList;
+    }, (err: any) => {
+    });
   }
 
 }

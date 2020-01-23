@@ -10,7 +10,7 @@ import { PropertyService } from '../shared/property.service';
   styleUrls: ['./exclusive-properties.component.css']
 })
 export class ExclusivePropertiesComponent implements OnInit {
-  exclusiveProperties: Array<Property>;
+  exclusiveProperties: Property[] = [];
 
   constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(
@@ -24,6 +24,10 @@ export class ExclusivePropertiesComponent implements OnInit {
   }
 
   getExclusiveProperties() {
-    this.exclusiveProperties = this.propertyService.getExclusiveProperties();
+    this.propertyService.getExclusiveProperties()
+      .subscribe(({ data }: any) => {
+        this.exclusiveProperties = data;
+      }, (err: any) => {
+      });
   }
 }

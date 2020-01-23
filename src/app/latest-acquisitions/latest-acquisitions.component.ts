@@ -24,7 +24,10 @@ export class LatestAcquisitionsComponent implements OnInit {
   }
 
   getLatestAcquisitions() {
-    this.latestAcquisitions = this.propertyService.getLatestAcquisitions();
+    this.propertyService.getLatestAcquisitions().subscribe(({ data }: any) => {
+      this.latestAcquisitions = data;
+    }, (err: any) => {
+    });
   }
 
 }

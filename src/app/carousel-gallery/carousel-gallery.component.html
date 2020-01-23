@@ -3,9 +3,9 @@
   <div id="carousel_gallery_container">
 
     <!-- Full-width images with number text -->
-    <div class="mySlides" *ngFor="let photo of property.photos; index as i; last as islast">
-      <div class="numbertext">{{i + 1}} / {{property.photos.length}}</div>
-      <img src="../../assets/{{photo}}">
+    <div class="mySlides" *ngFor="let photo of property?.allPhotos; index as i; last as islast">
+      <div class="numbertext">{{i + 1}} / {{property.allPhotos.length}}</div>
+      <img [src]="photo">
       {{islast ? onRenderSlides() : '' }}
     </div>
 
@@ -20,8 +20,8 @@
 
     <!-- Thumbnail images -->
     <div class="row">
-      <div class="column" *ngFor="let photo of property.photos; index as i">
-        <img class="demo cursor" src="../../assets/{{photo}}" (click)="currentSlide(i + 1)" alt="Thumbnail photo">
+      <div class="column" *ngFor="let photo of property?.allPhotos; index as i">
+        <img class="demo cursor" [src]="photo" (click)="currentSlide(i + 1)" alt="Thumbnail photo">
       </div>
     </div>
   </div>

@@ -17,15 +17,18 @@ export class PropertyGuard implements CanActivate {
     return this.checkCode(url.substring(url.lastIndexOf('/') + 1));
   }
 
-  checkCode(code) {
-    if (this.propertyService.propertyCodeExists(code)) {
-      return true;
-    }
+  checkCode(code): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.propertyService.propertyCodeExists(code)
+        .subscribe((res: any) => {
+          resolve(true);
+        }, (err: any) => {
+          reject(false);
 
-    // Navigate to the login page with extras
-    this.router.navigate(['/properties']);
-
-    return false;
+          // Navigate to the login page with extras
+          this.router.navigate(['/properties']);
+        });
+    })
   }
 
 }

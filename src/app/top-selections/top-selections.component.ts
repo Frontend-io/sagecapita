@@ -24,7 +24,11 @@ export class TopSelectionsComponent implements OnInit {
   }
 
   getTopSelections() {
-    this.topSelections = this.propertyService.getTopSelections();
+    this.propertyService.getTopSelections()
+      .subscribe(({ data }: any) => {
+        this.topSelections = data;
+      }, (err: any) => {
+      });
   }
 
 }

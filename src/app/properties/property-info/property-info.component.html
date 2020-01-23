@@ -1,4 +1,4 @@
-<section id="body">
+<section id="body" *ngIf="property">
     <div class="container">
       <div class="flexRowWrap">
         <aside>
@@ -20,16 +20,16 @@
             <p>Exterior surface: {{property.exterior_surface | number}} sqm</p>
           </div> 
           <div class="asideSmItem">
-            <p *ngFor="let features of property.features">{{features | titlecase}}</p>
+            <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
           </div>
         </aside>
         <article>
           <div class="flexRowWrap">
             <div class="articleTopCol">
               <p>Price</p>
-              <h3 *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</h3>
+              <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
               <h3 *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | number}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | number}}</h3>
-              <h3 *ngIf="property.is_on_application">ON APPLICATION</h3>
+              <h3 *ngIf="property.is_exclusive">ON APPLICATION</h3>
               <button>BROCHURE PDF</button>
             </div>
             <div class="articleTopCol">

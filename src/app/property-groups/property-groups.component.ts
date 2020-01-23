@@ -14,16 +14,19 @@ export class PropertyGroupsComponent implements OnInit {
   public activeGroup: string;
 
   constructor(private propertyGroupService: PropertyGroupService) {
-    this.activeGroup = 'city';
+    this.activeGroup = 'top_cities';
   }
 
   ngOnInit() {
     this.selectPropertyGroup(this.activeGroup);
   }
 
-  selectPropertyGroup(id) {
-    this.propertyGroups = this.propertyGroupService.getPropertiesGroup(id);
-    this.activeGroup = id;
+  public selectPropertyGroup(id) {
+    this.propertyGroupService.getPropertiesGroup(id).subscribe(({ data }: any) => {
+      this.propertyGroups = data;
+      this.activeGroup = id;
+    }, (err: any) => {
+    });
   }
 
 }

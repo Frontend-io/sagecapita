@@ -1,30 +1,51 @@
-import { Price } from '../shared/price';
-import { Text } from '../shared/text';
-import { Currencies } from '../shared/currencies.enum';
+// import { Price } from '../shared/price';
+// import { Text } from '../shared/text';
+// import { Currencies } from '../shared/currencies.enum';
 
 export interface Property {
     code: string;
     photo: string;
     photos: Array<string>;
-    video: string;
-    main_title: Text;
+    video?: string;
+    main_title: string;
+    side_title: string;
+    heading_title: string;
+    description_text: string;
     state: string;
     city: string;
     suburb?: string;
-    type: Text;
+    type: string;
     interior_surface: number;
     exterior_surface: number;
-    features: Array<Text>;
+    features: Array<string>;
     is_exclusive: boolean;
-    is_on_application: boolean;
-    currency: Currencies;
-    price: Price;
-    price_lower_range?: Price;
-    price_upper_range?: Price;
-    side_title: Text;
-    heading_title: Text;
-    description_text: Text;
+    price: number;
+    price_lower_range?: number;
+    price_upper_range?: number;
 }
+
+// export interface Property {
+//     code: string;
+//     photo: string;
+//     photos: Array<string>;
+//     video: string;
+//     main_title: Text;
+//     side_title: Text;
+//     heading_title: Text;
+//     description_text: Text;
+//     state: string;
+//     city: string;
+//     suburb?: string;
+//     type: Text;
+//     interior_surface: number;
+//     exterior_surface: number;
+//     features: Array<Text>;
+//     is_exclusive: boolean;
+//     currency: Currencies;
+//     price: Price;
+//     price_lower_range?: Price;
+//     price_upper_range?: Price;
+// }
 
 // const property: Property = {
 //     code: '3',
