@@ -19,7 +19,7 @@ export interface Property {
     exterior_surface: number;
     features: Array<string>;
     is_exclusive: boolean;
-    price: number;
+    price?: number;
     price_lower_range?: number;
     price_upper_range?: number;
 }

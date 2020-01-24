@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PropertyService } from '../shared/property.service';
-import { Property } from '../shared/property';
+import { GalleryProperty } from '../shared/gallery-property';
 
 @Component({
   selector: 'app-gallery-recently-uploaded',
@@ -12,9 +12,9 @@ import { Property } from '../shared/property';
   ]
 })
 export class GalleryRecentlyUploadedComponent implements OnInit {
-  public recentUploadedProperties: Property[];
+  public recentUploadedProperties: GalleryProperty[];
 
-  constructor(private propertyService: PropertyService) { 
+  constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(
       () => {
         this.getRecentlyUploaded();
@@ -26,7 +26,10 @@ export class GalleryRecentlyUploadedComponent implements OnInit {
   }
 
   getRecentlyUploaded() {
-    this.recentUploadedProperties = this.propertyService.getRecentlyUploaded();
+    this.propertyService.getRecentlyUploaded().subscribe(({ data }) => {
+      this.recentUploadedProperties = data;
+    }, (err: any) => {
+    });
   }
 
 }

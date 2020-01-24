@@ -10,7 +10,7 @@ import { PropertyService } from '../../shared/property.service';
   styleUrls: ['./property-results.component.css']
 })
 export class PropertyResultsComponent implements OnInit {
-  searchResults: Array<Property>;
+  searchResults: Property[];
 
   constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(

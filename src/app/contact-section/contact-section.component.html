@@ -2,22 +2,22 @@
   <div class="container">
       <h3>CONTACT</h3>
       <p>Leave your request and we'll contact you in the next 24 hours.</p>
-      <form>
+      <form [formGroup]="contactForm">
         <div id="contactElementContainer">
           <div class="contactElement">
-            <input type="text" placeholder="*FIRST NAME" />
+            <input type="text" placeholder="*FIRST NAME" formControlName="first_name" required />
           </div>
           <div class="contactElement">
-            <input type="text" placeholder="*LAST NAME" />
+            <input type="text" placeholder="*LAST NAME" formControlName="last_name" required />
           </div>
           <div class="contactElement">
-            <input type="text" placeholder="*EMAIL" />
+            <input type="text" placeholder="*EMAIL" formControlName="email" required />
           </div>
           <div class="contactElement">
-            <input type="text" placeholder="*TELEPHONE" />
+            <input type="text" placeholder="*PHONE" formControlName="phone" required />
           </div>
           <div class="contactElement selectChevDownElement">
-            <select>
+            <select formControlName="language" required>
               <option disabled>*LANGUAGE</option>
               <option>ENGLISH</option>
               <option>ITALINO</option>
@@ -27,7 +27,7 @@
             </select>
           </div>
           <div class="contactElement selectChevDownElement">
-            <select>
+            <select formControlName="country" required>
               <option disabled>*COUNTRY</option>
               <option>ENGLAND</option>
               <option>ITALIA</option>
@@ -37,7 +37,7 @@
             </select>
           </div>
           <div class="contactElement">
-            <textarea></textarea>
+            <textarea formControlName="message" placeholder="* MESSAGE" required></textarea>
           </div>
         </div>
         <p>

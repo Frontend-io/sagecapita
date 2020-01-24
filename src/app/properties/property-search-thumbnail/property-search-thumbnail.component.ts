@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getCurrencySymbol } from '@angular/common';
 
-// import { Property } from '../../shared/property';
+import { Property } from '../../shared/property';
 
 @Component({
   selector: 'app-property-search-thumbnail',
@@ -9,7 +9,7 @@ import { getCurrencySymbol } from '@angular/common';
   styleUrls: ['./property-search-thumbnail.component.css']
 })
 export class PropertySearchThumbnailComponent implements OnInit {
-  @Input () property;
+  @Input () property: Property;
 
   constructor() { }
 

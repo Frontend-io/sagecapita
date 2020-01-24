@@ -10,13 +10,13 @@
 </section>
 <section id="pressFormContainer">
   <div class="container">
-    <form>
+    <form [formGroup]="mediaForm">
       <div class="flexRowWrap">
         <div>
-          <input type="text" placeholder="* FIRST NAME" />
+          <input type="text" placeholder="* FIRST NAME" formControlName="first_name" required />
         </div>
         <div class="selectChevDownElement">
-          <select name="country">
+          <select formControlName="country" required>
             <option value="" disabled>* COUNTRY</option>
             <option value="Nigeria">Nigeria</option>
             <option value="Spain">Spain</option>
@@ -25,10 +25,10 @@
           </select>
         </div>
         <div>
-          <input type="text" placeholder="* EMAIL" />
+          <input type="text" placeholder="* EMAIL"  formControlName="email" required/>
         </div>
         <div>
-          <input type="text" placeholder="* MAGAZINE" />
+          <input type="text" placeholder="* MAGAZINE"  formControlName="magazine" required/>
         </div>
         <div>
           <button class="filled">SEND</button>
@@ -56,10 +56,10 @@
       </div>
     </div>
     <div id="headlineSearchFormContainer">
-      <form>
+      <form [formGroup]="headlineSearchForm">
         <div class="flexRowWrap">
           <div>
-            <input type="text" placeholder="SEARCH BY HEADLINE" />
+            <input type="text" placeholder="SEARCH BY HEADLINE" formControlName="headline" />
           </div>
           <div>
             <button class="filled">SEARCH</button>
@@ -263,7 +263,7 @@
 </div>
 <div>
   <div class="right">
-    <app-paginator></app-paginator>
+    <app-paginator [initPage]="1" [displayedPages]="4" [lastPage]="10"></app-paginator>
   </div>
   <div class="clearfix"></div>
 </div>

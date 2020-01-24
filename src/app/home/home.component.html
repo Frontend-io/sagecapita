@@ -12,7 +12,7 @@
   <div id="propertySearch">
     <div class="container">
       <app-properties-search></app-properties-search>
-      <form>
+      <form [formGroup]="homeForm">
         <div class="formGroup">
           <div id="propertySearchBottom">
             <h4>SEARCH BY CODE</h4>
@@ -23,7 +23,7 @@
               </svg>
             </button>
             <div id="propertySearchBottomInputContainer">
-              <input type="text" placeholder="PROPERTY CODE" />
+              <input type="text" placeholder="PROPERTY CODE" formControlName="code" />
             </div>
             <div class="clearfix"></div>
           </div>

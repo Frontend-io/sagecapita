@@ -18,8 +18,9 @@
     border-color: #064A77;
   }
   
-  .paginatorPageNumber.disabled {
+  .disabled {
     color: #aaa;
+    pointer-events: none;
   }
   
   .paginatorPageNumber,

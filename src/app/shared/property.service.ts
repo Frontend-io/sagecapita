@@ -9,12 +9,23 @@ import { HttpHelpers } from '../shared/http-helpers';
 import { Subject } from 'rxjs';
 
 import { Property } from './property';
+import { GalleryProperty } from './gallery-property';
 import { Currencies } from './currencies.enum';
 
 import { CurrencyService } from './currency.service';
 import { LanguageService } from './language.service';
 
 import { CONFIG } from '../shared/config';
+
+import TimeAgo from 'javascript-time-ago';
+
+// Load locale-specific relative date/time formatting rules.
+import en from 'javascript-time-ago/locale/en';
+
+// Add locale-specific relative date/time formatting rules.
+TimeAgo.addLocale(en);
+
+const timeAgo = new TimeAgo('en-US');
 
 @Injectable({
   providedIn: 'root'
@@ -123,7 +134,7 @@ export class PropertyService {
         '1 Study room',
         '1 Lavish expansive kitchen with, island, store room and back door exit',
       ],
-      is_exclusive: false,
+      is_exclusive: true,
       price: null,
       price_lower_range: null,
       price_upper_range: null,
@@ -194,22 +205,22 @@ export class PropertyService {
   }
 
   private mapCurrencyAndLanguage(properties: Property[],
-    currency = this.currencyService.getCurrency()[1],
-    lang = this.languageService.getLang()): Property[] {
+                                 currency = this.currencyService.getCurrency()[1],
+                                 lang = this.languageService.getLang()): Property[] {
 
     return properties.map((property) => {
       return {
         ...property,
-        main_title: property.main_title[lang],
-        type: property.type[lang],
-        features: property.features.map((feature) => feature[lang]),
-        currency: Currencies[currency],
-        price: property.price && property.price[currency],
-        price_lower_range: property.price_lower_range && property.price_lower_range[currency],
-        price_upper_range: property.price_upper_range && property.price_upper_range[currency],
-        side_title: property.side_title[lang],
-        heading_title: property.heading_title[lang],
-        description_text: property.description_text[lang]
+        main_title: property.main_title,
+        type: property.type,
+        features: property.features, // .map((feature) => feature[lang]),
+        // currency: Currencies.NGN,
+        price: property.price,
+        price_lower_range: property.price_lower_range,
+        price_upper_range: property.price_upper_range,
+        side_title: property.side_title,
+        heading_title: property.heading_title,
+        description_text: property.description_text
       };
     });
   }
@@ -234,6 +245,36 @@ export class PropertyService {
         map(({ properties }: any) => {
           properties['data'].map((property: Property) => {
             property['photo'] = `${CONFIG.cloudinary.baseThumbUrl}/${property['photo']}`;
+
+            return property;
+          });
+
+          return properties;
+        })
+      );
+  }
+
+  private getPropertyGalleryThumbnails(endPoint): Observable<GalleryProperty[]> {
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/${endPoint}`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'Exclusive properties not found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem properties, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({
+                message: 'Problem properties, please check network and try again', status: err.status
+              });
+          }
+        }),
+        map(({ properties }: any) => {
+          properties['data'].map((property: GalleryProperty) => {
+            property['photo'] = `${CONFIG.cloudinary.baseThumbUrl}/${property['photo']}`;
+            property['created_at'] = timeAgo.format(new Date(property['created_at']));
 
             return property;
           });
@@ -302,16 +343,16 @@ export class PropertyService {
     return this.properties;
   }
 
-  public getMostSeen(): Property[] {
-    return this.properties.slice(1, 4);
+  public getMostSeen(): Observable<any> {
+    return this.getPropertyGalleryThumbnails('most_seen');
   }
 
-  public getRecentlyUploaded(): Property[] {
-    return this.properties.slice(1, 4);
+  public getRecentlyUploaded(): Observable<any> {
+    return this.getPropertyGalleryThumbnails('recently_uploaded');
   }
 
-  public getSoldProperties(): Property[] {
-    return this.properties.slice(1, 4);
+  public getSoldProperties(): Observable<any> {
+    return this.getPropertyGalleryThumbnails('sold_properties');
   }
 
   public getMainGalleryProperty(): Property {

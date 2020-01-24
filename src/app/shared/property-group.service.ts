@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -141,19 +141,27 @@ export class PropertyGroupService {
               return throwError({
                 message: 'Problem getting property groups list, please check network and try again', status: err.status });
           }
-        }),
-        map(({ property_groups_list }: any): any => property_groups_list)
+        })
       );
+  }
 
-
-    // const propertyGroups = this.propertyGroups;
-    // const propertyGroupsNames = Object.keys(propertyGroups);
-    // const propertyGroupsList = {};
-
-    // propertyGroupsNames.forEach((group) => {
-    //   propertyGroupsList[group] = propertyGroups[group].map(({ name }) => name);
-    // });
-
-    // return propertyGroupsList;
+  public getPropertyGroupsListWithCount(): Observable<any> {
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/get_property_groups_list_with_count`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'No property group nwasot found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem getting property groups list, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({
+                message: 'Problem getting property groups list, please check network and try again', status: err.status });
+          }
+        }),
+        map(({ groups_list }: any): any => groups_list)
+      );
   }
 }

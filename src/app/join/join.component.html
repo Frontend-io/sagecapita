@@ -86,22 +86,22 @@
     <h3>APPLY FOR THIS POSITION</h3>
     <p>Fill in the form below to apply for one of our open positions. You can also send us your CV for a spontaneous
       application</p>
-    <form>
+    <form [formGroup]="joinForm">
       <div id="contactElementContainer">
         <div class="contactElement">
-          <input type="text" placeholder="*FIRST NAME" />
+          <input type="text" placeholder="*FIRST NAME" formControlName="first_name" required />
         </div>
         <div class="contactElement">
-          <input type="text" placeholder="*LAST NAME" />
+          <input type="text" placeholder="*LAST NAME" formControlName="last_name" required />
         </div>
         <div class="contactElement">
-          <input type="text" placeholder="*EMAIL" />
+          <input type="text" placeholder="*EMAIL" formControlName="email" required />
         </div>
         <div class="contactElement">
-          <input type="text" placeholder="*TELEPHONE" />
+          <input type="text" placeholder="*PHONE" formControlName="phone" required />
         </div>
         <div class="contactElement selectChevDownElement">
-          <select>
+          <select formControlName="language" required >
             <option disabled>*LANGUAGE</option>
             <option>ENGLISH</option>
             <option>ITALINO</option>
@@ -111,7 +111,7 @@
           </select>
         </div>
         <div class="contactElement selectChevDownElement">
-          <select>
+          <select formControlName="role" required>
             <option disabled>*ROLE</option>
             <option>REAL ESTATE ADVISOR</option>
             <option>LUXURY ACQUISITION CONSULTANT</option>
@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="contactElement">
-        <textarea placeholder="*MESSAGE"></textarea>
+        <textarea placeholder="*MESSAGE" formControlName="message" required ></textarea>
       </div>
       <div id="joinFormButton" class="flexRowWrap">
         <div class="first">

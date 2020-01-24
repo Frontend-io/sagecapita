@@ -3,7 +3,7 @@ import { getCurrencySymbol } from '@angular/common';
 
 import { PropertyService } from '../shared/property.service';
 
-// import { Property } from '../shared/property';
+import { Property } from '../shared/property';
 
 @Component({
   selector: 'app-gallery-main-property',
@@ -11,7 +11,7 @@ import { PropertyService } from '../shared/property.service';
   styleUrls: ['./gallery-main-property.component.css']
 })
 export class GalleryMainPropertyComponent implements OnInit {
-  public property;
+  public property: Property;
 
   constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(

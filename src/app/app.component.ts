@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { NavigateEventService } from './navigate-event.service';
 
@@ -15,11 +16,17 @@ import { fadeAnimation } from './animations/fade.animation';
 })
 
 export class AppComponent implements OnInit {
-  title = 'sagecapita';
-  page = document.location.pathname;
-  isPageLoading = false;
+  public title = 'sagecapita';
+  public page = document.location.pathname;
+  public isPageLoading = false;
+  public propertyCodeForm = this.fb.group({
+    code: ['']
+  });
+  public newsletterForm  = this.fb.group({
+    email: ['']
+  });
 
-  constructor(private navigateEventService: NavigateEventService) {
+  constructor(private navigateEventService: NavigateEventService, private fb: FormBuilder) {
     navigateEventService.navigation$.subscribe(
       navigation => {
         this.page = /*JSON.parse(navigation).url*/document.location.pathname;
