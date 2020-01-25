@@ -15,9 +15,9 @@ export class PropertiesService {
   constructor(private http: HttpClient) { }
 
   public getProperties(params: any): Observable<any> {
-    const httpParams = new HttpParams({ fromObject: { params: '1' } });
+    const httpParams = new HttpParams({ fromObject: params });
 
-    return this.http.get(`${HttpHelpers.apiBaseUrl}/properties`, { params: httpParams })
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/property`, { params: httpParams })
       .pipe(
         HttpHelpers.retry(),
         catchError((err) => {
@@ -32,10 +32,10 @@ export class PropertiesService {
           }
         }),
         map(({ properties }: any) => {
-          properties['data'] = properties['data'].map((property) => {
-            property['features'] = JSON.parse(property['features']);
+          properties['data'] = properties['data'].map((property: any) => {
             property['photo'] = `${CONFIG.cloudinary.baseLargeThumbUrl}/${property['photo']}`;
-            property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseUrl}/${photo}`);
+
+            return property;
           });
 
           return properties;

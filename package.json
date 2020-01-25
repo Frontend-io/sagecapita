@@ -23,7 +23,7 @@
     "@angular/router": "~8.2.14",
     "@netlify-builder/deploy": "2.0.3",
     "javascript-time-ago": "2.0.6",
-    "rxjs": "6.4.0",
+    "rxjs": "6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

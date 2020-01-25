@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 import { PropertyGroupService } from '../shared/property-group.service';
@@ -6,9 +6,14 @@ import { PropertyGroupService } from '../shared/property-group.service';
 @Component({
   selector: 'app-properties-search',
   templateUrl: './properties-search.component.html',
-  styleUrls: ['./properties-search.component.css', '../shared/app.properties-search.css']
+  styleUrls: [
+    './properties-search.component.css',
+    '../shared/app.properties-search.css'
+  ]
 })
 export class PropertiesSearchComponent implements OnInit {
+  @Output() private search = new EventEmitter<void>();
+
   public propertyGroupsList: any;
   public searchForm = this.fb.group({
     state: [''],
@@ -29,6 +34,10 @@ export class PropertiesSearchComponent implements OnInit {
       this.propertyGroupsList = propertyGroupsListWithCount;
     }, (err: any) => {
     });
+  }
+
+  public onSubmit(): void {
+    this.search.emit();
   }
 
   public getSearchData(): any {

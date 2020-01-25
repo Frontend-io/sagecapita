@@ -9,7 +9,7 @@ export class PaginatorComponent implements OnInit {
   @Input() public lastPage: number;
   @Input() private displayedPages: number;
   @Input() private initPage: number;
-  @Output() private pageChange = new EventEmitter<number>();
+  @Output() private pageChange = new EventEmitter<any>();
 
   public renderedPages: any[];
 
@@ -97,9 +97,15 @@ export class PaginatorComponent implements OnInit {
     }
   }
 
+  public reRender(): void {
+    this.render();
+  }
+
   public onPageClick(newPage: number): void {
     if (!this.busy && newPage !== this.currentPage) {
-      this.pageChange.emit(newPage);
+      this.pageChange.emit({newPage, cb: () => {
+        this.busy = false;
+      }});
 
       this.busy = true;
     }
@@ -111,8 +117,6 @@ export class PaginatorComponent implements OnInit {
     if (this.forwardEdge && this.backEdge && (newPage > this.forwardEdge || newPage < this.backEdge)) {
       this.render();
     }
-
-    this.busy = false;
   }
 
   public onBackClick(): void {

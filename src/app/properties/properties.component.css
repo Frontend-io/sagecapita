@@ -33,6 +33,32 @@
   width: 100%;
 }
 
+
+
+#searchResults {
+  padding: 0 2em 3em 2em;
+}
+
+#searchResults>.container {
+  display: block;
+}
+
+#searchResultsContainer>article {
+  margin-top: 1em;
+}
+
+#searchResultsContainer>article {
+  width: 100%;
+}
+
+@media only screen and (min-width:961px) {
+  #searchResultsContainer>article {
+    width: 49.5%;
+  }
+}
+
+
+
 @media only screen and (min-width:961px) {
   .searchSectionFormContainerElement>select {
     width: 15em;
