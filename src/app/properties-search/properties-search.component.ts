@@ -24,10 +24,19 @@ export class PropertiesSearchComponent implements OnInit {
     this.getPropertyGroupsListWithCount();
   }
 
-  public getPropertyGroupsListWithCount() {
+  private getPropertyGroupsListWithCount(): void {
     this.propertyGroupService.getPropertyGroupsListWithCount().subscribe((propertyGroupsListWithCount: any) => {
       this.propertyGroupsList = propertyGroupsListWithCount;
     }, (err: any) => {
     });
+  }
+
+  public getSearchData(): any {
+    const { controls } = this.searchForm;
+    const body = {};
+
+    Object.keys(controls).forEach((control) => body[control] = controls[control].value);
+
+    return body;
   }
 }

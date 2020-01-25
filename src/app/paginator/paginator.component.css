@@ -1,47 +1,51 @@
 .paginatorEllipsis {
-    content: url('../../assets/ellipsis.png');
-  }
-  
-  .paginatorPrevArrow {
-    content: url('../../assets/left-arrow.png');
-  }
-  
-  .paginatorNextArrow {
-    content: url('../../assets/right-arrow.png');
-  }
-  
-  .paginatorPageNumber {
-    border: 1px solid#aaa;
-  }
-  
-  .paginatorPageNumber.active {
-    border-color: #064A77;
-  }
-  
-  .disabled {
-    color: #aaa;
-    pointer-events: none;
-  }
-  
-  .paginatorPageNumber,
-  .paginatorEllipsis,
-  .paginatorPrevArrow,
-  .paginatorNextArrow {
-    width: 2em;
-    height: 2em;
-    text-align: center;
-    font-weight: 700;
-    padding-top: .2em;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 0 .1em;
-  }
+  content: url('../../assets/ellipsis.png');
+}
 
-  .paginator>.flexRowWrap {
-    justify-content: flex-start;
-  }
-  
-  .paginator {
-    margin: 0 auto;
-    display: table;
-  }
+.paginatorPrevArrow {
+  content: url('../../assets/left-arrow.png');
+}
+
+.paginatorNextArrow {
+  content: url('../../assets/right-arrow.png');
+}
+
+.paginatorPageNumber {
+  border: 1px solid#aaa;
+}
+
+.paginatorPageNumber.active {
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
+  border-width: 2px;
+}
+
+.disabled {
+  color: #aaa;
+  pointer-events: none;
+}
+
+.paginatorPageNumber,
+.paginatorEllipsis,
+.paginatorPrevArrow,
+.paginatorNextArrow {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  font-weight: 700;
+  padding-top: .2em;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 0 .1em;
+  color: #064A77;
+  border-color: #064A77;
+}
+
+.paginator>.flexRowWrap {
+  justify-content: flex-start;
+}
+
+.paginator {
+  margin: 0 auto;
+  display: table;
+}

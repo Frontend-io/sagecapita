@@ -100,6 +100,8 @@ export class PaginatorComponent implements OnInit {
   public onPageClick(newPage: number): void {
     if (!this.busy && newPage !== this.currentPage) {
       this.pageChange.emit(newPage);
+
+      this.busy = true;
     }
   }
 
@@ -109,6 +111,8 @@ export class PaginatorComponent implements OnInit {
     if (this.forwardEdge && this.backEdge && (newPage > this.forwardEdge || newPage < this.backEdge)) {
       this.render();
     }
+
+    this.busy = false;
   }
 
   public onBackClick(): void {
@@ -121,6 +125,10 @@ export class PaginatorComponent implements OnInit {
     if (!this.busy && this.currentPage < this.lastPage) {
       this.onPageClick(this.currentPage + 1);
     }
+  }
+
+  public getCurrentPage(): number {
+    return this.currentPage;
   }
 
 }
