@@ -93,4 +93,7 @@
     padding-right: 6em;
   }
   
+  .contactElement>select {
+    width: 20em;
+  }
 }

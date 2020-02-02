@@ -1,50 +1,72 @@
 <section id="propertyContact">
   <div class="container">
-      <h3>CONTACT</h3>
-      <p>Leave your request and we'll contact you in the next 24 hours.</p>
-      <form [formGroup]="contactForm">
-        <div id="contactElementContainer">
-          <div class="contactElement">
-            <input type="text" placeholder="*FIRST NAME" formControlName="first_name" required />
-          </div>
-          <div class="contactElement">
-            <input type="text" placeholder="*LAST NAME" formControlName="last_name" required />
-          </div>
-          <div class="contactElement">
-            <input type="text" placeholder="*EMAIL" formControlName="email" required />
-          </div>
-          <div class="contactElement">
-            <input type="text" placeholder="*PHONE" formControlName="phone" required />
-          </div>
-          <div class="contactElement selectChevDownElement">
-            <select formControlName="language" required>
-              <option disabled>*LANGUAGE</option>
-              <option>ENGLISH</option>
-              <option>ITALINO</option>
-              <option>FRANCIAS</option>
-              <option>ESPANOL</option>
-              <option>DEUTSCH</option>
-            </select>
-          </div>
-          <div class="contactElement selectChevDownElement">
-            <select formControlName="country" required>
-              <option disabled>*COUNTRY</option>
-              <option>ENGLAND</option>
-              <option>ITALIA</option>
-              <option>FRANCE</option>
-              <option>ESPANA</option>
-              <option>DEUTSCHLAND</option>
-            </select>
-          </div>
-          <div class="contactElement">
-            <textarea formControlName="message" placeholder="* MESSAGE" required></textarea>
-          </div>
+    <h3>CONTACT</h3>
+    <p>{{formMessage}}</p>
+    <ul *ngIf="contactForm.touched">
+      <li><small *ngIf="contactFormControls.first_name.touched && contactFormControls.first_name?.errors?.required">
+          First name is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.last_name.touched && contactFormControls.last_name?.errors?.required">
+          Last name is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.required">
+          Email is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.email">
+          Email address is invalid.
+        </small></li>
+      <li><small *ngIf="contactFormControls.phone.touched && contactFormControls.phone?.errors?.required">
+          Phone number is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.language.touched && contactFormControls.language?.errors?.required">
+          Language is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.country.touched && contactFormControls.country?.errors?.required">
+          Country is required.
+        </small></li>
+      <li><small *ngIf="contactFormControls.message.touched && contactFormControls.message?.errors?.required">
+          Message is required.
+        </small></li>
+      <li><small
+          *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
+          You must agree to our privacy policy.
+        </small></li>
+    </ul>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div id="contactElementContainer">
+        <div class="contactElement">
+          <input type="text" placeholder="*FIRST NAME" formControlName="first_name" required />
         </div>
-        <p>
-          <input type="checkbox">
-          I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
-        </p>
-        <button>SEND</button>
-      </form>
+        <div class="contactElement">
+          <input type="text" placeholder="*LAST NAME" formControlName="last_name" required />
+        </div>
+        <div class="contactElement">
+          <input type="text" placeholder="*EMAIL" formControlName="email" required />
+        </div>
+        <div class="contactElement">
+          <input type="text" placeholder="*PHONE" formControlName="phone" required />
+        </div>
+        <div class="contactElement selectChevDownElement">
+          <select formControlName="language" required>
+            <option value="" disabled>*LANGUAGE</option>
+            <option [value]="language.code" *ngFor="let language of languages">{{language.name}}</option>
+          </select>
+        </div>
+        <div class="contactElement selectChevDownElement">
+          <select formControlName="country" required>
+            <option value="" disabled>*COUNTRY</option>
+            <option value="{{country.code}}" *ngFor="let country of countries">{{country.name}}</option>
+          </select>
+        </div>
+        <div class="contactElement">
+          <textarea formControlName="message" placeholder="* MESSAGE" required></textarea>
+        </div>
+      </div>
+      <p>
+        <input type="checkbox" formControlName="privacy_policy_check">
+        I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
+      </p>
+      <button [disabled]="!contactForm.valid || isSubmitting">SEND</button>
+    </form>
   </div>
 </section>

@@ -133,7 +133,7 @@ export class PropertyGroupService {
         catchError((err) => {
           switch (err.status) {
             case 404:
-              return throwError({ message: 'No property group nwasot found', status: err.status });
+              return throwError({ message: 'No property group was found', status: err.status });
             case 500:
               return throwError({ message: 'Problem getting property groups list, please try again', status: err.status });
             case 0:

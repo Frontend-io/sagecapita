@@ -35,7 +35,7 @@
             <div class="articleTopCol">
               <p>Area in Metres</p>
               <h3 *ngIf="property.interior_surface">{{property.interior_surface | number}} Sqm</h3>
-              <button>ASK FOR INFORMATION</button>
+              <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>ASK FOR INFORMATION</button></a>
             </div>
           </div>
           <p><strong>{{property.heading_title | titlecase}}</strong>

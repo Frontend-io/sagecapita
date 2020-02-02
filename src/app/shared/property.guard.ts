@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { PropertyService } from '../shared/property.service';
+import { PropertyService } from './property.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class PropertyGuard implements CanActivate {
     return this.checkCode(url.substring(url.lastIndexOf('/') + 1));
   }
 
-  checkCode(code): Promise<boolean> {
+  checkCode(code: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.propertyService.propertyCodeExists(code)
         .subscribe((res: any) => {
@@ -28,7 +28,7 @@ export class PropertyGuard implements CanActivate {
           // Navigate to the login page with extras
           this.router.navigate(['/properties']);
         });
-    })
+    });
   }
 
 }

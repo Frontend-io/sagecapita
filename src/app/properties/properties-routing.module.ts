@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PropertyComponent } from './property/property.component';
 import { PropertiesComponent } from './properties.component';
-import { PropertyGuard } from './property.guard';
+import { PropertyGuard } from '../shared/property.guard';
 
 const routes: Routes = [
   { path: '', component: PropertiesComponent },

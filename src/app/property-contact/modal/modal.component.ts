@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
-import { ContactService } from '../shared/contact.service';
-import { countries } from '../shared/countries.json';
-import { languages } from '../shared/languages.json';
+import { ContactService } from '../../shared/contact.service';
+import { countries } from '../../shared/countries.json';
+import { languages } from '../../shared/languages.json';
 
 @Component({
-  selector: 'app-contact-section',
-  templateUrl: './contact-section.component.html',
-  styleUrls: ['./contact-section.component.css']
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css']
 })
-export class ContactSectionComponent implements OnInit {
+export class ModalComponent implements OnInit {
   public contactForm = this.fb.group({
     first_name: ['', [Validators.required, Validators.maxLength(50)]],
     last_name: ['', [Validators.required, Validators.maxLength(60)]],
@@ -26,10 +27,13 @@ export class ContactSectionComponent implements OnInit {
   public countries = countries;
   public languages = languages;
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) { }
+  constructor(
+    public dialogRef: MatDialogRef<ModalComponent>,
+    private fb: FormBuilder,
+    private contactService: ContactService) { }
 
   ngOnInit() {
-  }
+}
 
   public onSubmit(): void {
     if (!this.contactForm.valid) {
@@ -43,6 +47,8 @@ export class ContactSectionComponent implements OnInit {
     body['country'] = controls['country'].value.toUpperCase();
     body['language'] = controls['language'].value.toUpperCase();
     body['privacy_policy_check'] = !!controls['privacy_policy_check'].value;
+
+    body['property_code'] = this.getCode().toUpperCase();
 
     this.formMessage = 'Submitting...';
     this.isSubmitting = true;
@@ -59,6 +65,12 @@ export class ContactSectionComponent implements OnInit {
 
         this.isSubmitting = false;
       });
+  }
+
+  private getCode(): string {
+    const url = location.href;
+
+    return url.substring(url.lastIndexOf('/') + 1);
   }
 
   get contactFormControls(): any {

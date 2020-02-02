@@ -15,7 +15,7 @@ export class GalleryComponent implements OnInit {
     suburb: ['', Validators.required],
     city: ['', Validators.required],
     state: ['', Validators.required],
-    types: ['', Validators.required],
+    type: ['', Validators.required],
     price: ['', Validators.required],
     country: ['', Validators.required],
     message: ['', Validators.required]

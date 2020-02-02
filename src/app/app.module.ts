@@ -14,6 +14,7 @@ import { ContactSectionModule } from './shared/app.contact-section.module';
 import { ExclusivePropertiesModule } from './shared/app.exclusive-properties.module';
 import { PageNotFoundModule } from './shared/app.page-not-found.module';
 import { PropertyThumbnailModule } from './shared/app.property-thumbnail.module';
+import { PropertyContactModule } from './shared/app.property-contact.module';
 
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -68,6 +69,7 @@ import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-ma
     GalleryMainPropertyComponent
   ],
   imports: [
+    PropertyContactModule,
     ContactSectionModule,
     PaginatorModule,
     PropertiesSearchModule,

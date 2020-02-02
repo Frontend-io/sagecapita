@@ -57,6 +57,7 @@ select {
 
 textarea {
   width: 20.5em;
+  padding: .7em;
 }
 
 /*.selectChevDownElement>*/
@@ -101,6 +102,13 @@ button {
   font-weight: 700;
 }
 
+button[disabled] {
+  border-color: #bbb !important;
+  background-color: #bbb !important;
+  pointer-events: none;
+  color: #888 !important;
+}
+
 ul li {
   list-style-type: none;
 }
@@ -135,6 +143,15 @@ button:focus {
   position: fixed;
   width: 100%;
   z-index: 99999;
+}
+
+.formRow {
+  margin-top: 1em;
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-color: #a94442;
+  /* red */
 }
 
 p {

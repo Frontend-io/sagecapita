@@ -15,7 +15,6 @@ import { PropertiesComponent } from './properties.component';
 import { PropertyComponent } from './property/property.component';
 import { ViewedPropertiesComponent } from './viewed-properties/viewed-properties.component';
 import { PropertyInfoComponent } from './property-info/property-info.component';
-import { PropertyResultsComponent } from './property-results/property-results.component';
 import { PropertySearchThumbnailComponent } from './property-search-thumbnail/property-search-thumbnail.component';
 import { NumberMillionsModule } from '../shared/app.number-millions.module';
 
@@ -25,7 +24,6 @@ import { NumberMillionsModule } from '../shared/app.number-millions.module';
     PropertyComponent,
     ViewedPropertiesComponent,
     PropertyInfoComponent,
-    PropertyResultsComponent,
     PropertySearchThumbnailComponent
   ],
   imports: [
