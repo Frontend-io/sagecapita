@@ -1,0 +1,95 @@
+input:not([type="checkbox"]),
+select {
+  width: 100%;
+}
+
+button {
+  height: 3em;
+  padding: 0 2em;
+  background-color: rgb(4, 37, 59);
+  color: #fff;
+}
+
+button:hover {
+  background-color: transparent;
+  color: rgb(4, 37, 59);
+}
+
+#loginForm button,
+#forgotPasswordForm button {
+  margin: 0 auto;
+  display: block;
+}
+
+#loginForm {
+  background-color: rgb(4, 37, 59);
+  padding: 2.5em;
+}
+
+#loginForm input {
+  background-color: #fff;
+}
+
+#loginForm input+small {
+  color: rgb(245, 247, 248);
+}
+
+#loginForm>h2,
+#forgotPasswordForm>h2,
+#registerForm>h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+#loginForm>h2 {
+  color: #fff;
+}
+
+#forgotPasswordForm>h2 {
+  color:
+    /*#064A77*/
+    rgb(4, 37, 59);
+}
+
+#forgotPasswordForm,
+#registerForm {
+  background-color: #f4f4f5;
+  padding: 2.5em;
+}
+
+#forgotPasswordForm {
+  margin-top: 1.5em;
+}
+
+#loginForm button {
+  background-color: #fff;
+  color: rgb(4, 37, 59);
+}
+
+#loginForm button:hover {
+  color: #fff;
+  background-color: rgb(4, 37, 59);
+}
+
+#intro {
+  padding: 0 1em;
+}
+
+aside,
+article {
+  width: 100%;
+}
+
+@media only screen and (min-width:961px) {
+  aside {
+    width: 28%;
+  }
+
+  article {
+    width: 68%;
+  }
+
+  #intro {
+    padding: 0;
+  }
+}

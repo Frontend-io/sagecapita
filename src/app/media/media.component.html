@@ -47,19 +47,15 @@
     <div id="pressArchiveContainer">
       <h1>Press Archive</h1>
       <div class="flexRowWrap">
-        <div><button class="active">2019</button></div>
-        <div><button>2018</button></div>
-        <div><button>2017</button></div>
-        <div><button>2016</button></div>
-        <div><button>2015</button></div>
-        <div><button>2014</button></div>
+        <div *ngFor="let year of allYears"><button (click)="onYearClick(year)" [ngClass]="{'active': currentYear === year}">{{year}}</button></div>
       </div>
     </div>
     <div id="headlineSearchFormContainer">
       <form [formGroup]="headlineSearchForm">
         <div class="flexRowWrap">
           <div>
-            <input type="text" placeholder="SEARCH BY HEADLINE" formControlName="headline" />
+            <input type="text" placeholder="SEARCH BY HEADLINE" formControlName="headline"
+            (keyup)="onNewsNameKeyUp(headlineSearchForm['controls']['headline'].value)" />
           </div>
           <div>
             <button class="filled">SEARCH</button>
@@ -73,7 +69,7 @@
           <p><strong>FEATURED ARTICLES</strong></p>
         </div>
         <div id="featuredArticlesBtns" class="flexRowWrap">
-          <div><button>ALL ARTICLES (123)</button></div>
+          <div><button>ALL ARTICLES ({{allNewsCount}})</button></div>
           <div><button class="filled">VIDEO ARCHIVE</button></div>
         </div>
       </div>
@@ -81,7 +77,19 @@
     <div id="featuredArticlesResults" class="flexRowWrap">
       <table cellspacing="0">
         <tbody>
-          <tr>
+          <tr *ngFor="let news of newss1stHalf">
+            <td>
+              <p><small>{{news.source | titlecase}}</small></p>
+              <p><small>{{news.article_date | date: 'dd/MM/yyyy'}}</small></p>
+            </td>
+            <td>
+              <a href="#"><img [src]="news.photo_link" alt="Media thumbnail"/></a>
+            </td>
+            <td>
+              <p><small><a [href]="news.article_link">{{news.title}}</a></small></p>
+            </td>
+          </tr>
+          <!-- <tr>
             <td>
               <p><small>Germania</small></p>
               <p><small>26/07/19</small></p>
@@ -152,24 +160,24 @@
             <td>
               <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <p><small>Germania</small></p>
-              <p><small>26/07/19</small></p>
-            </td>
-            <td>
-              <a href="#"><img src="../../assets/media-thumbnail.png" alt="Media thumbnail"/></a>
-            </td>
-            <td>
-              <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
-            </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <table cellspacing="0">
         <tbody>
-          <tr>
+          <tr *ngFor="let news of newss2ndHalf">
+            <td>
+              <p><small>{{news.source | titlecase}}</small></p>
+              <p><small>{{news.article_date | date: 'dd/MM/yyyy'}}</small></p>
+            </td>
+            <td>
+              <a href="#"><img [src]="news.photo_link" alt="Media thumbnail"/></a>
+            </td>
+            <td>
+              <p><small><a [href]="news.article_link">{{news.title}}</a></small></p>
+            </td>
+          </tr>
+          <!-- <tr>
             <td>
               <p><small>Germania</small></p>
               <p><small>26/07/19</small></p>
@@ -240,30 +248,19 @@
             <td>
               <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <p><small>Germania</small></p>
-              <p><small>26/07/19</small></p>
-            </td>
-            <td>
-              <a href="#"><img src="../../assets/media-thumbnail.png" alt="Media thumbnail"/></a>
-            </td>
-            <td>
-              <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
-            </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
     <div id="featuredArticlesBottom" class="flexRowWrap">
 <div></div>
 <div>
-  <button>ALL ARTICLES (233)</button>
+  <button>TOTAL ARTICLES ({{totalMedia}})</button>
 </div>
 <div>
   <div class="right">
-    <app-paginator [initPage]="1" [displayedPages]="4" [lastPage]="10"></app-paginator>
+    <app-paginator [initPage]="1" [displayedPages]="perPage" [lastPage]="lastPage"
+          (pageChange)="onPageClick($event)"></app-paginator>
   </div>
   <div class="clearfix"></div>
 </div>

@@ -1,0 +1,138 @@
+<section>
+  <div class="container">
+    <div id="intro">
+      <h2>Login</h2>
+    <p>To gain access to all of the properties managed by Lionard, including those covered by privacy agreements, please
+      register in the reserved area (specifying your personal or company details) in order to receive unrestricted
+      access. Lionard will evaluate every request and will subsequently send you a user-name and password to gain access
+      to the reserved area via the Login section.</p>
+    </div>
+    <div class="flexRowWrap">
+      <aside>
+        <div id="loginForm">
+          <h2>LOGIN</h2>
+          <form [formGroup]="loginForm">
+            <div class="formRow">
+              <input type="email" formControlName="email" placeholder="EMAIL" required aria-required />
+              <small *ngIf="loginFormControls.email.touched && loginFormControls.email?.errors?.required">
+                Email is required.
+              </small>
+              <small *ngIf="loginFormControls.email.touched && loginFormControls.email?.errors?.email">
+                Email is invalid.
+              </small>
+            </div>
+            <div class="formRow">
+              <input type="password" formControlName="password" placeholder="PASSWORD" required aria-required />
+              <small *ngIf="loginFormControls.password.touched && loginFormControls.password?.errors?.required">
+                Password is required.
+              </small>
+            </div>
+            <div class="formRow">
+              <button [disabled]="!loginForm.valid || isSubmittingLoginForm" (click)="submitLoginForm()">SEND</button>
+            </div>
+          </form>
+        </div>
+        <div id="forgotPasswordForm">
+          <h2>FORGOT PASSWORD?</h2>
+          <form [formGroup]="forgotPasswordForm">
+            <div class="formRow">
+              <input type="email" formControlName="email" placeholder="EMAIL" required aria-required />
+              <small
+                *ngIf="forgotPasswordFormControls.email.touched && forgotPasswordFormControls.email?.errors?.required">
+                Email is required.
+              </small>
+              <small
+                *ngIf="forgotPasswordFormControls.email.touched && forgotPasswordFormControls.email?.errors?.email">
+                Email is invalid.
+              </small>
+            </div>
+            <div class="formRow">
+              <button [disabled]="!forgotPasswordForm.valid || isSubmittingForgotPasswordForm"
+                (click)="submitForgotPasswordForm()">SEND</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+      <article>
+        <div id="registerForm">
+          <h2>COMPLETE YOUR SUBSCRIPTION</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+            <div class="flexRowWrap">
+              <div class="formRow colM6">
+                <input type="text" formControlName="first_name" placeholder="* FIRST NAME" required aria-required />
+                <small
+                  *ngIf="registerFormControls.first_name.touched && registerFormControls.first_name?.errors?.required">
+                  First name is required.
+                </small>
+              </div>
+              <div class="formRow colM6">
+                <input type="text" formControlName="last_name" placeholder="* LAST NAME" required aria-required />
+                <small
+                  *ngIf="registerFormControls.last_name.touched && registerFormControls.last_name?.errors?.required">
+                  Last name is required.
+                </small>
+              </div>
+            </div>
+            <div class="flexRowWrap">
+              <div class="formRow colM6">
+                <input type="text" formControlName="phone" placeholder="* PHONE" required aria-required />
+                <small *ngIf="registerFormControls.phone.touched && registerFormControls.phone?.errors?.required">
+                  Phone is required.
+                </small>
+              </div>
+              <div class="formRow colM6">
+                <input type="email" formControlName="email" placeholder="* EMAIL" required aria-required />
+                <small *ngIf="registerFormControls.email.touched && registerFormControls.email?.errors?.required">
+                  Email is required.
+                </small>
+                <small *ngIf="registerFormControls.email.touched && registerFormControls.email?.errors?.email">
+                  Email is invalid.
+                </small>
+              </div>
+            </div>
+            <div class="flexRowWrap">
+              <div class="formRow colM6">
+                <input type="text" formControlName="profession" placeholder="* PROFESSION" required aria-required />
+                <small
+                  *ngIf="registerFormControls.profession.touched && registerFormControls.profession?.errors?.required">
+                  Profession is required.
+                </small>
+              </div>
+              <div class="formRow colM6">
+                <input type="text" formControlName="city" placeholder="* CITY" required aria-required />
+                <small *ngIf="registerFormControls.city.touched && registerFormControls.city?.errors?.required">
+                  City is required.
+                </small>
+              </div>
+            </div>
+            <div class="flexRowWrap">
+              <div class="formRow colM6">
+                <select formControlName="country" required aria-required>
+                  <option value="" disabled>* COUNTRY</option>
+                  <option value="NG">Nigeria</option>
+                </select>
+                <small *ngIf="registerFormControls.country.touched && registerFormControls.country?.errors?.required">
+                  Country is required.
+                </small>
+              </div>
+              <div class="formRow colM6">
+                <select formControlName="language" required aria-required>
+                  <option value="" disabled>* LANGUAGE</option>
+                  <option value="EN">English</option>
+                </select>
+                <small *ngIf="registerFormControls.language.touched && registerFormControls.language?.errors?.required">
+                  Language is required.
+                </small>
+              </div>
+            </div>
+            <div class="formRow colM6 right">
+              <button [disabled]="!registerForm.valid || isSubmittingRegisterForm"
+                (click)="submitRegisterForm()">SEND</button>
+            </div>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

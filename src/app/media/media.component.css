@@ -101,8 +101,12 @@ button.active:hover {
 }
 
 #pressArchiveContainer .flexRowWrap>div {
-  margin-top: 1em;
+  margin: 1em 1em 0 0;
   width: 8em;
+}
+
+#pressArchiveContainer .flexRowWrap{
+  justify-content: flex-start;
 }
 
 #headlineSearchFormContainer {
@@ -149,6 +153,10 @@ button.active:hover {
 
 #featuredArticlesResults table tr>td:first-child {
   padding-right: 1em;
+}
+
+#featuredArticlesResults>table tr>td:nth-child(2) {
+  padding: 0 .4em;
 }
 
 #featuredArticlesResults p {

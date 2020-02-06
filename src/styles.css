@@ -149,8 +149,12 @@ button:focus {
   margin-top: 1em;
 }
 
+.colM6, .colM4, .colM2, .colM3, .colM8, .colM10{
+  width: 100%;
+}
+
 .ng-invalid:not(form).ng-touched {
-  border-color: #a94442;
+  border-color: #a94442 !important;
   /* red */
 }
 
@@ -203,6 +207,32 @@ h3 {
 .container {
   margin: 0 auto;
   display: table;
+}
+
+@media (min-width:961px) {
+  .colM6{
+    width: 49%;
+  }
+
+  .colM4{
+    width: 32%;
+  }
+
+  .colM2{
+    width: 18%;
+  }
+
+  .colM3{
+    width: 24%;
+  }
+
+  .colM8{
+    width: 66%;
+  }
+
+  .colM10{
+    width: 78%;
+  }
 }
 
 @media only screen and (min-width:961px) {

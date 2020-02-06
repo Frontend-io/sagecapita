@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'property_contact/:code', canActivate: [PropertyGuard], component: PropertyContactComponent },
   // { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
+  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
