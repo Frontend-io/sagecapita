@@ -1,0 +1,71 @@
+#searchBand {
+    background: #064A77;
+    padding: .5em 2em .9em 2em;
+  }
+  
+  .searchSectionFormContainerElement>select {
+    height: 2.5em;
+    border-color: #ccc;
+    margin-right: .5em;
+    color: rgb(4, 37, 59);
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: .6em;
+  }
+  
+  #searchSection {
+    padding: 2em 2em 0 2em;
+  }
+  
+  #searchSection h1 {
+    margin: 0;
+  }
+  
+  #searchSection p {
+    color: #aaa;
+  }
+  
+  #searchSection h2 {
+    text-align: center;
+  }
+  
+  .searchSectionFormContainerElement {
+    width: 100%;
+  }
+  
+  
+  
+  #searchResults {
+    padding: 0 2em 3em 2em;
+  }
+  
+  #searchResults>.container {
+    display: block;
+  }
+  
+  #searchResultsContainer>article {
+    margin-top: 1em;
+  }
+  
+  #searchResultsContainer>article {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width:961px) {
+    #searchResultsContainer>article {
+      width: 49.5%;
+    }
+  }
+  
+  
+  
+  @media only screen and (min-width:961px) {
+    .searchSectionFormContainerElement>select {
+      width: 15em;
+    }
+  
+    .searchSectionFormContainerElement {
+      width: auto;
+    }
+  }
+  

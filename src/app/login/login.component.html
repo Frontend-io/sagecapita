@@ -2,16 +2,19 @@
   <div class="container">
     <div id="intro">
       <h2>Login</h2>
-    <p>To gain access to all of the properties managed by Lionard, including those covered by privacy agreements, please
-      register in the reserved area (specifying your personal or company details) in order to receive unrestricted
-      access. Lionard will evaluate every request and will subsequently send you a user-name and password to gain access
-      to the reserved area via the Login section.</p>
+      <p>To gain access to all of the properties managed by Lionard, including those covered by privacy agreements,
+        please
+        register in the reserved area (specifying your personal or company details) in order to receive unrestricted
+        access. Lionard will evaluate every request and will subsequently send you a user-name and password to gain
+        access
+        to the reserved area via the Login section.</p>
     </div>
     <div class="flexRowWrap">
       <aside>
         <div id="loginForm">
           <h2>LOGIN</h2>
-          <form [formGroup]="loginForm">
+          <p *ngIf="formMessageLoginForm"><small>{{formMessageLoginForm}}</small></p>
+          <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
             <div class="formRow">
               <input type="email" formControlName="email" placeholder="EMAIL" required aria-required />
               <small *ngIf="loginFormControls.email.touched && loginFormControls.email?.errors?.required">
@@ -28,13 +31,14 @@
               </small>
             </div>
             <div class="formRow">
-              <button [disabled]="!loginForm.valid || isSubmittingLoginForm" (click)="submitLoginForm()">SEND</button>
+              <button [disabled]="!loginForm.valid || isSubmittingLoginForm">SEND</button>
             </div>
           </form>
         </div>
         <div id="forgotPasswordForm">
           <h2>FORGOT PASSWORD?</h2>
-          <form [formGroup]="forgotPasswordForm">
+          <p *ngIf="formMessageForgotPasswordForm"><small>{{formMessageForgotPasswordForm}}</small></p>
+          <form [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPasswordForm()">
             <div class="formRow">
               <input type="email" formControlName="email" placeholder="EMAIL" required aria-required />
               <small
@@ -47,8 +51,7 @@
               </small>
             </div>
             <div class="formRow">
-              <button [disabled]="!forgotPasswordForm.valid || isSubmittingForgotPasswordForm"
-                (click)="submitForgotPasswordForm()">SEND</button>
+              <button [disabled]="!forgotPasswordForm.valid || isSubmittingForgotPasswordForm">SEND</button>
             </div>
           </form>
         </div>
@@ -56,6 +59,7 @@
       <article>
         <div id="registerForm">
           <h2>COMPLETE YOUR SUBSCRIPTION</h2>
+          <p *ngIf="formMessageRegisterForm"><small>{{formMessageRegisterForm}}</small></p>
           <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
             <div class="flexRowWrap">
               <div class="formRow colM6">
@@ -79,6 +83,9 @@
                 <small *ngIf="registerFormControls.phone.touched && registerFormControls.phone?.errors?.required">
                   Phone is required.
                 </small>
+                <small *ngIf="registerFormPhoneUsed">
+                  Phone number as already been taken, if you've registered before try the "forgot password?"
+                </small>
               </div>
               <div class="formRow colM6">
                 <input type="email" formControlName="email" placeholder="* EMAIL" required aria-required />
@@ -87,6 +94,9 @@
                 </small>
                 <small *ngIf="registerFormControls.email.touched && registerFormControls.email?.errors?.email">
                   Email is invalid.
+                </small>
+                <small *ngIf="registerFormEmailUsed">
+                  Email has already been taken, if you've registered before try the "forgot password?"
                 </small>
               </div>
             </div>
@@ -109,7 +119,7 @@
               <div class="formRow colM6">
                 <select formControlName="country" required aria-required>
                   <option value="" disabled>* COUNTRY</option>
-                  <option value="NG">Nigeria</option>
+                  <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
                 </select>
                 <small *ngIf="registerFormControls.country.touched && registerFormControls.country?.errors?.required">
                   Country is required.
@@ -118,16 +128,29 @@
               <div class="formRow colM6">
                 <select formControlName="language" required aria-required>
                   <option value="" disabled>* LANGUAGE</option>
-                  <option value="EN">English</option>
+                  <option *ngFor="let language of languages" [value]="language.code">{{language.name}}</option>eoption>
                 </select>
                 <small *ngIf="registerFormControls.language.touched && registerFormControls.language?.errors?.required">
                   Language is required.
                 </small>
               </div>
             </div>
+            <div class="flexRowWrap">
+              <div class="formRow colM6">
+                <input type="password" placeholder="PASSWORD" formControlName="password" required />
+                <small *ngIf="registerFormControls.password.touched && registerFormControls.password?.errors?.required">
+                  Password is required.
+                </small>
+              </div>
+              <div class="formRow colM6">
+                <input type="password" placeholder="CONFIRM PASSWORD" formControlName="password_confirmation" required />
+                <small *ngIf="registerFormControls.password_confirmation.touched && registerForm.hasError('notSame')">
+                  Passwords do not match.
+                </small>
+              </div>
+            </div>
             <div class="formRow colM6 right">
-              <button [disabled]="!registerForm.valid || isSubmittingRegisterForm"
-                (click)="submitRegisterForm()">SEND</button>
+              <button [disabled]="!registerForm.valid || isSubmittingRegisterForm">SEND</button>
             </div>
             <div class="clearfix"></div>
           </form>
@@ -136,3 +159,4 @@
     </div>
   </div>
 </section>
+<hr />

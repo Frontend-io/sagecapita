@@ -1,0 +1,32 @@
+h2 {
+  margin: 0;
+  text-align: center;
+  color: rgb(4, 37, 59);
+}
+
+input[type="password"],
+input[type="email"] {
+  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
+  width: 100%;
+}
+
+.flexRow {
+  justify-content: space-between;
+}
+
+button {
+  width: 48%;
+  margin: 0;
+}
+
+button:hover {
+  background-color: rgb(4, 37, 59);
+  color: #fff;
+}
+
+input:not([type="checkbox"]),
+button,
+select {
+  height: 2.5em;
+}

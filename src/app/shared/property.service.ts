@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -16,6 +16,8 @@ import { CurrencyService } from './currency.service';
 import { LanguageService } from './language.service';
 
 import { CONFIG } from '../shared/config';
+
+import { dateToLocal } from './dateToLocal';
 
 import TimeAgo from 'javascript-time-ago';
 
@@ -205,8 +207,8 @@ export class PropertyService {
   }
 
   private mapCurrencyAndLanguage(properties: Property[],
-                                 currency = this.currencyService.getCurrency()[1],
-                                 lang = this.languageService.getLang()): Property[] {
+    currency = this.currencyService.getCurrency()[1],
+    lang = this.languageService.getLang()): Property[] {
 
     return properties.map((property) => {
       return {
@@ -254,7 +256,7 @@ export class PropertyService {
       );
   }
 
-  private getPropertyGalleryThumbnails(endPoint): Observable<GalleryProperty[]> {
+  private getPropertyGalleryThumbnails(endPoint: string): Observable<GalleryProperty[]> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/${endPoint}`)
       .pipe(
         HttpHelpers.retry(),
@@ -274,7 +276,7 @@ export class PropertyService {
         map(({ properties }: any) => {
           properties['data'].map((property: GalleryProperty) => {
             property['photo'] = `${CONFIG.cloudinary.baseThumbUrl}/${property['photo']}`;
-            property['created_at'] = timeAgo.format(new Date(property['created_at']));
+            property['created_at'] = timeAgo.format(new Date(dateToLocal(property['created_at'])));
 
             return property;
           });
@@ -290,7 +292,20 @@ export class PropertyService {
 
   public propertyCodeExists(code: string): Observable<any> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/property_exists/${code}`)
-      .pipe(HttpHelpers.retry());
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'Property not found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem getting property, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({ message: 'Problem getting property, please check network and try again', status: err.status });
+          }
+        })
+      );
   }
 
   public getProperty(code: string): Observable<any> {
@@ -315,6 +330,24 @@ export class PropertyService {
 
           return property;
         })
+      );
+  }
+
+  public propertyCount(): Observable<any> {
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/property_count`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'Property not found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem getting property, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({ message: 'Problem getting property, please check network and try again', status: err.status });
+          }
+        }), map(({properties_count}) => properties_count)
       );
   }
 
@@ -357,5 +390,43 @@ export class PropertyService {
 
   public getMainGalleryProperty(): Property {
     return this.properties[0];
+  }
+
+  public favorite(propertyCode: string/*, customerId: number*/): Observable<any> { // , customer_id: customerId
+    return this.http.post(`${HttpHelpers.apiBaseUrl}/favorites`, { property_code: propertyCode })
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err: HttpErrorResponse) => {
+          switch (err.status) {
+            case 401:
+              return throwError({ message: 'Kindly login to take this action', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem processing your request, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({ message: 'Problem processing your request, please check network and try again', status: err.status });
+          }
+        })
+      );
+  }
+
+  public unfavorite(propertyCode: string): Observable<any> {
+    return this.http.delete(`${HttpHelpers.apiBaseUrl}/favorites/${propertyCode}`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err: HttpErrorResponse) => {
+          switch (err.status) {
+            case 401:
+              return throwError({ message: 'Kindly login to take this action', status: err.status });
+            case 404:
+              return throwError({ message: 'Favorite not found!', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem processing your request, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({ message: 'Problem processing your request, please check network and try again', status: err.status });
+          }
+        })
+      );
   }
 }

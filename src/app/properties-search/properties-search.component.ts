@@ -12,7 +12,7 @@ import { PropertyGroupService } from '../shared/property-group.service';
   ]
 })
 export class PropertiesSearchComponent implements OnInit {
-  @Output() private search = new EventEmitter<void>();
+  @Output() private search = new EventEmitter<any>();
 
   public propertyGroupsList: any;
   public searchForm = this.fb.group({
@@ -37,7 +37,14 @@ export class PropertiesSearchComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.search.emit();
+    this.search.emit(this.getSearchData());
+  }
+
+  public setSearchData(searchData: any): void {
+    const {controls} = this.searchForm;
+
+    Object.keys(searchData)
+      .forEach((controlName) => controls[controlName] && controls[controlName].setValue(searchData[controlName]));
   }
 
   public getSearchData(): any {

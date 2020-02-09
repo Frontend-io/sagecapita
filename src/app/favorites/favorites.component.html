@@ -1,0 +1,54 @@
+<section id="searchBand">
+  <div class="container">
+    <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
+  </div>
+</section>
+<section id="searchSection">
+  <div class="container">
+    <h1>Your Favorites - <small><strong>{{totalProperties | number}} Total
+          properties</strong></small></h1>
+    <form [formGroup]="propertiesPaginationForm">
+      <p><small><strong>ORDER BY</strong></small></p>
+      <div id="searchSectionFormContainer" class="flexRowWrap">
+        <div class="searchSectionFormContainerElement selectChevDownElement">
+          <select formControlName="criteria" required (change)="search()">
+            <option value="">SELECT</option>
+            <option value="price ASC" selected aria-selected>PRICE ⮝</option>
+            <option value="price DESC">PRICE ⮟</option>
+            <option value="interior_surface ASC">INTERIOR SURFACE AREA ⮝</option>
+            <option value="interior_surface DESC">INTERIOR SURFACE AREA ⮟</option>
+            <option value="exterior_surface ASC">EXTERIOR SURFACE AREA ⮝</option>
+            <option value="exterior_surface DESC">EXTERIOR SURFACE AREA ⮟</option>
+            <option value="views ASC">POPULARITY ⮝</option>
+            <option value="views DESC">POPULARITY ⮟</option>
+          </select>
+          <select formControlName="numberPerPage" (change)="search()">
+            <option value="" disabled>PROPERTIES PER PAGE</option>
+            <option value="4" selected>4 PER PAGE</option>
+            <option value="8">8 PER PAGE</option>
+            <option value="12">12 PER PAGE</option>
+            <option value="16">16 PER PAGE</option>
+          </select>
+        </div>
+        <div class="searchSectionFormContainerElement">
+          <app-paginator #paginator [initPage]="paginatorOptionsInitPage"
+            [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage"
+            (pageChange)="onPageClick($event)"></app-paginator>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<section id="searchResults">
+  <div class="container">
+    <div id="searchResultsContainer" class="flexRowWrap">
+      <article *ngFor="let property of properties">
+        <app-property-search-thumbnail [property]="property"></app-property-search-thumbnail>
+      </article>
+    </div>
+    <div style="margin-top: 1.2em;">
+      <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages"
+        [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>
+    </div>
+  </div>
+</section>

@@ -49,7 +49,7 @@
       </small>
     </div>
     <div class="formRow">
-      <textarea formControlName="message" placeholder="* MESSAGE" required [readonly]="isSubmitting"></textarea>
+      <textarea formControlName="message" placeholder="*MESSAGE" required [readonly]="isSubmitting"></textarea>
         <small *ngIf="contactFormControls.message.touched && contactFormControls.message?.errors?.required">
           Message is required.
         </small>

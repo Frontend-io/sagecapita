@@ -1,12 +1,12 @@
 <div>
+  <img class="propertyStar" (click)="onFavoriteClick()" [src]="'../assets/' + (property.is_favorite ? 'star-filled' : 'star-white') + '.png'" alt="star" />
     <a href="#" [routerLink]="['/properties/' + property.code]">
         <img class="propertyImage" [src]="property.photo"  alt="Property photo" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
         <div class="propertyDataContainer">
           <div class="propertyData">
             <div class="propertyDataContent">
               <p class="propertyDataTitle">{{property.main_title}}</p>
-              <p class="propertyDataStatus" *ngIf="property.is_exclusive">ON APPLICATION</p>
+              <p class="propertyDataStatus" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">ON APPLICATION</p>
               <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</p>
               <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
               <p class="propertyDataLocation"><small>{{property?.suburb}} - {{property.city}} - {{property.state}}</small></p>
@@ -16,4 +16,5 @@
           </div>
         </div>
       </a>
+      
 </div>

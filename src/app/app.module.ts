@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DecimalPipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
+
+import { authHttpInterceptorProvider } from './shared/auth-http-interceptor-provider';
+
 import { PropertiesSearchModule } from './shared/app.properties-search.module';
 import { PaginatorModule } from './shared/app.paginator.module';
 import { ContactSectionModule } from './shared/app.contact-section.module';
 import { ExclusivePropertiesModule } from './shared/app.exclusive-properties.module';
 import { PageNotFoundModule } from './shared/app.page-not-found.module';
 import { PropertyThumbnailModule } from './shared/app.property-thumbnail.module';
+import { PropertySearchThumbnailModule } from './shared/app.property-search-thumbnail.module';
 import { PropertyContactModule } from './shared/app.property-contact.module';
+import { AuthModalModule } from './shared/app.auth-modal.module';
 
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -40,6 +44,7 @@ import { GalleryMostSeenComponent } from './gallery-most-seen/gallery-most-seen.
 import { GalleryRecentlyUploadedComponent } from './gallery-recently-uploaded/gallery-recently-uploaded.component';
 import { GallerySoldPropertiesComponent } from './gallery-sold-properties/gallery-sold-properties.component';
 import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-main-property.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,8 @@ import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-ma
     GalleryMostSeenComponent,
     GalleryRecentlyUploadedComponent,
     GallerySoldPropertiesComponent,
-    GalleryMainPropertyComponent
+    GalleryMainPropertyComponent,
+    FavoritesComponent
   ],
   imports: [
     PropertyContactModule,
@@ -76,6 +82,8 @@ import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-ma
     ExclusivePropertiesModule,
     PageNotFoundModule,
     PropertyThumbnailModule,
+    PropertySearchThumbnailModule,
+    AuthModalModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -84,7 +92,10 @@ import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-ma
     MatProgressBarModule,
     MatProgressSpinnerModule
   ],
-  providers: [DecimalPipe],
+  providers: [
+    DecimalPipe,
+    authHttpInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

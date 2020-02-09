@@ -1,3 +1,7 @@
+section {
+  padding: 0 0 3em 0;
+}
+
 input:not([type="checkbox"]),
 select {
   width: 100%;
@@ -30,7 +34,8 @@ button:hover {
   background-color: #fff;
 }
 
-#loginForm input+small {
+#loginForm input+small,
+#loginForm>h2+p {
   color: rgb(245, 247, 248);
 }
 
@@ -38,7 +43,13 @@ button:hover {
 #forgotPasswordForm>h2,
 #registerForm>h2 {
   text-align: center;
-  margin-top: 0;
+  margin: 0;
+}
+
+#loginForm>h2+p,
+#forgotPasswordForm>h2+p,
+#registerForm>h2+p {
+  margin: .4em 0 0 0;
 }
 
 #loginForm>h2 {
@@ -78,6 +89,11 @@ button:hover {
 aside,
 article {
   width: 100%;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #eee;
 }
 
 @media only screen and (min-width:961px) {

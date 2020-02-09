@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { PropertyService } from './shared/property.service';
 
 import { NavigateEventService } from './navigate-event.service';
 
@@ -22,11 +25,15 @@ export class AppComponent implements OnInit {
   public propertyCodeForm = this.fb.group({
     code: ['']
   });
-  public newsletterForm  = this.fb.group({
+  public newsletterForm = this.fb.group({
     email: ['']
   });
 
-  constructor(private navigateEventService: NavigateEventService, private fb: FormBuilder) {
+  constructor(
+    private navigateEventService: NavigateEventService,
+    private fb: FormBuilder,
+    private propertyService: PropertyService,
+    private router: Router) {
     navigateEventService.navigation$.subscribe(
       navigation => {
         this.page = /*JSON.parse(navigation).url*/document.location.pathname;
@@ -45,6 +52,19 @@ export class AppComponent implements OnInit {
 
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
+  }
+
+  public searchPropertyCode(): void {
+    const { code } = this.propertyCodeForm.value;
+
+    if (code) {
+      this.propertyService.propertyCodeExists(code)
+        .subscribe(() => {
+          this.router.navigate(['/properties', code]);
+        }, (err: any) => {
+          alert(err.message);
+        });
+    }
   }
 
   onDropDownClick(dropdown) {

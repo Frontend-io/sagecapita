@@ -6,6 +6,8 @@ import { PaginatorComponent } from '../paginator/paginator.component';
 
 import { PropertiesService } from './properties.service';
 
+import { getQueryStringParams } from '../shared/getQueryStringParameters';
+
 @Component({
   selector: 'app-properties',
   templateUrl: './properties.component.html',
@@ -36,6 +38,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.propertiesSearchComponent.setSearchData(getQueryStringParams());
     this.search();
   }
 

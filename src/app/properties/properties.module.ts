@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { PropertiesRoutingModule } from './properties-routing.module';
 
@@ -10,21 +11,19 @@ import { CarouselGalleryModule } from '../shared/app.carousel-gallery.module';
 import { ContactSectionModule } from '../shared/app.contact-section.module';
 import { ExclusivePropertiesModule } from '../shared/app.exclusive-properties.module';
 import { PropertyThumbnailModule } from '../shared/app.property-thumbnail.module';
+import { PropertySearchThumbnailModule } from '../shared/app.property-search-thumbnail.module';
 
 import { PropertiesComponent } from './properties.component';
 import { PropertyComponent } from './property/property.component';
 import { ViewedPropertiesComponent } from './viewed-properties/viewed-properties.component';
 import { PropertyInfoComponent } from './property-info/property-info.component';
-import { PropertySearchThumbnailComponent } from './property-search-thumbnail/property-search-thumbnail.component';
-import { NumberMillionsModule } from '../shared/app.number-millions.module';
 
 @NgModule({
   declarations: [
     PropertiesComponent,
     PropertyComponent,
     ViewedPropertiesComponent,
-    PropertyInfoComponent,
-    PropertySearchThumbnailComponent
+    PropertyInfoComponent
   ],
   imports: [
     ContactSectionModule,
@@ -33,10 +32,11 @@ import { NumberMillionsModule } from '../shared/app.number-millions.module';
     PropertiesSearchModule,
     ExclusivePropertiesModule,
     PropertyThumbnailModule,
+    PropertySearchThumbnailModule,
+    MatDialogModule,
     ReactiveFormsModule,
     CommonModule,
-    PropertiesRoutingModule,
-    NumberMillionsModule
+    PropertiesRoutingModule
   ]
 })
 export class PropertiesModule { }

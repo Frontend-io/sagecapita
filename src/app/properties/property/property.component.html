@@ -1,6 +1,6 @@
 <section id="searchBand">
   <div class="container">
-    <app-properties-search></app-properties-search>
+    <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
   </div>
 </section>
 <app-carousel-gallery></app-carousel-gallery>

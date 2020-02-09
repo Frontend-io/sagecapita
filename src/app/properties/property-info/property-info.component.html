@@ -29,7 +29,7 @@
               <p>Price</p>
               <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
               <h3 *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
-              <h3 *ngIf="property.is_exclusive">ON APPLICATION</h3>
+              <h3 *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">ON APPLICATION</h3>
               <button>BROCHURE PDF</button>
             </div>
             <div class="articleTopCol">

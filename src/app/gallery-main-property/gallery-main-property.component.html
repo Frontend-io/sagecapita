@@ -15,7 +15,7 @@
       <div>
         <h3 *ngIf="property.price"><strong>{{getCurrencySymbol('NGN')}}{{property.price | number}}</strong></h3>
         <h3 *ngIf="property.price_lower_range && property.price_upper_range"><strong>{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</strong></h3>
-        <h3 *ngIf="property.is_exclusive"><strong>ON APPLICATION</strong></h3>
+        <h3 *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><strong>ON APPLICATION</strong></h3>
       </div>
     </div>
     <div id="mainPropertyBtnsContainer">

@@ -47,8 +47,9 @@
   background: #064A77;
 }
 
-.searchResultsBodyTopText img {
+.propertyStar>img {
   height: 24px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width:641px) {
