@@ -28,7 +28,7 @@ export class PropertyThumbnailComponent implements OnInit {
       .catch(() => {});
   }
 
-  getCurrencySymbol(currency) {
+  getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
 

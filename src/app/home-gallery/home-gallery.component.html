@@ -7,7 +7,7 @@
         </th>
         <td>
           <p><strong><small>{{property.city | titlecase}}</small></strong></p>
-          <p><small>{{property.description_text | slice:0:72}}...</small></p>
+          <p><small>{{property.description_text}}</small></p>
           <div class="videoGalleryListBtns">
             <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">SHOW</button></a>
             <a [href]="property.video"><button>FULL VIDEO</button></a>

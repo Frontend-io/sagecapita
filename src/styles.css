@@ -23,6 +23,17 @@ h1,h2,h3,h4,h5,h6,a, p, button{
   float: right;
 }
 
+.right-text{
+  text-align: right;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.muted{
+  color: #A5A8A9;
+}
 
 input:not([type="checkbox"]),
 button,

@@ -1,8 +1,10 @@
+import { getCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { PropertyService } from '../shared/property.service';
+import { Property } from '../shared/property';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +16,13 @@ export class HomeComponent implements OnInit {
     code: ['']
   });
   public propertiesCount: number;
+  public mainGalleryProperty = {};
 
   constructor(private fb: FormBuilder, private propertyService: PropertyService, private router: Router) { }
 
   ngOnInit() {
     this.getPropertyCount();
+    this.getMainGalleryProperty();
   }
 
   public onPropertySearch($event: any): void {
@@ -36,6 +40,17 @@ export class HomeComponent implements OnInit {
           alert(err.message);
         });
     }
+  }
+
+  public getMainGalleryProperty() {
+    this.propertyService.getMainGalleryProperty().subscribe((property: any) => {
+      this.mainGalleryProperty = property;
+    }, (err: any) => {
+    });
+  }
+
+  private getCurrencySymbol(currency: string) {
+    return getCurrencySymbol(currency, 'narrow');
   }
 
   private getPropertyCount(): void {

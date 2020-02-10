@@ -25,10 +25,13 @@ export class GalleryMainPropertyComponent implements OnInit {
   }
 
   getMainGalleryProperty() {
-    this.property = this.propertyService.getMainGalleryProperty();
+    this.propertyService.getMainGalleryProperty().subscribe((property: any) => {
+      this.property = property;
+    }, (err: any) => {
+    });
   }
 
-  getCurrencySymbol(currency) {
+  getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
 

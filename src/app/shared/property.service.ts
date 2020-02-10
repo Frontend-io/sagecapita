@@ -275,7 +275,7 @@ export class PropertyService {
         }),
         map(({ properties }: any) => {
           properties['data'].map((property: GalleryProperty) => {
-            property['photo'] = `${CONFIG.cloudinary.baseThumbUrl}/${property['photo']}`;
+            property['photo'] = `${CONFIG.cloudinary.baseMidThumbUrl}/${property['photo']}`;
             property['created_at'] = timeAgo.format(new Date(dateToLocal(property['created_at'])));
 
             return property;
@@ -368,14 +368,6 @@ export class PropertyService {
     return this.getPropertyThumbnails('viewed_properties');
   }
 
-  public getHomeGalleryProperties(): Property[] {
-    return this.properties;
-  }
-
-  public getHomeThumbnailProperties(): Property[] {
-    return this.properties;
-  }
-
   public getMostSeen(): Observable<any> {
     return this.getPropertyGalleryThumbnails('most_seen');
   }
@@ -388,8 +380,58 @@ export class PropertyService {
     return this.getPropertyGalleryThumbnails('sold_properties');
   }
 
-  public getMainGalleryProperty(): Property {
-    return this.properties[0];
+  public getHomeCarouselProperties(): Observable<Property[]> {
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/home_carousel`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'Home carousel properties not found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem getting home carousel properties, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({
+                message: 'Problem getting home carousel properties, please check network and try again', status: err.status
+              });
+          }
+        }),
+        map(({ home_carousels }: any) => {
+          home_carousels.map((property: GalleryProperty) => {
+            property['photo'] = `${CONFIG.cloudinary.baseUrl}/${property['photo']}`;
+
+            return property;
+          });
+
+          return home_carousels;
+        })
+      );
+  }
+
+  public getMainGalleryProperty(): Observable<Property[]> {
+    return this.http.get(`${HttpHelpers.apiBaseUrl}/main_gallery_photo`)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 404:
+              return throwError({ message: 'Main gallery photo property not found', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem getting main gallery photo property, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({
+                message: 'Problem getting main gallery photo property, please check network and try again', status: err.status
+              });
+          }
+        }),
+        map(({ main_gallery_photo }: any) => {
+          main_gallery_photo['photo'] = `${CONFIG.cloudinary.baseUrl}/${main_gallery_photo['photo']}`;
+
+          return main_gallery_photo;
+        })
+      );
   }
 
   public favorite(propertyCode: string/*, customerId: number*/): Observable<any> { // , customer_id: customerId

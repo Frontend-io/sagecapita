@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { PropertiesSearchComponent } from '../properties-search/properties-search.component';
 import { PaginatorComponent } from '../paginator/paginator.component';
 
-import { PropertiesService } from './properties.service';
+import { PropertiesService } from '../shared/properties.service';
 
 import { getQueryStringParams } from '../shared/getQueryStringParameters';
 

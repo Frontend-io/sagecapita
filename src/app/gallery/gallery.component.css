@@ -46,8 +46,78 @@ article {
 }
 
 #videoSearch button,
-#videoSearchTitle p{
+#videoSearchTitle p {
   margin: 0;
+}
+
+.searchSectionFormContainerElement>select {
+  height: 2.5em;
+  border-color: #ccc;
+  margin-right: .5em;
+  color: rgb(4, 37, 59);
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: .6em;
+}
+
+.searchSectionFormContainerElement {
+  width: 100%;
+}
+
+#videoSearchResults {
+  margin-bottom: 2.5em;
+}
+
+.videoSearchResultsItem {
+  margin-top: 2em;
+}
+
+.videoSearchResultsItemImg {
+  width: 100%;
+  overflow: hidden;
+}
+
+#videoSearchResultsControls>h4 {
+  margin: 0;
+}
+
+#videoSearchResultsControls>form>p {
+  margin-top: 0;
+}
+
+.videoSearchResultsItemImg>img {
+  width: 100%;
+}
+
+.videoSearchResultsItemContent h5 {
+  margin: .5em 0;
+}
+
+.videoSearchResultsItemContent h4 {
+  margin: 0;
+}
+
+.videoSearchResultsItemContent>hr {
+  border: 0;
+  border-bottom: 1px solid rgb(4, 37, 59);
+  margin: 1em 0;
+}
+
+.videoSearchResultsItemContentBtns button {
+  height: 2.5em;
+  margin-top: 1em;
+}
+
+.videoSearchResultsItemContentBtns button.filled:hover {
+  color: rgb(4, 37, 59);
+  background-color: #fff;
+}
+
+.videoSearchResultsItemContentBtns button.filled,
+.videoSearchResultsItemContentBtns button:hover {
+  color: #fff;
+  background-color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 @media screen and (min-width: 961px) {
@@ -58,5 +128,30 @@ article {
   article {
     width: 68%;
     margin-top: 0;
+  }
+
+  .searchSectionFormContainerElement>select {
+    width: 15em;
+  }
+
+  .searchSectionFormContainerElement {
+    width: auto;
+  }
+
+  .videoSearchResultsItemImg {
+    width: 280px;
+  }
+
+  .videoSearchResultsItemImg {
+    float: left;
+    margin-right: 1.5em;
+  }
+
+  .videoSearchResultsItemContent>hr {
+    margin-top: 0;
+  }
+
+  .rightTextMd {
+    text-align: right;
   }
 }

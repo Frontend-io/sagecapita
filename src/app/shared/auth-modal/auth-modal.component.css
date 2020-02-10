@@ -21,6 +21,7 @@ button {
 }
 
 button:hover {
+  border-color: rgb(4, 37, 59);
   background-color: rgb(4, 37, 59);
   color: #fff;
 }

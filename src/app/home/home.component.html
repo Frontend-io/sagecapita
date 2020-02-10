@@ -67,22 +67,24 @@
     <div style="background: #fff; ">
       <div id="videoGalleryContent">
         <div id="videoGalleryExclusive">
-          <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
+          <h3>{{mainGalleryProperty.main_title | titlecase}}</h3>
           <hr />
-          <p><strong>LUCCA</strong></p>
-          <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.</small></p>
-          <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
-          <h3>ON APPLICATION</h3>
-          <button class="filled">SHOW</button>
-          <a href="#" [routerLink]="['property_contact/' + SC10100]"><button>ASK FOR INFORMATION</button></a>
+          <p><strong>{{mainGalleryProperty.city | uppercase}}</strong></p>
+          <p><small>{{mainGalleryProperty.description_text}}</small></p>
+          <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}} MQ</strong></p>
+          <h3 *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))">ON APPLICATION</h3>
+          <h3 *ngIf="mainGalleryProperty.price">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price | numberMillions:'1.0-1'}}</h3>
+          <h3 *ngIf="mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
+          <a href="#" [routerLink]="['properties/' + mainGalleryProperty.code]"><button class="filled">SHOW</button></a>
+          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>ASK FOR INFORMATION</button></a>
         </div>
         <div id="videoGalleryFullVideo">
-          <video width="100%" height="100%" poster="../../assets/image_1.jpg" controls>
-            <source src="https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
+          <video width="100%" height="100%" [poster]="mainGalleryProperty.photo" controls>
+            <source [src]="mainGalleryProperty.video" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div id="videoGalleryFullVideoBtns">
-            <button>GET FULL VIDEO</button>
+            <a [href]="mainGalleryProperty.video" target="_blank"><button>GET FULL VIDEO</button></a>
             <button class="share"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
                 height="1em">
                 <path
@@ -91,7 +93,7 @@
           </div>
         </div>
         <div id="btnBelowVideoGalleryFullVideo">
-          <a href="#"><button>SEE ALL</button></a>
+          <a href="#" routerLink="/properties"><button>SEE ALL</button></a>
         </div>
         <div id="videoGalleryList">
           <app-home-gallery></app-home-gallery>

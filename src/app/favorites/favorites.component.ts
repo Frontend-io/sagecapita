@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { PropertiesSearchComponent } from '../properties-search/properties-search.component';
 import { PaginatorComponent } from '../paginator/paginator.component';
@@ -38,6 +39,8 @@ export class FavoritesComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private favoritesService: FavoritesService,
     private router: Router,
+    private location: Location,
+    private route: ActivatedRoute,
     private authManagerService: AuthManagerService) { }
 
   ngOnInit() {
@@ -144,6 +147,12 @@ export class FavoritesComponent implements OnInit, AfterViewInit {
     if (window.confirm('Kindly login to see your favorites')) {
       this.authManagerService.setRedirectUrl(this.router.url);
       this.router.navigate(['/login']);
+    } else {
+      if (this.location.getState()['navigationId'] === 1) {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      } else {
+        this.location.back();
+      }
     }
   }
 

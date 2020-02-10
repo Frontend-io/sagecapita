@@ -1,6 +1,12 @@
 export const CONFIG = {
     cloudinary: {
         cloud_name: 'bustops',
+        get baseSmallThumbUrl() {
+            return `${this.baseUrl}/c_crop,h_70,w_125`;
+        },
+        get baseMidThumbUrl() {
+            return `${this.baseUrl}/c_crop,h_182,w_265`;
+        },
         get baseLargeThumbUrl() {
             return `${this.baseUrl}/c_crop,h_310,w_580`;
         },

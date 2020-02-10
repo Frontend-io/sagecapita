@@ -4,8 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { HttpHelpers } from '../shared/http-helpers';
-import { CONFIG } from '../shared/config';
+import { HttpHelpers } from './http-helpers';
+import { CONFIG } from './config';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class PropertiesService {
 
   constructor(private http: HttpClient) { }
 
-  public getProperties(params: any): Observable<any> {
+  public getProperties(params: any, {imgSizing} = {imgSizing: 'baseLargeThumbUrl'}): Observable<any> {
     const httpParams = new HttpParams({ fromObject: params });
 
     return this.http.get(`${HttpHelpers.apiBaseUrl}/property`, { params: httpParams })
@@ -33,7 +33,7 @@ export class PropertiesService {
         }),
         map(({ properties }: any) => {
           properties['data'] = properties['data'].map((property: any) => {
-            property['photo'] = `${CONFIG.cloudinary.baseLargeThumbUrl}/${property['photo']}`;
+            property['photo'] = `${CONFIG.cloudinary[imgSizing]}/${property['photo']}`;
 
             return property;
           });
