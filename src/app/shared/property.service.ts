@@ -398,10 +398,10 @@ export class PropertyService {
           }
         }),
         map(({ home_carousels }: any) => {
-          home_carousels.map((property: GalleryProperty) => {
-            property['photo'] = `${CONFIG.cloudinary.baseUrl}/${property['photo']}`;
+          home_carousels.map((home_carousel: GalleryProperty) => {
+            home_carousel['photo'] = `${CONFIG.cloudinary.baseUrl}/${home_carousel['photo']}`;
 
-            return property;
+            return home_carousel;
           });
 
           return home_carousels;
@@ -409,7 +409,7 @@ export class PropertyService {
       );
   }
 
-  public getMainGalleryProperty(): Observable<Property[]> {
+  public getMainGalleryProperty(): Observable<Property> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/main_gallery_photo`)
       .pipe(
         HttpHelpers.retry(),

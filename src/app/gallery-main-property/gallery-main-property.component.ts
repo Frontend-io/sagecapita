@@ -11,7 +11,7 @@ import { Property } from '../shared/property';
   styleUrls: ['./gallery-main-property.component.css']
 })
 export class GalleryMainPropertyComponent implements OnInit {
-  public property: Property;
+  public property = {};
 
   constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(

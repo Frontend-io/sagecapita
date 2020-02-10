@@ -1,7 +1,7 @@
 <div id="mainPropertyContainer">
     <h4>{{property.main_title | titlecase}}</h4>
     <div>
-      <video width="100%" height="100%" [poster]="'../../assets/' + property.photo" controls>
+      <video width="100%" height="100%" [poster]="property.photo" controls>
         <source [src]="property.video" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -23,7 +23,7 @@
       <a href="#" [routerLink]="['/property_contact/' + property.code]"><button class="filled">ASK FOR INFORMATION</button></a>
     </div>
     <div id="mainPropertyTextContainer">
-      <p><small>{{property.description_text | slice:0:584}}...</small></p>
+      <p><small>{{property.description_text}}</small></p>
       <p style="text-align: right;"><small><strong><a href="#" [routerLink]="['/properties/' + property.code]">Read More...</a></strong></small></p>
     </div>
   </div>
