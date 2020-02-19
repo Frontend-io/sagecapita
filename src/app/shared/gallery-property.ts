@@ -1,6 +1,7 @@
 export interface GalleryProperty {
     code: string;
     photo: string;
+    main_title: string;
     created_at: string;
     views: number;
     suburb: string;

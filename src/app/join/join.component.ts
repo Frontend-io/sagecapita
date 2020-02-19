@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
+import { languages } from '../shared/languages.json';
+
 @Component({
   selector: 'app-join',
   templateUrl: './join.component.html',
@@ -16,6 +18,7 @@ export class JoinComponent implements OnInit {
     role: ['', Validators.required],
     message: ['', Validators.required]
   });
+  public languages = languages;
 
   constructor(private fb: FormBuilder) { }
 

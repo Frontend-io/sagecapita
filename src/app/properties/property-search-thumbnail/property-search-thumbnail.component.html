@@ -9,7 +9,7 @@
   </div>
   <p *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</p>
   <p *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
-  <p *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><strong>ON APPLICATION</strong></p>
+  <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p><strong>SIGN IN FOR PRICE</strong></p></a>
   <div class="searchResultsBodyBottomText">
     <p class="left"><small><strong>AREA IN METRES: <span>{{property.interior_surface | number}}</span> sqm</strong></small></p>
     <p class="right"><small><strong>CODE: <span>{{property.code}}</span></strong></small></p>
@@ -18,6 +18,6 @@
   <div [ngClass]="property.video ? 'searchResultsBody3btn' : 'searchResultsBody3btn'" class="flexRowWrap">
     <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">VIEW PROPERTY</button></a>
     <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>ASK FOR INFORMATION</button></a>
-    <a [href]="property.video" *ngIf="property.video"><button>PLAY VIDEO &#9658;</button></a>
+    <a [href]="property.video" target="_blank" *ngIf="property.video"><button>PLAY VIDEO &#9658;</button></a>
   </div>
 </div>

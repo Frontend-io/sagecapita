@@ -79,10 +79,6 @@
   border-right: 4px solid #fff;
 }
 
-#videoGalleryContent {
-  border-left: 4px solid #fff;
-}
-
 hr {
   border: none;
   border-top: 1px solid #ccc;
@@ -365,5 +361,9 @@ hr {
     padding-bottom: 1em;
     padding-left: 2em;
     padding-right: 2em;
+  }
+
+  #videoGalleryContent {
+    border-left: 4px solid #fff;
   }
 }

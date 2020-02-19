@@ -9,7 +9,7 @@
           uniqueness</h1>
         <hr />
         <div>
-          <video width="100%" poster="../../assets/home-carousel/slide_1.jpg" controls>
+          <video width="100%" poster="../../assets/image_3.jpg" controls>
             <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -102,23 +102,19 @@
         </div>
         <div class="contactElement selectChevDownElement">
           <select formControlName="language" required >
-            <option disabled>*LANGUAGE</option>
-            <option>ENGLISH</option>
-            <option>ITALINO</option>
-            <option>FRANCIAS</option>
-            <option>ESPANOL</option>
-            <option>DEUTSCH</option>
+            <option disabled value="">*LANGUAGE</option>
+            <option [value]="language.code" *ngFor="let language of languages">{{language.name}}</option>
           </select>
         </div>
         <div class="contactElement selectChevDownElement">
           <select formControlName="role" required>
-            <option disabled>*ROLE</option>
-            <option>REAL ESTATE ADVISOR</option>
-            <option>LUXURY ACQUISITION CONSULTANT</option>
-            <option>LUXURY ACQUISITION ADVISOR</option>
-            <option>HR PARTNER</option>
-            <option>SALES DIRECTOR</option>
-            <option>SPONTANEOUS APPLICATION</option>
+            <option disabled value="">*ROLE</option>
+            <option value="Real Estate Advisor">REAL ESTATE ADVISOR</option>
+            <option value="Luxury Acquisition Consultant">LUXURY ACQUISITION CONSULTANT</option>
+            <option value="Luxury Acquisition Advisor">LUXURY ACQUISITION ADVISOR</option>
+            <option value="HR Partner">HR PARTNER</option>
+            <option value="Sales Director">SALES DIRECTOR</option>
+            <option value="Spontaneous Application">SPONTANEOUS APPLICATION</option>
           </select>
         </div>
       </div>
@@ -128,15 +124,16 @@
       <div id="joinFormButton" class="flexRowWrap">
         <div class="first">
           <div id="joinFormInnerButton" class="flexRowWrap">
-            <div class="first"><button>ATTACH</button></div>
+            <input type="file" accept="application/pdf,application/x-pdf" hidden="true" #file/>
+            <div class="first"><button (click)="file.click()">ATTACH</button></div>
             <div class="second"><button disabled class="disabled">UPLOAD YOUR CV</button></div>
           </div>
         </div>
         <div class="second">
-          <p>
+          <p><label>
             <input type="checkbox">
              According to Regulation (EU) 2016/679, I declare that I have read the <a href="#"><strong>PRIVACY POLICY</strong></a> and consent to the processing of my personal data for the purposes of research and
-              selection of personnel
+              selection of personnel</label>
           </p>
         </div>
         <div class="third">

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     code: ['']
   });
   public propertiesCount: number;
-  public mainGalleryProperty = {};
+  public mainGalleryProperty: Property;
 
   constructor(private fb: FormBuilder, private propertyService: PropertyService, private router: Router) { }
 
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private getCurrencySymbol(currency: string) {
+  public getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
 

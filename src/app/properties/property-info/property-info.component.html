@@ -5,6 +5,7 @@
           <h1>{{property.main_title | titlecase}}</h1>
           <h4>{{property.side_title | titlecase}}</h4>
           <p><strong>CODE: {{property.code}}</strong></p>
+          <p><strong>CONSULTANT: {{property.first_name}}</strong></p>
           <hr />
           <p><strong>TECHNICAL DETAILS</strong></p>
           <div class="asideSmItem">
@@ -22,6 +23,7 @@
           <div class="asideSmItem">
             <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
           </div>
+          <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
         </aside>
         <article>
           <div class="flexRowWrap">
@@ -29,7 +31,7 @@
               <p>Price</p>
               <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
               <h3 *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
-              <h3 *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">ON APPLICATION</h3>
+              <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3>SIGN IN FOR PRICE</h3></a>
               <button>BROCHURE PDF</button>
             </div>
             <div class="articleTopCol">

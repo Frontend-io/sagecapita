@@ -65,14 +65,14 @@
 <section id="videoGallery">
   <div class="container">
     <div style="background: #fff; ">
-      <div id="videoGalleryContent">
+      <div id="videoGalleryContent" *ngIf="mainGalleryProperty">
         <div id="videoGalleryExclusive">
           <h3>{{mainGalleryProperty.main_title | titlecase}}</h3>
           <hr />
           <p><strong>{{mainGalleryProperty.city | uppercase}}</strong></p>
           <p><small>{{mainGalleryProperty.description_text}}</small></p>
           <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}} MQ</strong></p>
-          <h3 *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))">ON APPLICATION</h3>
+          <a href="#" routerLink="/login" *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))"><h3>SIGN IN FOR PRICE</h3></a>
           <h3 *ngIf="mainGalleryProperty.price">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price | numberMillions:'1.0-1'}}</h3>
           <h3 *ngIf="mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
           <a href="#" [routerLink]="['properties/' + mainGalleryProperty.code]"><button class="filled">SHOW</button></a>
@@ -108,7 +108,7 @@
   <div class="container">
     <div id="productInfo1Content">
       <div class="verticalAlign">
-        <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
+        <img src="../assets/image_3.jpg" alt="Slide 1" />
       </div>
       <div id="productInfo1Text">
         <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { PropertiesSearchComponent } from '../properties-search/properties-search.component';
 import { PaginatorComponent } from '../paginator/paginator.component';
@@ -24,7 +25,8 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
 
   public propertiesPaginationForm = this.fb.group({
     criteria: ['price ASC', Validators.required],
-    numberPerPage: ['4', Validators.required]
+    numberPerPage: ['4', Validators.required],
+    isExclusive: ['']
   });
   public paginatorOptionsInitPage = 1;
   public paginatorOptionsDisplayedPages = 4;
@@ -32,17 +34,18 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   public properties: any[];
   public totalProperties: number;
 
-  constructor(private fb: FormBuilder, private propertiesService: PropertiesService) { }
+  constructor(private fb: FormBuilder, private propertiesService: PropertiesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.propertiesSearchComponent.setSearchData(getQueryStringParams());
-    this.search();
+    this.route.queryParams.subscribe(() => this.init());
+
+    this.init();
   }
 
-  public onPropertySearch(): void {
+  public onPropertySearch($event: any): void {
     this.search();
   }
 
@@ -58,6 +61,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
       per_page: paginationQueryData['numberPerPage'],
       order_by_col: paginationQueryDataCriteriaToks[0],
       order_by_dir: paginationQueryDataCriteriaToks[1],
+      is_exclusive: paginationQueryData['isExclusive'],
       state: propertiesSearchData['state'],
       city: propertiesSearchData['city'],
       suburb: propertiesSearchData['suburb'],
@@ -100,6 +104,17 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
 
       this.paginatorComponent.forEach((paginator) => paginator.onSetPage(newPage));
     });
+  }
+
+  private init(): void {
+    const queryParams = getQueryStringParams();
+
+    if (queryParams['is_exclusive']) {
+      this.propertiesPaginationForm.controls['isExclusive'].setValue(queryParams['is_exclusive']);
+    }
+
+    this.propertiesSearchComponent.setSearchData(queryParams);
+    this.search();
   }
 
   private getQueryPaginationValues(): any {

@@ -56,10 +56,6 @@
   justify-content: space-around;
 }
 
-.propertyBestProperties {
-  padding: 0 .2em;
-}
-
 @media only screen and (min-width:641px) {
   #exclusivePropertiesContainer article {
     height: 32em;
@@ -70,6 +66,10 @@
   #exclusivePropertiesContainer article {
     width: 49.5%;
     height: 19em;
+  }
+
+  .propertyBestProperties {
+    padding: 0 .2em;
   }
 }
 

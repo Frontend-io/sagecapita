@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   public newsletterForm = this.fb.group({
     email: ['']
   });
+  public isMobileNavOpen = false;
 
   constructor(
     private navigateEventService: NavigateEventService,
@@ -65,6 +66,10 @@ export class AppComponent implements OnInit {
           alert(err.message);
         });
     }
+  }
+
+  public toggleMobileNav() {
+    this.isMobileNavOpen = !this.isMobileNavOpen;
   }
 
   onDropDownClick(dropdown) {

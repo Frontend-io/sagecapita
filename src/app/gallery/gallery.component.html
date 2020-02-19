@@ -111,9 +111,7 @@
                 </div>
                 <div class="flexRowWrap">
                   <div class="colM6">
-                    <h4
-                      *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">
-                      <strong>ON APPLICATION</strong></h4>
+                    <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h4><strong>SIGN IN FOR PRICE</strong></h4></a>
                     <h4><strong
                         *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</strong>
                     </h4>
@@ -128,7 +126,7 @@
                 </div>
                 <div class="flexRowWrap videoSearchResultsItemContentBtns">
                   <div class="colM4">
-                    <a [href]="property.video"></a><button>PLAY VIDEO &#9658;</button>
+                    <a [href]="property.video" target="_blank"><button>PLAY VIDEO &#9658;</button></a>
                   </div>
                   <div class="colM4">
                     <a href="#" [routerLink]="['/property_contact/', property.code]"><button class="filled">ASK FOR

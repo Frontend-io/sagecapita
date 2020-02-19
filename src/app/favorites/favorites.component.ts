@@ -55,7 +55,7 @@ export class FavoritesComponent implements OnInit, AfterViewInit {
       .catch(() => { });
   }
 
-  public onPropertySearch(): void {
+  public onPropertySearch($event: any): void {
     this.checkLogin()
       .then(() => {
         this.search();

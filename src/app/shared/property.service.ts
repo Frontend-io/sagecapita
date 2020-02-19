@@ -325,8 +325,9 @@ export class PropertyService {
         }),
         map(({ property }: any) => {
           property['features'] = JSON.parse(property['features']);
-          property['photo'] = `${CONFIG.cloudinary.baseUrl}/${property['photo']}`;
-          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseUrl}/${photo}`);
+          property['photo'] = `${CONFIG.cloudinary.baseXLargeThumbUrl}/${property['photo']}`;
+          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseSmallThumbUrl}/${photo}`);
+          property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
 
           return property;
         })
@@ -399,7 +400,7 @@ export class PropertyService {
         }),
         map(({ home_carousels }: any) => {
           home_carousels.map((home_carousel: GalleryProperty) => {
-            home_carousel['photo'] = `${CONFIG.cloudinary.baseUrl}/${home_carousel['photo']}`;
+            home_carousel['photo'] = `${CONFIG.cloudinary.baseXLargeThumbUrl}/${home_carousel['photo']}`;
 
             return home_carousel;
           });
@@ -427,7 +428,8 @@ export class PropertyService {
           }
         }),
         map(({ main_gallery_photo }: any) => {
-          main_gallery_photo['photo'] = `${CONFIG.cloudinary.baseUrl}/${main_gallery_photo['photo']}`;
+          main_gallery_photo['photo'] = `${CONFIG.cloudinary.baseXLargeThumbUrl}/${main_gallery_photo['photo']}`;
+          main_gallery_photo['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${main_gallery_photo['video']}`;
 
           return main_gallery_photo;
         })

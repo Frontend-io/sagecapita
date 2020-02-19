@@ -12,9 +12,9 @@ export class PaginatorComponent implements OnInit {
   @Output() private pageChange = new EventEmitter<any>();
 
   public renderedPages: any[];
+  public currentPage: number;
 
   private pagesToDisplay: number;
-  private currentPage: number;
   private busy = false;
   private backEdge: number;
   private forwardEdge: number;

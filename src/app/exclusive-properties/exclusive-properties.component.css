@@ -69,10 +69,6 @@
   justify-content: space-around;
 }
 
-.propertyBestProperties {
-  padding: 0 .2em;
-}
-
 /* .propertyDataContainer {
   position: absolute;
   bottom: 0;
@@ -152,6 +148,10 @@
   #exclusivePropertiesContainer article {
     width: 49.5%;
     height: 19em;
+  }
+
+  .propertyBestProperties {
+    padding: 0 .2em;
   }
 }
 

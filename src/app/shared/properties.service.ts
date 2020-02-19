@@ -34,6 +34,7 @@ export class PropertiesService {
         map(({ properties }: any) => {
           properties['data'] = properties['data'].map((property: any) => {
             property['photo'] = `${CONFIG.cloudinary[imgSizing]}/${property['photo']}`;
+            property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
 
             return property;
           });

@@ -23,10 +23,6 @@
   color: #fff;
 }
 
-#propertyGroupsBtns button {
-  margin-right: 1.5em;
-}
-
 #propertyGroupsBtns button:last-child {
   margin-right: 0;
 }
@@ -70,6 +66,10 @@
 @media only screen and (min-width:961px) {
   #propertyGroupsList>.propertyGroupsItem {
     width: 16%;
+  }
+
+  #propertyGroupsBtns button {
+    margin-right: 1.5em;
   }
 }
 

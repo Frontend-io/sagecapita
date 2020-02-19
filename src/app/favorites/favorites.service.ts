@@ -34,6 +34,7 @@ export class FavoritesService {
         map(({ properties }: any) => {
           properties['data'] = properties['data'].map((property: any) => {
             property['photo'] = `${CONFIG.cloudinary.baseLargeThumbUrl}/${property['photo']}`;
+            property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
 
             return property;
           });

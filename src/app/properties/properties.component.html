@@ -29,6 +29,12 @@
             <option value="12">12 PER PAGE</option>
             <option value="16">16 PER PAGE</option>
           </select>
+          <select formControlName="isExclusive" (change)="search()">
+            <option value="" disabled>EXCLUSIVE PROPERTY</option>
+            <option value="" selected>ALL</option>
+            <option value="1">ONLY EXCLUSIVE</option>
+            <option value="2">ONLY NOT EXCLUSIVE</option>
+          </select>
         </div>
         <div class="searchSectionFormContainerElement">
           <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>

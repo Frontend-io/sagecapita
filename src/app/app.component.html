@@ -1,9 +1,9 @@
 <app-navigation-animation *ngIf="isPageLoading"></app-navigation-animation>
 <div class="menuHeaderContainer">
-  <header>
+  <header [ngStyle]="{'background-color': isMobileNavOpen ? '#fff': null}">
     <div id="logo">
       <a [routerLink]="['/']" href="#">
-        <img src="../assets/logo.png" />
+        <img src="../assets/sagecapita.png" />
       </a>
     </div>
     <nav id="desktop">
@@ -42,22 +42,22 @@
         <div class="clearfix"></div>
       </div>
     </nav>
-    <div id="mobileMenu">
+    <div id="mobileMenu" (click)="toggleMobileNav()">
       <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
         <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
       </svg>
     </div>
     <div class="clearfix"></div>
   </header>
-  <nav id="mobile">
+  <nav id="mobile" [hidden]="!isMobileNavOpen">
     <ul>
-      <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#">PROPERTY</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
-      <li><a href="#">X</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#" (click)="toggleMobileNav()">PROPERTY</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/services']" href="#" (click)="toggleMobileNav()">SERVICES</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#" (click)="toggleMobileNav()">THE FIRM</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/media']" href="#" (click)="toggleMobileNav()">MEDIA</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#" (click)="toggleMobileNav()">CONTACT</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/join']" href="#" (click)="toggleMobileNav()">JOIN US</a></li>
+      <li><a (click)="toggleMobileNav()">X</a></li>
     </ul>
   </nav>
 </div>
@@ -111,7 +111,7 @@
     </div>
     <div class="flexRowWrap">
       <section>
-        <a [routerLink]="['/']" href="#"><img src="../assets/logo-new.png" alt="sagecapita logo" /></a>
+        <a [routerLink]="['/']" href="#"><img src="../assets/sagecapita-words.png" alt="sagecapita logo" /></a>
         <div style="height: 1.5em;"></div>
         <p><small>Terms | Privacy | Site Map</small></p>
         <p><small>Copyright © 2020. All Rights Reserved. </small></p>

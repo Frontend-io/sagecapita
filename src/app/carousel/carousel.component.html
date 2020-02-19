@@ -14,9 +14,7 @@
           <h4>{{property.description_text}}</h4>
           <p><small><strong>REF. {{property.code}} | {{property.interior_surface}} SQM</strong></small></p>
         </div>
-        <h3
-          *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">
-          ON APPLICATION</h3>
+        <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3>SIGN IN FOR PRICE</h3></a>
         <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</h3>
         <h3 *ngIf="property.price_lower_range && property.price_upper_range">
           {{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO
@@ -30,51 +28,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="mySlides fade">
-    <img src="../../assets/home-carousel/slide_1.jpg">
-    <div class="textContainer left">
-      <div class="textContainerContainerOverlay"></div>
-      <div class="textContainerContainerContent">
-        <h3>Magnificent Sea-Front Villa On The Amalfi Coast</h3>
-        <div class="contentMobileHide">
-          <hr />
-          <p><small><strong>AMALFI-COAST - CAMPANIA - SALERNO</strong></small></p>
-          <h4>Portofino This stunning luxury villa for sale is in Portofino overlooks the charming Ligurian sea.</h4>
-          <p><small><strong>REF. 4130 | 560 SQM</strong></small></p>
-        </div>
-        <h3>OVER 10M</h3>
-        <div class="contentMobileHide">
-          <a href="#" [routerLink]="['/properties/' + 'SC10100']"><button class="whiteBtn">VIEW PROPERTY</button></a>
-          <a href="#" [routerLink]="['/property_contact/' + 'SC10100']"><button class="transparentBtn">ASK FOR
-              INFORMATION</button></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mySlides fade">
-    <img src="../../assets/home-carousel/slide_1.jpg">
-    <div class="textContainer right">
-      <div class="textContainerContainerOverlay"></div>
-      <div class="textContainerContainerContent">
-        <h3>Stunning Villa With A Charming View Over Portofino'...</h3>
-        <div class="contentMobileHide">
-          <hr />
-          <p><small><strong>AMALFI-COAST - CAMPANIA - SALERNO</strong></small></p>
-          <h4>Portofino This stunning luxury villa for sale is in Portofino overlooks the charming Ligurian sea.</h4>
-          <p><small><strong>REF. 4130 | 560 SQM</strong></small></p>
-          <h3>OVER 10M</h3>
-        </div>
-        <div class="contentMobileHide">
-          <a href="#" [routerLink]="['/properties/' + 'SC10100']"><button class="whiteBtn">VIEW PROPERTY</button></a>
-          <a href="#" [routerLink]="['/property_contact/' + 'SC10100']"><button class="transparentBtn">ASK FOR
-              INFORMATION</button></a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <!-- Next and previous buttons -->
   <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
   <a class="next" (click)="plusSlides(1)">&#10095;</a>
@@ -82,7 +35,5 @@
   <!-- The dots/circles -->
   <div class="dotContainer" style="text-align:center">
     <span class="dot" (click)="currentSlide(index + 1)" *ngFor="let property of properties; let index = index;"></span>
-    <!-- <span class="dot" (click)="currentSlide(2)"></span>
-    <span class="dot" (click)="currentSlide(3)"></span> -->
   </div>
 </div>

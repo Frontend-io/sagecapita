@@ -1,5 +1,5 @@
 <div id="videoGalleryListContainer">
-  <table>
+  <table *ngIf="properties && properties.length">
     <tbody>
       <tr *ngFor="let property of properties">
         <th>
@@ -16,5 +16,6 @@
       </tr>
     </tbody>
   </table>
+  <p *ngIf="!properties || !properties.length">No properties to show</p>
 </div>
 <a href="#" [routerLink]="['/gallery']"><button class="filled">SEE ALL</button></a>
