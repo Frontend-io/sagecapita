@@ -1,66 +1,76 @@
 <app-navigation-animation *ngIf="isPageLoading"></app-navigation-animation>
-<div class="menuHeaderContainer">
-  <header [ngStyle]="{'background-color': isMobileNavOpen ? '#fff': null}">
-    <div id="logo">
-      <a [routerLink]="['/']" href="#">
-        <img src="../assets/sagecapita.png" />
-      </a>
-    </div>
-    <nav id="desktop">
-      <div id="searchBar">
-        <ul> 
-          <li>
-            <form [formGroup]="propertyCodeForm">
-              <input type="text" placeholder="SEARCH BY CODE" formControlName="code" />
-              <svg  (click)="searchPropertyCode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">
-                <path
-                  d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-              </svg>
-            </form>
-          </li>
-          <li>
-            <a href="#" routerLink="login"><button class="noBorderBtn">LOGIN</button></a>
-          </li>
-          <li>
-            <a href="#" routerLink="/favorites"><button class="noBorderBtn">FAVORITES</button></a>&nbsp;&nbsp;
-            <app-language-button></app-language-button>
-            <app-currency-button></app-currency-button>            
-          </li>
-        </ul>
-      </div>
-      <div id="menuList">
-        <div class="right">
-          <ul>
-            <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#">PROPERTY</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
-          </ul>
+<div style="position: relative;">
+  <div class="menuHeaderContainer">
+    <header>
+      <div style="padding: .8em 0;">
+        <div id="logo">
+          <a [routerLink]="['/']" href="#">
+            <img src="../assets/sagecapita.png" />
+          </a>
+        </div>
+        <div id="menuGroup" [hidden]="!isMobileNavOpen && !isDesktop">
+          <div id="searchBar">
+            <ul>
+              <li>
+                <form [formGroup]="propertyCodeForm">
+                  <input type="text" placeholder="SEARCH BY CODE" formControlName="code" />
+                  <svg (click)="searchPropertyCode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
+                    height="30px">
+                    <path
+                      d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+                  </svg>
+                </form>
+              </li>
+              <li>
+                <a *ngIf="!loggedinUserFirstName" href="#" routerLink="login"><button
+                    class="noBorderBtn">LOGIN</button></a>
+                <a *ngIf="loggedinUserFirstName">Hi, {{loggedinUserFirstName}}</a>
+                <a href="#" routerLink="/favorites"><button class="noBorderBtn">FAVORITES</button></a>&nbsp;&nbsp;
+              </li>
+              <li>
+                <app-language-button></app-language-button>
+                <app-currency-button></app-currency-button>
+              </li>
+            </ul>
+          </div>
+          <nav id="desktop">
+            <div id="menuList">
+              <ul>
+                <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#">PROPERTY</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
+              </ul>
+            </div>
+          </nav>
         </div>
         <div class="clearfix"></div>
       </div>
+      <div id="mobileMenu" (click)="toggleMobileNav()">
+        <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
+          <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
+        </svg>
+      </div>
+      <div class="clearfix"></div>
+    </header>
+    <nav id="mobile" [hidden]="!isMobileNavOpen">
+      <ul>
+        <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#" (click)="toggleMobileNav()">PROPERTY</a>
+        </li>
+        <li routerLinkActive="active"><a [routerLink]="['/services']" href="#" (click)="toggleMobileNav()">SERVICES</a>
+        </li>
+        <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#" (click)="toggleMobileNav()">THE FIRM</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/media']" href="#" (click)="toggleMobileNav()">MEDIA</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#" (click)="toggleMobileNav()">CONTACT</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/join']" href="#" (click)="toggleMobileNav()">JOIN US</a></li>
+        <li><a (click)="toggleMobileNav()">X</a></li>
+      </ul>
     </nav>
-    <div id="mobileMenu" (click)="toggleMobileNav()">
-      <svg fill="rgb(2, 36, 58)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
-        <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z" />
-      </svg>
-    </div>
-    <div class="clearfix"></div>
-  </header>
-  <nav id="mobile" [hidden]="!isMobileNavOpen">
-    <ul>
-      <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#" (click)="toggleMobileNav()">PROPERTY</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/services']" href="#" (click)="toggleMobileNav()">SERVICES</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#" (click)="toggleMobileNav()">THE FIRM</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/media']" href="#" (click)="toggleMobileNav()">MEDIA</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#" (click)="toggleMobileNav()">CONTACT</a></li>
-      <li routerLinkActive="active"><a [routerLink]="['/join']" href="#" (click)="toggleMobileNav()">JOIN US</a></li>
-      <li><a (click)="toggleMobileNav()">X</a></li>
-    </ul>
-  </nav>
+  </div>
 </div>
+
 <div *ngIf="page !== '/'" id="headerHeight"></div>
 <main [@fadeAnimation]="getRouterOutletState(o)">
   <router-outlet #o="outlet"></router-outlet>
@@ -133,22 +143,37 @@
       <section>
         <div>
           <p><small><strong>NEWSLETTER</strong></small></p>
-          <p><small>Fill in the form to sign up to our newsletter and get updates on Sage Capita Luxury Real Estate's
-              exclusive
-              properties.</small></p>
+          <p><small>{{formMessage}}</small></p>
+          <ul *ngIf="newsletterForm.touched && !newsletterForm.valid">
+            <li *ngIf="newsletterFormControls.email.touched && newsletterFormControls.email.errors?.required"><small>
+                Email is required.
+              </small></li>
+            <li *ngIf="newsletterFormControls.email.touched && newsletterFormControls.email.errors?.email"><small>
+                Email address is invalid.
+              </small></li>
+            <li
+              *ngIf="newsletterFormControls.privacy_policy_check.touched && newsletterFormControls.privacy_policy_check?.errors?.required">
+              <small>
+                You must agree to our privacy policy.
+              </small></li>
+          </ul>
           <div id="newsletterContainer">
-            <form [formGroup]="newsletterForm">
+            <form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
               <div id="newsletterFormGroup" class="flexRowWrap">
                 <div id="newsletterEmail">
-                  <input type="email" placeholder="INSERT YOUR EMAIL" formControlName="email" required/>
+                  <input type="email" placeholder="INSERT YOUR EMAIL" formControlName="email" required />
                 </div>
-                <button>SEND</button>
+                <button [disabled]="!newsletterForm.valid || isSubmitting">SEND</button>
                 <!-- <div class="clearfix"></div> -->
               </div>
+              <p><label><input type="checkbox" formControlName="privacy_policy_check" required /> <small>I declare that
+                    i
+                    have read the privacy policy and agree to the use
+                    and
+                    processing of data</small></label></p>
             </form>
           </div>
-          <p><input type="checkbox" /> <small>I declare that i have read the privacy policy and agree to the use and
-              processing of data</small></p>
+
         </div>
       </section>
     </div>

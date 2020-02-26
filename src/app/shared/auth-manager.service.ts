@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
 import { map } from 'rxjs/operators';
 
 import { JwtManagerService } from './jwt-manager.service';
@@ -15,6 +16,9 @@ import { loggedInUser, loggedOutUser, userIsLoggedIn } from './userIsLoggedIn';
 })
 export class AuthManagerService {
   private redirectUrl: string;
+  private LoginSubject = new Subject<Promise<any>>();
+
+  public loginSubject$ = this.LoginSubject.asObservable();
 
   constructor(
     private jwtManagerService: JwtManagerService,
@@ -56,15 +60,29 @@ export class AuthManagerService {
   public checkAuth(force?: boolean): Promise<any> {
     if (this.jwtManagerService.check()) {
       if (force && userIsLoggedIn()) {
-        return this.authDialogService
-          .open()
-          .then((jwt) => {
-            this.jwtManagerService.set(jwt);
-          });
+        return new Promise((resolve, reject) => {
+          this.authDialogService
+            .open()
+            .then((jwt) => {
+              this.jwtManagerService.set(jwt);
+
+              this.LoginSubject.next(Promise.resolve(jwt['user']));
+
+              resolve(jwt);
+            }).catch(() => {
+              this.LoginSubject.next(Promise.reject());
+
+              reject();
+            });
+        });
       }
+
+      this.LoginSubject.next(Promise.reject());
 
       return Promise.reject();
     } else {
+      this.LoginSubject.next(Promise.resolve(this.jwtManagerService.getUser()));
+
       return Promise.resolve();
     }
   }

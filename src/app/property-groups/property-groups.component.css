@@ -1,11 +1,11 @@
 #propertyGroups {
   text-align: center;
-  /*color: #064A77;*/
+  /*color: rgb(4, 37, 59);*/
 }
 
 #propertyGroupsBtns button:not(.active):hover {
   color: #fff;
-  background: #064A77;
+  background: rgb(4, 37, 59);
 }
 
 #propertyGroupsBtns button {
@@ -13,13 +13,13 @@
   display: inline;
   margin: auto;
   padding: .5em 0;
-  border-color: #064A77;
-  /*color: #064A77;*/
+  border-color: rgb(4, 37, 59);
+  /*color: rgb(4, 37, 59);*/
   margin-bottom: .5em;
 }
 
 #propertyGroupsBtns button.active {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
 }
 
@@ -46,6 +46,7 @@
   height: 24em;
   overflow: hidden;
   margin-top: .5em;
+  background-color: rgb(4, 37, 59);
 }
 
 .propertyGroupsItem>img {
@@ -74,12 +75,12 @@
 }
 
 @media only screen and (min-width: 1900px) {
-  #propertyGroupsList>.propertyGroupsItem {
-    height: 26em;
-  }
+  /* #propertyGroupsList>.propertyGroupsItem {
+    height: 24em;
+  } */
 
-  .propertyGroupsItem>img {
+  /* .propertyGroupsItem img {
     height: auto;
     width: 100%;
-  }
+  } */
 }

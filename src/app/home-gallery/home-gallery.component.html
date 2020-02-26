@@ -3,7 +3,7 @@
     <tbody>
       <tr *ngFor="let property of properties">
         <th>
-          <div><img [src]="'../assets/' + property.photo" alt="Property thumbnail" /></div>
+          <div><img [src]="property.photo" alt="Property thumbnail" /></div>
         </th>
         <td>
           <p><strong><small>{{property.city | titlecase}}</small></strong></p>

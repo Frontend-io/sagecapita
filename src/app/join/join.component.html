@@ -10,7 +10,7 @@
         <hr />
         <div>
           <video width="100%" poster="../../assets/image_3.jpg" controls>
-            <source src="https://cdn-maps.lionard.com//Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4">
+            <source src="https://cdn-maps.sagecapita.com//Allegati/SAGECAPITA_RIF5118_720.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -23,7 +23,7 @@
           detail,
           pragmatism and the ability to work with style on complex business relations. Look at our open positions and
           select
-          the one that fits your professional profile. You can upload your CV only in .doc or .pdf formats. It is also
+          the one that fits your professional profile. You can upload your CV only in .pdf format. It is also
           possible to send a <a href="mailto:info@sagecapita.com">spontaneous application</a>. If SageCapita Luxury Real
           Estate
           is interested, you will be contacted for a first interview.</p>
@@ -31,50 +31,50 @@
         <div class="jobContainer">
           <h4>LUXURY REAL ESTATE ADVISOR</h4>
           <hr />
-          <p>Nigeria<br />SageCapita Luxury Real Estate S.p.A. - It’s a Made in Nigeria Brand, a
-              consolidated
-              leader in the highest field of its business market - develops a selection and enhancement of Top
-              Properties
-              in
-              Top Location, able to meet the demands of a high-profile and demanding international clientele.
+          <p>Nigeria<br />SageCapita Luxury Real Estate S.P.A. - It’s a Made in Nigeria Brand, a
+            consolidated
+            leader in the highest field of its business market - develops a selection and enhancement of Top
+            Properties
+            in
+            Top Location, able to meet the demands of a high-profile and demanding international clientele.
           </p>
           <p>The SageCapita professional, thanks to an innovative and recognized method, guarantees to its customers
-              an
-              excellent service, through the intermediation of the exclusive luxury real estate and / or high
-              historical-artistic-cultural value.</p>
+            an
+            excellent service, through the intermediation of the exclusive luxury real estate and / or high
+            historical-artistic-cultural value.</p>
           <p>Due to the exponential growth of its business (with trend of purchase requests YTD + 40%) and its
-              organization,
-              wanting to enhance the Luxury Acquisition Department it’s actually looking for this role:<br />Luxury Real
-              Estate Sales Advisor:</p>
+            organization,
+            wanting to enhance the Luxury Acquisition Department it’s actually looking for this role:<br />Luxury Real
+            Estate Sales Advisor:</p>
           <p>
-              Role:<br />
-              - Exclusive assignment of Top Clients and Top Properties portfolio;<br />
-              - Buying agent activity in realizing the matching between Top Client need and Top Properties
-              solution;<br />
-              - Managing the requests of each Top Client, in particular following and managing the entire sales
-              negotiation process;<br />
-              - Improving the quality of service to gain customer loyalty and attract new customer.
-            </p>
+            Role:<br />
+            - Exclusive assignment of Top Clients and Top Properties portfolio;<br />
+            - Buying agent activity in realizing the matching between Top Client need and Top Properties
+            solution;<br />
+            - Managing the requests of each Top Client, in particular following and managing the entire sales
+            negotiation process;<br />
+            - Improving the quality of service to gain customer loyalty and attract new customer.
+          </p>
           <p>
-              Skills:<br />
-              - Attitude to build high-level relationships;<br />
-              - Problem solving, negotiation;<br />
-              - Determined, Entrepreneurial and mindset for achievement;<br />
-              - Professional ethics, resilience and integrity;<br />
-              - Consolidated background in the luxury real estate or demonstrated sales background; however we wish to
-              get in touch with the best candidates with high potential compared to this following requirements;<br />
-              - Fluent English; second preferential languages ​​Russian and German.
-            </p>
+            Skills:<br />
+            - Attitude to build high-level relationships;<br />
+            - Problem solving, negotiation;<br />
+            - Determined, Entrepreneurial and mindset for achievement;<br />
+            - Professional ethics, resilience and integrity;<br />
+            - Consolidated background in the luxury real estate or demonstrated sales background; however we wish to
+            get in touch with the best candidates with high potential compared to this following requirements;<br />
+            - Fluent English; second preferential languages ​​Russian and German.
+          </p>
           <p>
-              SageCapita workplace:<br />
-              - Our Offices are positioned in exclusive locations and in line with the high target of reference;<br />
-              - High energy, productivity driven environment;<br />
-              - STS&reg; management software (SageCapita Technical System);<br />
-              - Operational and marketing tools at the highest professional levels of the Real Estate industry
-              (customized management, Be SageCapita magazine);<br />
-              - Office Location and work station available daily, professional engagement with VAT number and royalties
-              able to meet the most qualified and performing candidate’s needs.
-            </p>
+            SageCapita workplace:<br />
+            - Our Offices are positioned in exclusive locations and in line with the high target of reference;<br />
+            - High energy, productivity driven environment;<br />
+            - STS&reg; management software (SageCapita Technical System);<br />
+            - Operational and marketing tools at the highest professional levels of the Real Estate industry
+            (customized management, Be SageCapita magazine);<br />
+            - Office Location and work station available daily, professional engagement with VAT number and royalties
+            able to meet the most qualified and performing candidate’s needs.
+          </p>
           <p>Office Locations - Nigeria, USA (footer)</p>
         </div>
       </article>
@@ -84,27 +84,48 @@
 <section id="joinFormContainer">
   <div class="container">
     <h3>APPLY FOR THIS POSITION</h3>
-    <p>Fill in the form below to apply for one of our open positions. You can also send us your CV for a spontaneous
-      application</p>
-    <form [formGroup]="joinForm">
+    <p>{{formMessage}}</p>
+    <ul *ngIf="joinForm.touched && !joinForm.valid">
+      <li *ngIf="joinFormControls.full_name.touched && joinFormControls.full_name?.errors?.required"><small>
+          Full name is required.
+        </small></li>
+      <li *ngIf="joinFormControls.email.touched && joinFormControls.email.errors?.required"><small>
+          Email is required.
+        </small></li>
+      <li *ngIf="joinFormControls.email.touched && joinFormControls.email.errors?.email"><small>
+          Email address is invalid.
+        </small></li>
+      <li *ngIf="joinFormControls.phone.touched && joinFormControls.phone?.errors?.required"><small>
+          Phone number is required.
+        </small></li>
+      <li *ngIf="joinFormControls.language.touched && joinFormControls.language?.errors?.required"><small>
+          Language is required.
+        </small></li>
+      <li *ngIf="joinFormControls.country.touched && joinFormControls.country?.errors?.required"><small>
+          Country is required.
+        </small></li>
+      <li *ngIf="joinFormControls.role.touched && joinFormControls.role?.errors?.required"><small>
+          Role is required.
+        </small></li>
+      <li><small *ngIf="joinFormControls.message.touched && joinFormControls.message?.errors?.required">
+          Message is required.
+        </small></li>
+      <li
+        *ngIf="joinFormControls.privacy_policy_check.touched && joinFormControls.privacy_policy_check?.errors?.required">
+        <small>
+          You must agree to our privacy policy.
+        </small></li>
+    </ul>
+    <form [formGroup]="joinForm" (ngSubmit)="onSubmit()">
       <div id="contactElementContainer">
         <div class="contactElement">
-          <input type="text" placeholder="*FIRST NAME" formControlName="first_name" required />
-        </div>
-        <div class="contactElement">
-          <input type="text" placeholder="*LAST NAME" formControlName="last_name" required />
+          <input type="text" placeholder="*FULL NAME" formControlName="full_name" required />
         </div>
         <div class="contactElement">
           <input type="text" placeholder="*EMAIL" formControlName="email" required />
         </div>
         <div class="contactElement">
           <input type="text" placeholder="*PHONE" formControlName="phone" required />
-        </div>
-        <div class="contactElement selectChevDownElement">
-          <select formControlName="language" required >
-            <option disabled value="">*LANGUAGE</option>
-            <option [value]="language.code" *ngFor="let language of languages">{{language.name}}</option>
-          </select>
         </div>
         <div class="contactElement selectChevDownElement">
           <select formControlName="role" required>
@@ -117,27 +138,41 @@
             <option value="Spontaneous Application">SPONTANEOUS APPLICATION</option>
           </select>
         </div>
+        <div class="contactElement selectChevDownElement">
+          <select formControlName="country" required>
+            <option disabled value="">*COUNTRY</option>
+            <option [value]="country.code" *ngFor="let country of countries">{{country.name}}</option>
+          </select>
+        </div>
+        <div class="contactElement selectChevDownElement">
+          <select formControlName="language" required>
+            <option disabled value="">*LANGUAGE</option>
+            <option [value]="language.code" *ngFor="let language of languages">{{language.name}}</option>
+          </select>
+        </div>
       </div>
       <div class="contactElement">
-        <textarea placeholder="*MESSAGE" formControlName="message" required ></textarea>
+        <textarea placeholder="*MESSAGE" formControlName="message" required></textarea>
       </div>
       <div id="joinFormButton" class="flexRowWrap">
         <div class="first">
           <div id="joinFormInnerButton" class="flexRowWrap">
-            <input type="file" accept="application/pdf,application/x-pdf" hidden="true" #file/>
+            <input type="file" accept="application/pdf" hidden="true" (change)="handleFileInput($event.target.files)"
+              #file />
             <div class="first"><button (click)="file.click()">ATTACH</button></div>
             <div class="second"><button disabled class="disabled">UPLOAD YOUR CV</button></div>
           </div>
         </div>
         <div class="second">
           <p><label>
-            <input type="checkbox">
-             According to Regulation (EU) 2016/679, I declare that I have read the <a href="#"><strong>PRIVACY POLICY</strong></a> and consent to the processing of my personal data for the purposes of research and
+              <input type="checkbox" formControlName="privacy_policy_check">
+              According to Regulation (EU) 2016/679, I declare that I have read the <a href="#"><strong>PRIVACY
+                  POLICY</strong></a> and consent to the processing of my personal data for the purposes of research and
               selection of personnel</label>
           </p>
         </div>
         <div class="third">
-          <button>SEND</button>
+          <button [disabled]="!joinForm.valid || !cv || isSubmitting">SEND</button>
         </div>
       </div>
     </form>

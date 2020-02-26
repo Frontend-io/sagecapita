@@ -33,6 +33,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   public paginatorOptionsLastPage = 10;
   public properties: any[];
   public totalProperties: number;
+  public isSearchOpen = false;
 
   constructor(private fb: FormBuilder, private propertiesService: PropertiesService, private route: ActivatedRoute) { }
 
@@ -43,6 +44,10 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     this.route.queryParams.subscribe(() => this.init());
 
     this.init();
+  }
+
+  public toggleSearch(): void {
+    this.isSearchOpen = !this.isSearchOpen;
   }
 
   public onPropertySearch($event: any): void {
@@ -70,7 +75,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     };
 
     return new Promise((resolve, reject) => {
-      this.propertiesService.getProperties(params).subscribe((res: any) => {
+      this.propertiesService.getProperties(params, {imgSizing: 'baseLargeThumbWidthUrl'}).subscribe((res: any) => {
         const { data, total, last_page } = res;
 
         this.properties = data;

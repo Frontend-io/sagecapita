@@ -15,8 +15,8 @@
 }
 
 .paginatorPageNumber.active {
-  color: rgb(4, 37, 59);
-  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
+  border-color: rgb(4, 37, 59);;;;
   border-width: 2px;
 }
 
@@ -37,8 +37,8 @@
   box-sizing: border-box;
   cursor: pointer;
   margin: 0 .1em;
-  color: #064A77;
-  border-color: #064A77;
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 .paginator>.flexRowWrap {

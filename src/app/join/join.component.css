@@ -34,13 +34,13 @@ hr {
   height: 3em;
   width: 100%;
   margin: 2.4em 0;
-  border-color:#064A77;
-  color: #064A77;
+  border-color:rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
 }
 
 #joinColsContainer>article>button:hover {
-  background: #064A77;
-  border-color: #064A77;
+  background: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
   color: #fff;
 }
 
@@ -75,7 +75,7 @@ hr {
 
 
 a{
-  color:#064A77;
+  color:rgb(4, 37, 59);
 }
 
 
@@ -88,7 +88,7 @@ a{
   background: #f4f4f5;
   text-align: center;
   padding: .9em 1em 2em 1.5em;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
 #joinFormContainer>.container> p {
@@ -150,14 +150,14 @@ a{
 }
 
 #joinFormContainer button {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 #joinFormContainer button:hover {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
 

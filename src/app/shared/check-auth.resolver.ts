@@ -23,7 +23,7 @@ export class CheckAuthResolver implements AuthCheck<any> {
         .then(() => resolve(true))
         .catch(() => {
           this.authManagerService.logout();
-          
+
           resolve(false);
         });
     });

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     city: ['', Validators.required],
     country: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
     language: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     password_confirmation: ['']
   }, { validator: this.checkPasswords });
   public loginForm = this.fb.group({
@@ -104,8 +104,7 @@ export class LoginComponent implements OnInit {
     }
 
     const loginFormValue = this.loginForm.value;
-    const { email } = loginFormValue;
-    const { password } = loginFormValue;
+    const { email, password } = loginFormValue;
 
     this.formMessageLoginForm = 'Submitting...';
     this.isSubmittingLoginForm = true;
@@ -136,7 +135,7 @@ export class LoginComponent implements OnInit {
     this.formMessageForgotPasswordForm = 'Submitting...';
     this.isSubmittingForgotPasswordForm = true;
 
-    this.customersService.forgotCustomerPassword(this.forgotPasswordForm['email'].value)
+    this.customersService.forgotCustomerPassword(this.forgotPasswordFormControls['email'].value)
       .subscribe((res: any) => {
         this.isSubmittingForgotPasswordForm = false;
 

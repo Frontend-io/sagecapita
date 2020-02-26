@@ -1,7 +1,7 @@
 h1 {
   margin: 0;
   text-align: center;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
 }
 
 input:not([type="checkbox"]),
@@ -19,7 +19,7 @@ button {
 }
 
 button+button{
-    background-color: rgb(4, 37, 59);
+    background-color: rgb(4, 37, 59);;;;
     color: #fff;
 }
 

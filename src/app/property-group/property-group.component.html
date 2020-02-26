@@ -3,6 +3,6 @@
   <h2>{{propertyGroup.name | titlecase}}</h2>
   <hr />
   <h4>{{propertyGroup.count}} PROPERTIES</h4>
-  <a href="#" [routerLink]="'/properties'"><button>SEE ALL</button></a>
+  <a href="#" [routerLink]="'/properties'" [queryParams]="queryParams"><button>SEE ALL</button></a>
 </div>
 <div class="propertyGroupsItemOverlay"></div>

@@ -46,7 +46,7 @@ export class PropertyService {
         'home-carousel/slide_22.jpg',
         'home-carousel/slide_3.jpg'
       ],
-      video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
+      video: 'https://cdn-maps.sagecapita.com/Allegati/SAGECAPITA_RIF5118_720.mp4',
       main_title: 'Exclusive villa surrounded by a pine forest near',
       state: 'abuja',
       city: 'maitama',
@@ -120,7 +120,7 @@ export class PropertyService {
         'home-carousel/slide_22.jpg',
         'home-carousel/slide_3.jpg'
       ],
-      video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
+      video: 'https://cdn-maps.sagecapita.com/Allegati/SAGECAPITA_RIF5118_720.mp4',
       main_title: 'Exclusive villa surrounded by a pine forest near',
       state: 'abuja',
       city: 'maitama',
@@ -156,7 +156,7 @@ export class PropertyService {
         'home-carousel/slide_22.jpg',
         'home-carousel/slide_3.jpg'
       ],
-      video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
+      video: 'https://cdn-maps.sagecapita.com/Allegati/SAGECAPITA_RIF5118_720.mp4',
       main_title: 'Exclusive villa surrounded by a pine forest near',
       state: 'abuja',
       city: 'maitama',
@@ -227,7 +227,7 @@ export class PropertyService {
     });
   }
 
-  private getPropertyThumbnails(endPoint): Observable<Property[]> {
+  private getPropertyThumbnails(endPoint: string): Observable<Property[]> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/${endPoint}`)
       .pipe(
         HttpHelpers.retry(),
@@ -325,9 +325,16 @@ export class PropertyService {
         }),
         map(({ property }: any) => {
           property['features'] = JSON.parse(property['features']);
-          property['photo'] = `${CONFIG.cloudinary.baseXLargeThumbUrl}/${property['photo']}`;
-          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseSmallThumbUrl}/${photo}`);
-          property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
+          property['photo'] = `${CONFIG.cloudinary.baseCarouselUrl}/${property['photo']}`;
+          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseCarouselUrl}/${photo}`);
+
+          if (property['video']) {
+            property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
+          }
+
+          if (property['brochure']) {
+            property['brochure'] = `${CONFIG.cloudinary.baseUrl}/${property['brochure']}`;
+          }
 
           return property;
         })
@@ -348,7 +355,7 @@ export class PropertyService {
             default:
               return throwError({ message: 'Problem getting property, please check network and try again', status: err.status });
           }
-        }), map(({properties_count}) => properties_count)
+        }), map(({ properties_count }) => properties_count)
       );
   }
 
@@ -428,8 +435,11 @@ export class PropertyService {
           }
         }),
         map(({ main_gallery_photo }: any) => {
-          main_gallery_photo['photo'] = `${CONFIG.cloudinary.baseXLargeThumbUrl}/${main_gallery_photo['photo']}`;
-          main_gallery_photo['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${main_gallery_photo['video']}`;
+          main_gallery_photo['photo'] = `${CONFIG.cloudinary.baseLargeThumbUrl}/${main_gallery_photo['photo']}`;
+
+          if (main_gallery_photo['video']) {
+            main_gallery_photo['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${main_gallery_photo['video']}`;
+          }
 
           return main_gallery_photo;
         })

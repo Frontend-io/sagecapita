@@ -1,32 +1,35 @@
-
       <form [formGroup]="searchForm" id="propertySearchForm" (ngSubmit)="onSubmit()">
         <div class="formGroup flex flexRowWrap">
           <div class="formElement flex selectChevDownElement">
             <select formControlName="state">
               <option value="" disabled>State</option>
               <option value="">All</option>
-              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.state | keyvalue">{{item.key | titlecase}} ({{item.value}})</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.state | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
             <select formControlName="city">
               <option value="" disabled>City</option>
               <option value="">All</option>
-              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.city | keyvalue">{{item.key | titlecase}} ({{item.value}})</option>
-          </select>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.city | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
+            </select>
           </div>
           <div class="formElement flex selectChevDownElement">
             <select formControlName="suburb">
               <option value="" disabled>Suburb</option>
               <option value="">All</option>
-              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.suburb | keyvalue">{{item.key | titlecase}} ({{item.value}})</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.suburb | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
             <select formControlName="type">
               <option value="" disabled>Type</option>
               <option value="">All</option>
-              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.type | keyvalue">{{item.key | titlecase}} ({{item.value}})</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.type | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
@@ -48,5 +51,5 @@
               </svg>
             </button>
           </div>
-        </div>        
+        </div>
       </form>

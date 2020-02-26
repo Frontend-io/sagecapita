@@ -13,7 +13,7 @@ select,
 input:not([type="checkbox"])::-webkit-input-placeholder,
 input:not([type="checkbox"])::placeholder {
   font-weight: 700;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
 input:not([type="checkbox"]),
@@ -28,26 +28,26 @@ input[type="checkbox"] {
 }
 
 button {
-  color: #064A77;
+  color: rgb(4, 37, 59);
   background: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 button.filled,
 button.active {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
 }
 
 button:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 button.filled:hover,
 button.active:hover {
-  color: #064A77;
+  color: rgb(4, 37, 59);
   background: #fff;
 }
 
@@ -90,8 +90,8 @@ button.active:hover {
 }
 
 #pressArchiveContainer .flexRowWrap button:hover {
-  border-color: #064A77;
-  color: #064A77;
+  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
   background: #fff;
 }
 
@@ -125,7 +125,7 @@ button.active:hover {
 }
 
 #headlineSearchFormContainer .flexRowWrap input {
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 #headlineSearchFormContainer .flexRowWrap>div,

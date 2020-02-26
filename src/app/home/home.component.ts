@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { PropertyService } from '../shared/property.service';
 import { Property } from '../shared/property';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +18,19 @@ export class HomeComponent implements OnInit {
   });
   public propertiesCount: number;
   public mainGalleryProperty: Property;
+  public blogPhoto: string;
+  public blogArticle: any;
 
-  constructor(private fb: FormBuilder, private propertyService: PropertyService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private propertyService: PropertyService,
+    private homeService: HomeService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getPropertyCount();
     this.getMainGalleryProperty();
+    this.getBlogArticle();
   }
 
   public onPropertySearch($event: any): void {
@@ -55,10 +63,24 @@ export class HomeComponent implements OnInit {
 
   private getPropertyCount(): void {
     this.propertyService.propertyCount()
-        .subscribe((propertiesCount) => {
-          this.propertiesCount = propertiesCount;
-        }, (err: any) => {
-        });
+      .subscribe((propertiesCount) => {
+        this.propertiesCount = propertiesCount;
+      }, (err: any) => {
+      });
+  }
+
+  private getBlogArticle(): void {
+    this.homeService.getLastBlogPost()
+      .subscribe((lastBlogPost) => {
+        this.blogArticle = lastBlogPost;
+
+        this.homeService.getLastBlogPostPhoto(lastBlogPost.featured_media)
+          .subscribe((sourceUrl) => {
+            this.blogPhoto = sourceUrl;
+          }, (err: any) => {
+          });
+      }, (err: any) => {
+      });
   }
 
 }

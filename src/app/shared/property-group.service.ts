@@ -119,7 +119,7 @@ export class PropertyGroupService {
           property_groups['data']
             = property_groups['data']
               .map(({ name, photo, count }) =>
-                ({ name, photo: `${CONFIG.cloudinary.baseUrl}/${photo}`, count }));
+                ({ name, photo: `${CONFIG.cloudinary.baseMidPortraitThumbUrl}/${photo}`, count }));
 
           return property_groups;
         })

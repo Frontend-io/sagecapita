@@ -1,39 +1,38 @@
 #body {
-  padding: 3em 2em;
+  padding: 1em;
 }
 
 #body aside,
-#body article,
-.articleTopCol {
+#body article {
   width: 100%;
 }
 
-.articleTopCol {
+/* .articleTopCol {
   margin-bottom: 1em;
-}
+} */
 
 .articleTopCol p {
-  margin: 0;
+  margin: 1em 0 0 0;
 }
 
 .articleTopCol h3 {
-  margin: .3em 0 2.15em 0;
+  margin: .3em 0 .5em 0;
 }
 
 button {
   height: 3em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
 }
 
 button:hover {
-  color: #064A77;
+  color: rgb(4, 37, 59);
   background: #fff;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #064A77;
+  border-top: 1px solid rgb(4, 37, 59);
 }
 
 aside hr {
@@ -54,6 +53,10 @@ aside hr {
 }
 
 @media only screen and (min-width:961px) {
+  #body {
+    padding: 3em 2em;
+  }
+
   #body aside {
     width: 28%;
   }
@@ -64,5 +67,12 @@ aside hr {
 
   .articleTopCol {
     width: 49%;
+  }
+
+  .articleTopCol p {
+    margin: 0;
+  }
+  .articleTopCol h3 {
+    margin: .3em 0 2.15em 0;
   }
 }

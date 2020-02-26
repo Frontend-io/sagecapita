@@ -24,14 +24,14 @@ export class CustomersService {
                 { message: 'The registration information has some problems', status: err.status, errors: err.error.errors }
               );
             case 500:
-              return throwError({ message: 'Problem registering customer, please try again', status: err.status });
+              return throwError({ message: 'Problem registering, please try again', status: err.status });
             case 0:
             default:
-              return throwError({ message: 'Problem registering customer, please check network and try again', status: err.status });
+              return throwError({ message: 'Problem registering, please check network and try again', status: err.status });
           }
         }),
         map((newCustomer: any) => {
-          return { message: 'Customer successfully registered', newCustomer };
+          return { message: 'Successfully registered', newCustomer };
         })
       );
   }
@@ -45,24 +45,28 @@ export class CustomersService {
             case 401:
               return throwError({ message: 'Email or password is incorrect', status: err.status });
             case 500:
-              return throwError({ message: 'Problem logging in customer, please try again', status: err.status });
+              return throwError({ message: 'Problem logging in, please try again', status: err.status });
             case 0:
             default:
-              return throwError({ message: 'Problem logging in customer, please check network and try again', status: err.status });
+              return throwError({ message: 'Problem logging in, please check network and try again', status: err.status });
           }
         }),
         map((customer: any) => {
-          return { message: 'Customer successfully logged in', customer };
+          return { message: 'Successfully logged in', customer };
         })
       );
   }
 
   public forgotCustomerPassword(email: string): Observable<any> {
-    return this.http.post(`${HttpHelpers.apiBaseUrl}/customer_forgot_password`, { email })
+    return this.http.post(`${HttpHelpers.apiBaseUrl}/password/reset-request`, { email })
       .pipe(
         HttpHelpers.retry(),
         catchError((err) => {
           switch (err.status) {
+            case 403:
+              return throwError({ message: 'No account with this email found', status: err.status });
+            case 429:
+              return throwError({ message: 'Too many password reset attempts, please wait 2hrs before retrying', status: err.status });
             case 500:
               return throwError({ message: 'Problem retrieving your account, please try again', status: err.status });
             case 0:

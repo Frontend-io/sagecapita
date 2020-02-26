@@ -58,7 +58,7 @@ export interface Property {
 //         'home-carousel/slide_22.jpg',
 //         'home-carousel/slide_3.jpg'
 //     ],
-//     video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
+//     video: 'https://cdn-maps.sagecapita.com/Allegati/SAGECAPITA_RIF5118_720.mp4',
 //     main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
 //     state: 'abuja',
 //     city: 'maitama',

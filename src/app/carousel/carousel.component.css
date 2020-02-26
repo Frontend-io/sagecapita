@@ -1,25 +1,25 @@
-* {
+/* * {
   box-sizing: border-box
-}
+} */
 
 /* Slideshow container */
-.slideshowContainer {
+#slideshowContainer.slideshowContainer {
   position: relative;
   margin: auto;
   overflow: hidden;
 }
 
 /* Hide the images by default */
-.mySlides {
+#slideshowContainer .mySlides {
   display: none;
   height: 100vh;
 }
 
-.mySlides img {
+#slideshowContainer .mySlides img {
   min-height: 100%;
 }
 
-.textContainer {
+#slideshowContainer .textContainer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -28,67 +28,67 @@
   color: #fff;
 }
 
-.textContainerContainerContent {
+#slideshowContainer .textContainerContainerContent {
   padding: 1.8em;
   z-index: 1;
   position: relative;
 }
 
-.textContainerContainerContent h3:first-child {
+#slideshowContainer .textContainerContainerContent h3:first-child {
   margin-top: 0;
   font-family: 'Libre Baskerville', serif;
 }
 
-.textContainerContainerContent h3{
+#slideshowContainer .textContainerContainerContent h3{
   color:#fff;
 }
 
-.textContainerContainerContent hr {
+#slideshowContainer .textContainerContainerContent hr {
   border-bottom-color: #fff;
 }
 
-.textContainerContainerOverlay {
+#slideshowContainer .textContainerContainerOverlay {
   position: absolute;
-  background: #064A77;
+  background: rgb(4, 37, 59);
   opacity: .8;
   height: 100%;
   width: 100%;
   top: 0;
 }
 
-.textContainer button {
+#slideshowContainer .textContainer button {
   margin: 1.3em 0;
   height: 3.5em;
 }
 
-.textContainer button:hover {
+#slideshowContainer .textContainer button:hover {
   color: #fff;
-  background: #064A77;
+  background: rgb(4, 37, 59);
 }
 
-.textContainer p, .textContainer h4{
+#slideshowContainer .textContainer p, .textContainer h4{
   color: #fff;
 }
 
-.whiteBtn {
+#slideshowContainer .whiteBtn {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
   border-color: #fff;
 }
 
-.transparentBtn {
+#slideshowContainer .transparentBtn {
   color: #fff;
   border-color: #fff;
   margin-bottom: 0 !important;
 }
 
-.contentMobileHide {
+#slideshowContainer .contentMobileHide {
   display: none;
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+#slideshowContainer .prev,
+#slideshowContainer .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -104,18 +104,18 @@
 }
 
 /* Position the "next button" to the right */
-.next {
+#slideshowContainer .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
+#slideshowContainer .prev:hover,
+#slideshowContainer .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.dotContainer {
+#slideshowContainer .dotContainer {
   position: absolute;
   bottom: 1em;
   left: 0;
@@ -123,7 +123,7 @@
 }
 
 /* The dots/bullets/indicators */
-.dot {
+#slideshowContainer .dot {
   cursor: pointer;
   height: 10px;
   width: 10px;
@@ -134,13 +134,13 @@
   transition: background-color 0.6s ease;
 }
 
-.active,
-.dot:hover {
+#slideshowContainer .active,
+#slideshowContainer .dot:hover {
   background-color: #717171;
 }
 
 /* Fading animation */
-.fade {
+#slideshowContainer .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -168,54 +168,54 @@
 }
 
 @media only screen and (min-width:481px) {
-  .contentMobileHide {
+  #slideshowContainer .contentMobileHide {
     display: block;
   }
 
-  .textContainer {
+  #slideshowContainer .textContainer {
     top: 9em;
   }
 }
 
 @media only screen and (min-width:641px) {
-  .textContainer {
+  #slideshowContainer .textContainer {
     width: 45%;
   }
 
-  .textContainer.left {
+  #slideshowContainer .textContainer.left {
     left: 3em;
   }
 
-  .textContainer.right {
+  #slideshowContainer .textContainer.right {
     right: 3em;
   }
 
-  .textContainer {
+  #slideshowContainer .textContainer {
     bottom: auto;
   }
 }
 
 @media only screen and (min-width:961px) {
-  .textContainer {
+  #slideshowContainer .textContainer {
     width: 30%;
   }
 
-  .mySlides img {
+  #slideshowContainer .mySlides img {
     width: 100%;
   }
 
-  .contentMobileHide {
+  #slideshowContainer .contentMobileHide {
     display: block;
   }
 
-  .textContainer {
+  #slideshowContainer .textContainer {
     top: 8.5em;
     bottom: auto;
   }
 }
 
 @media only screen and (min-width:1600px) {
-  .textContainer {
+  #slideshowContainer .textContainer {
     margin-top: 2em;
     width: 20%;
   }

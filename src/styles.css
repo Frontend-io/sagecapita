@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -7,10 +10,18 @@ body {
   letter-spacing: .02em;
 }
 
-h1,h2,h3,h4,h5,h6,a, p, button{
-  color: rgb(4, 37, 59);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+button {
+  color: rgb(4, 37, 59);;;;
 }
- 
+
 .clearfix {
   clear: both;
 }
@@ -23,15 +34,15 @@ h1,h2,h3,h4,h5,h6,a, p, button{
   float: right;
 }
 
-.right-text{
+.right-text {
   text-align: right;
 }
 
-.center-text{
+.center-text {
   text-align: center;
 }
 
-.muted{
+.muted {
   color: #A5A8A9;
 }
 
@@ -89,6 +100,7 @@ select::-ms-expand {
 
 /* Target Internet Explorer 9 to undo the custom arrow */
 @media screen and (min-width:0\0) {
+
   /*.selectChevDownElement>*/
   select {
     background: none\9;
@@ -104,6 +116,11 @@ input:not([type="checkbox"]) {
 
 input:focus {
   outline: none;
+}
+
+.blockCentered{
+  margin: 0 auto;
+  display: table;
 }
 
 button {
@@ -137,6 +154,10 @@ button:focus {
   outline: none;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .verticalAlign {
   display: flex;
   flex-direction: column;
@@ -160,7 +181,16 @@ button:focus {
   margin-top: 1em;
 }
 
-.colM6, .colM4, .colM2, .colM3, .colM8, .colM10{
+.hiddenSM {
+  display: none;
+}
+
+.colM6,
+.colM4,
+.colM2,
+.colM3,
+.colM8,
+.colM10 {
   width: 100%;
 }
 
@@ -192,20 +222,19 @@ textarea {
 }
 
 input,
-textarea{
-  color: rgb(4, 37, 59);
+textarea {
+  color: rgb(4, 37, 59);;;;
 }
 
-select{
+select {
   color: rgb(4, 37, 59, .5);
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder,
 input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder
-input::placeholder,
-textarea::placeholder{
+textarea::-webkit-input-placeholder input::placeholder,
+textarea::placeholder {
   color: rgb(4, 37, 59, .5);
 }
 
@@ -221,27 +250,31 @@ h3 {
 }
 
 @media (min-width:961px) {
-  .colM6{
+  .hiddenSM {
+    display: block;
+  }
+
+  .colM6 {
     width: 49%;
   }
 
-  .colM4{
+  .colM4 {
     width: 32%;
   }
 
-  .colM2{
+  .colM2 {
     width: 18%;
   }
 
-  .colM3{
+  .colM3 {
     width: 24%;
   }
 
-  .colM8{
+  .colM8 {
     width: 66%;
   }
 
-  .colM10{
+  .colM10 {
     width: 78%;
   }
 }
@@ -252,28 +285,30 @@ h3 {
   } */
 }
 
-@media only screen and (min-width:1025px) { 
+@media only screen and (min-width:1025px) {
   .container {
     width: 95%;
   }
- }
+}
 
-@media only screen and (min-width:1281px) { 
+@media only screen and (min-width:1281px) {
   .container {
     width: 90%;
   }
- }
+}
 
- @media screen and (min-width: 1400px) {
+@media screen and (min-width: 1400px) {
   .container {
     width: 80%;
   }
 }
+
 @media screen and (min-width: 1600px) {
   .container {
     width: 70%;
   }
 }
+
 @media screen and (min-width: 1900px) {
   .container {
     width: 60%;
@@ -281,3 +316,18 @@ h3 {
 }
 
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* Property carousel slider hide buttons */
+.tns-controls>button {
+  border: none;
+}
+
+.tns-outer>button {
+  display: none;
+}
+
+@media only screen and (max-width:600px) {
+  .tns-lazy-img {
+    height: 220px;
+  }
+}

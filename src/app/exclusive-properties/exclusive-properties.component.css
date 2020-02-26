@@ -1,9 +1,5 @@
 #exclusivePropertiesContainer {
-  padding: 1.3em 0 .6em 0;
-}
-
-#exclusivePropertiesContainer {
-  padding-bottom: 3em;
+  padding: 1em 0;
 }
 
 #exclusivePropertiesContainer h3 {
@@ -12,7 +8,6 @@
 
 #exclusivePropertiesContainer h3 {
   margin: 0 0 1.4em 0;
-  margin-bottom: .9em;
 }
 
 #exclusivePropertiesContainer button {
@@ -24,15 +19,15 @@
 #exclusivePropertiesContainer button,
 #exclusivePropertiesContainer button.filled:hover {
   background: #fff;
-  color: #064A77;
-  border-color: #064A77;
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 #exclusivePropertiesContainer button.filled,
 #exclusivePropertiesContainer button:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 /* #exclusivePropertiesContainer>hr {
@@ -88,7 +83,7 @@
 }
 
 .propertyDataOverlay {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   position: absolute;
   top: 0;
   left: 0;
@@ -134,7 +129,7 @@
 } */
 
 #exclusivePropertiesContainer article {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   height: 19em;
 }
 

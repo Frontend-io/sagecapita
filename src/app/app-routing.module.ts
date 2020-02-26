@@ -31,6 +31,7 @@ const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  { path: 'password_reset', loadChildren: () => import('./password-reset/password-reset.module').then(m => m.PasswordResetModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 

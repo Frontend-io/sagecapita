@@ -10,13 +10,13 @@ select {
 button {
   height: 3em;
   padding: 0 2em;
-  background-color: rgb(4, 37, 59);
+  background-color: rgb(4, 37, 59);;;;
   color: #fff;
 }
 
 button:hover {
   background-color: transparent;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
 }
 
 #loginForm button,
@@ -26,7 +26,7 @@ button:hover {
 }
 
 #loginForm {
-  background-color: rgb(4, 37, 59);
+  background-color: rgb(4, 37, 59);;;;
   padding: 2.5em;
 }
 
@@ -58,8 +58,8 @@ button:hover {
 
 #forgotPasswordForm>h2 {
   color:
-    /*#064A77*/
-    rgb(4, 37, 59);
+    /*rgb(4, 37, 59)*/
+    rgb(4, 37, 59);;;;
 }
 
 #forgotPasswordForm,
@@ -74,12 +74,12 @@ button:hover {
 
 #loginForm button {
   background-color: #fff;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
 }
 
 #loginForm button:hover {
   color: #fff;
-  background-color: rgb(4, 37, 59);
+  background-color: rgb(4, 37, 59);;;;
 }
 
 #intro {

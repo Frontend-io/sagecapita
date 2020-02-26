@@ -1,9 +1,9 @@
-<section id="searchBand">
+<section id="searchBand" class="hiddenSM">
   <div class="container">
     <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
   </div>
 </section>
-<app-carousel-gallery></app-carousel-gallery>
-<app-property-info></app-property-info>
+<app-property-slider [property]="property"></app-property-slider>
+<app-property-info [property]="property"></app-property-info>
 <app-contact-section></app-contact-section>
 <app-viewed-properties></app-viewed-properties>

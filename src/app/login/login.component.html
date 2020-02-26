@@ -141,6 +141,9 @@
                 <small *ngIf="registerFormControls.password.touched && registerFormControls.password?.errors?.required">
                   Password is required.
                 </small>
+                <small *ngIf="registerFormControls.password.touched && registerFormControls.password?.errors?.minlength">
+                  Password must be 8 characters or more.
+                </small>
               </div>
               <div class="formRow colM6">
                 <input type="password" placeholder="CONFIRM PASSWORD" formControlName="password_confirmation" required />

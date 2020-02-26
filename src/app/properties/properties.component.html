@@ -1,18 +1,24 @@
 <section id="searchBand">
-  <div class="container">
-    <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
+  <div (click)="toggleSearch()" class="center-text mobileSearch"><span>SEARCH</span> <img
+      [ngStyle]="{'transform': isSearchOpen ? 'rotate(180deg) scaleX(-1)' : ''}" alt="Chevron down"
+      src="../assets/chevron-down-white.png"></div>
+  <div [hidden]="!isSearchOpen">
+    <div class="container">
+      <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
+    </div>
   </div>
 </section>
 <section id="searchSection">
   <div class="container">
-    <h1>Luxury property for sale in Nigeria - <small><strong>{{totalProperties | number}} Total properties</strong></small></h1>
+    <h1>Luxury property for sale in Nigeria - <small><strong>{{totalProperties | number}} Total
+          properties</strong></small></h1>
     <!-- <h4><strong>1592 TOTAL PROPERTIES</strong></h4> -->
     <form [formGroup]="propertiesPaginationForm">
       <p><small><strong>ORDER BY</strong></small></p>
       <div id="searchSectionFormContainer" class="flexRowWrap">
         <div class="searchSectionFormContainerElement selectChevDownElement">
           <select formControlName="criteria" required (change)="search()">
-            <option value="" >SELECT</option>
+            <option value="">SELECT</option>
             <option value="price ASC" selected aria-selected>PRICE ⮝</option>
             <option value="price DESC">PRICE ⮟</option>
             <option value="interior_surface ASC">INTERIOR SURFACE AREA ⮝</option>
@@ -37,7 +43,9 @@
           </select>
         </div>
         <div class="searchSectionFormContainerElement">
-          <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>
+          <app-paginator #paginator [initPage]="paginatorOptionsInitPage"
+            [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage"
+            (pageChange)="onPageClick($event)"></app-paginator>
         </div>
       </div>
     </form>
@@ -52,9 +60,10 @@
       </article>
     </div>
     <div style="margin-top: 1.2em;">
-      <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>
+      <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages"
+        [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>
     </div>
   </div>
 </section>
 
-<app-exclusive-properties></app-exclusive-properties> 
+<app-exclusive-properties></app-exclusive-properties>

@@ -8,6 +8,8 @@ import { PaginatorComponent } from '../paginator/paginator.component';
 
 import { MediaService } from './media.service';
 
+import { countries } from '../shared/countries.json';
+
 @Component({
   selector: 'app-media',
   templateUrl: './media.component.html',
@@ -23,11 +25,12 @@ export class MediaComponent implements OnInit, AfterViewInit {
   public newss1stHalf: any[];
   public newss2ndHalf: any[];
   public mediaForm = this.fb.group({
-    first_name: ['', Validators.required],
-    email: ['', Validators.required],
-    magazine: ['', Validators.required],
-    country: ['', Validators.required],
-    message: ['', Validators.required]
+    full_name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    headline: ['', Validators.required],
+    country: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+
+    privacy_policy_check: ['', Validators.requiredTrue]
   });
   public headlineSearchForm = this.fb.group({
     headline: ['']
@@ -36,6 +39,9 @@ export class MediaComponent implements OnInit, AfterViewInit {
   public allNewsCount: number;
   public allYears: number[];
   public currentYear: number;
+  public countries = countries;
+  public formMessage: string;
+  public isSubmitting = false;
 
   constructor(private fb: FormBuilder, private mediaService: MediaService) { }
 
@@ -137,4 +143,35 @@ export class MediaComponent implements OnInit, AfterViewInit {
     this.nameTyped.next(typedName);
   }
 
+  public onSubmit(): void {
+    if (!this.mediaForm.valid) {
+      return;
+    }
+
+    const { controls } = this.mediaForm;
+    const body = {};
+
+    Object.keys(controls).forEach((control) => body[control] = controls[control].value);
+    body['country'] = controls['country'].value.toUpperCase();
+
+    this.formMessage = 'Submitting...';
+    this.isSubmitting = true;
+
+    this.mediaService.submitMediaRequest(body)
+      .subscribe((res) => {
+        this.isSubmitting = false;
+
+        this.formMessage = res.message;
+
+        this.mediaForm.reset();
+      }, (err: any) => {
+        this.formMessage = err.message;
+
+        this.isSubmitting = false;
+      });
+  }
+
+  get mediaFormControls(): any {
+    return this.mediaForm['controls'];
+  }
 }

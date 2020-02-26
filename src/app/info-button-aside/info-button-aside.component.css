@@ -5,8 +5,8 @@ div {
 button {
   height: 3.6em;
   margin-bottom: 1em;
-  border-color: #064A77;
-  color: #064A77;
+  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
 }
 
 button.light {
@@ -22,9 +22,9 @@ button.light:hover {
 }
 
 button.filled, button:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 button.orange{
@@ -41,5 +41,5 @@ button.orange:hover {
 
 button.filled:hover {
   background: transparent;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }

@@ -1,5 +1,5 @@
 #searchBand {
-    background: #064A77;
+    background: rgb(4, 37, 59);
     padding: .5em 2em .9em 2em;
   }
   
@@ -7,7 +7,7 @@
     height: 2.5em;
     border-color: #ccc;
     margin-right: .5em;
-    color: rgb(4, 37, 59);
+    color: rgb(4, 37, 59);;;;
     background-color: #fff;
     width: 100%;
     margin-bottom: .6em;

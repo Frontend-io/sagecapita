@@ -9,10 +9,14 @@ import { PropertyGroup } from '../shared/property-group';
 })
 export class PropertyGroupComponent implements OnInit {
   @Input () propertyGroup: PropertyGroup;
+  @Input () propertyClass: string;
+
+  public queryParams: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.queryParams = {[this.propertyClass]: this.propertyGroup.name};
   }
 
 }

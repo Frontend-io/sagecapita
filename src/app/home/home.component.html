@@ -60,7 +60,7 @@
   </div>
 </section>
 <section>
-  <h3 style="text-align: center;"><strong>VIDEO GALLERY</strong></h3>
+  <h3 style="text-align: center;margin:1.2em 0 0 0;"><strong>VIDEO GALLERY</strong></h3>
 </section>
 <section id="videoGallery">
   <div class="container">
@@ -71,12 +71,20 @@
           <hr />
           <p><strong>{{mainGalleryProperty.city | uppercase}}</strong></p>
           <p><small>{{mainGalleryProperty.description_text}}</small></p>
-          <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}} MQ</strong></p>
-          <a href="#" routerLink="/login" *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))"><h3>SIGN IN FOR PRICE</h3></a>
-          <h3 *ngIf="mainGalleryProperty.price">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price | numberMillions:'1.0-1'}}</h3>
-          <h3 *ngIf="mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range">{{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
+          <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}}
+              MQ</strong></p>
+          <a href="#" routerLink="/login"
+            *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))">
+            <h3><u>SIGN IN FOR PRICE</u></h3>
+          </a>
+          <h3 *ngIf="mainGalleryProperty.price">
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price | numberMillions:'1.0-1'}}</h3>
+          <h3 *ngIf="mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range">
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
           <a href="#" [routerLink]="['properties/' + mainGalleryProperty.code]"><button class="filled">SHOW</button></a>
-          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>ASK FOR INFORMATION</button></a>
+          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>ASK FOR
+              INFORMATION</button></a>
         </div>
         <div id="videoGalleryFullVideo">
           <video width="100%" height="100%" [poster]="mainGalleryProperty.photo" controls>
@@ -108,27 +116,19 @@
   <div class="container">
     <div id="productInfo1Content">
       <div class="verticalAlign">
-        <img src="../assets/image_3.jpg" alt="Slide 1" />
+        <img [src]="blogPhoto" alt="Blog Photo" />
       </div>
-      <div id="productInfo1Text">
-        <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
-        <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-        <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on
-          April
-          21
-          753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-          populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage
-          Site.
-          For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
-          there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
-          surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
-          forum, Paleo-Christian basilicas to medieva...</p>
-        <button>READ MORE</button>
+      <div id="productInfo1Text" class="verticalAlign" *ngIf="blogArticle">
+        <h1>{{blogArticle.title}}</h1>
+        <!-- <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4> -->
+        <p>{{blogArticle.content.slice(4, -5).substring(0, 700) + '...'}}</p>
+        <a [href]="blogArticle.link" target="_blank" style="margin-top: 1.5em;"><button>READ MORE</button></a>
       </div>
     </div>
   </div>
   <div id="productInfo1BlogBand">
-    <strong>Sage Capita BLOG</strong><a href="#" routerLink="/media"><button>SEE ALL NEWS</button></a>
+    <strong>Sage Capita BLOG</strong><a href="//blog.sagecapita.com" target="_blank"><button>SEE ALL
+        ARTICLES</button></a>
   </div>
 </section>
 <app-latest-acquisitions></app-latest-acquisitions>

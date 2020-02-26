@@ -3,14 +3,14 @@ section {
 }
 
 #videoSearch {
-  background-color: #064A77;
+  background-color: rgb(4, 37, 59);
   padding: 1em 1.5em;
 }
 
 select {
   background-color: #fff;
   width: 100%;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
 #videoSearch svg {
@@ -54,7 +54,7 @@ article {
   height: 2.5em;
   border-color: #ccc;
   margin-right: .5em;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
   background-color: #fff;
   width: 100%;
   margin-bottom: .6em;
@@ -99,7 +99,7 @@ article {
 
 .videoSearchResultsItemContent>hr {
   border: 0;
-  border-bottom: 1px solid rgb(4, 37, 59);
+  border-bottom: 1px solid rgb(4, 37, 59);;;;
   margin: 1em 0;
 }
 
@@ -109,15 +109,15 @@ article {
 }
 
 .videoSearchResultsItemContentBtns button.filled:hover {
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
   background-color: #fff;
 }
 
 .videoSearchResultsItemContentBtns button.filled,
 .videoSearchResultsItemContentBtns button:hover {
   color: #fff;
-  background-color: rgb(4, 37, 59);
-  border-color: rgb(4, 37, 59);
+  background-color: rgb(4, 37, 59);;;;
+  border-color: rgb(4, 37, 59);;;;
 }
 
 @media screen and (min-width: 961px) {

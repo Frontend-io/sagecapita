@@ -2,33 +2,34 @@
   <div class="container">
     <h3>CONTACT</h3>
     <p>{{formMessage}}</p>
-    <ul *ngIf="contactForm.touched">
-      <li><small *ngIf="contactFormControls.first_name.touched && contactFormControls.first_name?.errors?.required">
+    <ul *ngIf="contactForm.touched && !contactForm.valid">
+      <li *ngIf="contactFormControls.first_name.touched && contactFormControls.first_name?.errors?.required"><small>
           First name is required.
         </small></li>
-      <li><small *ngIf="contactFormControls.last_name.touched && contactFormControls.last_name?.errors?.required">
+      <li *ngIf="contactFormControls.last_name.touched && contactFormControls.last_name?.errors?.required"><small>
           Last name is required.
         </small></li>
-      <li><small *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.required">
+      <li *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.required"><small>
           Email is required.
         </small></li>
-      <li><small *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.email">
+      <li *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.email"><small>
           Email address is invalid.
         </small></li>
-      <li><small *ngIf="contactFormControls.phone.touched && contactFormControls.phone?.errors?.required">
+      <li *ngIf="contactFormControls.phone.touched && contactFormControls.phone?.errors?.required"><small>
           Phone number is required.
         </small></li>
-      <li><small *ngIf="contactFormControls.language.touched && contactFormControls.language?.errors?.required">
+      <li *ngIf="contactFormControls.language.touched && contactFormControls.language?.errors?.required"><small>
           Language is required.
         </small></li>
-      <li><small *ngIf="contactFormControls.country.touched && contactFormControls.country?.errors?.required">
+      <li *ngIf="contactFormControls.country.touched && contactFormControls.country?.errors?.required"><small>
           Country is required.
         </small></li>
       <li><small *ngIf="contactFormControls.message.touched && contactFormControls.message?.errors?.required">
           Message is required.
         </small></li>
-      <li><small
-          *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
+      <li
+        *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
+        <small>
           You must agree to our privacy policy.
         </small></li>
     </ul>
@@ -63,8 +64,10 @@
         </div>
       </div>
       <p>
-        <input type="checkbox" formControlName="privacy_policy_check">
-        I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
+        <label>
+          <input type="checkbox" formControlName="privacy_policy_check">
+          I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
+        </label>
       </p>
       <button [disabled]="!contactForm.valid || isSubmitting">SEND</button>
     </form>

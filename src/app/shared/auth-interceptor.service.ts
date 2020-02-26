@@ -27,7 +27,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           return next.handle(authReq);
         }),
         catchError((e) => {
-          // return throwError(new HttpErrorResponse({ status: 401 }));
+          // return throwError(e && e.status ? e : new HttpErrorResponse({ status: 401 }));
           return next.handle(req);
         })
       );

@@ -82,4 +82,21 @@ export class MediaService {
       );
   }
 
+  public submitMediaRequest(body: any): Observable<any> {
+    return this.http.post(`${HttpHelpers.apiBaseUrl}/media_request`, body)
+      .pipe(
+        HttpHelpers.retry(),
+        catchError((err) => {
+          switch (err.status) {
+            case 400:
+              return throwError({ message: 'Media request information is incomplete or invalid', status: err.status });
+            case 500:
+              return throwError({ message: 'Problem sending media request, please try again', status: err.status });
+            case 0:
+            default:
+              return throwError({ message: 'Problem sending media request, please check network and try again', status: err.status });
+          }
+        }));
+  }
+
 }

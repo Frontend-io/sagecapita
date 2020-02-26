@@ -21,7 +21,7 @@ export class ContactService {
         HttpHelpers.retry(),
         catchError((err) => {
           switch (err.status) {
-            case 401:
+            case 400:
               return throwError({ message: 'Contact information is incomplete or invalid', status: err.status });
             case 500:
               return throwError({ message: 'Problem adding contact, please try again', status: err.status });
