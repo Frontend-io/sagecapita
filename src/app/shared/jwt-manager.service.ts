@@ -12,20 +12,20 @@ export class JwtManagerService {
   constructor() {
   }
 
-  public getJWT(): string {
+  public getJWTJWT(): any {
     try {
-      return JSON.parse(sessionStorage.getItem(this.sesId)).jwt;
+      return JSON.parse(sessionStorage.getItem(this.sesId)) || {};
     } catch (e) {
-      return null;
+      return {};
     }
   }
 
+  public getJWT(): string {
+    return this.getJWTJWT().jwt;
+  }
+
   public getUser(): string {
-    try {
-      return JSON.parse(sessionStorage.getItem(this.sesId)).user;
-    } catch (e) {
-      return null;
-    }
+    return this.getJWTJWT().user;
   }
 
   public set(jwt: any): void {
@@ -40,6 +40,7 @@ export class JwtManagerService {
     } else {
       return true;
     }
+
   }
 
   public decode(): any {

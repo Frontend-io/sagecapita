@@ -3,6 +3,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 import { ContactService } from '../../shared/contact.service';
+import { AuthManagerService } from '../../shared/auth-manager.service';
+
 import { countries } from '../../shared/countries.json';
 import { languages } from '../../shared/languages.json';
 
@@ -30,10 +32,22 @@ export class ModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     private fb: FormBuilder,
+    private authManagerService: AuthManagerService,
     private contactService: ContactService) { }
 
   ngOnInit() {
-}
+    this.authManagerService
+      .getLoggedInUser()
+      .then((user) => {
+        Object.keys(this.contactFormControls)
+          .forEach((contactFormControlName) => {
+            if (user[contactFormControlName]) {
+              this.contactFormControls[contactFormControlName]
+                .setValue(user[contactFormControlName]);
+            }
+          });
+      });
+  }
 
   public onSubmit(): void {
     if (!this.contactForm.valid) {

@@ -31,7 +31,7 @@
               </small>
             </div>
             <div class="formRow">
-              <button [disabled]="!loginForm.valid || isSubmittingLoginForm">SEND</button>
+              <button [disabled]="!loginForm.valid || isSubmittingLoginForm">SUBMIT</button>
             </div>
           </form>
         </div>
@@ -51,14 +51,14 @@
               </small>
             </div>
             <div class="formRow">
-              <button [disabled]="!forgotPasswordForm.valid || isSubmittingForgotPasswordForm">SEND</button>
+              <button [disabled]="!forgotPasswordForm.valid || isSubmittingForgotPasswordForm">SUBMIT</button>
             </div>
           </form>
         </div>
       </aside>
       <article>
         <div id="registerForm">
-          <h2>COMPLETE YOUR SUBSCRIPTION</h2>
+          <h2>REGISTER HERE</h2>
           <p *ngIf="formMessageRegisterForm"><small>{{formMessageRegisterForm}}</small></p>
           <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
             <div class="flexRowWrap">
@@ -153,7 +153,7 @@
               </div>
             </div>
             <div class="formRow colM6 right">
-              <button [disabled]="!registerForm.valid || isSubmittingRegisterForm">SEND</button>
+              <button [disabled]="!registerForm.valid || isSubmittingRegisterForm">SUBMIT</button>
             </div>
             <div class="clearfix"></div>
           </form>

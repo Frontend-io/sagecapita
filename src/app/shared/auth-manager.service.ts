@@ -83,16 +83,16 @@ export class AuthManagerService {
     } else {
       this.LoginSubject.next(Promise.resolve(this.jwtManagerService.getUser()));
 
-      return Promise.resolve();
+      return Promise.resolve(this.jwtManagerService.getJWTJWT());
     }
   }
 
   public getAuthTokens(): Promise<any> {
-    return this.checkAuth().then((jwt) => jwt || this.jwtManagerService.getJWT());
+    return this.checkAuth().then((jwt) => jwt && jwt.jwt || this.jwtManagerService.getJWT());
   }
 
   public getLoggedInUser(): Promise<any> {
-    return this.checkAuth().then((jwt) => jwt || this.jwtManagerService.getUser());
+    return this.checkAuth().then((jwt) => jwt && jwt.user || this.jwtManagerService.getUser());
   }
 
   public getAuthorization(): Promise<string> {

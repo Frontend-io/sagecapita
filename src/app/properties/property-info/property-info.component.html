@@ -1,57 +1,64 @@
 <section id="body" *ngIf="property">
-    <div class="container">
-      <div class="flexRowWrap">
-        <aside>
-          <h1>{{property.main_title | titlecase}}</h1>
-          <h4>{{property.side_title | titlecase}}</h4>
-          <p><strong>CODE: {{property.code}}</strong></p>
-          <p><strong>CONSULTANT: {{property.first_name}}</strong></p>
-          <hr />
-          <p><strong>TECHNICAL DETAILS</strong></p>
-          <div class="asideSmItem">
-            <p>State: {{property.state | titlecase}}</p>
-            <p>City: {{property.city | titlecase}} </p>
-            <p>Suburb: {{property.suburb | titlecase}} </p>
+  <div class="container">
+    <div class="flexRowWrap">
+      <aside>
+        <h1>{{property.main_title | titlecase}}</h1>
+        <h4>{{property.side_title | titlecase}}</h4>
+        <p><strong>CODE: {{property.code}}</strong></p>
+        <p><strong>CONSULTANT: {{property.first_name  | titlecase}} {{property.last_name  | titlecase}}</strong></p>
+        <hr />
+        <p><strong>TECHNICAL DETAILS</strong></p>
+        <div class="asideSmItem">
+          <p>State: {{property.state | titlecase}}</p>
+          <p>City: {{property.city | titlecase}} </p>
+          <p>Suburb: {{property.suburb | titlecase}} </p>
+          <p>Country: {{property.country }} </p>
+        </div>
+        <div class="asideSmItem">
+          <p>House Type: {{property.type | titlecase}}</p>
+          <p>Year Built: {{property.year_built}}</p>
+        </div>
+        <div class="asideSmItem">
+          <p>Interior surface: {{property.interior_surface | number}} sqm</p>
+          <p>Exterior surface: {{property.exterior_surface | number}} sqm</p>
+        </div>
+        <div class="asideSmItem">
+          <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
+        </div>
+        <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
+      </aside>
+      <article>
+        <div class="flexRowWrap">
+          <div class="articleTopCol">
+            <p>Price</p>
+            <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
+            <h3 *ngIf="property.price_lower_range && property.price_upper_range">
+              {{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO
+              {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
+            <a href="#" routerLink="/login"
+              *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">
+              <h3><u>SIGN IN FOR PRICE</u></h3>
+            </a>
           </div>
-          <div class="asideSmItem">
-            <p>Type: {{property.type | titlecase}}</p>
+          <div class="articleTopCol">
+            <p>Area in Metres</p>
+            <h3 *ngIf="property.interior_surface">{{property.interior_surface | number}} Sqm</h3>
           </div>
-          <div class="asideSmItem">
-            <p>Interior surface: {{property.interior_surface | number}} sqm</p>
-            <p>Exterior surface: {{property.exterior_surface | number}} sqm</p>
-          </div> 
-          <div class="asideSmItem">
-            <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
+        </div>
+        <div class="flexRowWrap">
+          <div class="colM6">
+            <a [href]="property.brochure" target="_blank" *ngIf="property.brochure"><button>BROCHURE PDF</button></a>
           </div>
-          <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
-        </aside>
-        <article>
-          <div class="flexRowWrap">
-            <div class="articleTopCol">
-              <p>Price</p>
-              <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
-              <h3 *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
-              <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3><u>SIGN IN FOR PRICE</u></h3></a>
-            </div>
-            <div class="articleTopCol">
-              <p>Area in Metres</p>
-              <h3 *ngIf="property.interior_surface">{{property.interior_surface | number}} Sqm</h3>
-            </div>
+          <div class="colM6">
+            <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>REQUEST INFORMATION</button></a>
           </div>
-          <div class="flexRowWrap">
-            <div class="colM6">
-              <a [href]="property.brochure" target="_blank" *ngIf="property.brochure"><button>BROCHURE PDF</button></a>
-            </div>
-            <div class="colM6">
-              <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>ASK FOR INFORMATION</button></a>
-            </div>
-          </div>
-          <p><strong>{{property.heading_title | titlecase}}</strong>
-          </p>
-          <hr />
-          <p>{{property.description_text}}</p>
-        </article>
+        </div>
+        <p><strong>{{property.heading_title | titlecase}}</strong>
+        </p>
+        <hr />
+        <p>{{property.description_text}}</p>
+      </article>
 
-      </div>
     </div>
-  </section>
+  </div>
+</section>

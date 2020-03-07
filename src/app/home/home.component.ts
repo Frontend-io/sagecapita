@@ -34,7 +34,12 @@ export class HomeComponent implements OnInit {
   }
 
   public onPropertySearch($event: any): void {
-    this.router.navigate(['/properties'], { queryParams: $event });
+    const params
+      = Object.keys($event)
+        .filter((paramKey) => $event[paramKey])
+        .reduce((acc, cur) => ({ ...acc, [cur]: $event[cur] }), {});
+
+    this.router.navigate(['/properties'], { queryParams: params });
   }
 
   public searchPropertyCode(): void {

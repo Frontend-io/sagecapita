@@ -10,8 +10,8 @@
 </section>
 <section id="searchSection">
   <div class="container">
-    <h1>Luxury property for sale in Nigeria - <small><strong>{{totalProperties | number}} Total
-          properties</strong></small></h1>
+    <h1>{{propertiesTitle | titlecase}} Properties For Sale - <small><strong>{{totalProperties | number}} Total
+          Properties</strong></small></h1>
     <!-- <h4><strong>1592 TOTAL PROPERTIES</strong></h4> -->
     <form [formGroup]="propertiesPaginationForm">
       <p><small><strong>ORDER BY</strong></small></p>
@@ -19,7 +19,9 @@
         <div class="searchSectionFormContainerElement selectChevDownElement">
           <select formControlName="criteria" required (change)="search()">
             <option value="">SELECT</option>
-            <option value="price ASC" selected aria-selected>PRICE ⮝</option>
+            <option value="created_at ASC">NEWEST ⮝</option>
+            <option value="created_at DESC" selected aria-selected>NEWEST ⮟</option>
+            <option value="price ASC">PRICE ⮝</option>
             <option value="price DESC">PRICE ⮟</option>
             <option value="interior_surface ASC">INTERIOR SURFACE AREA ⮝</option>
             <option value="interior_surface DESC">INTERIOR SURFACE AREA ⮟</option>
@@ -27,6 +29,10 @@
             <option value="exterior_surface DESC">EXTERIOR SURFACE AREA ⮟</option>
             <option value="views ASC">POPULARITY ⮝</option>
             <option value="views DESC">POPULARITY ⮟</option>
+            <option value="views|inquiries ASC">FEATURED PROPERTIES ⮝</option>
+            <option value="views|inquiries DESC">FEATURED PROPERTIES ⮟</option>
+            <option value="viewed_at ASC">VIEWED ⮝</option>
+            <option value="viewed_at DESC">VIEWED ⮟</option>
           </select>
           <select formControlName="numberPerPage" (change)="search()">
             <option value="" disabled>PROPERTIES PER PAGE</option>

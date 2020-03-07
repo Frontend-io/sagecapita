@@ -30,10 +30,12 @@ export class PropertiesSearchComponent implements OnInit {
   }
 
   private getPropertyGroupsListWithCount(): void {
-    this.propertyGroupService.getPropertyGroupsListWithCount().subscribe((propertyGroupsListWithCount: any) => {
-      this.propertyGroupsList = propertyGroupsListWithCount;
-    }, (err: any) => {
-    });
+    this.propertyGroupService
+      .getPropertyGroupsListWithCount()
+      .subscribe((propertyGroupsListWithCount: any) => {
+        this.propertyGroupsList = propertyGroupsListWithCount;
+      }, (err: any) => {
+      });
   }
 
   public onSubmit(): void {
@@ -41,17 +43,19 @@ export class PropertiesSearchComponent implements OnInit {
   }
 
   public setSearchData(searchData: any): void {
-    const {controls} = this.searchForm;
+    const { controls } = this.searchForm;
 
-    Object.keys(searchData)
-      .forEach((controlName) => controls[controlName] && controls[controlName].setValue(searchData[controlName]));
+    Object.keys(controls).forEach((controlName) => {
+      controls[controlName].setValue(searchData[controlName] || '');
+    });
   }
 
   public getSearchData(): any {
     const { controls } = this.searchForm;
     const body = {};
 
-    Object.keys(controls).forEach((control) => body[control] = controls[control].value);
+    Object.keys(controls)
+      .forEach((control) => body[control] = controls[control].value);
 
     return body;
   }

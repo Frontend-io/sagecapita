@@ -31,7 +31,7 @@ export class CustomersService {
           }
         }),
         map((newCustomer: any) => {
-          return { message: 'Successfully registered', newCustomer };
+          return { message: 'Sign up successful. A member of our team will contact you shortly. Thank you', newCustomer };
         })
       );
   }

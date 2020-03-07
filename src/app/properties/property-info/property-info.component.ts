@@ -17,8 +17,7 @@ export class PropertyInfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  getCurrencySymbol(currency: string) {
+  public getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
-
 }

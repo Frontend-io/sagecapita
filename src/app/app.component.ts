@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { PropertyService } from './shared/property.service';
@@ -21,7 +22,7 @@ import { fadeAnimation } from './animations/fade.animation';
 })
 
 export class AppComponent implements OnInit, OnDestroy {
-  public title = 'sagecapita';
+  public title: string;
   public page = document.location.pathname;
   public isPageLoading = false;
   public propertyCodeForm = this.fb.group({
@@ -45,6 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private navigateEventService: NavigateEventService,
     private authManagerService: AuthManagerService,
     private fb: FormBuilder,
+    private titleService: Title,
     private propertyService: PropertyService,
     private router: Router,
     private ngZone: NgZone) {
@@ -52,17 +54,28 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.navigateEventService.navigation$.subscribe(
-      navigation => {
+      (navigation) => {
         this.page = /*JSON.parse(navigation).url*/document.location.pathname;
+
+        const pageTitle
+          = this.page
+            .substring(1)
+            .split('/')
+            .map((titleTok) => `${titleTok.substring(0, 1).toUpperCase()}${titleTok.substring(1).toLowerCase()}`)
+            .reverse()
+            .join('/');
+
+        this.titleService
+          .setTitle(`${pageTitle ? pageTitle.replace(/\//g, ' - ') + ' - ' : ''}Sagecapita`);
       });
 
     this.navigateEventService.navigationStart$.subscribe(
-      navigation => {
+      (navigation) => {
         this.isPageLoading = true;
       });
 
     this.navigateEventService.navigationStop$.subscribe(
-      navigation => {
+      (navigation) => {
         this.isPageLoading = false;
       });
 

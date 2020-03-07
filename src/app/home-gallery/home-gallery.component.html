@@ -10,7 +10,8 @@
           <p><small>{{property.description_text}}</small></p>
           <div class="videoGalleryListBtns">
             <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">SHOW</button></a>
-            <a [href]="property.video"><button>FULL VIDEO</button></a>
+            <a *ngIf="property.video" [href]="property.video"><button>FULL VIDEO</button></a>
+            <a *ngIf="!property.video" href="#" routerLink="/login"><button>LOGIN</button></a>
           </div>
         </td>
       </tr>

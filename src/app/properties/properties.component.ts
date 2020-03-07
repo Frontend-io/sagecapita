@@ -24,7 +24,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   @ViewChildren('paginator') paginatorComponent: QueryList<PaginatorComponent>;
 
   public propertiesPaginationForm = this.fb.group({
-    criteria: ['price ASC', Validators.required],
+    criteria: ['created_at DESC', Validators.required],
     numberPerPage: ['4', Validators.required],
     isExclusive: ['']
   });
@@ -34,6 +34,9 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   public properties: any[];
   public totalProperties: number;
   public isSearchOpen = false;
+  public propertiesTitle: string;
+
+  private isInit: boolean;
 
   constructor(private fb: FormBuilder, private propertiesService: PropertiesService, private route: ActivatedRoute) { }
 
@@ -41,9 +44,15 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.route.queryParams.subscribe(() => this.init());
+    window.setTimeout(() => {
+      this.init();
 
-    this.init();
+      this.route.queryParams.subscribe(() => {
+        if (!this.isInit) {
+          this.init();
+        }
+      });
+    }, 0);
   }
 
   public toggleSearch(): void {
@@ -75,29 +84,49 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     };
 
     return new Promise((resolve, reject) => {
-      this.propertiesService.getProperties(params, {imgSizing: 'baseLargeThumbWidthUrl'}).subscribe((res: any) => {
-        const { data, total, last_page } = res;
+      this.propertiesService
+        .getProperties(params, { imgSizing: 'baseLargeThumbWidthUrl' })
+        .subscribe((res: any) => {
+          const { data, total, last_page } = res;
 
-        this.properties = data;
-        this.totalProperties = total;
+          if (this.isInit) {
+            this.isInit = false;
+          } else {
+            this.propertiesTitle = undefined;
 
-        resolve(data);
+            const eParams = { ...params, criteria: paginationQueryData['criteria'] };
 
-        if (this.paginatorOptionsLastPage !== last_page) {
-          this.paginatorOptionsLastPage = last_page;
+            delete eParams['order_by_col'];
+            delete eParams['order_by_dir'];
 
-          window.setTimeout(() => {
-            this.paginatorComponent.forEach((paginator) => paginator.reRender());
+            const newQueryString
+              = Object.keys(eParams)
+                .filter((key) => eParams[key])
+                .reduce(((acc, cur) => `${acc}${acc ? '&' : ''}${cur}=${eParams[cur]}`), '');
 
-            if (!data.length) {
-              this.onPageClick({ newPage: 1 });
-            }
-          }, 0);
-        }
+            history.replaceState(null, '', `${location.pathname}?${newQueryString}`);
+          }
 
-      }, (err: any) => {
-        reject(err);
-      });
+          this.properties = data;
+          this.totalProperties = total;
+
+          resolve(data);
+
+          if (this.paginatorOptionsLastPage !== last_page) {
+            this.paginatorOptionsLastPage = last_page;
+
+            window.setTimeout(() => {
+              this.paginatorComponent.forEach((paginator) => paginator.reRender());
+
+              if (!data.length) {
+                this.onPageClick({ newPage: 1 });
+              }
+            }, 0);
+          }
+
+        }, (err: any) => {
+          reject(err);
+        });
     });
   }
 
@@ -114,11 +143,43 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   private init(): void {
     const queryParams = getQueryStringParams();
 
-    if (queryParams['is_exclusive']) {
-      this.propertiesPaginationForm.controls['isExclusive'].setValue(queryParams['is_exclusive']);
+    this.isInit = true;
+
+    if (queryParams['is_exclusive'] === '1') {
+      this.propertiesTitle = 'Exclusive';
     }
 
+    this.propertiesPaginationForm
+      .controls['isExclusive']
+      .setValue(queryParams['is_exclusive'] || '');
+
+    this.propertiesPaginationForm
+      .controls['criteria']
+      .setValue(queryParams['criteria'] || 'created_at DESC');
+
+    switch (queryParams['criteria']) {
+      case 'views|inquiries DESC':
+        this.propertiesTitle = 'Featured Properties';
+        break;
+      case 'created_at DESC':
+        this.propertiesTitle = 'New Listings';
+        break;
+      case 'viewed_at DESC':
+        this.propertiesTitle = 'Viewed';
+        break;
+    }
+
+    ['city', 'state', 'type'].some((key) => {
+      if (key in queryParams) {
+        this.propertiesTitle = `${queryParams[key]} ${key.substring(0, 1).toUpperCase()}${key.substring(1).toLowerCase()}`;
+        return true;
+      }
+
+      return false;
+    });
+
     this.propertiesSearchComponent.setSearchData(queryParams);
+
     this.search();
   }
 
@@ -126,7 +187,8 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     const { controls } = this.propertiesPaginationForm;
     const body = {};
 
-    Object.keys(controls).forEach((control) => body[control] = controls[control].value);
+    Object.keys(controls)
+      .forEach((control) => body[control] = controls[control].value);
 
     return body;
   }

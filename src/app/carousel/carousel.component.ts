@@ -205,7 +205,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     contentMobileHide2AButton.textContent = 'VIEW PROPERTY';
     contentMobileHide2A2.setAttribute('href', `/property_contact/${code}`);
     contentMobileHide2A2Button.setAttribute('class', 'transparentBtn');
-    contentMobileHide2A2Button.textContent = 'ASK FOR INFORMATION';
+    contentMobileHide2A2Button.textContent = 'REQUEST INFORMATION';
 
     contentMobileHide2A.appendChild(contentMobileHide2AButton);
     contentMobileHide2.appendChild(contentMobileHide2A);

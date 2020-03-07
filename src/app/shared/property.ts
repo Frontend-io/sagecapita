@@ -22,6 +22,7 @@ export interface Property {
     price?: number;
     price_lower_range?: number;
     price_upper_range?: number;
+    year_built?: number;
 }
 
 // export interface Property {

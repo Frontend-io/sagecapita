@@ -12,6 +12,8 @@ import { Property } from './property';
 import { GalleryProperty } from './gallery-property';
 import { Currencies } from './currencies.enum';
 
+import { countries } from './countries.json';
+
 import { CurrencyService } from './currency.service';
 import { LanguageService } from './language.service';
 
@@ -286,6 +288,10 @@ export class PropertyService {
       );
   }
 
+  private getCountry(countryCode: string): string {
+    return countries.find((country) => country.code === countryCode).name;
+      }
+
   public searchProperties(criteria: any = { state: 'abuja', city: 'maitama', type: null, size: null, price: null }): Property[] {
     return this.properties;
   }
@@ -335,6 +341,8 @@ export class PropertyService {
           if (property['brochure']) {
             property['brochure'] = `${CONFIG.cloudinary.baseUrl}/${property['brochure']}`;
           }
+
+          property['country'] = this.getCountry(property['country']);
 
           return property;
         })

@@ -60,7 +60,7 @@
   </div>
 </section>
 <section>
-  <h3 style="text-align: center;margin:1.2em 0 0 0;"><strong>VIDEO GALLERY</strong></h3>
+  <h3 style="text-align: center;margin:1.2em 0 0 0;"><strong>VIDEO CENTER</strong></h3>
 </section>
 <section id="videoGallery">
   <div class="container">
@@ -83,8 +83,7 @@
             {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO
             {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
           <a href="#" [routerLink]="['properties/' + mainGalleryProperty.code]"><button class="filled">SHOW</button></a>
-          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>ASK FOR
-              INFORMATION</button></a>
+          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>REQUEST INFORMATION</button></a>
         </div>
         <div id="videoGalleryFullVideo">
           <video width="100%" height="100%" [poster]="mainGalleryProperty.photo" controls>
