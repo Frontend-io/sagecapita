@@ -10,7 +10,7 @@
           <form [formGroup]="galleryForm" (ngSubmit)="onPropertySearch()">
             <div class="formControl">
               <select formControlName="suburb">
-                <option disabled value=''>SUBURB</option>
+                <option disabled value=''>DISTRICT</option>
                 <option value='all'>All</option>
                 <option [value]="name" *ngFor="let name of propertyGroupsList['suburb']">{{name | uppercase}}</option>
               </select>

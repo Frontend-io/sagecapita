@@ -58,7 +58,15 @@
     opacity: .8;
   }
 
+  img{
+    width: 100%;
+  }
+
   @media only screen and (min-width:961px) {
+    img{
+      width: auto;
+    }
+
     .propertyGroupsItemContent h2 {
         font-size: 1.5em;
       }

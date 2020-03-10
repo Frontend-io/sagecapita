@@ -123,8 +123,8 @@
       <section>
         <a [routerLink]="['/']" href="#"><img src="../assets/sagecapita-words.png" alt="sagecapita logo" /></a>
         <div style="height: 1.5em;"></div>
-        <p><small>Terms | Privacy | Site Map</small></p>
-        <p><small>Copyright © 2020. All Rights Reserved. </small></p>
+        <p><small><a href="#" routerLink="terms">Terms</a> | <a href="#" routerLink="privacy_policy">Privacy</a> | Site Map</small></p>
+        <p><small>Copyright &copy; 2020. All Rights Reserved. </small></p>
       </section>
       <section id="addressInfoContainer" class="verticalAlign">
         <div class="addressInfo">
@@ -168,7 +168,7 @@
               </div>
               <p><label><input type="checkbox" formControlName="privacy_policy_check" required /> <small>I declare that
                     i
-                    have read the privacy policy and agree to the use
+                    have read the <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a> and agree to the use
                     and
                     processing of data</small></label></p>
             </form>

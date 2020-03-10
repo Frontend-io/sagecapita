@@ -11,7 +11,7 @@
         <div class="asideSmItem">
           <p>State: {{property.state | titlecase}}</p>
           <p>City: {{property.city | titlecase}} </p>
-          <p>Suburb: {{property.suburb | titlecase}} </p>
+          <p>District: {{property.suburb | titlecase}} </p>
           <p>Country: {{property.country }} </p>
         </div>
         <div class="asideSmItem">
@@ -26,6 +26,12 @@
           <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
         </div>
         <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
+        <div class="asideSocialBtns">
+          <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + propertyLink +'&amp;src=sdkpreparse'"
+            target="_blank"><img src="../../../assets/facebook.png" alt="Share to fb" /></a>
+          <a [href]="'https://twitter.com/intent/tweet?text=Check out this ' + property.main_title + ' property on sagecapita.com&amp;url=' + propertyLink"
+            target="_blank"><img src="../../../assets/twitter.png" alt="Share to twitter" /></a>
+        </div>
       </aside>
       <article>
         <div class="flexRowWrap">

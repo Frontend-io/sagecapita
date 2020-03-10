@@ -43,15 +43,14 @@
 #propertyGroupsList>.propertyGroupsItem {
   width: 100%;
   position: relative;
-  height: 24em;
   overflow: hidden;
   margin-top: .5em;
   background-color: rgb(4, 37, 59);
 }
 
-.propertyGroupsItem>img {
+/* .propertyGroupsItem img {
   width: 100%;
-}
+} */
 
 .propertyGroupsItem>img {
   height: 100%;
@@ -67,6 +66,7 @@
 @media only screen and (min-width:961px) {
   #propertyGroupsList>.propertyGroupsItem {
     width: 16%;
+    height: 24em;
   }
 
   #propertyGroupsBtns button {

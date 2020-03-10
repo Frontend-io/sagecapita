@@ -18,7 +18,7 @@
           </div>
           <div class="formElement flex selectChevDownElement">
             <select formControlName="suburb">
-              <option value="" disabled>Suburb</option>
+              <option value="" disabled>District</option>
               <option value="">All</option>
               <option [value]="item.key" *ngFor="let item of propertyGroupsList?.suburb | keyvalue">
                 {{item.key | titlecase}} ({{item.value}})</option>

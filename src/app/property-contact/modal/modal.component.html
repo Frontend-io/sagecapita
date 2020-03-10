@@ -56,7 +56,7 @@
     </div>
     <p>
       <input type="checkbox" formControlName="privacy_policy_check">
-      I declare that i have read the <strong>privacy policy</strong> and agree to the use and processing of data
+      I declare that i have read the <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a> and agree to the use and processing of data
       <small
       *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
       You must agree to our privacy policy.

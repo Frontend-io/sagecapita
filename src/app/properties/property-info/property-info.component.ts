@@ -11,6 +11,8 @@ import { Property } from '../../shared/property';
 export class PropertyInfoComponent implements OnInit {
   @Input() property: any;
 
+  public propertyLink = `${encodeURIComponent(location.href)}`;
+
   constructor() {
   }
 

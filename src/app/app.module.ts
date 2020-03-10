@@ -45,6 +45,8 @@ import { GalleryRecentlyUploadedComponent } from './gallery-recently-uploaded/ga
 import { GallerySoldPropertiesComponent } from './gallery-sold-properties/gallery-sold-properties.component';
 import { GalleryMainPropertyComponent } from './gallery-main-property/gallery-main-property.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
     GalleryRecentlyUploadedComponent,
     GallerySoldPropertiesComponent,
     GalleryMainPropertyComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    PrivacyPolicyComponent,
+    TermsComponent
   ],
   imports: [
     PropertyContactModule,

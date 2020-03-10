@@ -113,7 +113,7 @@
       <li
         *ngIf="joinFormControls.privacy_policy_check.touched && joinFormControls.privacy_policy_check?.errors?.required">
         <small>
-          You must agree to our privacy policy.
+          You must agree to our <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a>.
         </small></li>
     </ul>
     <form [formGroup]="joinForm" (ngSubmit)="onSubmit()">

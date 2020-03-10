@@ -6,9 +6,11 @@ import { ServicesComponent } from './links-services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { FirmComponent } from './firm/firm.component';
 import { JoinComponent } from './join/join.component';
+import { TermsComponent } from './terms/terms.component';
 import { MediaComponent } from './media/media.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { PropertyContactComponent } from './property-contact/property-contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent, resolve },
   { path: 'favorites', component: FavoritesComponent, resolve },
   { path: 'property_contact/:code', canActivate: [PropertyGuard], component: PropertyContactComponent, resolve },
+  { path: 'terms', component: TermsComponent },
+  { path: 'privacy_policy', component: PrivacyPolicyComponent },
   // { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },

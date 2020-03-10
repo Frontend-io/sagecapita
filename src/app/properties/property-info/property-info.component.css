@@ -52,6 +52,16 @@ aside hr {
   margin: .1em 0;
 }
 
+.asideSocialBtns {
+  margin: 15px 0 0 -5px;
+  height: 48px;
+}
+
+.asideSocialBtns>a{
+  height: 48px;
+  display: inline-block;
+}
+
 @media only screen and (min-width:961px) {
   #body {
     padding: 3em 2em;

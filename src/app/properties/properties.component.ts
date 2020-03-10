@@ -34,7 +34,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
   public properties: any[];
   public totalProperties: number;
   public isSearchOpen = false;
-  public propertiesTitle: string;
+  public propertiesTitle = 'Properties';
 
   private isInit: boolean;
 
@@ -92,7 +92,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
           if (this.isInit) {
             this.isInit = false;
           } else {
-            this.propertiesTitle = undefined;
+            this.propertiesTitle = 'Properties';
 
             const eParams = { ...params, criteria: paginationQueryData['criteria'] };
 
@@ -146,7 +146,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
     this.isInit = true;
 
     if (queryParams['is_exclusive'] === '1') {
-      this.propertiesTitle = 'Exclusive';
+      this.propertiesTitle = 'Exclusive Properties';
     }
 
     this.propertiesPaginationForm
@@ -165,13 +165,13 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
         this.propertiesTitle = 'New Listings';
         break;
       case 'viewed_at DESC':
-        this.propertiesTitle = 'Viewed';
+        this.propertiesTitle = 'Viewed Properties';
         break;
     }
 
     ['city', 'state', 'type'].some((key) => {
       if (key in queryParams) {
-        this.propertiesTitle = `${queryParams[key]} ${key.substring(0, 1).toUpperCase()}${key.substring(1).toLowerCase()}`;
+        this.propertiesTitle = `${queryParams[key]} ${key.substring(0, 1).toUpperCase()}${key.substring(1).toLowerCase()} Properties`;
         return true;
       }
 
