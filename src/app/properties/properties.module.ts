@@ -19,6 +19,7 @@ import { PropertyComponent } from './property/property.component';
 import { ViewedPropertiesComponent } from './viewed-properties/viewed-properties.component';
 import { PropertyInfoComponent } from './property-info/property-info.component';
 import { PropertySliderComponent } from './property-slider/property-slider.component';
+import { PropertyPhotosComponent } from './property-photos/property-photos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PropertySliderComponent } from './property-slider/property-slider.compo
     PropertyComponent,
     ViewedPropertiesComponent,
     PropertyInfoComponent,
-    PropertySliderComponent
+    PropertySliderComponent,
+    PropertyPhotosComponent
   ],
   imports: [
     ContactSectionModule,

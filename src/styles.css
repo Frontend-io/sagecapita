@@ -19,7 +19,10 @@ h6,
 a,
 p,
 button {
-  color: rgb(4, 37, 59);;;;
+  color: rgb(4, 37, 59);
+  ;
+  ;
+  ;
 }
 
 .clearfix {
@@ -118,7 +121,7 @@ input:focus {
   outline: none;
 }
 
-.blockCentered{
+.blockCentered {
   margin: 0 auto;
   display: table;
 }
@@ -223,7 +226,10 @@ textarea {
 
 input,
 textarea {
-  color: rgb(4, 37, 59);;;;
+  color: rgb(4, 37, 59);
+  ;
+  ;
+  ;
 }
 
 select {
@@ -322,7 +328,7 @@ h3 {
   border: none;
 }
 
-.tns-outer>button {
+.tns-outer button {
   display: none;
 }
 
@@ -330,4 +336,88 @@ h3 {
   .tns-lazy-img {
     height: 220px;
   }
+}
+
+/* Property photos */
+.pp_photo:not(.active) {
+  display: none;
+}
+
+.pp_photo>.img {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+@media only screen and (min-width:961px) {
+  .pp_photo>.img {
+    width: 100%;
+    min-height: 100%;
+  }
+}
+
+.pp_download {
+  top: 100px;
+  right: .5em;
+  position: absolute;
+}
+
+.pp_download #view {
+  color: #fff;
+  width: 190px;
+  letter-spacing: .1em;
+  font-weight: 500;
+}
+
+.pp_download #dl {
+  width: 42px;
+  margin-left: .6em;
+}
+
+.pp_download #view,
+.pp_download #dl {
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: .6em 0;
+}
+
+.pp_download>div {
+  width: 100%;
+}
+
+.pp_download #view:hover,
+.pp_download #dl:hover {
+  background-color: rgb(4, 37, 59, .8);
+}
+
+.pp_thumbnail {
+  width: 12.5%;
+  height: 120px;
+  opacity: .5;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pp_thumbnail.active,
+.pp_thumbnail:hover {
+  opacity: 1;
+}
+
+.pp_thumbnail>img {
+  height: 100%;
+}
+
+.pp_thumbCircle>svg {
+  height: 14px;
+  width: 14px;
+  fill: #fff;
+  vertical-align: middle;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.pp_thumbCircle.active>svg {
+  background-color: #fff;
+  border-radius: 50%;
 }

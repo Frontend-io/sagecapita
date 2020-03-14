@@ -26,6 +26,7 @@
           <p *ngFor="let features of property?.features">{{features | titlecase}}</p>
         </div>
         <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
+        <a href="#" [routerLink]="'/properties/property_photos/' + property.code"><button style="margin-top: .6em;">VIEW MORE PHOTOS</button></a>
         <div class="asideSocialBtns">
           <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + propertyLink +'&amp;src=sdkpreparse'"
             target="_blank"><img src="../../../assets/facebook.png" alt="Share to fb" /></a>

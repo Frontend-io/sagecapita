@@ -1,0 +1,183 @@
+<section>
+  <div id="pageContainer">
+    <div id="pageHeading">
+      <div id="pageHeadingContainer">
+        <div id="pageHeadingOverlay"></div>
+        <div id="pageHeadingNav">
+          <div class="logo left">
+            <a href="#" routerLink="/"><img src="../../../assets/sagecapita.png" style="height: 70px;" /></a>
+          </div>
+          <div class="right text verticalAlign">
+            <h1 class="hiddenSM">{{propertyMainTitle}}</h1>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div id="photosContainer">
+      <div class="arrowsContainer">
+        <div class="verticalAlign">
+          <div>
+            <img id="pp_prev" class="left" src="../../../assets/chevron-left.png" />
+            <img id="pp_next" class="right" src="../../../assets/chevron-right.png" />
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="photo active">
+        <img src="../../../assets/castello-toscana-30.JPG" alt="Property Photo" class="img" />
+        <div class="download">
+          <div>
+            <a href="#" class="right" download>
+              <button id="dl">
+                <img src="../../../assets/download.png" alt="Download" />
+              </button>
+            </a>
+            <a href="#" [routerLink]="'/properties/' + propertyCode" class="right">
+              <button id="view">
+                VIEW PROPERTY
+              </button>
+            </a>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div> -->
+      <div id="photoItemsContainer"></div>
+    </div>
+    <div id="bottomNav">
+      <div id="bottomNavThumbnails" class="flexRowWrap">
+        <!-- <div class="thumbnail active">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div>
+        <div class="thumbnail">
+          <img src="../../../assets/castello-toscana-30.JPG" alt="property thumbnail" />
+        </div> -->
+      </div>
+      <div id="bottomNavContent">
+        <div class="left" style="margin-right: 30px;"><span id="currentCarouselPhoto"></span> / <span id="carouselPhotoLength"></span></div>
+        <div class="left">
+          <div id="thumbCircleItemsContainer" class="flexRowWrap">
+           <!-- <div class="pp_thumbCircle active">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div>
+            <div class="pp_thumbCircle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path
+                  d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z">
+                </path>
+              </svg>
+            </div> -->
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -169,14 +169,15 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
         break;
     }
 
-    ['city', 'state', 'type'].some((key) => {
-      if (key in queryParams) {
-        this.propertiesTitle = `${queryParams[key]} ${key.substring(0, 1).toUpperCase()}${key.substring(1).toLowerCase()} Properties`;
-        return true;
-      }
+    ['city', 'state', 'suburb', 'type']
+      .some((key) => {
+        if (key in queryParams) {
+          this.propertiesTitle = `${queryParams[key]} ${key.substring(0, 1).toUpperCase()}${key.substring(1).toLowerCase()} Properties`;
+          return true;
+        }
 
-      return false;
-    });
+        return false;
+      });
 
     this.propertiesSearchComponent.setSearchData(queryParams);
 

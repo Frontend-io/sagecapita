@@ -46,6 +46,7 @@
   overflow: hidden;
   margin-top: .5em;
   background-color: rgb(4, 37, 59);
+  height: 25em;
 }
 
 /* .propertyGroupsItem img {

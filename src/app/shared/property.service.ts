@@ -314,7 +314,7 @@ export class PropertyService {
       );
   }
 
-  public getProperty(code: string): Observable<any> {
+  public getProperty(code: string, { imgSizing } = { imgSizing: 'baseCarouselUrl' }): Observable<any> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/property/${code}`)
       .pipe(
         HttpHelpers.retry(),
@@ -331,8 +331,8 @@ export class PropertyService {
         }),
         map(({ property }: any) => {
           property['features'] = JSON.parse(property['features']);
-          property['photo'] = `${CONFIG.cloudinary.baseCarouselUrl}/${property['photo']}`;
-          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary.baseCarouselUrl}/${photo}`);
+          property['photo'] = `${CONFIG.cloudinary[imgSizing]}/${property['photo']}`;
+          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary[imgSizing]}/${photo}`);
 
           if (property['video']) {
             property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;

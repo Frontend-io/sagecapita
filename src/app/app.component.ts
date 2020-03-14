@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
             .join('/');
 
         this.titleService
-          .setTitle(`${pageTitle ? pageTitle.replace(/\//g, ' - ') + ' - ' : ''}Sagecapita`);
+          .setTitle(`${pageTitle ? pageTitle.replace(/\//g, ' - ').replace(/_/g, ' ') + ' - ' : ''}Sagecapita`);
       });
 
     this.navigateEventService.navigationStart$.subscribe(
