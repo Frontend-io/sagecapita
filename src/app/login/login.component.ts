@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthManagerService } from '../shared/auth-manager.service';
 
 import { CustomersService } from './customers.service';
+import { AppService } from '../app.service';
 
 import { countries } from '../shared/countries.json';
 import { languages } from '../shared/languages.json';
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
+    private appService: AppService,
     private customersService: CustomersService,
     private authManagerService: AuthManagerService) { }
 
@@ -113,6 +115,8 @@ export class LoginComponent implements OnInit {
       .subscribe(res => {
         this.isSubmittingLoginForm = false;
         this.formMessageLoginForm = res.message;
+
+        this.appService.favoriteRefreshed();
 
         if (this.authManagerService.getRedirectUrl()) {
           this.router.navigateByUrl(this.authManagerService.getRedirectUrl());

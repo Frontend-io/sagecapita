@@ -31,7 +31,7 @@ export class ContactService {
           }
         }),
         map((newContact: any) => {
-          return { message: 'Contact successfully sent', newContact };
+          return { message: 'Thank you for your request. A member of our team will contact you shortly.', newContact };
         })
       );
   }

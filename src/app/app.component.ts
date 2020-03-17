@@ -38,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
     = 'Fill in the form to sign up to our newsletter and get updates on Sage Capita Luxury Real Estate\'s exclusive properties.';
   public isSubmitting = false;
   public loggedinUserFirstName: string;
+  public favCount: number;
 
   private resizeFn: { (): void; (): void; (this: Window, ev: UIEvent): any; (this: Window, ev: UIEvent): any; };
 
@@ -53,38 +54,62 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.navigateEventService.navigation$.subscribe(
-      (navigation) => {
-        this.page = /*JSON.parse(navigation).url*/document.location.pathname;
+    this.navigateEventService
+      .navigation$
+      .subscribe(
+        (navigation) => {
+          this.page = /*JSON.parse(navigation).url*/document.location.pathname;
 
-        const pageTitle
-          = this.page
-            .substring(1)
-            .split('/')
-            .map((titleTok) => `${titleTok.substring(0, 1).toUpperCase()}${titleTok.substring(1).toLowerCase()}`)
-            .reverse()
-            .join('/');
+          const pageTitle
+            = this.page
+              .substring(1)
+              .split('/')
+              .map((titleTok) => `${titleTok.substring(0, 1).toUpperCase()}${titleTok.substring(1).toLowerCase()}`)
+              .reverse()
+              .join('/');
 
-        this.titleService
-          .setTitle(`${pageTitle ? pageTitle.replace(/\//g, ' - ').replace(/_/g, ' ') + ' - ' : ''}Sagecapita`);
+          this.titleService
+            .setTitle(`${pageTitle ? pageTitle.replace(/\//g, ' - ').replace(/_/g, ' ') + ' - ' : ''}Sagecapita`);
+        });
+
+    this.navigateEventService
+      .navigationStart$
+      .subscribe(
+        (navigation) => {
+          this.isPageLoading = true;
+        });
+
+    this.navigateEventService
+      .navigationStop$
+      .subscribe(
+        (navigation) => {
+          this.isPageLoading = false;
+        });
+
+    this.authManagerService
+      .loginSubject$
+      .subscribe(
+        (loggedinUser: Promise<any>) => {
+          loggedinUser
+            .then(({ first_name }) => this.loggedinUserFirstName = first_name)
+            .catch(() => this.loggedinUserFirstName = undefined);
+        });
+
+    this.appService.favoriteRefresh$.subscribe(
+      () => {
+        this.authManagerService
+          .checkAuth()
+          .then(() => this.appService
+            .getFavoritesCount()
+            .subscribe((count) => {
+              this.favCount = count;
+            }, (err: any) => {
+              console.log(err);
+            }));
       });
 
-    this.navigateEventService.navigationStart$.subscribe(
-      (navigation) => {
-        this.isPageLoading = true;
-      });
-
-    this.navigateEventService.navigationStop$.subscribe(
-      (navigation) => {
-        this.isPageLoading = false;
-      });
-
-    this.authManagerService.loginSubject$.subscribe(
-      (loggedinUser: Promise<any>) => {
-        loggedinUser
-          .then(({ first_name }) => this.loggedinUserFirstName = first_name)
-          .catch(() => this.loggedinUserFirstName = undefined);
-      });
+    this.appService
+      .favoriteRefreshed();
 
     // this.authManagerService
     //   .getLoggedInUser()

@@ -290,7 +290,7 @@ export class PropertyService {
 
   private getCountry(countryCode: string): string {
     return countries.find((country) => country.code === countryCode).name;
-      }
+  }
 
   public searchProperties(criteria: any = { state: 'abuja', city: 'maitama', type: null, size: null, price: null }): Property[] {
     return this.properties;

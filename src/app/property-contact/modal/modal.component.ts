@@ -71,7 +71,7 @@ export class ModalComponent implements OnInit {
       .subscribe((res: any) => {
         this.isSubmitting = false;
 
-        this.formMessage = res.message;
+        this.formMessage = 'Thanks for your request. A team member will contact you shortly.';
 
         this.contactForm.reset();
       }, (err: any) => {

@@ -19,8 +19,8 @@
           <p>Year Built: {{property.year_built}}</p>
         </div>
         <div class="asideSmItem">
-          <p>Interior surface: {{property.interior_surface | number}} sqm</p>
-          <p>Exterior surface: {{property.exterior_surface | number}} sqm</p>
+          <p>House Size: {{property.interior_surface | number}} sqm</p>
+          <p>Lot Size: {{property.exterior_surface | number}} sqm</p>
         </div>
         <div class="asideSmItem">
           <p *ngFor="let features of property?.features">{{features | titlecase}}</p>

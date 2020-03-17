@@ -51,7 +51,7 @@ export class ContactSectionComponent implements OnInit {
       .subscribe((res: any) => {
         this.isSubmitting = false;
 
-        this.formMessage = res.message;
+        this.formMessage = 'Thank you for your request. A member of our team will contact you shortly.';
 
         this.contactForm.reset();
       }, (err: any) => {

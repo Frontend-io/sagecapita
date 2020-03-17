@@ -4,7 +4,7 @@
     <header>
       <div style="padding: .8em 0;">
         <div id="logo">
-          <a [routerLink]="['/']" href="#">
+          <a routerLink="/" href="#">
             <img src="../assets/sagecapita.png" />
           </a>
         </div>
@@ -25,7 +25,7 @@
                 <a *ngIf="!loggedinUserFirstName" href="#" routerLink="login"><button
                     class="noBorderBtn">LOGIN</button></a>
                 <a *ngIf="loggedinUserFirstName">Hi, {{loggedinUserFirstName}}</a>
-                <a href="#" routerLink="/favorites"><button class="noBorderBtn">FAVORITES</button></a>&nbsp;&nbsp;
+                <a href="#" routerLink="/favorites"><button class="noBorderBtn">FAVORITES <span *ngIf="favCount">&#40;{{favCount}}&#41;</span></button></a>&nbsp;&nbsp;
               </li>
               <li>
                 <app-language-button></app-language-button>
@@ -36,12 +36,12 @@
           <nav id="desktop">
             <div id="menuList">
               <ul>
-                <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#">PROPERTY</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/services']" href="#">SERVICES</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#">THE FIRM</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/media']" href="#">MEDIA</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#">CONTACT</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/join']" href="#">JOIN US</a></li>
+                <li routerLinkActive="active"><a routerLink="/properties" href="#">PROPERTY</a></li>
+                <li routerLinkActive="active"><a routerLink="/services" href="#">SERVICES</a></li>
+                <li routerLinkActive="active"><a routerLink="/firm" href="#">THE FIRM</a></li>
+                <li routerLinkActive="active"><a routerLink="/media" href="#">MEDIA</a></li>
+                <li routerLinkActive="active"><a routerLink="/contact" href="#">CONTACT</a></li>
+                <li routerLinkActive="active"><a routerLink="/join" href="#">JOIN US</a></li>
               </ul>
             </div>
           </nav>
@@ -57,14 +57,14 @@
     </header>
     <nav id="mobile" [hidden]="!isMobileNavOpen">
       <ul>
-        <li routerLinkActive="active"><a [routerLink]="['/properties']" href="#" (click)="toggleMobileNav()">PROPERTY</a>
+        <li routerLinkActive="active"><a routerLink="/properties" href="#" (click)="toggleMobileNav()">PROPERTY</a>
         </li>
-        <li routerLinkActive="active"><a [routerLink]="['/services']" href="#" (click)="toggleMobileNav()">SERVICES</a>
+        <li routerLinkActive="active"><a routerLink="/services" href="#" (click)="toggleMobileNav()">SERVICES</a>
         </li>
-        <li routerLinkActive="active"><a [routerLink]="['/firm']" href="#" (click)="toggleMobileNav()">THE FIRM</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/media']" href="#" (click)="toggleMobileNav()">MEDIA</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/contact']" href="#" (click)="toggleMobileNav()">CONTACT</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/join']" href="#" (click)="toggleMobileNav()">JOIN US</a></li>
+        <li routerLinkActive="active"><a routerLink="/firm" href="#" (click)="toggleMobileNav()">THE FIRM</a></li>
+        <li routerLinkActive="active"><a routerLink="/media" href="#" (click)="toggleMobileNav()">MEDIA</a></li>
+        <li routerLinkActive="active"><a routerLink="/contact" href="#" (click)="toggleMobileNav()">CONTACT</a></li>
+        <li routerLinkActive="active"><a routerLink="/join" href="#" (click)="toggleMobileNav()">JOIN US</a></li>
         <li><a (click)="toggleMobileNav()">X</a></li>
       </ul>
     </nav>
@@ -121,7 +121,7 @@
     </div>
     <div class="flexRowWrap">
       <section>
-        <a [routerLink]="['/']" href="#"><img src="../assets/sagecapita-words.png" alt="sagecapita logo" /></a>
+        <a routerLink="/" href="#"><img src="../assets/sagecapita-words.png" alt="sagecapita logo" /></a>
         <div style="height: 1.5em;"></div>
         <p><small><a href="#" routerLink="terms">Terms</a> | <a href="#" routerLink="privacy_policy">Privacy</a> | Site Map</small></p>
         <p><small>Copyright &copy; 2020. All Rights Reserved. </small></p>

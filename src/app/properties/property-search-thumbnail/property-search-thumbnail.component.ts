@@ -3,6 +3,7 @@ import { getCurrencySymbol } from '@angular/common';
 import { Router } from '@angular/router';
 
 // import { Property } from '../../shared/property';
+import { AppService } from '../../app.service';
 import { PropertyService } from '../../shared/property.service';
 import { AuthManagerService } from '../../shared/auth-manager.service';
 
@@ -12,9 +13,13 @@ import { AuthManagerService } from '../../shared/auth-manager.service';
   styleUrls: ['./property-search-thumbnail.component.css']
 })
 export class PropertySearchThumbnailComponent implements OnInit {
-  @Input () property: any;
+  @Input() property: any;
 
-  constructor(private propertyService: PropertyService, private router: Router, private authManagerService: AuthManagerService) { }
+  constructor(
+    private propertyService: PropertyService,
+    private appService: AppService,
+    private router: Router,
+    private authManagerService: AuthManagerService) { }
 
   ngOnInit() {
   }
@@ -22,7 +27,7 @@ export class PropertySearchThumbnailComponent implements OnInit {
   public onFavoriteClick(): void {
     this.checkLogin()
       .then(() => this.property['is_favorite'] ? this.unfavorite() : this.favorite())
-      .catch(() => {});
+      .catch(() => { });
   }
 
   getCurrencySymbol(currency) {
@@ -32,11 +37,11 @@ export class PropertySearchThumbnailComponent implements OnInit {
   private checkLogin(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.authManagerService.checkAuth()
-      .then(() => resolve())
-      .catch(() => {
-        this.actionAfterNotLoggedIn();
-        reject();
-      });
+        .then(() => resolve())
+        .catch(() => {
+          this.actionAfterNotLoggedIn();
+          reject();
+        });
     });
   }
 
@@ -50,6 +55,7 @@ export class PropertySearchThumbnailComponent implements OnInit {
   private favorite(): void {
     this.propertyService.favorite(this.property['code'])
       .subscribe((res: any) => {
+        this.appService.favoriteRefreshed();
         this.property['is_favorite'] = true;
       }, (err: any) => {
         switch (err.status) {
@@ -66,6 +72,7 @@ export class PropertySearchThumbnailComponent implements OnInit {
   private unfavorite(): void {
     this.propertyService.unfavorite(this.property['code'])
       .subscribe((res: any) => {
+        this.appService.favoriteRefreshed();
         this.property['is_favorite'] = false;
       }, (err: any) => {
         switch (err.status) {

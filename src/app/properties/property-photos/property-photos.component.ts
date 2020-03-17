@@ -148,6 +148,7 @@ export class PropertyPhotosComponent implements OnInit {
       `${this.propertyMainTitle.substring(0, 1).toUpperCase()}${this.propertyMainTitle.substring(1).toLowerCase().replace(/\s/g, '_')}${photo.substring(photo.lastIndexOf('.'))}`
     );
     downloadDivA0.setAttribute('href', photo);
+    downloadDivA0.setAttribute('target', '_blank');
     downloadDivA0.setAttribute('title', 'Download Photo');
     downloadDivA0Button.setAttribute('id', 'dl');
     downloadDivA0Img.setAttribute('src', '../../../assets/download.png');
