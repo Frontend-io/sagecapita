@@ -111,7 +111,7 @@
                 </div>
                 <div class="flexRowWrap">
                   <div class="colM6">
-                    <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h4><strong><u>SIGN IN FOR PRICE</u></strong></h4></a>
+                    <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h4><strong><u>SIGN IN FOR PRICE</u></strong></h4></a>
                     <h4><strong
                         *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</strong>
                     </h4>

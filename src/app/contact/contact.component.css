@@ -92,4 +92,8 @@ hr {
   #mainColsContainer>article {
     width: 68%;
   }
+
+  #mainColsContainer{
+    flex-direction: row-reverse;
+  }
 }

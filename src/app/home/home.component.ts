@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AuthManagerService } from '../shared/auth-manager.service';
 import { PropertyService } from '../shared/property.service';
 import { Property } from '../shared/property';
 import { HomeService } from './home.service';
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private authManagerService: AuthManagerService,
     private propertyService: PropertyService,
     private homeService: HomeService,
     private router: Router) { }
@@ -31,6 +33,12 @@ export class HomeComponent implements OnInit {
     this.getPropertyCount();
     this.getMainGalleryProperty();
     this.getBlogArticle();
+  }
+
+  public onSignupClick(code: string): boolean {
+    this.authManagerService.setRedirectUrl(`/properties/${code}`);
+    this.router.navigate(['/login']);
+    return false;
   }
 
   public onPropertySearch($event: any): void {

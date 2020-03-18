@@ -10,13 +10,13 @@
       </small>
     </div>
     <div class="formRow">
-      <input type="text" placeholder="*LAST NAME" formControlName="last_name" required [readonly]="isSubmitting"/>
+      <input type="text" placeholder="*LAST NAME" formControlName="last_name" required [readonly]="isSubmitting" />
       <small *ngIf="contactFormControls.last_name.touched && contactFormControls.last_name?.errors?.required">
-          Last name is required.
+        Last name is required.
       </small>
     </div>
     <div class="formRow">
-      <input type="text" placeholder="*EMAIL" formControlName="email" required [readonly]="isSubmitting"/>
+      <input type="text" placeholder="*EMAIL" formControlName="email" required [readonly]="isSubmitting" />
       <small *ngIf="contactFormControls.email.touched && contactFormControls.email.errors?.required">
         Email is required.
       </small>
@@ -50,17 +50,22 @@
     </div>
     <div class="formRow">
       <textarea formControlName="message" placeholder="*MESSAGE" required [readonly]="isSubmitting"></textarea>
-        <small *ngIf="contactFormControls.message.touched && contactFormControls.message?.errors?.required">
-          Message is required.
-        </small>
+      <small *ngIf="contactFormControls.message.touched && contactFormControls.message?.errors?.required">
+        Message is required.
+      </small>
     </div>
     <p>
-      <input type="checkbox" formControlName="privacy_policy_check">
-      I declare that i have read the <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a> and agree to the use and processing of data
-      <small
-      *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
-      You must agree to our privacy policy.
-    </small>
+      <label>
+        <input type="checkbox" formControlName="privacy_policy_check">
+        I declare that i have read the <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a> and
+        agree to the use and processing of data
+        <div>
+          <small
+            *ngIf="contactFormControls.privacy_policy_check.touched && contactFormControls.privacy_policy_check?.errors?.required">
+            You must agree to our privacy policy.
+          </small>
+        </div>
+      </label>
     </p>
   </form>
 </div>

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 // import { Property } from '../shared/property';
 
 import { PropertyService } from '../shared/property.service';
+import { AuthManagerService } from '../shared/auth-manager.service';
 
 import { ViewEncapsulation } from '@angular/core';
 
@@ -22,7 +23,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
   timeout = null;
   //public properties: Property[] = [];
 
-  constructor(private propertyService: PropertyService, private ngZone: NgZone, private router: Router) {
+  constructor(
+    private propertyService: PropertyService, 
+    private authManagerService: AuthManagerService,
+    private ngZone: NgZone, 
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -86,7 +91,10 @@ export class CarouselComponent implements OnInit, OnDestroy {
             .forEach((a) => a.addEventListener('click', (e) => {
               e.preventDefault();
 
-              this.ngZone.run(() => this.router.navigateByUrl(a.getAttribute('href')));
+              this.ngZone.run(() => {
+                this.authManagerService.setRedirectUrl(a.getAttribute('data-redirectUrl'));
+                this.router.navigateByUrl(a.getAttribute('href'));
+              });
 
               return false;
             }));
@@ -195,6 +203,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     contentMobileHideH4.textContent = descriptionText;
     contentMobileHideP2SmallStrong.textContent = `CODE. ${code} | ${interiorSurface} SQM`;
     textContainerContainerContentA.setAttribute('href', '/login');
+    textContainerContainerContentA.setAttribute('data-redirectUrl', `/property/${code}`);
     textContainerContainerContentAH3U.textContent = 'SIGN IN FOR PRICE';
     textContainerContainerContentH32.textContent = `${this.getCurrencySymbol('NGN')}${this.numberMillions(price)}`;
     textContainerContainerContentH33.textContent
@@ -255,7 +264,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   private titleCase(text: string): string {
-    return text.split(' ').map((tok) => `${tok.substring(0, 1).toUpperCase()}${tok.substring(1).toLowerCase()}`).join(' ');
+    return text.split(' ')
+      .map((tok) => `${tok.substring(0, 1).toUpperCase()}${tok.substring(1).toLowerCase()}`)
+      .join(' ');
   }
 
   private numberMillions(numberAmount: number): string {

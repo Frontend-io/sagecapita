@@ -15,7 +15,7 @@
       <div>
         <h3 *ngIf="property.price"><strong>{{getCurrencySymbol('NGN')}}{{property.price | number}}</strong></h3>
         <h3 *ngIf="property.price_lower_range && property.price_upper_range"><strong>{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</strong></h3>
-        <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3><strong><u>SIGN IN FOR PRICE</u></strong></h3></a>
+        <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3><strong><u>SIGN IN FOR PRICE</u></strong></h3></a>
       </div>
     </div>
     <div id="mainPropertyBtnsContainer">

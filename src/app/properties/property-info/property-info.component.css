@@ -85,4 +85,8 @@ aside hr {
   .articleTopCol h3 {
     margin: .3em 0 3.35em 0;
   }
+
+  #body>.container>.flexRowWrap {
+    flex-direction: row-reverse;
+  }
 }

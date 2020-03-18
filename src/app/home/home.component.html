@@ -73,7 +73,7 @@
           <p><small>{{mainGalleryProperty.description_text}}</small></p>
           <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}}
               MQ</strong></p>
-          <a href="#" routerLink="/login"
+          <a href="/login" (click)="onSignupClick(mainGalleryProperty.code)"
             *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))">
             <h3><u>SIGN IN FOR PRICE</u></h3>
           </a>

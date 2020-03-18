@@ -212,4 +212,8 @@ a{
   #joinFormButton>div.third{
     width: 9%;
   }
+
+  #joinColsContainer{
+    flex-direction: row-reverse;
+  }
 }

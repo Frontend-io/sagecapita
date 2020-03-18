@@ -26,5 +26,9 @@
     #servicesContainer article{
       width: 68%;
     }
+
+    #servicesContainer>.container>.flexRowWrap{
+      flex-direction: row-reverse;
+    }
   }
   

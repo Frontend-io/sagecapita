@@ -10,7 +10,7 @@
     </div>
     <div class="propertiesSectionItemCodeInfoContainer">
       <p class="code"><strong>CODE: {{property.code}}</strong></p>
-      <a href="#" routerLink="/login" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p class="serif"><u>SIGN IN FOR PRICE</u></p></a>
+      <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p class="serif"><u>SIGN IN FOR PRICE</u></p></a>
       <p class="serif" *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price  | numberMillions:'1.0-1'}}</p>
       <p class="serif" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
     </div>

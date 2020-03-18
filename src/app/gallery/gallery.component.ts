@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { getCurrencySymbol } from '@angular/common';
 
 import { PaginatorComponent } from '../paginator/paginator.component';
 
 import { PropertyGroupService } from '../shared/property-group.service';
 import { PropertiesService } from '../shared/properties.service';
+import { AuthManagerService } from '../shared/auth-manager.service';
 
 import { getQueryStringParams } from '../shared/getQueryStringParameters';
 
@@ -38,7 +40,12 @@ export class GalleryComponent implements  OnInit, AfterViewInit {
     message: ['', Validators.required]
   });
 
-  constructor(private propertyGroupService: PropertyGroupService, private propertiesService: PropertiesService, private fb: FormBuilder) { }
+  constructor(
+    private propertyGroupService: PropertyGroupService, 
+    private propertiesService: PropertiesService, 
+    private authManagerService: AuthManagerService,
+    private router: Router,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.propertyGroupsList = this.propertyGroupService.getPropertyGroupsList();
@@ -53,6 +60,12 @@ export class GalleryComponent implements  OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.setPropertySearchData(getQueryStringParams());
     this.search();
+  }
+
+  public onSignupClick(code: string): boolean {
+    this.authManagerService.setRedirectUrl(`/properties/${code}`);
+    this.router.navigate(['/login']);
+    return false;
   }
 
   public onPropertySearch(): void {

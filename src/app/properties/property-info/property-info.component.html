@@ -1,6 +1,37 @@
 <section id="body" *ngIf="property">
   <div class="container">
     <div class="flexRowWrap">
+      <article>
+        <div class="flexRowWrap">
+          <div class="articleTopCol">
+            <p>Price</p>
+            <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
+            <h3 *ngIf="property.price_lower_range && property.price_upper_range">
+              {{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO
+              {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
+            <a href="/login" (click)="onSignupClick(property.code)"
+              *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">
+              <h3><u>SIGN IN FOR PRICE</u></h3>
+            </a>
+          </div>
+          <div class="articleTopCol">
+            <p>Area in Metres</p>
+            <h3 *ngIf="property.interior_surface">{{property.interior_surface | number}} Sqm</h3>
+          </div>
+        </div>
+        <div class="flexRowWrap">
+          <div class="colM6">
+            <a [href]="property.brochure" target="_blank" *ngIf="property.brochure"><button>BROCHURE PDF</button></a>
+          </div>
+          <div class="colM6">
+            <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>REQUEST INFORMATION</button></a>
+          </div>
+        </div>
+        <p><strong>{{property.heading_title | titlecase}}</strong>
+        </p>
+        <hr />
+        <p>{{property.description_text}}</p>
+      </article>
       <aside>
         <h1>{{property.main_title | titlecase}}</h1>
         <h4>{{property.side_title | titlecase}}</h4>
@@ -34,38 +65,6 @@
             target="_blank"><img src="../../../assets/twitter.png" alt="Share to twitter" /></a>
         </div>
       </aside>
-      <article>
-        <div class="flexRowWrap">
-          <div class="articleTopCol">
-            <p>Price</p>
-            <h3 *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | number}}</h3>
-            <h3 *ngIf="property.price_lower_range && property.price_upper_range">
-              {{getCurrencySymbol('NGN')}}{{property.price_lower_range | number}} TO
-              {{getCurrencySymbol('NGN')}}{{property.price_upper_range | number}}</h3>
-            <a href="#" routerLink="/login"
-              *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))">
-              <h3><u>SIGN IN FOR PRICE</u></h3>
-            </a>
-          </div>
-          <div class="articleTopCol">
-            <p>Area in Metres</p>
-            <h3 *ngIf="property.interior_surface">{{property.interior_surface | number}} Sqm</h3>
-          </div>
-        </div>
-        <div class="flexRowWrap">
-          <div class="colM6">
-            <a [href]="property.brochure" target="_blank" *ngIf="property.brochure"><button>BROCHURE PDF</button></a>
-          </div>
-          <div class="colM6">
-            <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>REQUEST INFORMATION</button></a>
-          </div>
-        </div>
-        <p><strong>{{property.heading_title | titlecase}}</strong>
-        </p>
-        <hr />
-        <p>{{property.description_text}}</p>
-      </article>
-
     </div>
   </div>
 </section>

@@ -24,6 +24,12 @@ export class PropertySearchThumbnailComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onSignupClick(code: string): boolean {
+    this.authManagerService.setRedirectUrl(`/properties/${code}`);
+    this.router.navigate(['/login']);
+    return false;
+  }
+
   public onFavoriteClick(): void {
     this.checkLogin()
       .then(() => this.property['is_favorite'] ? this.unfavorite() : this.favorite())
