@@ -17,9 +17,10 @@ export class PropertyPhotosComponent implements OnInit {
   constructor(private ngZone: NgZone, private router: Router, private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.propertyService.getProperty(this.propertyCode, {imgSizing: 'baseXLargeThumbUrl'})
+    this.propertyService.getProperty(this.propertyCode, {imgSizing: 'baseXLargeThumbUrl', imgAttachmentSizing: 'baseAttachmentUrl'})
       .subscribe((property: Property) => {
         const photos = [...property.photos, property.photo];
+        const photosAttachment = [...property['photosAttachment'], property['photoAttachment']];
 
         this.propertyMainTitle = property.main_title.split(' ')
         .map((tok) => `${tok.substring(0, 1).toUpperCase()}${tok.substring(1).toLowerCase()}`)
@@ -39,7 +40,7 @@ export class PropertyPhotosComponent implements OnInit {
               continueCarouselTimer();
             };
 
-            photoItemsContainer.appendChild(this.createPhotoDOM(photo));
+            photoItemsContainer.appendChild(this.createPhotoDOM(photo, photosAttachment[photoIndex]));
             bottomNavThumbnails.appendChild(this.createThumbnailDOM(photo, onClickFn));
             thumbCircleItemsContainer.appendChild(this.createThumbnailCircleDOM(onClickFn));
           });
@@ -124,7 +125,7 @@ export class PropertyPhotosComponent implements OnInit {
       });
   }
 
-  private createPhotoDOM(photo: string): any {
+  private createPhotoDOM(photo: string, photoAttachment: string): any {
     const d = document;
     const photoDiv = d.createElement('div');
     const img = d.createElement('img');
@@ -147,8 +148,8 @@ export class PropertyPhotosComponent implements OnInit {
       'download',
       `${this.propertyMainTitle.substring(0, 1).toUpperCase()}${this.propertyMainTitle.substring(1).toLowerCase().replace(/\s/g, '_')}${photo.substring(photo.lastIndexOf('.'))}`
     );
-    downloadDivA0.setAttribute('href', photo);
-    downloadDivA0.setAttribute('target', '_blank');
+    downloadDivA0.setAttribute('href', photoAttachment);
+    // downloadDivA0.setAttribute('target', '_blank');
     downloadDivA0.setAttribute('title', 'Download Photo');
     downloadDivA0Button.setAttribute('id', 'dl');
     downloadDivA0Img.setAttribute('src', '../../../assets/download.png');

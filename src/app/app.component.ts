@@ -105,7 +105,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.favCount = count;
             }, (err: any) => {
               console.log(err);
-            }));
+            })).catch(() => {});
       });
 
     this.appService

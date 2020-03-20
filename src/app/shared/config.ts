@@ -27,6 +27,9 @@ export const CONFIG = {
         get baseCarouselUrl() {
             return `${this.baseUrl}/c_crop,h_413,w_960`;
         },
+        get baseAttachmentUrl() {
+            return `${this.baseUrl}/fl_attachment:Download%20Photo`;
+        },
         get baseVideoUrl() {
             return `${this.baseUrl}/video/upload/f_auto,q_auto`;
         },

@@ -90,7 +90,7 @@ import { TermsComponent } from './terms/terms.component';
     AuthModalModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule,

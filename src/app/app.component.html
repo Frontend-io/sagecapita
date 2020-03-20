@@ -12,7 +12,7 @@
           <div id="searchBar">
             <ul>
               <li>
-                <form [formGroup]="propertyCodeForm">
+                <form [formGroup]="propertyCodeForm" (ngSubmit)="searchPropertyCode()">
                   <input type="text" placeholder="SEARCH BY CODE" formControlName="code" />
                   <svg (click)="searchPropertyCode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
                     height="30px">

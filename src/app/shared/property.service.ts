@@ -25,11 +25,10 @@ import TimeAgo from 'javascript-time-ago';
 
 // Load locale-specific relative date/time formatting rules.
 import en from 'javascript-time-ago/locale/en';
+// require('javascript-time-ago/load-all-locales');
 
 // Add locale-specific relative date/time formatting rules.
 TimeAgo.addLocale(en);
-
-const timeAgo = new TimeAgo('en-US');
 
 @Injectable({
   providedIn: 'root'
@@ -187,9 +186,8 @@ export class PropertyService {
   ];
   // then mapCurrencyAndLanguage and store in properties cache variable (overwrite)
   private properties: Property[];
-
   private subject = new Subject<void>();
-
+  private timeAgo: any;
   public subject$ = this.subject.asObservable();
 
   constructor(private http: HttpClient, private currencyService: CurrencyService, private languageService: LanguageService) {
@@ -206,6 +204,8 @@ export class PropertyService {
         this.properties = this.mapCurrencyAndLanguage(this.originalProperties, undefined, lang);
         this.subject.next();
       });
+
+    this.timeAgo = new TimeAgo('en-US');
   }
 
   private mapCurrencyAndLanguage(properties: Property[],
@@ -278,7 +278,7 @@ export class PropertyService {
         map(({ properties }: any) => {
           properties['data'].map((property: GalleryProperty) => {
             property['photo'] = `${CONFIG.cloudinary.baseMidThumbUrl}/${property['photo']}`;
-            property['created_at'] = timeAgo.format(new Date(dateToLocal(property['created_at'])));
+            property['created_at'] = this.timeAgo.format(new Date(dateToLocal(property['created_at'])));
 
             return property;
           });
@@ -314,7 +314,9 @@ export class PropertyService {
       );
   }
 
-  public getProperty(code: string, { imgSizing } = { imgSizing: 'baseCarouselUrl' }): Observable<any> {
+  public getProperty(
+    code: string,
+    { imgSizing, imgAttachmentSizing } = { imgSizing: 'baseCarouselUrl', imgAttachmentSizing: null }): Observable<any> {
     return this.http.get(`${HttpHelpers.apiBaseUrl}/property/${code}`)
       .pipe(
         HttpHelpers.retry(),
@@ -330,9 +332,20 @@ export class PropertyService {
           }
         }),
         map(({ property }: any) => {
+          const origPhoto = property['photo'];
+          const origPhotos = JSON.parse(property['photos']);
+
           property['features'] = JSON.parse(property['features']);
-          property['photo'] = `${CONFIG.cloudinary[imgSizing]}/${property['photo']}`;
-          property['photos'] = JSON.parse(property['photos']).map((photo: string) => `${CONFIG.cloudinary[imgSizing]}/${photo}`);
+          property['photo'] = `${CONFIG.cloudinary[imgSizing]}/${origPhoto}`;
+          property['photos'] = origPhotos
+            .map((photo: string) => `${CONFIG.cloudinary[imgSizing]}/${photo}`);
+
+          if (imgAttachmentSizing) {
+            property['photoAttachment'] = `${CONFIG.cloudinary[imgAttachmentSizing]}/${origPhoto}`;
+            property['photosAttachment']
+              = origPhotos
+                .map((photo: string) => `${CONFIG.cloudinary[imgAttachmentSizing]}/${photo}`);
+          }
 
           if (property['video']) {
             property['video'] = `${CONFIG.cloudinary.baseVideoUrl}/${property['video']}`;
