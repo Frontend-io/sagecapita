@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { SeoService } from '../../shared/seo.service';
 import { Property } from '../../shared/property';
 
 import { PropertyService } from '../../shared/property.service';
@@ -14,17 +15,21 @@ export class PropertyPhotosComponent implements OnInit {
   public propertyCode = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
   public propertyMainTitle: string;
 
-  constructor(private ngZone: NgZone, private router: Router, private propertyService: PropertyService) { }
+  constructor(
+    private ngZone: NgZone,
+    private router: Router,
+    private seoService: SeoService,
+    private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.propertyService.getProperty(this.propertyCode, {imgSizing: 'baseXLargeThumbUrl', imgAttachmentSizing: 'baseAttachmentUrl'})
+    this.propertyService.getProperty(this.propertyCode, { imgSizing: 'baseXLargeThumbUrl', imgAttachmentSizing: 'baseAttachmentUrl' })
       .subscribe((property: Property) => {
         const photos = [...property.photos, property.photo];
         const photosAttachment = [...property['photosAttachment'], property['photoAttachment']];
 
         this.propertyMainTitle = property.main_title.split(' ')
-        .map((tok) => `${tok.substring(0, 1).toUpperCase()}${tok.substring(1).toLowerCase()}`)
-        .join(' ');
+          .map((tok) => `${tok.substring(0, 1).toUpperCase()}${tok.substring(1).toLowerCase()}`)
+          .join(' ');
 
         this.ngZone.runOutsideAngular(() => {
           const photoItemsContainer = document.querySelector('#photoItemsContainer');
@@ -121,6 +126,14 @@ export class PropertyPhotosComponent implements OnInit {
           });
           bottomNavThumbnails['style'].transform = 'scale(0)';
         });
+
+        this.seoService
+          .generateTags({
+            title: property.main_title,
+            description: property.description_text,
+            image: property.photo,
+            slug: 'property-photos'
+          });
       }, (err: any) => {
       });
   }

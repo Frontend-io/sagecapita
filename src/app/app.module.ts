@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
 
+import { SeoService } from './shared/seo.service';
 import { authHttpInterceptorProvider } from './shared/auth-http-interceptor-provider';
 
 import { PropertiesSearchModule } from './shared/app.properties-search.module';
@@ -98,6 +99,7 @@ import { TermsComponent } from './terms/terms.component';
   ],
   providers: [
     DecimalPipe,
+    SeoService,
     authHttpInterceptorProvider
   ],
   bootstrap: [AppComponent]

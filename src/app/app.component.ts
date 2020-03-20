@@ -1,8 +1,9 @@
 import { Component, NgZone, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
+import { CanonicalService } from './shared/canonical.service';
 import { PropertyService } from './shared/property.service';
 
 import { NavigateEventService } from './navigate-event.service';
@@ -48,12 +49,26 @@ export class AppComponent implements OnInit, OnDestroy {
     private authManagerService: AuthManagerService,
     private fb: FormBuilder,
     private titleService: Title,
+    private metaTagService: Meta,
+    private canonicalService: CanonicalService,
     private propertyService: PropertyService,
     private router: Router,
     private ngZone: NgZone) {
   }
 
   ngOnInit() {
+    this.metaTagService.addTags([
+      { name: 'keywords', content: 'Sagecapita, Luxury real estate, Luxury property, land, lagos, abuja, dubia' },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'Zenith Wogwugwu' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'date', content: '2020-03-20', scheme: 'YYYY-MM-DD' },
+      { name: 'description', content: 'Sage Capita is a luxury real estate brokerage firm, serving Nigeria and other important cities of the world. Specializing in outstanding high-end investment portfolio that includes true dream homes, luxury villas, castles for sale and luxury estates that can satisfy all needs. We offer a constantly updated selection of splendid villas for sale with the purpose to offer our clients a full catalogue inclusive of prestigious estates and dream homes, located in the most extraordinary areas of Nigeria and several important cities of the world.' },
+      { charset: 'UTF-8' }
+    ]);
+
+    this.canonicalService.setCanonicalURL();
+
     this.navigateEventService
       .navigation$
       .subscribe(
