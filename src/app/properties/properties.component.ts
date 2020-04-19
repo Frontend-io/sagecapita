@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -38,9 +39,16 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
 
   private isInit: boolean;
 
-  constructor(private fb: FormBuilder, private propertiesService: PropertiesService, private route: ActivatedRoute) { }
+  constructor(
+    private meta: Meta,
+    private title: Title,
+    private fb: FormBuilder, 
+    private propertiesService: PropertiesService, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Properties - Sagecapita'});
+    this.title.setTitle('Properties - Sagecapita');
   }
 
   ngAfterViewInit() {
@@ -104,7 +112,7 @@ export class PropertiesComponent implements OnInit, AfterViewInit {
                 .filter((key) => eParams[key])
                 .reduce(((acc, cur) => `${acc}${acc ? '&' : ''}${cur}=${eParams[cur]}`), '');
 
-            history.replaceState(null, '', `${location.pathname}?${newQueryString}`);
+            history.replaceState(null, '', `${window.location.pathname}?${newQueryString}`);
           }
 
           this.properties = data;

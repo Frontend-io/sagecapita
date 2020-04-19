@@ -44,10 +44,10 @@ export class ContactService {
       screen_availHeight: screen.availHeight,
       color_depth: screen.colorDepth,
       pixel_depth: screen.pixelDepth,
-      user_agent: navigator.userAgent,
+      user_agent: window.navigator.userAgent,
       referrer_page: document.referrer,
-      lang: navigator.language,
-      os: navigator.platform
+      lang: window.navigator.language,
+      os: window.navigator.platform
     };
   }
 }

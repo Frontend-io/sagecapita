@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -43,9 +44,11 @@ export class MediaComponent implements OnInit, AfterViewInit {
   public formMessage: string;
   public isSubmitting = false;
 
-  constructor(private fb: FormBuilder, private mediaService: MediaService) { }
+  constructor(private fb: FormBuilder, private mediaService: MediaService, private title: Title, private meta: Meta) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Media - Sagecapita'});
+    this.title.setTitle('Media - Sagecapita');
     this.getTotalNews();
   }
 

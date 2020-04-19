@@ -13,7 +13,7 @@ import { Property } from '../../shared/property';
 export class PropertyInfoComponent implements OnInit {
   @Input() property: any;
 
-  public propertyLink = `${encodeURIComponent(location.href)}`;
+  public propertyLink = `${encodeURIComponent(window.location.href)}`;
 
   constructor(private router: Router, private authManagerService: AuthManagerService) {
   }

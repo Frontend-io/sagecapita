@@ -20,6 +20,22 @@ import 'zone.js/dist/zone-node';
 import * as express from 'express';
 import {join} from 'path';
 
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+const templateA = fs.readFileSync(path.join('dist/browser', 'index.html')).toString();
+const win = domino.createWindow(templateA);
+
+win.localStorage = {getItem:function(){},setItem:function(){}, removeItem:function(){}};
+win.sessionStorage = {getItem:function(){},setItem:function(){}, removeItem:function(){}};
+
+win.Object = Object;
+win.Math = Math;
+global['window'] = win;
+global['document'] = win.document;
+global['branch'] = null;
+global['object'] = win.object;
+
 // Express server
 const app = express();
 

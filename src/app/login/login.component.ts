@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { AuthManagerService } from '../shared/auth-manager.service';
@@ -47,6 +48,8 @@ export class LoginComponent implements OnInit {
   public countries = countries;
 
   constructor(
+    private meta: Meta,
+    private title: Title,
     private router: Router,
     private fb: FormBuilder,
     private appService: AppService,
@@ -54,6 +57,8 @@ export class LoginComponent implements OnInit {
     private authManagerService: AuthManagerService) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Login - Sagecapita'});
+    this.title.setTitle('Login - Sagecapita');
   }
 
   public submitRegisterForm(): void {

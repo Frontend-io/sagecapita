@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit } 
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { PropertiesSearchComponent } from '../properties-search/properties-search.component';
 import { PaginatorComponent } from '../paginator/paginator.component';
@@ -38,12 +39,16 @@ export class FavoritesComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private favoritesService: FavoritesService,
+    private meta: Meta,
+    private title: Title,
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
     private authManagerService: AuthManagerService) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Favorites - Sagecapita'});
+    this.title.setTitle('Favorites - Sagecapita');
   }
 
   ngAfterViewInit() {

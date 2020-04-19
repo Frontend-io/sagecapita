@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ContactService } from '../../shared/contact.service';
 import { AuthManagerService } from '../../shared/auth-manager.service';
@@ -31,6 +32,7 @@ export class ModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
+    private snackBar: MatSnackBar,
     private fb: FormBuilder,
     private authManagerService: AuthManagerService,
     private contactService: ContactService) { }
@@ -46,7 +48,7 @@ export class ModalComponent implements OnInit {
                 .setValue(user[contactFormControlName]);
             }
           });
-      });
+      }).catch((e) => console.log(e));
   }
 
   public onSubmit(): void {
@@ -74,6 +76,11 @@ export class ModalComponent implements OnInit {
         this.formMessage = 'Thanks for your request. A team member will contact you shortly.';
 
         this.contactForm.reset();
+
+        this.snackBar.open(this.formMessage, undefined, {
+          duration: 5000,
+        });
+        this.dialogRef.close(true);
       }, (err: any) => {
         this.formMessage = err.message;
 
@@ -82,7 +89,7 @@ export class ModalComponent implements OnInit {
   }
 
   private getCode(): string {
-    const url = location.href;
+    const url = window.location.href;
 
     return url.substring(url.lastIndexOf('/') + 1);
   }

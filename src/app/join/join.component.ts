@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { languages } from '../shared/languages.json';
 import { countries } from '../shared/countries.json';
@@ -28,9 +29,11 @@ export class JoinComponent implements OnInit {
   public formMessage = 'Fill in the form below to apply for one of our open positions. You can also send us your CV for a spontaneous application';
   public isSubmitting = false;
 
-  constructor(private fb: FormBuilder, private joinService: JoinService) { }
+  constructor(private fb: FormBuilder, private joinService: JoinService, private title: Title, private meta: Meta) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Join - Sagecapita'});
+    this.title.setTitle('Join - Sagecapita');
   }
 
   public handleFileInput(files: FileList) {

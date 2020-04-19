@@ -14,7 +14,7 @@ export class JwtManagerService {
 
   public getJWTJWT(): any {
     try {
-      return JSON.parse(sessionStorage.getItem(this.sesId)) || {};
+      return JSON.parse(window.sessionStorage.getItem(this.sesId)) || {};
     } catch (e) {
       return {};
     }
@@ -29,7 +29,7 @@ export class JwtManagerService {
   }
 
   public set(jwt: any): void {
-    sessionStorage.setItem(this.sesId, JSON.stringify(jwt));
+    window.sessionStorage.setItem(this.sesId, JSON.stringify(jwt));
   }
 
   public check(): boolean {
@@ -48,7 +48,7 @@ export class JwtManagerService {
   }
 
   public clear(): void {
-    sessionStorage.removeItem(this.sesId);
+    window.sessionStorage.removeItem(this.sesId);
   }
 
 }

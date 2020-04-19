@@ -1,5 +1,6 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 import { SeoService } from '../../shared/seo.service';
 import { Property } from '../../shared/property';
@@ -12,16 +13,18 @@ import { PropertyService } from '../../shared/property.service';
   styleUrls: ['./property-photos.component.css']
 })
 export class PropertyPhotosComponent implements OnInit {
-  public propertyCode = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+  public propertyCode = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
   public propertyMainTitle: string;
 
   constructor(
     private ngZone: NgZone,
     private router: Router,
     private seoService: SeoService,
-    private propertyService: PropertyService) { }
+    private propertyService: PropertyService,
+    @Inject(PLATFORM_ID) private platformId: any) { }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
     this.propertyService.getProperty(this.propertyCode, { imgSizing: 'baseXLargeThumbUrl', imgAttachmentSizing: 'baseAttachmentUrl' })
       .subscribe((property: Property) => {
         const photos = [...property.photos, property.photo];
@@ -136,6 +139,7 @@ export class PropertyPhotosComponent implements OnInit {
           });
       }, (err: any) => {
       });
+    }
   }
 
   private createPhotoDOM(photo: string, photoAttachment: string): any {

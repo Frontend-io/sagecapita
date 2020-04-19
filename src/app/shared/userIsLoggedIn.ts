@@ -1,4 +1,4 @@
-const ls = localStorage;
+const ls = window.localStorage;
 const lsID = '6ftgj';
 
 export const userIsLoggedIn = (): boolean => {

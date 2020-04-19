@@ -1,6 +1,6 @@
-import { Component, NgZone, OnInit, OnDestroy } from '@angular/core';
+import { Component, NgZone, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 // import { $ } from 'protractor';
-import { getCurrencySymbol } from '@angular/common';
+import { getCurrencySymbol, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 
 // import { Property } from '../shared/property';
@@ -21,33 +21,36 @@ export class CarouselComponent implements OnInit, OnDestroy {
   slideIndex: any = 1;
   destroyed = false;
   timeout = null;
-  //public properties: Property[] = [];
+  // public properties: Property[] = [];
 
   constructor(
-    private propertyService: PropertyService, 
+    private propertyService: PropertyService,
     private authManagerService: AuthManagerService,
-    private ngZone: NgZone, 
-    private router: Router) {
+    private ngZone: NgZone,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: any) {
   }
 
   ngOnInit() {
-    this.getHomeCarouselProperties().then(() => {
-      this.ngZone.runOutsideAngular(() => {
-        this.showSlides(this.slideIndex);
+    if (isPlatformBrowser(this.platformId)) {
+      this.getHomeCarouselProperties().then(() => {
+        this.ngZone.runOutsideAngular(() => {
+          this.showSlides(this.slideIndex);
 
-        (function _() {
-          this.timeout = window.setTimeout(() => {
-            this.timeout = null;
+          (function _() {
+            this.timeout = window.setTimeout(() => {
+              this.timeout = null;
 
-            this.plusSlides(1);
+              this.plusSlides(1);
 
-            if (!this.destroyed) {
-              _.bind(this)();
-            }
-          }, 5000);
-        }.bind(this)());
+              if (!this.destroyed) {
+                _.bind(this)();
+              }
+            }, 5000);
+          }.bind(this)());
+        });
       });
-    });
+    }
   }
 
   ngOnDestroy() {

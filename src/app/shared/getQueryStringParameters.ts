@@ -1,4 +1,4 @@
-export const getQueryStringParams = (query: string = location.search) => {
+export const getQueryStringParams = (query: string = window.location.search) => {
     return query
         ? (/^[?#]/.test(query) ? query.slice(1) : query)
             .split('&')

@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 
 import { SeoService } from './shared/seo.service';
@@ -92,6 +93,7 @@ import { TermsComponent } from './terms/terms.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    MatSnackBarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule,

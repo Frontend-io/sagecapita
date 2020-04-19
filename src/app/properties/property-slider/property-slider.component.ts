@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 import { Property } from '../../shared/property';
 
@@ -12,6 +13,7 @@ import { NgxTinySliderComponent as NgxTinySliderInstance } from 'ngx-tiny-slider
 })
 export class PropertySliderComponent implements OnInit {
   @Input() set property(property: Property) {
+    if (isPlatformBrowser(this.platformId)) {
     if (property) {
       this.slider.sliderInstance.destroy();
 
@@ -24,13 +26,17 @@ export class PropertySliderComponent implements OnInit {
       }, 0);
     }
   }
+  }
 
   public tinySliderConfig: NgxTinySliderSettingsInterface;
   @ViewChild('slider', { static: false }) slider: NgxTinySliderInstance;
 
-  constructor() { }
+  public isPlatformBrowser = isPlatformBrowser(this.platformId);
+
+  constructor(@Inject(PLATFORM_ID) private platformId: any) { }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
     this.tinySliderConfig = {
       autoplay: true,
       mouseDrag: true,
@@ -47,6 +53,7 @@ export class PropertySliderComponent implements OnInit {
         }
       }
     };
+  }
   }
 
   private rebuildSlideItems(photos: string[]) {

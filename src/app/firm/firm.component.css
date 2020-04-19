@@ -27,6 +27,21 @@
     background: #fff;
 }
 
+#firmContainer article button>svg{
+  vertical-align: text-bottom;
+  height: 18px;
+  width: 18px;
+  fill: inherit;
+}
+
+#firmContainer article button:hover {
+  fill: rgb(4, 37, 59);
+}
+
+#firmContainer article button {
+  fill: #fff;
+}
+
 #firmContainer{
     border-bottom: 1px solid #f4f4f5;
 }

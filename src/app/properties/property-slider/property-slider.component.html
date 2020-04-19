@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="isPlatformBrowser">
   <ngx-tiny-slider [config]="tinySliderConfig" #slider>
     <ng-container class="items">
       <div class="item">

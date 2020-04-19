@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-terms',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title, private meta: Meta) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Terms - Sagecapita'});
+    this.title.setTitle('Terms - Sagecapita');
   }
 
 }

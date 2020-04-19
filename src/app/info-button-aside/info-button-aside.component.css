@@ -21,13 +21,29 @@ button.light:hover {
   border-color: #0297F1;
 }
 
-button.filled, button:hover {
+button.filled,
+button:hover {
   background: rgb(4, 37, 59);
   color: #fff;
   border-color: rgb(4, 37, 59);
 }
 
-button.orange{
+button.filled>svg {
+  vertical-align: text-bottom;
+  height: 18px;
+  width: 18px;
+  fill: inherit;
+}
+
+button.filled:hover {
+  fill: rgb(4, 37, 59);
+}
+
+button.filled {
+  fill: #fff;
+}
+
+button.orange {
   color: #fff;
   background: rgb(241, 116, 7);
   border-color: rgb(241, 116, 7);

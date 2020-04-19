@@ -1,3 +1,4 @@
+import { Title, Meta } from '@angular/platform-browser';
 import { getCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -27,9 +28,13 @@ export class HomeComponent implements OnInit {
     private authManagerService: AuthManagerService,
     private propertyService: PropertyService,
     private homeService: HomeService,
+    private meta: Meta,
+    private title: Title,
     private router: Router) { }
 
   ngOnInit() {
+    this.meta.updateTag({name: 'title', content: 'Home - Sagecapita'});
+    this.title.setTitle('Home - Sagecapita');
     this.getPropertyCount();
     this.getMainGalleryProperty();
     this.getBlogArticle();

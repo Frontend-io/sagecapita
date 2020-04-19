@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common';
 
 import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -25,10 +26,6 @@ import TimeAgo from 'javascript-time-ago';
 
 // Load locale-specific relative date/time formatting rules.
 import en from 'javascript-time-ago/locale/en';
-// require('javascript-time-ago/load-all-locales');
-
-// Add locale-specific relative date/time formatting rules.
-TimeAgo.addLocale(en);
 
 @Injectable({
   providedIn: 'root'
@@ -190,7 +187,18 @@ export class PropertyService {
   private timeAgo: any;
   public subject$ = this.subject.asObservable();
 
-  constructor(private http: HttpClient, private currencyService: CurrencyService, private languageService: LanguageService) {
+  constructor(
+    private http: HttpClient,
+    private currencyService: CurrencyService,
+    private languageService: LanguageService,
+    @Inject(PLATFORM_ID) private platformId: any) {
+    if (isPlatformBrowser(this.platformId)) {
+      // Add locale-specific relative date/time formatting rules.
+      TimeAgo.addLocale(en);
+    } else {
+      require('javascript-time-ago/load-all-locales');
+    }
+
     this.properties = this.mapCurrencyAndLanguage(this.originalProperties);
 
     this.currencyService.subject$.subscribe(

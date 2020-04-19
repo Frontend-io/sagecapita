@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { getCurrencySymbol } from '@angular/common';
 
@@ -44,6 +45,8 @@ export class GalleryComponent implements  OnInit, AfterViewInit {
     private propertyGroupService: PropertyGroupService, 
     private propertiesService: PropertiesService, 
     private authManagerService: AuthManagerService,
+    private meta: Meta,
+    private title: Title,
     private router: Router,
     private fb: FormBuilder) { }
 
@@ -55,6 +58,9 @@ export class GalleryComponent implements  OnInit, AfterViewInit {
       this.videoCount = data.video_count;
     }, (err: any) => {
     });
+
+    this.meta.updateTag({name: 'title', content: 'Gallery - Sagecapita'});
+    this.title.setTitle('Gallery - Sagecapita');
   }
 
   ngAfterViewInit() {
