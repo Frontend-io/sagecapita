@@ -17,6 +17,18 @@
   #servicesContainer article {
     padding: 0 2em;
   }
+  
+  li{
+    list-style-type: circle;
+  }
+
+  li>p{
+    margin: .5rem;
+  }
+
+  .serviceItem{
+    margin-bottom: 2rem;
+  }
 
   @media only screen and (min-width:961px) {
     #servicesContainer aside{
