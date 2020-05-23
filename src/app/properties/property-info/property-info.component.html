@@ -59,7 +59,7 @@
         <a *ngIf="property.video" [href]="property.video" target="_blank"><button>VIEW PROPERTY VIDEO</button></a>
         <a href="#" [routerLink]="'/properties/property_photos/' + property.code"><button style="margin-top: .6em;">VIEW MORE PHOTOS</button></a>
         <div class="asideSocialBtns">
-          <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + propertyLink +'&amp;src=sdkpreparse'"
+          <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + propertyLink +'&src=sdkpreparse'"
             target="_blank"><img src="../../../assets/facebook.png" alt="Share to fb" /></a>
           <a [href]="'https://twitter.com/intent/tweet?text=Check out this ' + property.main_title + ' property on sagecapita&amp;url=' + propertyLink"
             target="_blank"><img src="../../../assets/twitter.png" alt="Share to twitter" /></a>

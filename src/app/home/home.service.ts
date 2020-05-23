@@ -10,7 +10,7 @@ import { HttpHelpers } from '../shared/http-helpers';
   providedIn: 'root'
 })
 export class HomeService {
-  private blogBaseUrl = 'https://blog.sagecapita.com/wp-json/wp/v2';
+  private blogBaseUrl = /*http://mayrian.com */'https://blog.sagecapita.com/wp-json/wp/v2';
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,12 @@ export class HomeService {
         }),
         map(([{ link, title, content, featured_media }]: any) => {
 
-          return { link, title: title.rendered, content: content.rendered, featured_media };
+          return {
+            link,
+            title: title.rendered,
+            content: content.rendered.substring(0, 700).replace(new RegExp('<\/?[^>]+(>|$)', 'g'), '') + '...',
+            featured_media
+          };
         })
       );
   }

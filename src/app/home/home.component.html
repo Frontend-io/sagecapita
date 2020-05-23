@@ -120,7 +120,7 @@
       <div id="productInfo1Text" class="verticalAlign" *ngIf="blogArticle">
         <h1>{{blogArticle.title}}</h1>
         <!-- <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4> -->
-        <p>{{blogArticle.content.slice(4, -5).substring(0, 700) + '...'}}</p>
+        <p>{{blogArticle.content}}</p>
         <a [href]="blogArticle.link" target="_blank" style="margin-top: 1.5em;"><button>READ MORE</button></a>
       </div>
     </div>

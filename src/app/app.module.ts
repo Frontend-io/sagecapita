@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
 
 import { SeoService } from './shared/seo.service';
@@ -96,6 +97,7 @@ import { TermsComponent } from './terms/terms.component';
     MatSnackBarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatExpansionModule,
     MatProgressBarModule,
     MatProgressSpinnerModule
   ],
