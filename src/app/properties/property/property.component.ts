@@ -61,7 +61,7 @@ export class PropertyComponent implements OnInit {
 
               return e;
             }).join('/'),
-            slug: property.code
+            slug: `properties/${property.code}`
           });
       }, (err: any) => {
       });
