@@ -36,7 +36,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public isDesktop = false;
   public isMobileNavOpen = false;
   public formMessage
-    = 'Fill in the form to sign up to our newsletter and get updates on Sage Capita Luxury Real Estate\'s exclusive properties.';
+    = 'Subscribe to our newsletter for real estate tips and strategies,\
+     as well as updates on Sage Capita’s exclusive properties and newest listings.';
   public isSubmitting = false;
   public loggedinUserFirstName: string;
   public favCount: number;
@@ -120,7 +121,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.favCount = count;
             }, (err: any) => {
               console.log(err);
-            })).catch(() => {});
+            })).catch(() => { });
       });
 
     this.appService

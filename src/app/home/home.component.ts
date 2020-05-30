@@ -1,4 +1,4 @@
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 import { getCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -9,10 +9,12 @@ import { PropertyService } from '../shared/property.service';
 import { Property } from '../shared/property';
 import { HomeService } from './home.service';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', '../shared/app.properties-search.css']
+  styleUrls: ['./home.component.css', '../shared/app.properties-search.css'],
 })
 export class HomeComponent implements OnInit {
   public propertyCodeForm = this.fb.group({
@@ -28,16 +30,21 @@ export class HomeComponent implements OnInit {
     private authManagerService: AuthManagerService,
     private propertyService: PropertyService,
     private homeService: HomeService,
+    private domSanitizer: DomSanitizer,
     private meta: Meta,
     private title: Title,
     private router: Router) { }
 
   ngOnInit() {
-    this.meta.updateTag({name: 'title', content: 'Home - Sagecapita'});
+    this.meta.updateTag({ name: 'title', content: 'Home - Sagecapita' });
     this.title.setTitle('Home - Sagecapita');
     this.getPropertyCount();
     this.getMainGalleryProperty();
     this.getBlogArticle();
+  }
+
+  public getInnerHTMLValue(Html: string) {
+    return this.domSanitizer.bypassSecurityTrustHtml(Html);
   }
 
   public onSignupClick(code: string): boolean {

@@ -26,13 +26,14 @@ export class JoinComponent implements OnInit {
   public languages = languages;
   public countries = countries;
   public cv: File;
-  public formMessage = 'Fill in the form below to apply for one of our open positions. You can also send us your CV for a spontaneous application';
+  public formMessage = 'Please fill the form below to apply for one our open positions.';
   public isSubmitting = false;
+  public attachedStatus = 'UPLOAD YOUR CV';
 
   constructor(private fb: FormBuilder, private joinService: JoinService, private title: Title, private meta: Meta) { }
 
   ngOnInit() {
-    this.meta.updateTag({name: 'title', content: 'Join - Sagecapita'});
+    this.meta.updateTag({ name: 'title', content: 'Join - Sagecapita' });
     this.title.setTitle('Join - Sagecapita');
   }
 
@@ -44,6 +45,7 @@ export class JoinComponent implements OnInit {
         this.cv = file;
 
         this.formMessage = '';
+        this.attachedStatus = 'ATTACHED';
       } else {
         this.formMessage = 'PDFs must be 15mb or less';
       }
@@ -81,6 +83,10 @@ export class JoinComponent implements OnInit {
 
         this.isSubmitting = false;
       });
+  }
+
+  public scrollToElementID(elementID: string) {
+     window.scroll(0, document.getElementById(elementID).offsetTop);
   }
 
   get joinFormControls(): any {

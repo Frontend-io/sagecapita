@@ -10,12 +10,12 @@ import { HttpHelpers } from '../shared/http-helpers';
   providedIn: 'root'
 })
 export class HomeService {
-  private blogBaseUrl = /*http://mayrian.com */'https://blog.sagecapita.com/wp-json/wp/v2';
+  private blogBaseUrl = /*https://blog.sagecapita.com/wp-json/wp/v2*/'https://mayrian.com/wp-json/wp/v2';
 
   constructor(private http: HttpClient) { }
 
   public getLastBlogPost(): Observable<any> {
-    const httpParams = new HttpParams({ fromObject: { per_page: '1', order: 'desc', orderby: 'id' } });
+    const httpParams = new HttpParams({ fromObject: { per_page: '1', order: 'desc', orderby: 'id', categories: '2' } });
 
     return this.http.get(`${this.blogBaseUrl}/posts`, { params: httpParams })
       .pipe(
@@ -58,10 +58,7 @@ export class HomeService {
               return throwError({ message: 'Problem getting property, please check network and try again', status: err.status });
           }
         }),
-        map(({ media_details }: any) => {
-
-          return media_details.sizes['minimalblog-blog-thumb'].source_url;
-        })
+        map(({ media_details }: any) => media_details.sizes['full'/*'minimalblog-blog-thumb'*/].source_url)
       );
   }
 }

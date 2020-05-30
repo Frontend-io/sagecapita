@@ -118,15 +118,15 @@
         <img [src]="blogPhoto" alt="Blog Photo" />
       </div>
       <div id="productInfo1Text" class="verticalAlign" *ngIf="blogArticle">
-        <h1>{{blogArticle.title}}</h1>
+        <h1 [innerHTML]="getInnerHTMLValue(blogArticle.title)"></h1>
         <!-- <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4> -->
-        <p>{{blogArticle.content}}</p>
+        <p [innerHTML]="getInnerHTMLValue(blogArticle.content)"></p>
         <a [href]="blogArticle.link" target="_blank" style="margin-top: 1.5em;"><button>READ MORE</button></a>
       </div>
     </div>
   </div>
   <div id="productInfo1BlogBand">
-    <strong>Sage Capita BLOG</strong><a href="//blog.sagecapita.com" target="_blank"><button>SEE ALL
+    <strong>Sage Capita BLOG</strong><a href="https://mayrian.com/category/news/realestate" target="_blank"><button>SEE ALL
         ARTICLES</button></a>
   </div>
 </section>
