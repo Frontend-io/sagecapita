@@ -29,6 +29,34 @@
   .serviceItem{
     margin-bottom: 2rem;
   }
+  /* Services tab */
+  #servicesContainer .services{
+    display: flex;
+    flex-wrap: wrap
+  }
+  #servicesContainer .services .service{
+    max-width: 240px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,.08);
+    text-align: center;
+    margin: 5px ;
+  }
+  #servicesContainer .services .service svg{
+    fill: #b1915d
+  }
+  #servicesContainer .services .service .service-title{
+    margin: 8px 0px;
+  }
+  #servicesContainer .services .service .description{
+   margin: 5px 0px;
+  }
+
+
+
+
+
 
   @media only screen and (min-width:961px) {
     #servicesContainer aside{
@@ -41,6 +69,16 @@
 
     #servicesContainer>.container>.flexRowWrap{
       flex-direction: row-reverse;
+    }
+  }
+
+  @media only screen and (max-width: 768px){
+    #servicesContainer .services{
+      flex-direction: column
+    }
+    #servicesContainer .services .service{
+      margin: 10px 0px;
+      max-width: 100%
     }
   }
   
