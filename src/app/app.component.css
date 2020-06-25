@@ -21,13 +21,11 @@ body {
 .menuHeaderContainer img {
   margin: .3em 0 0 .3em;
 }
-
 header nav#desktop #menuList ul {
   display: inline;
   border-bottom: 1px solid rgb(4, 37, 59);
   padding: .2em 0;
 }
-
 #searchBar ul {
   padding: 0;
   margin: 0;
@@ -35,7 +33,7 @@ header nav#desktop #menuList ul {
 
 #searchBar svg {
   cursor: pointer;
-  fill: rgb(4, 37, 59);;;;
+  fill: rgb(4, 37, 59);
 }
 
 #desktop button {
@@ -83,6 +81,7 @@ nav#mobile {
   font-size: 90%;
   letter-spacing: .1em;
   z-index: 9999999;
+  position: relative
 }
 
 nav#mobile ul {
