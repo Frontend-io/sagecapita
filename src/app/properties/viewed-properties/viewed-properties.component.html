@@ -5,5 +5,5 @@
         <app-property-thumbnail [property]="viewedProperty"></app-property-thumbnail>
       </article>
     </div>
-    <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL</button></a>
+    <a href="#" routerLink="/properties" [queryParams]="{'criteria': 'viewed_at DESC'}"><button class="filled">SEE ALL</button></a>
   </section>

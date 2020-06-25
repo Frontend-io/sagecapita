@@ -34,7 +34,7 @@
     border-color: #fff;
     font-size: 70%;
     margin-top: 1.2em;
-    /*color: #064A77;*/
+    /*color: rgb(4, 37, 59);*/
     pointer-events: all;
   }
   
@@ -49,7 +49,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: #064A77;
+    background: rgb(4, 37, 59);
     opacity: .2;
     transition-duration: 500ms;
   }
@@ -58,7 +58,15 @@
     opacity: .8;
   }
 
+  img{
+    width: 100%;
+  }
+
   @media only screen and (min-width:961px) {
+    img{
+      width: auto;
+    }
+
     .propertyGroupsItemContent h2 {
         font-size: 1.5em;
       }

@@ -11,7 +11,7 @@
 
 #propertySearchHeading {
   padding: .8em 1.2em 0 1.2em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
   display: block;
   margin-left: 0;
@@ -30,15 +30,15 @@
 }
 
 #btnBelowVideoGalleryFullVideo button:hover {
-  background: #fff;
-  color: #064A77;
-  border-color: #064A77;
+  background: rgb(4, 37, 59);
+  color: #fff;
+  border-color: rgb(4, 37, 59);
 }
 
 #btnBelowVideoGalleryFullVideo button {
-  background: #064A77;
-  color: #fff;
-  border-color: #064A77;
+  background: #fff;
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 #propertyInfo {
@@ -56,17 +56,13 @@
 }
 
 #btnBelowVideoGalleryFullVideo {
-  margin: 1em 0;
+  padding: 1em 0;
+  background-color: rgb(4, 37, 59);
 }
 
-#videoGalleryContent,
 #productInfo1Content {
   display: flex;
   flex-flow: row wrap;
-}
-
-#videoGalleryContent {
-  justify-content: space-around;
 }
 
 #videoGalleryExclusive,
@@ -79,10 +75,6 @@
   border-right: 4px solid #fff;
 }
 
-#videoGalleryContent {
-  border-left: 4px solid #fff;
-}
-
 hr {
   border: none;
   border-top: 1px solid #ccc;
@@ -90,32 +82,46 @@ hr {
 
 #videoGalleryExclusive button {
   border-color: #fff;
-  background: #064A77;
+  background: rgb(4, 37, 59);
+  ;
+  ;
+  ;
   color: #fff;
   height: 3.5em;
 }
 
 #videoGalleryExclusive button:hover {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
+  ;
+  ;
+  ;
 }
 
 #videoGalleryExclusive button.filled:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
+  ;
+  ;
+  ;
   color: #fff;
 }
 
 #videoGalleryExclusive button.filled {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
+  ;
+  ;
+  ;
   margin-bottom: 1em;
 }
 
 #videoGalleryExclusive {
   padding: 1.5em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
+  ;
+  ;
+  ;
   color: #fff;
-  height: 100%;
 }
 
 #videoGalleryExclusive h3,
@@ -123,14 +129,26 @@ hr {
   color: #fff;
 }
 
+#videoGalleryExclusive h3{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+}
+
 #videoGalleryFullVideo {
   position: relative;
+  background-color: #000;
 }
 
 #videoGalleryFullVideo button {
   width: auto;
-  background: #064A77;
-  border-color: #064A77;
+  background: rgb(4, 37, 59);
+  ;
+  ;
+  ;
+  border-color: rgb(4, 37, 59);
+  ;
+  ;
+  ;
   height: auto;
   color: #fff;
   padding: .6em 1.5em;
@@ -154,6 +172,8 @@ hr {
 }
 
 #productInfo1 {
+  /* EDIT */
+  margin: 50px 0px;
   background: #f4f4f5;
 }
 
@@ -182,8 +202,8 @@ hr {
   width: 12em;
   padding: .6em 0;
   color: #fff;
-  border-color: #064A77;
-  background: #064A77;
+  border-color: rgb(4, 37, 59);
+  background: rgb(4, 37, 59);
   font-size: 70%;
 }
 
@@ -192,7 +212,7 @@ hr {
 }
 
 #productInfo1BlogBand {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
   text-align: center;
   padding: 1em 0;
@@ -276,7 +296,7 @@ hr {
   padding-bottom: 1.5em;
   padding-left: 2em;
   padding-right: 2em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
 }
 
 #propertySearchBottom button {
@@ -284,6 +304,13 @@ hr {
 }
 
 @media only screen and (min-width:961px) {
+  #videoGalleryContent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+
   #propertySearchContainer>.container {
     margin: 0 auto;
     display: table;
@@ -327,9 +354,9 @@ hr {
     flex: 2;
   }
 
-  #videoGallery>.container {
+  /* #videoGallery>.container {
     width: 97%;
-  }
+  } */
 
   #productInfo1Content>div {
     width: 50%;
@@ -365,5 +392,9 @@ hr {
     padding-bottom: 1em;
     padding-left: 2em;
     padding-right: 2em;
+  }
+
+  #videoGalleryContent {
+    border-left: 4px solid #fff;
   }
 }

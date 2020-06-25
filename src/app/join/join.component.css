@@ -3,6 +3,9 @@
 }
 
 video {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   display: table;
 }
@@ -18,7 +21,7 @@ video {
   box-sizing: border-box;
 }
 
-h4{
+h4 {
   font: 22px "Libre Baskerville";
   font-weight: bold;
   margin-bottom: 0;
@@ -30,56 +33,87 @@ hr {
   margin: 1.2em 0;
 }
 
-#joinColsContainer>article>button {
+/* #joinColsContainer>article>button {
   height: 3em;
   width: 100%;
   margin: 2.4em 0;
-  border-color:#064A77;
-  color: #064A77;
+  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
 }
 
 #joinColsContainer>article>button:hover {
-  background: #064A77;
-  border-color: #064A77;
+  background: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
   color: #fff;
-}
+} */
 
-#joinFormInnerButton button.disabled{
+#joinFormInnerButton button.disabled {
   background-color: #f4f4f5;
   color: #aaa;
-  border-color:#aaa;
-  pointer-events: none; 
+  border-color: #aaa;
+  pointer-events: none;
 }
 
 #joinColsContainer>article>h1 {
   margin: 0;
+  font-size: 1.5em
 }
 
-.jobContainer {
-  margin-top: 5em;
+#jobContainer {
+  margin-top: 1em;
 }
 
-.jobContainer p {
+mat-panel-title>h4 {
+  margin: .1rem 0 auto;
+  font-size: 16px;
+}
+
+.jobItem {
+  margin: 1rem 0;
+}
+
+.jobItem hr {
+  margin: .2rem 0 1.2rem 0;
+}
+
+.jobItem button {
+  height: 3em;
+  width: auto;
+  margin: 1rem 0;
+  padding: 0 3rem;
+}
+
+.jobItem button.filled {
+  background-color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
+  color: #fff;
+}
+
+.jobItem button.filled:hover {
+  background-color: #fff;
+  border-color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);
+}
+
+#jobContainer p {
   line-height: 1.4em;
 }
 
-#joinFormButton button,#joinFormButton p {
+#joinFormButton button,
+#joinFormButton p {
   margin: 0;
   margin-top: .5em;
 }
 
 #joinFormButton button,
-#joinFormButton>div, #joinFormInnerButton>div{
+#joinFormButton>div,
+#joinFormInnerButton>div {
   width: 100%;
 }
 
-
-a{
-  color:#064A77;
+a {
+  color: rgb(4, 37, 59);
 }
-
-
-
 
 #joinFormContainer {
   border: 1px solid #ccc;
@@ -88,10 +122,10 @@ a{
   background: #f4f4f5;
   text-align: center;
   padding: .9em 1em 2em 1.5em;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
-#joinFormContainer>.container> p {
+#joinFormContainer>.container>p {
   margin: 0;
 }
 
@@ -100,7 +134,7 @@ a{
   -webkit-flex-flow: column wrap;
   -moz-flex-flow: column wrap;
   flex-flow: column wrap;
-  align-content: space-between; 
+  align-content: space-between;
   height: 100%;
   padding: 1em 0 0 0;
   overflow: hidden;
@@ -135,7 +169,7 @@ a{
 .contactElement>select,
 .contactElement>textarea,
 .contactElement>textarea,
-#contactElementContainer > .contactElement{
+#contactElementContainer>.contactElement {
   width: 100%;
 }
 
@@ -150,22 +184,15 @@ a{
 }
 
 #joinFormContainer button {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 #joinFormContainer button:hover {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
-
-
-
-
-
-
-
 
 @media only screen and (min-width:961px) {
   #joinColsContainer>aside {
@@ -176,40 +203,44 @@ a{
     width: 68%;
   }
 
-  #joinColsContainer>article>button{
+  #joinColsContainer>article>button {
     width: 35%;
-    
+
   }
-
-
 
   #contactElementContainer {
     height: 6em;
   }
 
-  #contactElementContainer > .contactElement{
+  #contactElementContainer>.contactElement {
     width: 31.5%;
   }
 
-
-
-  #joinFormInnerButton>div.first{
+  #joinFormInnerButton>div.first {
     width: 39%;
   }
-  
-  #joinFormInnerButton>div.second{
+
+  #joinFormInnerButton>div.second {
     width: 57.5%;
   }
-  
-  #joinFormButton>div.first{
+
+  #joinFormButton>div.first {
     width: 25%;
   }
-  
-  #joinFormButton>div.second{
+
+  #joinFormButton>div.second {
     width: 56%;
   }
-  
-  #joinFormButton>div.third{
+
+  #joinFormButton>div.third {
     width: 9%;
+  }
+
+  #joinColsContainer {
+    flex-direction: row-reverse;
+  }
+
+  mat-panel-title>h4 {
+    font-size: 22px;
   }
 }

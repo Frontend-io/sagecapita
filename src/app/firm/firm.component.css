@@ -18,13 +18,28 @@
 #firmContainer article button {
   width: 80%;
   height: 3em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
 }
 
 #firmContainer article button:hover {
-    color: #064A77;
+    color: rgb(4, 37, 59);
     background: #fff;
+}
+
+#firmContainer article button>svg{
+  vertical-align: text-bottom;
+  height: 18px;
+  width: 18px;
+  fill: inherit;
+}
+
+#firmContainer article button:hover {
+  fill: rgb(4, 37, 59);
+}
+
+#firmContainer article button {
+  fill: #fff;
 }
 
 #firmContainer{
@@ -52,5 +67,9 @@ hr {
   
   #firmContainer article{
     width: 68%;
+  }
+
+  #firmContainer>.container>.flexRowWrap{
+    flex-direction: row-reverse;
   }
 }

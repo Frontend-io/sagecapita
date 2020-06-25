@@ -1,14 +1,14 @@
 <div>
+  <img class="propertyStar" (click)="onFavoriteClick()" [src]="'../assets/' + (property.is_favorite ? 'star-filled' : 'star-white') + '.png'" alt="star" />
     <a href="#" [routerLink]="['/properties/' + property.code]">
-        <img class="propertyImage" [src]="'../assets/' + property.photo"  alt="Property photo" />
-        <img class="propertyStar" src="../assets/star-white.png" alt="star" />
+        <img class="propertyImage" [src]="property.photo"  alt="Property photo" />
         <div class="propertyDataContainer">
           <div class="propertyData">
             <div class="propertyDataContent">
               <p class="propertyDataTitle">{{property.main_title}}</p>
-              <p class="propertyDataStatus" *ngIf="property.is_on_application">ON APPLICATION</p>
-              <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | numberMillions:'1.0-1'}}</p>
-              <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
+              <a href="/login" (click)="onSignupClick()" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p class="propertyDataStatus"><u>SIGN IN FOR PRICE</u></p></a>
+              <p class="propertyDataStatus" *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</p>
+              <p class="propertyDataStatus" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
               <p class="propertyDataLocation"><small>{{property?.suburb}} - {{property.city}} - {{property.state}}</small></p>
               <p class="propertyDataCode"><small>Code. {{property.code}}</small></p>
             </div>
@@ -16,4 +16,5 @@
           </div>
         </div>
       </a>
+      
 </div>

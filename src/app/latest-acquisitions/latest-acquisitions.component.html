@@ -1,9 +1,9 @@
 <section id="latestAcquisitionsContainer">
-    <h3>LATEST ACQUISITIONS</h3>
+    <h3>NEW LISTINGS</h3>
     <div class="propertyBestProperties">
       <article *ngFor="let latestAcquisition of latestAcquisitions">
         <app-property-thumbnail [property]="latestAcquisition"></app-property-thumbnail>
       </article>
     </div>
-    <a href="#" [routerLink]="['/properties']"><button class="filled">SEE ALL</button></a>
+    <a href="#" routerLink="/properties" [queryParams]="{'criteria': 'created_at DESC'}"><button class="filled">SEE ALL</button></a>
   </section>

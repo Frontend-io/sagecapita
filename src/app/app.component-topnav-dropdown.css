@@ -25,7 +25,7 @@
  }
 
  .dropdown-content a.selected{
-   background-color: #064A77;
+   background-color: rgb(4, 37, 59);
    color: #fff;
  }
 
@@ -52,6 +52,6 @@ button {
   margin: 0;
 width: inherit;
 border-color:
-#064a77;
+rgb(4, 37, 59);
 display: inline;
 }

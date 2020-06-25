@@ -23,8 +23,11 @@ export class ViewedPropertiesComponent implements OnInit {
     this.getViewedProperties();
   }
 
-  getViewedProperties() {
-    this.viewedProperties = this.propertyService.getViewedProperties();
+  public getViewedProperties(): void {
+    this.propertyService.getViewedProperties().subscribe(({ data }: any) => {
+      this.viewedProperties = data;
+    }, (err: any) => {
+    });
   }
 
 }

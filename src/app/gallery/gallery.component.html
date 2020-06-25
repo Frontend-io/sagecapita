@@ -5,42 +5,49 @@
         <div id="videoSearch">
           <div id="videoSearchTitle">
             <p class="left">VIDEO SEARCH </p>
-            <p class="right"><small>111 videos</small></p>
+            <p class="right"><small>{{videoCount}} videos</small></p>
           </div>
-          <form>
+          <form [formGroup]="galleryForm" (ngSubmit)="onPropertySearch()">
             <div class="formControl">
-              <select>
-                <option disabled value=''>CITIES</option>
+              <select formControlName="suburb">
+                <option disabled value=''>DISTRICT</option>
                 <option value='all'>All</option>
+                <option [value]="name" *ngFor="let name of propertyGroupsList['suburb']">{{name | uppercase}}</option>
+              </select>
+            </div>
+            <div class="formControl">
+              <select formControlName="city">
+                <option disabled value=''>CITY</option>
+                <option value=''>All</option>
                 <option [value]="name" *ngFor="let name of propertyGroupsList['city']">{{name | uppercase}}</option>
               </select>
             </div>
             <div class="formControl">
-              <select>
-                <option disabled value=''>STATES</option>
-                <option value='all'>All</option>
+              <select formControlName="state">
+                <option disabled value=''>STATE</option>
+                <option value=''>All</option>
                 <option [value]="name" *ngFor="let name of propertyGroupsList['state']">{{name | uppercase}}</option>
               </select>
             </div>
             <div class="formControl">
-              <select>
+              <select formControlName="type">
                 <option disabled value=''>TYPE</option>
-                <option value='all'>All</option>
+                <option value=''>All</option>
                 <option [value]="name" *ngFor="let name of propertyGroupsList['type']">{{name | uppercase}}</option>
               </select>
             </div>
             <div class="formControl">
-              <select>
+              <select formControlName="price">
                 <option disabled value=''>PRICE</option>
-                <option value='all'>All</option>
-                <option value='<=2500000'>UP TO 2.5M</option>
-                <option value='2500000>=5000000'>2.5M TO 5M</option>
-                <option value='5000000>=10000000'>5M TO 10M</option>
-                <option value='>=10000000'>OVER 10M</option>
+                <option value=''>All</option>
+                <option value='LTE 2500000'>UP TO 2.5M</option>
+                <option value='2500000 GTE 5000000'>2.5M TO 5M</option>
+                <option value='5000000 GTE 10000000'>5M TO 10M</option>
+                <option value='GT 10000000'>OVER 10M</option>
               </select>
             </div>
             <div class="formControl">
-              <button class="right">
+              <button class="right" (click)="onPropertySearch()" type="button">
                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
                   <path
                     d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
@@ -52,6 +59,92 @@
         </div>
       </aside>
       <article>
+        <div id="videoSearchResults">
+          <div id="videoSearchResultsControls">
+            <h4 class="center-text"><strong>{{totalProperties | number}} TOTAL PROPERTIES</strong></h4>
+            <form [formGroup]="propertiesPaginationForm">
+              <p><small><strong>ORDER BY</strong></small></p>
+              <div id="searchSectionFormContainer" class="flexRowWrap">
+                <div class="searchSectionFormContainerElement selectChevDownElement">
+                  <select formControlName="criteria" required (change)="search()">
+                    <option value="">SELECT</option>
+                    <option value="price ASC" selected aria-selected>PRICE ⮝</option>
+                    <option value="price DESC">PRICE ⮟</option>
+                    <option value="interior_surface ASC">INTERIOR SURFACE AREA ⮝</option>
+                    <option value="interior_surface DESC">INTERIOR SURFACE AREA ⮟</option>
+                    <option value="exterior_surface ASC">EXTERIOR SURFACE AREA ⮝</option>
+                    <option value="exterior_surface DESC">EXTERIOR SURFACE AREA ⮟</option>
+                    <option value="views ASC">POPULARITY ⮝</option>
+                    <option value="views DESC">POPULARITY ⮟</option>
+                  </select>
+                  <select formControlName="numberPerPage" (change)="search()">
+                    <option value="" disabled>PROPERTIES PER PAGE</option>
+                    <option value="4" selected>4 PER PAGE</option>
+                    <option value="8">8 PER PAGE</option>
+                    <option value="12">12 PER PAGE</option>
+                    <option value="16">16 PER PAGE</option>
+                  </select>
+                </div>
+                <div class="searchSectionFormContainerElement">
+                  <app-paginator #paginator [initPage]="paginatorOptionsInitPage"
+                    [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage"
+                    (pageChange)="onPageClick($event)"></app-paginator>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="videoSearchResultsItems">
+            <div *ngFor="let property of properties" class="videoSearchResultsItem">
+              <div class="videoSearchResultsItemImg">
+                <img [src]="property.photo" alt="Property gallery image" />
+              </div>
+              <div class="videoSearchResultsItemContent">
+                <hr />
+                <div class="flexRowWrap">
+                  <div class="colM8">
+                    <h4><strong>{{property.main_title | titlecase}}</strong></h4>
+                    <p>{{property.description_text}}</p>
+                  </div>
+                  <div class="colM4">
+                    <h5 class="muted right-text">{{property.city | titlecase}}</h5>
+                  </div>
+                </div>
+                <div class="flexRowWrap">
+                  <div class="colM6">
+                    <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h4><strong><u>SIGN IN FOR PRICE</u></strong></h4></a>
+                    <h4><strong
+                        *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</strong>
+                    </h4>
+                    <h4><strong
+                        *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}}
+                        TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</strong>
+                    </h4>
+                  </div>
+                  <div class="colM6">
+                    <h4 class="rightTextMd"><strong>CODE: {{property.code}}</strong></h4>
+                  </div>
+                </div>
+                <div class="flexRowWrap videoSearchResultsItemContentBtns">
+                  <div class="colM4">
+                    <a [href]="property.video" target="_blank"><button>PLAY VIDEO &#9658;</button></a>
+                  </div>
+                  <div class="colM4">
+                    <a href="#" [routerLink]="['/property_contact/', property.code]"><button class="filled">REQUEST INFORMATION</button></a>
+                  </div>
+                  <div class="colM4">
+                    <a href="#" [routerLink]="['/properties/', property.code]"><button>VIEW PROPERTY</button></a>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div style="margin-top: 1.2em;">
+            <app-paginator #paginator [initPage]="paginatorOptionsInitPage"
+              [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage"
+              (pageChange)="onPageClick($event)"></app-paginator>
+          </div>
+        </div>
         <app-gallery-main-property></app-gallery-main-property>
         <app-gallery-most-seen></app-gallery-most-seen>
         <app-gallery-recently-uploaded></app-gallery-recently-uploaded>

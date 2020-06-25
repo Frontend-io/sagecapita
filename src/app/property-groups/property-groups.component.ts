@@ -12,18 +12,24 @@ import { PropertyGroup } from '../shared/property-group';
 export class PropertyGroupsComponent implements OnInit {
   public propertyGroups: Array<PropertyGroup> = [];
   public activeGroup: string;
+  public activeClass: string;
 
   constructor(private propertyGroupService: PropertyGroupService) {
-    this.activeGroup = 'city';
+    this.activeGroup = 'top_cities';
+    this.activeClass = 'city';
   }
 
   ngOnInit() {
-    this.selectPropertyGroup(this.activeGroup);
+    this.selectPropertyGroup(this.activeGroup, this.activeClass);
   }
 
-  selectPropertyGroup(id) {
-    this.propertyGroups = this.propertyGroupService.getPropertiesGroup(id);
-    this.activeGroup = id;
+  public selectPropertyGroup(id: string, propertyClass: string) {
+    this.propertyGroupService.getPropertiesGroup(id).subscribe(({ data }: any) => {
+      this.propertyGroups = data;
+      this.activeGroup = id;
+      this.activeClass = propertyClass;
+    }, (err: any) => {
+    });
   }
 
 }

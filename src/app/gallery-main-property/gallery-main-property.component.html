@@ -1,7 +1,7 @@
-<div id="mainPropertyContainer">
+<div id="mainPropertyContainer" *ngIf="property">
     <h4>{{property.main_title | titlecase}}</h4>
     <div>
-      <video width="100%" height="100%" [poster]="'../../assets/' + property.photo" controls>
+      <video width="100%" height="100%" [poster]="property.photo" controls>
         <source [src]="property.video" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -13,17 +13,17 @@
         <p><strong>CODE: {{property.code}}</strong></p>
       </div>
       <div>
-        <h3 *ngIf="property.price"><strong>{{getCurrencySymbol(property.currency)}}{{property.price | number}}</strong></h3>
-        <h3 *ngIf="property.price_lower_range && property.price_upper_range"><strong>{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</strong></h3>
-        <h3 *ngIf="property.is_on_application"><strong>ON APPLICATION</strong></h3>
+        <h3 *ngIf="property.price"><strong>{{getCurrencySymbol('NGN')}}{{property.price | number}}</strong></h3>
+        <h3 *ngIf="property.price_lower_range && property.price_upper_range"><strong>{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</strong></h3>
+        <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><h3><strong><u>SIGN IN FOR PRICE</u></strong></h3></a>
       </div>
     </div>
     <div id="mainPropertyBtnsContainer">
-      <button>VIEW PROPERTY</button>
-      <button class="filled">ASK FOR INFORMATION</button>
+      <a href="#" [routerLink]="['/properties/' + property.code]"><button>VIEW PROPERTY</button></a>
+      <a href="#" [routerLink]="['/property_contact/' + property.code]"><button class="filled">REQUEST INFORMATION</button></a>
     </div>
     <div id="mainPropertyTextContainer">
-      <p><small>{{property.description_text | slice:0:584}}...</small></p>
+      <p><small>{{property.description_text}}</small></p>
       <p style="text-align: right;"><small><strong><a href="#" [routerLink]="['/properties/' + property.code]">Read More...</a></strong></small></p>
     </div>
   </div>

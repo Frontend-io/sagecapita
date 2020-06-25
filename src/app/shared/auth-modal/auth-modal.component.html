@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>PLEASE RE-LOGIN</h2>
+<small *ngIf="submitMessage">{{submitMessage}}</small>
+<div mat-dialog-content>
+ <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="formRow">
+     <input name="email" type="email" placeholder="EMAIL" formControlName="email" required [readonly]="isSubmitting" cdkFocusInitial />
+     <small *ngIf="loginFormControls.email.touched && loginFormControls.email.errors?.required">
+        Email is required.
+     </small>
+     <small *ngIf="loginFormControls.email.touched && loginFormControls.email.errors?.email">
+        Email address is invalid.
+     </small>
+    </div>
+    <div class="formRow">
+      <input name="password" type="password" placeholder="PASSWORD" formControlName="password" required [readonly]="isSubmitting" />
+      <small *ngIf="loginFormControls.password.touched && loginFormControls.password.errors?.required">
+        Password is required.
+      </small>
+    </div>
+ </form>
+</div> 
+<div class="flexRow" mat-dialog-actions>
+  <button mat-button class="outline" [mat-dialog-close]="null">CANCEL</button>
+  <button mat-button [disabled]="!loginForm.valid || isSubmitting" (click)="login()">OK</button>
+</div>

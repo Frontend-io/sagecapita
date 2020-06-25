@@ -4,15 +4,15 @@
     <span id="propertySearchHeading">
       <span>SEARCH</span>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span>1593 PROPERTIES</span>
+      <span>{{propertiesCount}} PROPERTIES</span>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="#propertySearchContainer"><img src="../assets/chevron-down-white.png" alt="Chevron down" /></a>
     </span>
   </div>
   <div id="propertySearch">
     <div class="container">
-      <app-properties-search></app-properties-search>
-      <form>
+      <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
+      <form [formGroup]="propertyCodeForm" (ngSubmit)="searchPropertyCode()">
         <div class="formGroup">
           <div id="propertySearchBottom">
             <h4>SEARCH BY CODE</h4>
@@ -23,7 +23,7 @@
               </svg>
             </button>
             <div id="propertySearchBottomInputContainer">
-              <input type="text" placeholder="PROPERTY CODE" />
+              <input type="text" placeholder="PROPERTY CODE" formControlName="code" />
             </div>
             <div class="clearfix"></div>
           </div>
@@ -47,7 +47,7 @@
           <h1><strong>Largest Selection of Luxury Homes for Sale in Nigeria</strong></h1>
           <p>We offer the largest collection of luxury and exclusive properties for sale in Nigeria, and several cities
             around the world. We pre-vet every property listed for fraud, pricing, market conditions and government
-            regulations. We hand pick our properties and select the best listings to offer you the most desirable
+            regulations. We hand-picked our properties to select the best listings in order to offer you the most desirable
             locations in Lagos, Abuja, Port Harcourt, Dubai, London, Florida and several other cities.</p>
           <p>We’ve built a team of professionals with exceptional knowledge of the market and a commitment to service.
             Everyone shares expertise and information in order to meet your goals. Every property is backed by iron-clad
@@ -60,29 +60,38 @@
   </div>
 </section>
 <section>
-  <h3 style="text-align: center;"><strong>VIDEO GALLERY</strong></h3>
+  <h3 style="text-align: center;margin:1.2em 0 0 0;"><strong>VIDEO CENTER</strong></h3>
 </section>
 <section id="videoGallery">
   <div class="container">
     <div style="background: #fff; ">
-      <div id="videoGalleryContent">
+      <div id="videoGalleryContent" *ngIf="mainGalleryProperty">
         <div id="videoGalleryExclusive">
-          <h3>Exclusive Luxury Villa On Lucca's Hills</h3>
+          <h3>{{mainGalleryProperty.main_title | titlecase}}</h3>
           <hr />
-          <p><strong>LUCCA</strong></p>
-          <p><small>This wonderful contemporary-style luxury villa is for sale on Lucca's stunning hills, in Tuscany.</small></p>
-          <p><strong>CODE. 5118 | INT. 3210 MQ</strong></p>
-          <h3>ON APPLICATION</h3>
-          <button class="filled">SHOW</button>
-          <button>ASK FOR INFORMATION</button>
+          <p><strong>{{mainGalleryProperty.city | uppercase}}</strong></p>
+          <p><small>{{mainGalleryProperty.description_text}}</small></p>
+          <p><strong>CODE. {{mainGalleryProperty.code}} | INT. {{mainGalleryProperty.interior_surface | number}}
+              MQ</strong></p>
+          <a href="/login" (click)="onSignupClick(mainGalleryProperty.code)"
+            *ngIf="mainGalleryProperty.is_exclusive && !(mainGalleryProperty.price || (mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range))">
+            <h3><u>SIGN IN FOR PRICE</u></h3>
+          </a>
+          <h3 *ngIf="mainGalleryProperty.price">
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price | numberMillions:'1.0-1'}}</h3>
+          <h3 *ngIf="mainGalleryProperty.price_lower_range && mainGalleryProperty.price_upper_range">
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_lower_range | numberMillions:'1.0-1'}} TO
+            {{getCurrencySymbol('NGN')}}{{mainGalleryProperty.price_upper_range | numberMillions:'1.0-1'}}</h3>
+          <a href="#" [routerLink]="['properties/' + mainGalleryProperty.code]"><button class="filled">SHOW</button></a>
+          <a href="#" [routerLink]="['property_contact/' + mainGalleryProperty.code]"><button>REQUEST INFORMATION</button></a>
         </div>
         <div id="videoGalleryFullVideo">
-          <video width="100%" height="100%" poster="../../assets/image_1.jpg" controls>
-            <source src="https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4" type="video/mp4" />
+          <video width="100%" height="100%" [poster]="mainGalleryProperty.photo" controls>
+            <source [src]="mainGalleryProperty.video" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div id="videoGalleryFullVideoBtns">
-            <button>GET FULL VIDEO</button>
+            <a [href]="mainGalleryProperty.video" target="_blank"><button>GET FULL VIDEO</button></a>
             <button class="share"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
                 height="1em">
                 <path
@@ -91,7 +100,7 @@
           </div>
         </div>
         <div id="btnBelowVideoGalleryFullVideo">
-          <a href="#"><button>SEE ALL</button></a>
+          <a href="#" routerLink="/properties"><button>SEE ALL</button></a>
         </div>
         <div id="videoGalleryList">
           <app-home-gallery></app-home-gallery>
@@ -106,45 +115,34 @@
   <div class="container">
     <div id="productInfo1Content">
       <div class="verticalAlign">
-        <img src="../assets/home-carousel/slide_1.jpg" alt="Slide 1" />
+        <img [src]="blogPhoto" alt="Blog Photo" />
       </div>
-      <div id="productInfo1Text">
-        <h1>Admiring the eternal city from a luxurious penthouse in Rome</h1>
-        <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4>
-        <p>The city of Rome, also know as Urbs or the Eternal City is the prestigious capital of Nigeria founded on
-          April
-          21
-          753 BC is situate on the 7 legendary hills that today are home to marvelous luxury villas. It is the most
-          populated city in Nigeria with almost 3 million inhabitants, and since 1980 it is a UNESCO World Heritage
-          Site.
-          For centuries it has been considered one of the most important cities in the world. Inside the city of Rom,
-          there is also the Vatican City, cornerstone of Christianity. From penthouses in Rome you can easily admire a
-          surprising concentration of artistic, architectural, and cultural patrimony , from Etruscan tombs to imperial
-          forum, Paleo-Christian basilicas to medieva...</p>
-        <button>READ MORE</button>
+      <div id="productInfo1Text" class="verticalAlign" *ngIf="blogArticle">
+        <h1 [innerHTML]="getInnerHTMLValue(blogArticle.title)"></h1>
+        <!-- <h4>LUXURY HOMES IN ROME SITUATED BETWEEN HISTORIC PIAZZAS AND MONUMENTS</h4> -->
+        <p [innerHTML]="getInnerHTMLValue(blogArticle.content)"></p>
+        <a [href]="blogArticle.link" target="_blank" style="margin-top: 1.5em;"><button>READ MORE</button></a>
       </div>
     </div>
   </div>
   <div id="productInfo1BlogBand">
-    <strong>Sage Capita BLOG</strong><a href="#" routerLink="/media"><button>SEE ALL NEWS</button></a>
+    <strong>Sage Capita BLOG</strong><a href="https://mayrian.com/category/news/realestate" target="_blank"><button>SEE ALL
+        ARTICLES</button></a>
   </div>
 </section>
 <app-latest-acquisitions></app-latest-acquisitions>
 <section id="closingInfo">
   <div class="container">
     <h1><strong>Exceptional Luxury Real Estate Firm</strong></h1>
-    <p>Sage Capita is a luxury real estate brokerage firm, serving Nigeria and other important cities of the world.
-      Specializing in outstanding high-end investment portfolio that includes true dream homes, luxury villas, castles
-      for
-      sale and luxury estates that can satisfy all needs. We offer a constantly updated selection of splendid villas for
-      sale with the purpose to offer our clients a full catalogue inclusive of prestigious estates and dream homes,
-      located in the most extraordinary areas of Nigeria and several important cities of the world.</p>
-    <p>With several years of experience, our consultants are able to offer professional guidance in the choice of your
-      ideal property, with the support of our expertise and knowledge combined with total confidentiality and reserve,
-      we
-      help investors, buyers and sellers locate the finest properties and negotiate the best deals. Our team is small
-      enough to provide each of our clients with personal attention in order to meet their needs; large enough to
-      deplore
-      advanced and highly sophisticated software platform to provide an unparallel brand exposure.</p>
+    <p>Sage Capita is a luxury real estate firm, operating in Nigeria and many other important destinations around the world.
+      We Specialize in outstanding high-end investment portfolio that includes dream homes, luxury villas, castles and 
+      luxury estates. We offer constantly updated selection of splendid homes, and catalogue inclusive of prestigious estates and luxury homes,
+      located in the most extraordinary areas of Nigeria and several important cities around the world. 
+    </p>
+
+    <p>With several years' experience, our consultants are able to offer professional guidance in the choice of your
+      ideal property. Our platform is built to help investors, buyers and sellers locate the finest properties and negotiate the best deals. 
+      Our team is small enough to provide each of our clients with personal attention in order to meet their needs; large enough to
+      deplore advanced and highly sophisticated software platform to provide an unparallel brand exposure.</p>
   </div>
 </section>

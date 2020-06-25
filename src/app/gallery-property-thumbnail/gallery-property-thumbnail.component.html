@@ -1,6 +1,6 @@
 <a href="#" [routerLink]="['/properties/' + property.code]">
     <div class="propertiesSectionItemImgContainer">
-      <img [src]="'../assets/' + property.photo" alt="property photo" />
+      <img [src]="property.photo" alt="property photo" />
     </div>
     <div class="propertiesSectionItemLocationContainer">
       <p><strong>{{property?.suburb | titlecase}} - {{property.city | titlecase}} - {{property.state | titlecase}}</strong></p>
@@ -10,12 +10,12 @@
     </div>
     <div class="propertiesSectionItemCodeInfoContainer">
       <p class="code"><strong>CODE: {{property.code}}</strong></p>
-      <p class="serif" *ngIf="property.is_on_application">ON APPLICATION</p>
-      <p class="serif" *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | number}}</p>
-      <p class="serif" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
+      <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p class="serif"><u>SIGN IN FOR PRICE</u></p></a>
+      <p class="serif" *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price  | numberMillions:'1.0-1'}}</p>
+      <p class="serif" *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
     </div>
     <div class="propertiesSectionItemMedtadataContainer">
-      <p><small>54880 Views</small></p>
-      <p><small>10 months ago</small></p>
+      <p><small>{{property.views}} Views</small></p>
+      <p><small>{{property.created_at}}</small></p>
     </div>
   </a>

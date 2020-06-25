@@ -13,7 +13,7 @@
 }
 
 .searchResultsBody {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   padding: .8em;
 }
 
@@ -39,16 +39,17 @@
 .searchResultsBody button:hover,
 .searchResultsBody button.filled {
   background: #fff;
-  color: #064A77;
+  color: rgb(4, 37, 59);
 }
 
 .searchResultsBody button.filled:hover {
   color: #fff;
-  background: #064A77;
+  background: rgb(4, 37, 59);
 }
 
-.searchResultsBodyTopText img {
+.propertyStar>img {
   height: 24px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width:641px) {

@@ -1,0 +1,15 @@
+<section *ngIf="isPlatformBrowser">
+  <ngx-tiny-slider [config]="tinySliderConfig" #slider>
+    <ng-container class="items">
+      <div class="item">
+          <!-- DO NOT DELETE! Just a placeholder for the slider items, while we fetch them from server-->
+      </div>
+    </ng-container>
+  </ngx-tiny-slider>
+  <nav class="verticalAlign">
+    <div id="propertySliderNav">
+      <img src="../../../assets/chevron-left.png" class="left clickable" />
+      <img src="../../../assets/chevron-right.png" class="right clickable" />
+    </div>
+  </nav>
+</section>

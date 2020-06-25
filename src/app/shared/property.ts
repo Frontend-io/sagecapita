@@ -1,30 +1,52 @@
-import { Price } from '../shared/price';
-import { Text } from '../shared/text';
-import { Currencies } from '../shared/currencies.enum';
+// import { Price } from '../shared/price';
+// import { Text } from '../shared/text';
+// import { Currencies } from '../shared/currencies.enum';
 
 export interface Property {
     code: string;
     photo: string;
     photos: Array<string>;
-    video: string;
-    main_title: Text;
+    video?: string;
+    main_title: string;
+    side_title: string;
+    heading_title: string;
+    description_text: string;
     state: string;
     city: string;
     suburb?: string;
-    type: Text;
+    type: string;
     interior_surface: number;
     exterior_surface: number;
-    features: Array<Text>;
+    features: Array<string>;
     is_exclusive: boolean;
-    is_on_application: boolean;
-    currency: Currencies;
-    price: Price;
-    price_lower_range?: Price;
-    price_upper_range?: Price;
-    side_title: Text;
-    heading_title: Text;
-    description_text: Text;
+    price?: number;
+    price_lower_range?: number;
+    price_upper_range?: number;
+    year_built?: number;
 }
+
+// export interface Property {
+//     code: string;
+//     photo: string;
+//     photos: Array<string>;
+//     video: string;
+//     main_title: Text;
+//     side_title: Text;
+//     heading_title: Text;
+//     description_text: Text;
+//     state: string;
+//     city: string;
+//     suburb?: string;
+//     type: Text;
+//     interior_surface: number;
+//     exterior_surface: number;
+//     features: Array<Text>;
+//     is_exclusive: boolean;
+//     currency: Currencies;
+//     price: Price;
+//     price_lower_range?: Price;
+//     price_upper_range?: Price;
+// }
 
 // const property: Property = {
 //     code: '3',
@@ -37,7 +59,7 @@ export interface Property {
 //         'home-carousel/slide_22.jpg',
 //         'home-carousel/slide_3.jpg'
 //     ],
-//     video: 'https://cdn-maps.lionard.com/Allegati/LIONARD_RIF5118_720.mp4',
+//     video: 'https://cdn-maps.sagecapita.com/Allegati/SAGECAPITA_RIF5118_720.mp4',
 //     main_title: { EN: 'Exclusive villa surrounded by a pine forest near', FR: '' },
 //     state: 'abuja',
 //     city: 'maitama',

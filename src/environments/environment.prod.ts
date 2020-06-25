@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://api.sagecapita.com/api',
+  cloudinary_cloudname: 'dzx23evie'
 };

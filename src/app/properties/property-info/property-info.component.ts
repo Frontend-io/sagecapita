@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { getCurrencySymbol } from '@angular/common';
 
-import { PropertyService } from '../../shared/property.service';
-
-// import { Property } from '../../shared/property';
+import { AuthManagerService } from '../../shared/auth-manager.service';
+import { Property } from '../../shared/property';
 
 @Component({
   selector: 'app-property-info',
@@ -12,29 +11,23 @@ import { PropertyService } from '../../shared/property.service';
   styleUrls: ['./property-info.component.css']
 })
 export class PropertyInfoComponent implements OnInit {
-  public property;
-  private code: string;
+  @Input() property: any;
 
-  constructor(private propertyService: PropertyService, private route: ActivatedRoute) {
-    this.propertyService.subject$.subscribe(
-      () => {
-        this.getProperty(this.code);
-      });
+  public propertyLink = `${encodeURIComponent(window.location.href)}`;
+
+  constructor(private router: Router, private authManagerService: AuthManagerService) {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap =>
-      this.getProperty(paramMap.get('code'))
-    );
   }
 
-  getProperty(code: string) {
-    this.property = this.propertyService.getProperty(code);
-    this.code = code;
+  public onSignupClick(code: string): boolean {
+    this.authManagerService.setRedirectUrl(`/properties/${code}`);
+    this.router.navigate(['/login']);
+    return false;
   }
 
-  getCurrencySymbol(currency: string) {
+  public getCurrencySymbol(currency: string) {
     return getCurrencySymbol(currency, 'narrow');
   }
-
 }

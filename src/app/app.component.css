@@ -9,73 +9,57 @@ body {
 
 .menuHeaderContainer {
   position: absolute;
-  z-index: 1;
+  z-index: 9;
   width: 100%;
 }
 
-.menuHeaderContainer>header{
-  padding: 0 2em;
+.menuHeaderContainer>header {
+  padding: 0 1em 0 1em;
+  background-color: #fff;
 }
 
 .menuHeaderContainer img {
-  height: 10em;
+  margin: .3em 0 0 .3em;
 }
-
 header nav#desktop #menuList ul {
   display: inline;
-  border-bottom: 1px solid #064A77;
+  border-bottom: 1px solid rgb(4, 37, 59);
   padding: .2em 0;
 }
-
-.right{
-  float: right;
-}
- 
-header nav#desktop #searchBar ul {
+#searchBar ul {
   padding: 0;
   margin: 0;
 }
 
-#desktop #searchBar svg {
+#searchBar svg {
   cursor: pointer;
   fill: rgb(4, 37, 59);
 }
-
-/* #desktop #searchBar img {
-  height: 1em;
-  margin: 0 0 0 .7em;
-  vertical-align: text-top;
-  pointer-events: none;
-} */
 
 #desktop button {
   height: 2.2em;
   padding: .1em 1em
 }
 
-#desktop #searchBar {
-  float: right;
-  margin-bottom: 1.2em;
-}
 
 header ul li {
-  padding: 0 1.6em;
+  padding: .5em .4em;
 }
 
 header ul li:first-child {
-  padding-left: .6em;
+  padding-left: .4em;
 }
 
 header ul li:last-child {
   padding-right: 0;
 }
 
-header nav#desktop #menuList ul li.active, header nav#desktop #menuList ul li:hover {
-  border-bottom: 4px solid rgb(241, 116, 7);
+header nav#desktop #menuList ul li.active,
+header nav#desktop #menuList ul li:hover {
+  border-bottom: 4px solid #b1915d;
 }
 
 header ul li a {
-  /*color: #064A77;*/
   font-weight: 700;
 }
 
@@ -83,37 +67,34 @@ nav#desktop ul li {
   display: inline;
 }
 
-#logo {
-  float: left;
-}
-
-nav#desktop,
 #mobileMenu {
-  float: right;
-
-}
-
-nav#desktop {
-  padding: .8em 0;
-}
-
-#mobileMenu {
-  padding: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }
 
 nav#mobile {
   background: #fff;
-  padding: 2em 0;
-  display: none;
+  padding: 0 0 1em 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 90%;
+  letter-spacing: .1em;
+  z-index: 9999999;
+  position: relative
+}
+
+nav#mobile ul {
+  padding: 0;
+  margin: 0;
 }
 
 nav#mobile ul li {
-  padding: .3em 0;
+  padding: .6em 0;
   color: #fff;
 }
 
 nav#mobile ul li a {
-  color: royalblue;
   text-align: center;
 }
 
@@ -121,84 +102,65 @@ nav#desktop {
   display: none;
 }
 
-nav#desktop form svg {
+.menuHeaderContainer form svg {
   vertical-align: middle;
 }
 
-nav#desktop form input {
+.menuHeaderContainer form input {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
   border-width: 0;
   border-bottom-width: 1px;
-  border-bottom-color: #064A77;
-  width: auto;
-  /*color: #064A77;*/
+  border-bottom-color: rgb(4, 37, 59);
 }
 
-nav#desktop button,
-nav#desktop form {
+button
+{
   display: inline;
 }
 
-nav#desktop button {
+button {
   margin: 0;
   width: inherit;
-  border-color: #064A77;
-  /*color: #064A77;*/
+  border-color: rgb(4, 37, 59);
 }
 
-nav#desktop button.noBorderBtn {
+button.noBorderBtn {
   border-color: transparent;
-  /*color: #064A77;*/
 }
 
-nav#desktop form input::placeholder {
+form input::placeholder {
   color: #000;
 }
 
 footer {
   padding: 1em 3em 1em 3em;
   text-align: center;
-  /*color: #064A77;*/
 }
-
-footer a{
-  /*color: #064A77;*/
-}
-
-/* footer img {
-  height: 10em;
-} */
 
 footer .flexRowWrap>section {
   width: 100%;
   margin-top: .9em;
 }
 
-#addressInfoContainer{
-/*  display: table;
-  margin: 0 auto; */
+#addressInfoContainer {
   align-content: flex-start;
   justify-content: space-between;
 }
 
 .addressInfo {
-  margin-bottom: .5em;    
+  margin-bottom: .5em;
 }
 
-footer p{
+footer p {
   margin: .1em 0;
   line-height: 1.2em;
 }
 
-#newsletterContainer{
+#newsletterContainer {
   margin-top: .8em;
 }
-
-/* .addressInfo>p {
-  
-} */
 
 #newsletterEmail {
   margin-bottom: .4em;
@@ -214,8 +176,8 @@ footer p{
 #newsletterFormGroup button {
   height: 3em;
   width: 100%;
-  background: #064A77;
-  border-color: #064A77;
+  background: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
   color: #fff;
   margin-left: 0;
 }
@@ -232,11 +194,39 @@ footer p{
 }
 
 #headerHeight {
-  height: 169px;
+  height: 139px;
 }
 
 @media only screen and (min-width:961px) {
+  header ul li {
+    padding: 0 1.6em;
+  }
+
+  #menuGroup{
+    float: right;
+  }
+
+  #searchBar {
+    margin-bottom: 1.2em;
+  }
+
+  #logo{
+    float: left;
+  }
+
+  form {
+    display: inline;
+  }
+
+  form input{
+    width: auto;
+  }
+  
   nav#desktop {
+    display: inline;
+  }
+
+  #searchBar ul li {
     display: inline;
   }
 
@@ -269,7 +259,11 @@ footer p{
   }
 
   footer {
-    padding-left: 6em; 
+    padding-left: 6em;
     padding-right: 6em;
+  }
+
+  .menuHeaderContainer>header {
+    background-color: transparent;
   }
 }

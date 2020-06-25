@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { PropertyService } from '../shared/property.service';
-import { Property } from '../shared/property';
+import { GalleryProperty } from '../shared/gallery-property';
 
 @Component({
   selector: 'app-gallery-most-seen',
@@ -12,9 +12,9 @@ import { Property } from '../shared/property';
   ]
 })
 export class GalleryMostSeenComponent implements OnInit {
-  public mostSeenProperties: Property[];
+  public mostSeenProperties: GalleryProperty[];
 
-  constructor(private propertyService: PropertyService) { 
+  constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(
       () => {
         this.getMostSeen();
@@ -26,7 +26,10 @@ export class GalleryMostSeenComponent implements OnInit {
   }
 
   getMostSeen() {
-    this.mostSeenProperties = this.propertyService.getMostSeen();
+    this.propertyService.getMostSeen().subscribe(({ data }) => {
+      this.mostSeenProperties = data;
+    }, (err: any) => {
+    });
   }
 
 }

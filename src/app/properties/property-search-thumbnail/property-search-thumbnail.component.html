@@ -1,15 +1,15 @@
 <div class="searchResultsImgContainer">
-  <img [src]="'../../assets/' + property.photo" alt="Property photo" />
+  <img [src]="property.photo" alt="Property photo" />
 </div>
 <div class="searchResultsBody">
   <div class="searchResultsBodyTopText">
     <p class="left">{{property.main_title}}</p>
-    <div class="right"><img src="../../assets/star-white.png" alt="Favorite" /></div>
+    <div class="right propertyStar"><img (click)="onFavoriteClick()" [src]="'../assets/' + (property.is_favorite ? 'star-filled' : 'star-white') + '.png'" alt="Favorite" /></div>
     <div class="clearfix"></div>
   </div>
-  <p *ngIf="property.price">{{getCurrencySymbol(property.currency)}}{{property.price | numberMillions:'1.0-1'}}</p>
-  <p *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol(property.currency)}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol(property.currency)}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
-  <p *ngIf="property.is_on_application"><strong>ON APPLICATION</strong></p>
+  <p *ngIf="property.price">{{getCurrencySymbol('NGN')}}{{property.price | numberMillions:'1.0-1'}}</p>
+  <p *ngIf="property.price_lower_range && property.price_upper_range">{{getCurrencySymbol('NGN')}}{{property.price_lower_range | numberMillions:'1.0-1'}} TO {{getCurrencySymbol('NGN')}}{{property.price_upper_range | numberMillions:'1.0-1'}}</p>
+  <a href="/login" (click)="onSignupClick(property.code)" *ngIf="property.is_exclusive && !(property.price || (property.price_lower_range && property.price_upper_range))"><p><strong><u>SIGN IN FOR PRICE</u></strong></p></a>
   <div class="searchResultsBodyBottomText">
     <p class="left"><small><strong>AREA IN METRES: <span>{{property.interior_surface | number}}</span> sqm</strong></small></p>
     <p class="right"><small><strong>CODE: <span>{{property.code}}</span></strong></small></p>
@@ -17,7 +17,7 @@
   </div>
   <div [ngClass]="property.video ? 'searchResultsBody3btn' : 'searchResultsBody3btn'" class="flexRowWrap">
     <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">VIEW PROPERTY</button></a>
-    <a><button>ASK FOR INFORMATION</button></a>
-    <a [href]="property.video" *ngIf="property.video"><button>PLAY VIDEO &#9658;</button></a>
+    <a href="#" [routerLink]="['/property_contact/' + property.code]"><button>REQUEST INFORMATION</button></a>
+    <a [href]="property.video" target="_blank" *ngIf="property.video"><button>PLAY VIDEO &#9658;</button></a>
   </div>
 </div>

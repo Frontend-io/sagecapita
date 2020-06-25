@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { getCurrencySymbol } from '@angular/common';
 
-// import { Property } from '../shared/property';
+import { AuthManagerService } from '../shared/auth-manager.service';
+import { GalleryProperty } from '../shared/gallery-property';
 
 @Component({
   selector: 'app-gallery-property-thumbnail',
@@ -11,11 +13,17 @@ import { getCurrencySymbol } from '@angular/common';
   ]
 })
 export class GalleryPropertyThumbnailComponent implements OnInit {
-  @Input () property;
+  @Input () property: GalleryProperty;
 
-  constructor() { }
+  constructor(private router: Router, private authManagerService: AuthManagerService) { }
 
   ngOnInit() {
+  }
+
+  public onSignupClick(code: string): boolean {
+    this.authManagerService.setRedirectUrl(`/properties/${code}`);
+    this.router.navigate(['/login']);
+    return false;
   }
 
   getCurrencySymbol(currency) {

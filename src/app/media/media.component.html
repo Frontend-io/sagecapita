@@ -1,42 +1,61 @@
 <section id="pressTextContainer">
   <div class="container">
     <!-- <h1>Press Area</h1> -->
-    <h1>Access the area where you can consult our press releases and our photos in HD</h1>
+    <h1>Exclusive access to our HD videos, photos and press releases</h1>
     <hr />
-    <h4>Please provide the information required to access Sage Capita Luxury Real Estate's press releases, including
-      hi-res exclusive photos of featured properties. Once you've filled in the form please click on the Submit
-      button and the links to the files will be generated for you at the bottom of the page. </h4>
+    <h4>Please fill the form below for exclusive access to Sage Capita’s press releases, including HD videos and photos of our luxury properties.</h4>
   </div>
 </section>
 <section id="pressFormContainer">
   <div class="container">
-    <form>
+    <form [formGroup]="mediaForm" (ngSubmit)="onSubmit()">
+      <p>{{formMessage}}</p>
+      <ul *ngIf="mediaForm.touched && !mediaForm.valid">
+        <li *ngIf="mediaFormControls.full_name.touched && mediaFormControls.full_name?.errors?.required"><small>
+            Full name is required.
+          </small></li>
+        <li *ngIf="mediaFormControls.email.touched && mediaFormControls.email.errors?.required"><small>
+            Email is required.
+          </small></li>
+        <li *ngIf="mediaFormControls.email.touched && mediaFormControls.email.errors?.email"><small>
+            Email address is invalid.
+          </small></li>
+        <li *ngIf="mediaFormControls.headline.touched && mediaFormControls.headline?.errors?.required"><small>
+            Headline is required.
+          </small></li>
+        <li *ngIf="mediaFormControls.country.touched && mediaFormControls.country?.errors?.required"><small>
+            Country is required.
+          </small></li>
+        <li
+          *ngIf="mediaFormControls.privacy_policy_check.touched && mediaFormControls.privacy_policy_check?.errors?.required">
+          <small>
+            You must agree to our privacy policy.
+          </small></li>
+      </ul>
       <div class="flexRowWrap">
         <div>
-          <input type="text" placeholder="* FIRST NAME" />
+          <input type="text" placeholder="* FULL NAME" formControlName="full_name" required />
         </div>
         <div class="selectChevDownElement">
-          <select name="country">
+          <select formControlName="country" required>
             <option value="" disabled>* COUNTRY</option>
-            <option value="Nigeria">Nigeria</option>
-            <option value="Spain">Spain</option>
-            <option value="uk">UK</option>
-            <option value="US">US</option>
+            <option [value]="country.code" *ngFor="let country of countries">{{country.name}}</option>
           </select>
         </div>
         <div>
-          <input type="text" placeholder="* EMAIL" />
+          <input type="text" placeholder="* EMAIL" formControlName="email" required />
         </div>
         <div>
-          <input type="text" placeholder="* MAGAZINE" />
+          <input type="text" placeholder="* HEADLINE" formControlName="headline" required />
         </div>
         <div>
-          <button class="filled">SEND</button>
+          <button class="filled" [disabled]="!mediaForm.valid || isSubmitting">SUBMIT</button>
         </div>
       </div>
       <div class="flexRowWrap">
-        <p><input type="checkbox" /><small>I declare that i have read the privacy policy and agree to the use and
-            processing of data</small></p>
+        <p><label><input type="checkbox" formControlName="privacy_policy_check" /><small>I declare that i have read the
+          <a href="#" routerLink="privacy_policy"><strong>privacy policy</strong></a> and agree to the use and
+              processing of data</small></label></p>
         <p><small>ALL FIELDS ARE MANDATORY</small></p>
       </div>
     </form>
@@ -47,22 +66,19 @@
     <div id="pressArchiveContainer">
       <h1>Press Archive</h1>
       <div class="flexRowWrap">
-        <div><button class="active">2019</button></div>
-        <div><button>2018</button></div>
-        <div><button>2017</button></div>
-        <div><button>2016</button></div>
-        <div><button>2015</button></div>
-        <div><button>2014</button></div>
+        <div *ngFor="let year of allYears"><button (click)="onYearClick(year)"
+            [ngClass]="{'active': currentYear === year}">{{year}}</button></div>
       </div>
     </div>
     <div id="headlineSearchFormContainer">
-      <form>
+      <form [formGroup]="headlineSearchForm">
         <div class="flexRowWrap">
           <div>
-            <input type="text" placeholder="SEARCH BY HEADLINE" />
+            <input type="text" placeholder="SEARCH BY HEADLINE" formControlName="headline"
+              (keyup)="onNewsNameKeyUp(headlineSearchForm['controls']['headline'].value)" />
           </div>
           <div>
-            <button class="filled">SEARCH</button>
+            <button class="filled" (click)="getNewss()">SEARCH</button>
           </div>
         </div>
       </form>
@@ -73,7 +89,7 @@
           <p><strong>FEATURED ARTICLES</strong></p>
         </div>
         <div id="featuredArticlesBtns" class="flexRowWrap">
-          <div><button>ALL ARTICLES (123)</button></div>
+          <div><button>ALL ARTICLES ({{allNewsCount}})</button></div>
           <div><button class="filled">VIDEO ARCHIVE</button></div>
         </div>
       </div>
@@ -81,7 +97,19 @@
     <div id="featuredArticlesResults" class="flexRowWrap">
       <table cellspacing="0">
         <tbody>
-          <tr>
+          <tr *ngFor="let news of newss1stHalf">
+            <td>
+              <p><small>{{news.source | titlecase}}</small></p>
+              <p><small>{{news.article_date | date: 'dd/MM/yyyy'}}</small></p>
+            </td>
+            <td>
+              <a href="#"><img [src]="news.photo_link" alt="Media thumbnail" /></a>
+            </td>
+            <td>
+              <p><small><a [href]="news.article_link">{{news.title}}</a></small></p>
+            </td>
+          </tr>
+          <!-- <tr>
             <td>
               <p><small>Germania</small></p>
               <p><small>26/07/19</small></p>
@@ -152,24 +180,24 @@
             <td>
               <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <p><small>Germania</small></p>
-              <p><small>26/07/19</small></p>
-            </td>
-            <td>
-              <a href="#"><img src="../../assets/media-thumbnail.png" alt="Media thumbnail"/></a>
-            </td>
-            <td>
-              <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
-            </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <table cellspacing="0">
         <tbody>
-          <tr>
+          <tr *ngFor="let news of newss2ndHalf">
+            <td>
+              <p><small>{{news.source | titlecase}}</small></p>
+              <p><small>{{news.article_date | date: 'dd/MM/yyyy'}}</small></p>
+            </td>
+            <td>
+              <a href="#"><img [src]="news.photo_link" alt="Media thumbnail" /></a>
+            </td>
+            <td>
+              <p><small><a [href]="news.article_link">{{news.title}}</a></small></p>
+            </td>
+          </tr>
+          <!-- <tr>
             <td>
               <p><small>Germania</small></p>
               <p><small>26/07/19</small></p>
@@ -240,33 +268,22 @@
             <td>
               <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <p><small>Germania</small></p>
-              <p><small>26/07/19</small></p>
-            </td>
-            <td>
-              <a href="#"><img src="../../assets/media-thumbnail.png" alt="Media thumbnail"/></a>
-            </td>
-            <td>
-              <p><small><a href="#">Villa von Dolce und Gabbana wird verkauft</a></small></p>
-            </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
     <div id="featuredArticlesBottom" class="flexRowWrap">
-<div></div>
-<div>
-  <button>ALL ARTICLES (233)</button>
-</div>
-<div>
-  <div class="right">
-    <app-paginator></app-paginator>
-  </div>
-  <div class="clearfix"></div>
-</div>
+      <div></div>
+      <div>
+        <button>TOTAL ARTICLES ({{totalMedia}})</button>
+      </div>
+      <div>
+        <div class="right">
+          <app-paginator [initPage]="1" [displayedPages]="perPage" [lastPage]="lastPage"
+            (pageChange)="onPageClick($event)"></app-paginator>
+        </div>
+        <div class="clearfix"></div>
+      </div>
     </div>
   </div>
 </section>

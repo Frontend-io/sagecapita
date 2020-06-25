@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PropertyService } from '../shared/property.service';
-import { Property } from '../shared/property';
+import { GalleryProperty } from '../shared/gallery-property';
 
 @Component({
   selector: 'app-gallery-sold-properties',
@@ -12,7 +12,7 @@ import { Property } from '../shared/property';
   ]
 })
 export class GallerySoldPropertiesComponent implements OnInit {
-  public soldProperties: Property[];
+  public soldProperties: GalleryProperty[];
 
   constructor(private propertyService: PropertyService) {
     this.propertyService.subject$.subscribe(
@@ -26,7 +26,10 @@ export class GallerySoldPropertiesComponent implements OnInit {
   }
 
   getSoldProperties() {
-    this.soldProperties = this.propertyService.getSoldProperties();
+    this.propertyService.getSoldProperties().subscribe(({data}) => {
+      this.soldProperties = data;
+    }, (err: any) => {
+    });
   }
 
 }

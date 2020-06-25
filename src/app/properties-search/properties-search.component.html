@@ -1,103 +1,49 @@
-
-      <form id="propertySearchForm">
+      <form [formGroup]="searchForm" id="propertySearchForm" (ngSubmit)="onSubmit()">
         <div class="formGroup flex flexRowWrap">
           <div class="formElement flex selectChevDownElement">
-            <select name="regions" (change)="onSelectChange()">
-              <option value="Nigeria">Nigeria</option>
-              <option value="All">All</option>
-              <option value="Campania">Campania (45)</option>
-              <option value="Emilia Romagna">Emilia Romagna (48)</option>
-              <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-              <option value="Lazio">Lazio (61)</option>
-              <option value="Liguria">Liguria (69)</option>
-              <option value="Lombardy">Lombardy (314)</option>
-              <option value="Marche">Marche (15)</option>
-              <option value="Piedmont">Piedmont (76)</option>
-              <option value="Sardinia">Sardinia (12)</option>
-              <option value="Sicily">Sicily (9)</option>
-              <option value="Tuscany">Tuscany (108)</option>
-              <option value="Umbria">Umbria (39)</option>
-              <option value="Veneto">Veneto (61)</option>
+            <select formControlName="state">
+              <option value="" disabled>State</option>
+              <option value="">All</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.state | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="location" (change)="onSelectChange()">
-              <option value="Location">Location</option>
-              <option value="Nigeria">Nigeria</option>
-              <option value="Campania">Campania (45)</option>
-              <option value="Emilia Romagna">Emilia Romagna (48)</option>
-              <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-              <option value="Lazio">Lazio (61)</option>
-              <option value="Liguria">Liguria (69)</option>
-              <option value="Lombardy">Lombardy (314)</option>
-              <option value="Marche">Marche (15)</option>
-              <option value="Piedmont">Piedmont (76)</option>
-              <option value="Sardinia">Sardinia (12)</option>
-              <option value="Sicily">Sicily (9)</option>
-              <option value="Tuscany">Tuscany (108)</option>
-              <option value="Umbria">Umbria (39)</option>
-              <option value="Veneto">Veneto (61)</option>
+            <select formControlName="city">
+              <option value="" disabled>City</option>
+              <option value="">All</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.city | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="type" (change)="onSelectChange()">
-              <option value="All">All</option>
-              <option value="Nigeria">Nigeria</option>
-              <option value="Campania">Campania (45)</option>
-              <option value="Emilia Romagna">Emilia Romagna (48)</option>
-              <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-              <option value="Lazio">Lazio (61)</option>
-              <option value="Liguria">Liguria (69)</option>
-              <option value="Lombardy">Lombardy (314)</option>
-              <option value="Marche">Marche (15)</option>
-              <option value="Piedmont">Piedmont (76)</option>
-              <option value="Sardinia">Sardinia (12)</option>
-              <option value="Sicily">Sicily (9)</option>
-              <option value="Tuscany">Tuscany (108)</option>
-              <option value="Umbria">Umbria (39)</option>
-              <option value="Veneto">Veneto (61)</option>
+            <select formControlName="suburb">
+              <option value="" disabled>District</option>
+              <option value="">All</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.suburb | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="lifestyle" (change)="onSelectChange()">
-              <option value="Lifestyle">Lifestyle</option>
-              <option value="All">All</option>
-              <option value="Campania">Campania (45)</option>
-              <option value="Emilia Romagna">Emilia Romagna (48)</option>
-              <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-              <option value="Lazio">Lazio (61)</option>
-              <option value="Liguria">Liguria (69)</option>
-              <option value="Lombardy">Lombardy (314)</option>
-              <option value="Marche">Marche (15)</option>
-              <option value="Piedmont">Piedmont (76)</option>
-              <option value="Sardinia">Sardinia (12)</option>
-              <option value="Sicily">Sicily (9)</option>
-              <option value="Tuscany">Tuscany (108)</option>
-              <option value="Umbria">Umbria (39)</option>
-              <option value="Veneto">Veneto (61)</option>
+            <select formControlName="type">
+              <option value="" disabled>House Type</option>
+              <option value="">All</option>
+              <option [value]="item.key" *ngFor="let item of propertyGroupsList?.type | keyvalue">
+                {{item.key | titlecase}} ({{item.value}})</option>
             </select>
           </div>
           <div class="formElement flex selectChevDownElement">
-            <select name="regions" (change)="onSelectChange()">
-              <option value="Price">Price</option>
-              <option value="All">All</option>
-              <option value="Campania">Campania (45)</option>
-              <option value="Emilia Romagna">Emilia Romagna (48)</option>
-              <option value="Friuli Venezia Giulia">Friuli Venezia Giulia (10)</option>
-              <option value="Lazio">Lazio (61)</option>
-              <option value="Liguria">Liguria (69)</option>
-              <option value="Lombardy">Lombardy (314)</option>
-              <option value="Marche">Marche (15)</option>
-              <option value="Piedmont">Piedmont (76)</option>
-              <option value="Sardinia">Sardinia (12)</option>
-              <option value="Sicily">Sicily (9)</option>
-              <option value="Tuscany">Tuscany (108)</option>
-              <option value="Umbria">Umbria (39)</option>
-              <option value="Veneto">Veneto (61)</option>
+            <select formControlName="price">
+              <option value="" disabled>Price</option>
+              <option value="">All</option>
+              <option value='LTE 2500000'>UP TO 2.5M</option>
+              <option value='2500000 GTE 5000000'>2.5M TO 5M</option>
+              <option value='5000000 GTE 10000000'>5M TO 10M</option>
+              <option value='GT 10000000'>OVER 10M</option>
             </select>
           </div>
           <div class="formElement flex">
-            <button>
+            <button (click)="onSubmit()" type="button">
               <span>SEARCH</span>
               <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20px" height="20px">
                 <path
@@ -105,5 +51,5 @@
               </svg>
             </button>
           </div>
-        </div>        
+        </div>
       </form>

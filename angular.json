@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sagecapita",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -22,7 +22,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects"
+              "src/_redirects",
+              "src/sitemap.xml"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -130,6 +131,29 @@
             "outputPath": "dist/sagecapita",
             "netlifyToken": "a4aff1ef75201a05f8fc73c1beddc267efed7cc82672d769cb89551f5c2f7978",
             "siteId": "977e7b7a-99e3-4060-b181-5ec4d9393d96"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
           }
         }
       }

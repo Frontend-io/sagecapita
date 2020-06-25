@@ -27,15 +27,15 @@
 
 #mainPropertyContainer button.filled,
 #mainPropertyContainer button:hover {
-  border-color: #064A77;
-  background-color: #064A77;
+  border-color: rgb(4, 37, 59);
+  background-color: rgb(4, 37, 59);
   color: #fff;
 }
 
 #mainPropertyContainer button.filled:hover {
-  border-color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);;;;
   background-color: transparent;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
 }
 
 #mainPropertyDataContainer>div {

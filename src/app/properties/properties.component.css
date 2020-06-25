@@ -1,13 +1,31 @@
 #searchBand {
-  background: #064A77;
-  padding: .5em 2em .9em 2em;
+  background: rgb(4, 37, 59);
+  padding: .5em 2em;
+}
+
+.mobileSearch + div{
+  padding-bottom: .4em;
+}
+
+.mobileSearch {
+  color: #fff;
+}
+
+.mobileSearch>img {
+  height: 1em;
+  vertical-align: middle;
+  font-size: 85%;
+}
+
+.mobileSearch>span {
+  margin-right: .3em;
 }
 
 .searchSectionFormContainerElement>select {
   height: 2.5em;
   border-color: #ccc;
   margin-right: .5em;
-  color: rgb(4, 37, 59);
+  color: rgb(4, 37, 59);;;;
   background-color: #fff;
   width: 100%;
   margin-bottom: .6em;
@@ -32,6 +50,40 @@
 .searchSectionFormContainerElement {
   width: 100%;
 }
+
+
+
+#searchResults {
+  padding: 0 2em 3em 2em;
+}
+
+#searchResults>.container {
+  display: block;
+}
+
+#searchResultsContainer>article {
+  margin-top: 1em;
+}
+
+#searchResultsContainer>article {
+  width: 100%;
+}
+
+@media only screen and (min-width:961px) {
+  #searchResultsContainer>article {
+    width: 49.5%;
+  }
+
+  .mobileSearch + div{
+    display: block;
+  }
+  
+  .mobileSearch {
+    display: none;
+  }
+}
+
+
 
 @media only screen and (min-width:961px) {
   .searchSectionFormContainerElement>select {

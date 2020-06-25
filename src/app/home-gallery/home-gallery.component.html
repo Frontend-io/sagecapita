@@ -1,20 +1,22 @@
 <div id="videoGalleryListContainer">
-  <table>
+  <table *ngIf="properties && properties.length">
     <tbody>
       <tr *ngFor="let property of properties">
         <th>
-          <div><img [src]="'../assets/' + property.photo" alt="Property thumbnail" /></div>
+          <div><img [src]="property.photo" alt="Property thumbnail" /></div>
         </th>
         <td>
           <p><strong><small>{{property.city | titlecase}}</small></strong></p>
-          <p><small>{{property.description_text | slice:0:72}}...</small></p>
+          <p><small>{{property.description_text}}</small></p>
           <div class="videoGalleryListBtns">
             <a href="#" [routerLink]="['/properties/' + property.code]"><button class="filled">SHOW</button></a>
-            <a [href]="property.video"><button>FULL VIDEO</button></a>
+            <a *ngIf="property.video" [href]="property.video"><button>FULL VIDEO</button></a>
+            <a *ngIf="!property.video" href="#" routerLink="/login"><button>LOGIN</button></a>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+  <p *ngIf="!properties || !properties.length">No properties to show</p>
 </div>
 <a href="#" [routerLink]="['/gallery']"><button class="filled">SEE ALL</button></a>

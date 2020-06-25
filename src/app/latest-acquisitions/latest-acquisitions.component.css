@@ -21,15 +21,15 @@
 #latestAcquisitionsContainer button,
 #latestAcquisitionsContainer button.filled:hover {
   background: #fff;
-  color: #064A77;
-  border-color: #064A77;
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 #latestAcquisitionsContainer button.filled,
 #latestAcquisitionsContainer button:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 #latestAcquisitionsContainer>hr {
@@ -40,7 +40,7 @@
 
 #latestAcquisitionsContainer article {
   height: 19em;
-  background: #064A77;
+  background: rgb(4, 37, 59);
 }
 
 .propertyBestProperties article {

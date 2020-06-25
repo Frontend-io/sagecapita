@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 export class CurrencyService {
   // Observable string sources
   private subject = new Subject<any>();
-  private currency;
+  private currency: any[] = [];
 
   // Observable string streams
   subject$ = this.subject.asObservable();

@@ -1,21 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+import { PropertyGroupService } from '../shared/property-group.service';
 
 @Component({
   selector: 'app-properties-search',
   templateUrl: './properties-search.component.html',
-  styleUrls: ['./properties-search.component.css', '../shared/app.properties-search.css']
+  styleUrls: [
+    './properties-search.component.css',
+    '../shared/app.properties-search.css'
+  ]
 })
 export class PropertiesSearchComponent implements OnInit {
+  @Output() private search = new EventEmitter<any>();
 
-  constructor() { }
+  public propertyGroupsList: any;
+  public searchForm = this.fb.group({
+    state: [''],
+    city: [''],
+    suburb: [''],
+    type: [''],
+    price: ['']
+  });
+
+  constructor(private propertyGroupService: PropertyGroupService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.getPropertyGroupsListWithCount();
   }
 
-  onSelectChange() {
-    // const scale = 'scale(1)';
-    // document.body.style['webkitTransform'] = scale;    // Chrome, Opera, Safari
-    // document.body.style['msTransform'] = scale;       // IE 9
-    // document.body.style.transform = scale;     // General
+  private getPropertyGroupsListWithCount(): void {
+    this.propertyGroupService
+      .getPropertyGroupsListWithCount()
+      .subscribe((propertyGroupsListWithCount: any) => {
+        this.propertyGroupsList = propertyGroupsListWithCount;
+      }, (err: any) => {
+      });
+  }
+
+  public onSubmit(): void {
+    this.search.emit(this.getSearchData());
+  }
+
+  public setSearchData(searchData: any): void {
+    const { controls } = this.searchForm;
+
+    Object.keys(controls).forEach((controlName) => {
+      controls[controlName].setValue(searchData[controlName] || '');
+    });
+  }
+
+  public getSearchData(): any {
+    const { controls } = this.searchForm;
+    const body = {};
+
+    Object.keys(controls)
+      .forEach((control) => body[control] = controls[control].value);
+
+    return body;
   }
 }

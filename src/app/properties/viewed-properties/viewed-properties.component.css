@@ -24,19 +24,19 @@
 #exclusivePropertiesContainer button,
 #exclusivePropertiesContainer button.filled:hover {
   background: #fff;
-  color: #064A77;
-  border-color: #064A77;
+  color: rgb(4, 37, 59);
+  border-color: rgb(4, 37, 59);
 }
 
 #exclusivePropertiesContainer button.filled,
 #exclusivePropertiesContainer button:hover {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   color: #fff;
-  border-color: #064A77;
+  border-color: rgb(4, 37, 59);
 }
 
 #exclusivePropertiesContainer article {
-  background: #064A77;
+  background: rgb(4, 37, 59);
   height: 19em;
 }
 
@@ -56,10 +56,6 @@
   justify-content: space-around;
 }
 
-.propertyBestProperties {
-  padding: 0 .2em;
-}
-
 @media only screen and (min-width:641px) {
   #exclusivePropertiesContainer article {
     height: 32em;
@@ -70,6 +66,10 @@
   #exclusivePropertiesContainer article {
     width: 49.5%;
     height: 19em;
+  }
+
+  .propertyBestProperties {
+    padding: 0 .2em;
   }
 }
 

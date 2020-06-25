@@ -1,37 +1,75 @@
 <section id="searchBand">
-  <div class="container">
-    <app-properties-search></app-properties-search>
+  <div (click)="toggleSearch()" class="center-text mobileSearch"><span>SEARCH</span> <img
+      [ngStyle]="{'transform': isSearchOpen ? 'rotate(180deg) scaleX(-1)' : ''}" alt="Chevron down"
+      src="../assets/chevron-down-white.png"></div>
+  <div [hidden]="!isSearchOpen">
+    <div class="container">
+      <app-properties-search (search)="onPropertySearch($event)"></app-properties-search>
+    </div>
   </div>
 </section>
 <section id="searchSection">
   <div class="container">
-    <h1>Luxury property for sale in Nigeria - <small><strong>1592 Total properties</strong></small></h1>
+    <h1>{{propertiesTitle | titlecase}} For Sale - <small><strong>{{totalProperties | number}} Total
+          Properties</strong></small></h1>
     <!-- <h4><strong>1592 TOTAL PROPERTIES</strong></h4> -->
-    <form>
+    <form [formGroup]="propertiesPaginationForm">
       <p><small><strong>ORDER BY</strong></small></p>
       <div id="searchSectionFormContainer" class="flexRowWrap">
         <div class="searchSectionFormContainerElement selectChevDownElement">
-          <select name="criteria">
-            <option value="" disabled>SELECT</option>
-            <option value="price_up">PRICE ⮝</option>
-            <option value="price_down">PRICE ⮟</option>
-            <option value="surface_area_up">SURFACE AREA ⮝</option>
-            <option value="surface_area_down">SURFACE AREA ⮟</option>
-            <option value="latest_acquisitions">LATEST ACQUISITIONS ⮝</option>
+          <select formControlName="criteria" required (change)="search()">
+            <option value="">SELECT</option>
+            <option value="created_at ASC">NEWEST ⮝</option>
+            <option value="created_at DESC" selected aria-selected>NEWEST ⮟</option>
+            <option value="price ASC">PRICE ⮝</option>
+            <option value="price DESC">PRICE ⮟</option>
+            <option value="interior_surface ASC">INTERIOR SURFACE AREA ⮝</option>
+            <option value="interior_surface DESC">INTERIOR SURFACE AREA ⮟</option>
+            <option value="exterior_surface ASC">EXTERIOR SURFACE AREA ⮝</option>
+            <option value="exterior_surface DESC">EXTERIOR SURFACE AREA ⮟</option>
+            <option value="views ASC">POPULARITY ⮝</option>
+            <option value="views DESC">POPULARITY ⮟</option>
+            <option value="views|inquiries ASC">FEATURED PROPERTIES ⮝</option>
+            <option value="views|inquiries DESC">FEATURED PROPERTIES ⮟</option>
+            <option value="viewed_at ASC">VIEWED ⮝</option>
+            <option value="viewed_at DESC">VIEWED ⮟</option>
           </select>
-          <select name="numberPerPage">
-            <option value="10">10 PER PAGE</option>
-            <option value="20">20 PER PAGE</option>
-            <option value="50">50 PER PAGE</option>
-            <option value="100">100 PER PAGE</option>
+          <select formControlName="numberPerPage" (change)="search()">
+            <option value="" disabled>PROPERTIES PER PAGE</option>
+            <option value="4" selected>4 PER PAGE</option>
+            <option value="8">8 PER PAGE</option>
+            <option value="12">12 PER PAGE</option>
+            <option value="16">16 PER PAGE</option>
+          </select>
+          <select formControlName="isExclusive" (change)="search()">
+            <option value="" disabled>EXCLUSIVE PROPERTY</option>
+            <option value="" selected>ALL</option>
+            <option value="1">ONLY EXCLUSIVE</option>
+            <option value="2">ONLY NOT EXCLUSIVE</option>
           </select>
         </div>
         <div class="searchSectionFormContainerElement">
-          <app-paginator></app-paginator>
+          <app-paginator #paginator [initPage]="paginatorOptionsInitPage"
+            [displayedPages]="paginatorOptionsDisplayedPages" [lastPage]="paginatorOptionsLastPage"
+            (pageChange)="onPageClick($event)"></app-paginator>
         </div>
       </div>
     </form>
   </div>
 </section>
-<app-property-results></app-property-results>
-<app-exclusive-properties></app-exclusive-properties> 
+<!-- <app-property-results></app-property-results> -->
+<section id="searchResults">
+  <div class="container">
+    <div id="searchResultsContainer" class="flexRowWrap">
+      <article *ngFor="let property of properties">
+        <app-property-search-thumbnail [property]="property"></app-property-search-thumbnail>
+      </article>
+    </div>
+    <div style="margin-top: 1.2em;">
+      <app-paginator #paginator [initPage]="paginatorOptionsInitPage" [displayedPages]="paginatorOptionsDisplayedPages"
+        [lastPage]="paginatorOptionsLastPage" (pageChange)="onPageClick($event)"></app-paginator>
+    </div>
+  </div>
+</section>
+
+<app-exclusive-properties></app-exclusive-properties>
